@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2BF38CA8265A2F790034A223 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CA7265A2F790034A223 /* main.cpp */; };
+		2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CBA265A3EA50034A223 /* OpenGL.framework */; };
+		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
+		2BF38CC2265A3FB50034A223 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */; };
+		2BF38CC3265A3FB50034A223 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB5265A3E8A0034A223 /* libglfw3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		2BF38CA4265A2F790034A223 /* someone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = someone; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF38CA7265A2F790034A223 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2BF38CB5265A3E8A0034A223 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "3rd/GLFW/lib-universal/libglfw3.a"; sourceTree = "<group>"; };
+		2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "3rd/GLFW/lib-universal/libglfw.3.dylib"; sourceTree = "<group>"; };
+		2BF38CBA265A3EA50034A223 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		2BF38CBF265A3F1D0034A223 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = 3rd/GLAD/src/glad.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF38CC2265A3FB50034A223 /* libglfw.3.dylib in Frameworks */,
+				2BF38CC3265A3FB50034A223 /* libglfw3.a in Frameworks */,
+				2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +54,7 @@
 			children = (
 				2BF38CA6265A2F790034A223 /* someone */,
 				2BF38CA5265A2F790034A223 /* Products */,
+				2BF38CB4265A3E8A0034A223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +72,17 @@
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 			);
 			path = someone;
+			sourceTree = "<group>";
+		};
+		2BF38CB4265A3E8A0034A223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BF38CBA265A3EA50034A223 /* OpenGL.framework */,
+				2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */,
+				2BF38CB5265A3E8A0034A223 /* libglfw3.a */,
+				2BF38CBF265A3F1D0034A223 /* glad.c */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,20 +263,38 @@
 		2BF38CAC265A2F790034A223 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T282937CB5;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/3rd/GLFW/lib-universal",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = (
+					3rd/GLFW/include,
+					3rd/GLAD/include,
+				);
 			};
 			name = Debug;
 		};
 		2BF38CAD265A2F790034A223 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T282937CB5;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/3rd/GLFW/lib-universal",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = (
+					3rd/GLFW/include,
+					3rd/GLAD/include,
+				);
 			};
 			name = Release;
 		};
