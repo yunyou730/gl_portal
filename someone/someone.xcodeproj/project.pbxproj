@@ -13,6 +13,9 @@
 		2BF38CC2265A3FB50034A223 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */; };
 		2BF38CC3265A3FB50034A223 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB5265A3E8A0034A223 /* libglfw3.a */; };
 		2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* Shader.cpp */; };
+		2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD1265EA26C0034A223 /* Lesson1.cpp */; };
+		2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD5265EA26C0034A223 /* Lesson2.cpp */; };
+		2BF38CD9265EA26C0034A223 /* LessonBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD6265EA26C0034A223 /* LessonBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +39,12 @@
 		2BF38CBF265A3F1D0034A223 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = 3rd/GLAD/src/glad.c; sourceTree = "<group>"; };
 		2BF38CCB265E195D0034A223 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		2BF38CCD265E195D0034A223 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		2BF38CD1265EA26C0034A223 /* Lesson1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson1.cpp; sourceTree = "<group>"; };
+		2BF38CD2265EA26C0034A223 /* Lesson2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson2.h; sourceTree = "<group>"; };
+		2BF38CD3265EA26C0034A223 /* Lesson1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson1.h; sourceTree = "<group>"; };
+		2BF38CD4265EA26C0034A223 /* LessonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonBase.h; sourceTree = "<group>"; };
+		2BF38CD5265EA26C0034A223 /* Lesson2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson2.cpp; sourceTree = "<group>"; };
+		2BF38CD6265EA26C0034A223 /* LessonBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LessonBase.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,12 @@
 		2BF38CA6265A2F790034A223 /* someone */ = {
 			isa = PBXGroup;
 			children = (
+				2BF38CD1265EA26C0034A223 /* Lesson1.cpp */,
+				2BF38CD3265EA26C0034A223 /* Lesson1.h */,
+				2BF38CD5265EA26C0034A223 /* Lesson2.cpp */,
+				2BF38CD2265EA26C0034A223 /* Lesson2.h */,
+				2BF38CD6265EA26C0034A223 /* LessonBase.cpp */,
+				2BF38CD4265EA26C0034A223 /* LessonBase.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 			);
 			path = someone;
@@ -170,7 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF38CD9265EA26C0034A223 /* LessonBase.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
+				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
+				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 			);
