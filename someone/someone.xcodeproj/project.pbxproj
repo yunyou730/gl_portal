@@ -12,6 +12,7 @@
 		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
 		2BF38CC2265A3FB50034A223 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */; };
 		2BF38CC3265A3FB50034A223 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB5265A3E8A0034A223 /* libglfw3.a */; };
+		2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* Shader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,8 @@
 		2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "3rd/GLFW/lib-universal/libglfw.3.dylib"; sourceTree = "<group>"; };
 		2BF38CBA265A3EA50034A223 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2BF38CBF265A3F1D0034A223 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = 3rd/GLAD/src/glad.c; sourceTree = "<group>"; };
+		2BF38CCB265E195D0034A223 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		2BF38CCD265E195D0034A223 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,7 @@
 		2BF38C9B265A2F790034A223 = {
 			isa = PBXGroup;
 			children = (
+				2BF38CC9265E195D0034A223 /* ayy */,
 				2BF38CA6265A2F790034A223 /* someone */,
 				2BF38CA5265A2F790034A223 /* Products */,
 				2BF38CB4265A3E8A0034A223 /* Frameworks */,
@@ -83,6 +87,31 @@
 				2BF38CBF265A3F1D0034A223 /* glad.c */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2BF38CC9265E195D0034A223 /* ayy */ = {
+			isa = PBXGroup;
+			children = (
+				2BF38CCC265E195D0034A223 /* headers */,
+				2BF38CCA265E195D0034A223 /* source */,
+			);
+			path = ayy;
+			sourceTree = "<group>";
+		};
+		2BF38CCA265E195D0034A223 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				2BF38CCB265E195D0034A223 /* Shader.cpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		2BF38CCC265E195D0034A223 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				2BF38CCD265E195D0034A223 /* Shader.h */,
+			);
+			path = headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
+				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
