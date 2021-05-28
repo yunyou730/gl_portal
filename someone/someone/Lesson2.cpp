@@ -29,6 +29,10 @@ void Lesson2::Prepare()
 {
     _shader = ayy::ShaderProgram::CreateShaderProgram(vsSource,fsSource);
     PrepareMesh(_vao,_vbo,_ebo);
+    
+    // uncomment this call to draw in wireframe polygons.
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 }
 
 void Lesson2::Cleanup()
