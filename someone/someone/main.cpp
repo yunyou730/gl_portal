@@ -11,7 +11,9 @@
 
 #include "Lesson1.h"
 #include "Lesson2.h"
+#include "Lesson3.h"
 
+#include "Math.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -20,8 +22,22 @@ void framebuffer_size_callback(GLFWwindow* window,int width,int height);
 void processInput(GLFWwindow *window);
 
 
+void test()
+{
+    ayy::Vec4<float> v;
+    printf("%.3f",v[0]);
+    v.x = 3.0f;
+    printf("%.3f",v[0]);
+    
+    ayy::Vec4<int> v2(1,2,3,4);
+    printf("%d,%d,%d,%d",v2.x,v2.y,v2.z,v2.w);
+}
 
-int main(int argc, const char * argv[]) {
+
+int main(int argc, const char * argv[])
+{
+    
+    test();
     
     // init glfw
     glfwInit();
@@ -52,7 +68,7 @@ int main(int argc, const char * argv[]) {
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    Lesson2 lesson;
+    Lesson3 lesson;
     lesson.Prepare();
     
     
