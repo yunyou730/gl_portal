@@ -8,9 +8,10 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "Lesson1.h"
 
-#include "../ayy/headers/Shader.h"
+#include "Lesson1.h"
+#include "Lesson2.h"
+
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -51,7 +52,7 @@ int main(int argc, const char * argv[]) {
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    Lesson1 lesson;
+    Lesson2 lesson;
     lesson.Prepare();
     
     
