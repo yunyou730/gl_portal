@@ -66,15 +66,18 @@ void ShaderProgram::Use()
     glUseProgram(program);
 }
 
+void ShaderProgram::UnUse()
+{
+    glUseProgram(0);
+}
+
 void ShaderProgram::SetUniform(const std::string& uniformName,const ayy::Vec4f& value)
 {
     GLint location = glGetUniformLocation(program,uniformName.c_str());
     if(location >= 0)
     {
         glUniform4f(location,value.x,value.y,value.z,value.w);
-    }
-
-    
+    }    
 }
 
 void ShaderProgram::SetUniform(const std::string& uniformName,float value)

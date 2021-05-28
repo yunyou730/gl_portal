@@ -47,14 +47,17 @@ void Lesson3::Cleanup()
 void Lesson3::OnUpdate()
 {
     float t =glfwGetTime();
-//    printf("%.3f\n",sin(t));
     
+
     _shader->Use();
     _shader->SetUniform("inputColor",ayy::Vec4f(sin(t),cos(t),sin(t),1.0));
     
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,(void*)0);
     glBindVertexArray(0);
+    
+    
+    glUseProgram(0);
 }
 
 void Lesson3::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
