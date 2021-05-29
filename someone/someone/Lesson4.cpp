@@ -1,31 +1,6 @@
 #include "Lesson4.h"
 #include "../ayy/headers/Shader.h"
-
-
-static const char* vsSource = R"(
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
-
-out vec3 vertColor;
-void main()
-{
-    vertColor = aColor;
-    gl_Position = vec4(vec3(aPos), 1.0);
-}
-)";
-
-static const char* fsSource = R"(
-#version 330 core
-
-in vec3 vertColor;
-out vec4 FragColor;
-
-void main()
-{
-    FragColor = vec4(vertColor,1.0);
-}
-)";
+#include "../ayy/headers/Util.h"
 
 Lesson4::~Lesson4()
 {
@@ -34,7 +9,7 @@ Lesson4::~Lesson4()
 
 void Lesson4::Prepare()
 {
-    _shader = ayy::ShaderProgram::CreateShaderProgram(vsSource,fsSource);
+    _shader = ayy::Util::CreateShaderWithFile("res/test.vs", "res/test.fs");
     PrepareMesh(_vao,_vbo,_ebo);
     
     // uncomment this call to draw in wireframe polygons.
