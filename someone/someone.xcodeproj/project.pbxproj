@@ -18,17 +18,22 @@
 		2BF38CD9265EA26C0034A223 /* LessonBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD6265EA26C0034A223 /* LessonBase.cpp */; };
 		2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CDB266137D50034A223 /* Lesson3.cpp */; };
 		2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE126614CF00034A223 /* Lesson4.cpp */; };
+		2BF38CE62661CDF70034A223 /* IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* IO.cpp */; };
+		2BF38CEE2661DA570034A223 /* test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BF38CEC2661D91B0034A223 /* test.fs */; };
+		2BF38CEF2661DA570034A223 /* test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BF38CEB2661D91B0034A223 /* test.vs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2BF38CA2265A2F790034A223 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = res;
+			dstSubfolderSpec = 16;
 			files = (
+				2BF38CEE2661DA570034A223 /* test.fs in CopyFiles */,
+				2BF38CEF2661DA570034A223 /* test.vs in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -52,6 +57,10 @@
 		2BF38CDF266138A30034A223 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
 		2BF38CE126614CF00034A223 /* Lesson4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson4.cpp; sourceTree = "<group>"; };
 		2BF38CE226614CF00034A223 /* Lesson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson4.h; sourceTree = "<group>"; };
+		2BF38CE52661CDF70034A223 /* IO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IO.cpp; sourceTree = "<group>"; };
+		2BF38CE82661CE020034A223 /* IO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IO.h; sourceTree = "<group>"; };
+		2BF38CEB2661D91B0034A223 /* test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.vs; sourceTree = "<group>"; };
+		2BF38CEC2661D91B0034A223 /* test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,7 @@
 				2BF38CD6265EA26C0034A223 /* LessonBase.cpp */,
 				2BF38CD4265EA26C0034A223 /* LessonBase.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
+				2BF38CEA2661D8BC0034A223 /* res */,
 			);
 			path = someone;
 			sourceTree = "<group>";
@@ -128,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				2BF38CCB265E195D0034A223 /* Shader.cpp */,
+				2BF38CE52661CDF70034A223 /* IO.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -137,8 +148,18 @@
 			children = (
 				2BF38CCD265E195D0034A223 /* Shader.h */,
 				2BF38CDF266138A30034A223 /* Math.h */,
+				2BF38CE82661CE020034A223 /* IO.h */,
 			);
 			path = headers;
+			sourceTree = "<group>";
+		};
+		2BF38CEA2661D8BC0034A223 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				2BF38CEC2661D91B0034A223 /* test.fs */,
+				2BF38CEB2661D91B0034A223 /* test.vs */,
+			);
+			path = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +225,7 @@
 				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
+				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

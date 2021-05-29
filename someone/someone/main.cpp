@@ -15,6 +15,7 @@
 #include "Lesson4.h"
 
 #include "Math.h"
+#include "IO.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -25,6 +26,7 @@ void processInput(GLFWwindow *window);
 
 void test()
 {
+    /*
     ayy::Vec4<float> v;
     printf("%.3f",v[0]);
     v.x = 3.0f;
@@ -32,6 +34,13 @@ void test()
     
     ayy::Vec4<int> v2(1,2,3,4);
     printf("%d,%d,%d,%d",v2.x,v2.y,v2.z,v2.w);
+    */
+    std::string vs,fs;
+    ayy::ReadFile("res/test.vs",vs);
+    printf("%s",vs.c_str());
+    
+    ayy::ReadFile("res/test.fs",fs);
+    printf("%s",fs.c_str());
 }
 
 
