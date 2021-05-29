@@ -17,6 +17,7 @@
 		2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD5265EA26C0034A223 /* Lesson2.cpp */; };
 		2BF38CD9265EA26C0034A223 /* LessonBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD6265EA26C0034A223 /* LessonBase.cpp */; };
 		2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CDB266137D50034A223 /* Lesson3.cpp */; };
+		2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE126614CF00034A223 /* Lesson4.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		2BF38CDB266137D50034A223 /* Lesson3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson3.cpp; sourceTree = "<group>"; };
 		2BF38CDC266137D50034A223 /* Lesson3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson3.h; sourceTree = "<group>"; };
 		2BF38CDF266138A30034A223 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
+		2BF38CE126614CF00034A223 /* Lesson4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson4.cpp; sourceTree = "<group>"; };
+		2BF38CE226614CF00034A223 /* Lesson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson4.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				2BF38CD2265EA26C0034A223 /* Lesson2.h */,
 				2BF38CDB266137D50034A223 /* Lesson3.cpp */,
 				2BF38CDC266137D50034A223 /* Lesson3.h */,
+				2BF38CE126614CF00034A223 /* Lesson4.cpp */,
+				2BF38CE226614CF00034A223 /* Lesson4.h */,
 				2BF38CD6265EA26C0034A223 /* LessonBase.cpp */,
 				2BF38CD4265EA26C0034A223 /* LessonBase.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
@@ -196,6 +201,7 @@
 				2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
+				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,

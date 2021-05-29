@@ -12,6 +12,7 @@
 #include "Lesson1.h"
 #include "Lesson2.h"
 #include "Lesson3.h"
+#include "Lesson4.h"
 
 #include "Math.h"
 
@@ -68,7 +69,7 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    Lesson3 lesson;
+    Lesson4 lesson;
     lesson.Prepare();
     
     
