@@ -13,9 +13,12 @@
 #include "Lesson2.h"
 #include "Lesson3.h"
 #include "Lesson4.h"
+#include "Lesson5.h"
 
 #include "Math.h"
 #include "IO.h"
+#include "stb_image.h"
+#include "Texture.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -26,29 +29,22 @@ void processInput(GLFWwindow *window);
 
 void test()
 {
-    /*
-    ayy::Vec4<float> v;
-    printf("%.3f",v[0]);
-    v.x = 3.0f;
-    printf("%.3f",v[0]);
-    
-    ayy::Vec4<int> v2(1,2,3,4);
-    printf("%d,%d,%d,%d",v2.x,v2.y,v2.z,v2.w);
-    */
-    std::string vs,fs;
-    ayy::ReadFile("res/test.vs",vs);
-    printf("%s",vs.c_str());
-    
-    ayy::ReadFile("res/test.fs",fs);
-    printf("%s",fs.c_str());
+//    int width, height, nrChannels;
+//    unsigned char *data = stbi_load("res/container.jpg", &width, &height, &nrChannels, 0);
+//    printf("%d,%d,%d\n",width,height,nrChannels);
+//    // @miao @todo
+//    
+//    GLuint textureID;
+//    glGenTextures(1,&textureID);
+//    glBindTexture(GL_TEXTURE_2D,textureID);
+//    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
+//    
+//    stbi_image_free(data);
 }
 
 
 int main(int argc, const char * argv[])
 {
-    
-    test();
-    
     // init glfw
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -78,7 +74,7 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    Lesson4 lesson;
+    Lesson5 lesson;
     lesson.Prepare();
     
     
