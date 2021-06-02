@@ -27,14 +27,12 @@ void Lesson5::Cleanup()
 
 void Lesson5::OnUpdate()
 {
+    // using shader
     _shader->Use();
-    
-    // @miao @todo
     // using texture
-    glActiveTexture(0);
+    glActiveTexture(GL_TEXTURE0);
     glUniform1i(glGetUniformLocation(_shader->program,"myTex"),0);
-    
-    
+    // draw with VAO
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,kIndiceCount,GL_UNSIGNED_INT,(void*)0);
     glBindVertexArray(0);
@@ -121,6 +119,7 @@ void Lesson5::PrepareTexture(GLuint& tid)
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D,textureID);
+//    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
     glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
     glGenerateMipmap(GL_TEXTURE_2D);    // 有这句才能显示出来，没有不行 !
 
