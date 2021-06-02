@@ -6,6 +6,7 @@
 namespace ayy
 {
 class ShaderProgram;
+class Texture;
 }
 
 class Lesson6 : public LessonBase
@@ -19,11 +20,12 @@ public:
     
 protected:
     void PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO);
-    void PrepareTexture(GLuint& tid);
+    void PrepareTexture();
     
 private:
     GLuint  _vao,_vbo,_ebo;
     ayy::ShaderProgram*  _shader = nullptr;
     
-    GLuint  _tID;
+    ayy::Texture*    _texture = nullptr;
+    
 };

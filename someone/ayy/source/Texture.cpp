@@ -2,33 +2,67 @@
 #include "stb_image.h"
 
 namespace ayy {
-
-RawTexture::RawTexture(const std::string& filePath)
+Texture* Texture::CreateWithRawTexture(RawTexture* rawTexture)
 {
-    data = stbi_load("res/container.jpg", &width, &height, &channels, 0);
-    switch(channels)
+    if(!rawTexture->IsValid())
     {
-        case 3:
-            format = ETextureDataFormat::RGB;
-            break;
-        case 4:
-            format = ETextureDataFormat::RGBA;
-            break;
-        default:
-            // warning!
-            format = ETextureDataFormat::NONE;
-            break;
+        return nullptr;
     }
+    
+    Texture* tex = new Texture(rawTexture);
+    return tex;
 }
 
-RawTexture::~RawTexture()
+Texture::Texture(RawTexture* rawTexture)
 {
-    if(data != nullptr)
+    glGenTextures(1,&_textureID);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,_textureID);
+    
+    
+    GLuint saveFormat = 0;
+    GLuint rawFormat = 0;
+
+    switch(rawTexture->format)
     {
-        stbi_image_free(data);
-        data = nullptr;
+        case ETextureDataFormat::RGB:
+            saveFormat = GL_RGB;
+            rawFormat = GL_RGB;
+            break;
+        case ETextureDataFormat::RGBA:
+            saveFormat = GL_RGBA;
+            rawFormat = GL_RGBA;
+            break;
     }
-    format = ETextureDataFormat::NONE;
+
+    glTexImage2D(GL_TEXTURE_2D,0,
+                 saveFormat,
+                 rawTexture->width,
+                 rawTexture->height,
+                 0,
+                 rawFormat,
+                 GL_UNSIGNED_BYTE,
+                 rawTexture->data);
+    
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,0);
+}
+
+Texture::~Texture()
+{
+    glDeleteTextures(1,&_textureID);
+    _textureID = 0;
+}
+
+void Texture::Bind()
+{
+    glBindTexture(GL_TEXTURE_2D,_textureID);
+}
+
+void Texture::UnBind()
+{
+    glBindTexture(GL_TEXTURE_2D,0);
 }
 
 }

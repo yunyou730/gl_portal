@@ -2,6 +2,8 @@
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
 #include "stb_image.h"
+#include "RawTexture.h"
+#include "Texture.h"
 
 const int kIndiceCount = 6;
 
@@ -14,15 +16,25 @@ void Lesson6::Prepare()
 {
     _shader = ayy::Util::CreateShaderWithFile("res/color_texture.vs", "res/color_texture.fs");
     PrepareMesh(_vao,_vbo,_ebo);
-    PrepareTexture(_tID);
+    PrepareTexture();
 }
 
 void Lesson6::Cleanup()
 {
     delete _shader;
+    _shader = nullptr;
+    
+    if(_texture != nullptr)
+    {
+        delete _texture;
+        _texture = nullptr;
+    }
+    
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_ebo);
+    
+
 }
 
 void Lesson6::OnUpdate()
@@ -30,13 +42,16 @@ void Lesson6::OnUpdate()
     // using shader
     _shader->Use();
     // using texture
-    glActiveTexture(GL_TEXTURE0);
     glUniform1i(glGetUniformLocation(_shader->program,"myTex"),0);
+    
+    _texture->Bind();
     // draw with VAO
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,kIndiceCount,GL_UNSIGNED_INT,(void*)0);
+    
     glBindVertexArray(0);
-    glUseProgram(0);
+    _shader->UnUse();
+    _texture->UnBind();
 }
 
 void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
@@ -100,28 +115,8 @@ void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
     glBindVertexArray(0);
 }
 
-void Lesson6::PrepareTexture(GLuint& tid)
+void Lesson6::PrepareTexture()
 {
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("res/container.jpg", &width, &height, &nrChannels, 0);
-    printf("%d,%d,%d\n",width,height,nrChannels);
-
-    GLuint textureID;
-    glGenTextures(1,&textureID);
-    
-    /*
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);    // set texture wrapping to GL_REPEAT (default wrapping method)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    */
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,textureID);
-//    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
-    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
-    glGenerateMipmap(GL_TEXTURE_2D);    // 有这句才能显示出来，没有不行 !
-
-    stbi_image_free(data);
+    ayy::RawTexture rawTexture("res/container.jpg");
+    _texture = new ayy::Texture(&rawTexture);
 }

@@ -75,7 +75,7 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    Lesson5 lesson;
+    Lesson6 lesson;
     lesson.Prepare();
     
     
@@ -88,10 +88,7 @@ int main(int argc, const char * argv[])
         // Render code here
         glClear(GL_COLOR_BUFFER_BIT);   // render begin
         
-
-        
         lesson.OnUpdate();
-        
         
         // render end
         glfwSwapBuffers(window);
@@ -103,7 +100,6 @@ int main(int argc, const char * argv[])
     glfwTerminate();
     return 0;
 }
-
 
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 {
