@@ -2,6 +2,7 @@
 #include "Shader.h"
 #include "IO.h"
 #include "Texture.h"
+#include "stb_image.h"
 
 namespace ayy {
     ShaderProgram* Util::CreateShaderWithFile(const std::string& vsFilePath,const std::string& fsFilePath)
@@ -13,6 +14,8 @@ namespace ayy {
         return shader;
     }
     
+
+
     Texture* Util::CreateTexturehWithFile(const std::string& filePath)
     {
         /*
@@ -22,8 +25,10 @@ namespace ayy {
         unsigned char* data = nullptr;
         */
         
+//        Texture::RawTexture t;
+        RawTexture* rawTex = nullptr;
         
-        Texture::RawTexture t;
+        
          
         return nullptr;
     }

@@ -14,6 +14,7 @@
 #include "Lesson3.h"
 #include "Lesson4.h"
 #include "Lesson5.h"
+#include "Lesson6.h"
 
 #include "Math.h"
 #include "IO.h"
