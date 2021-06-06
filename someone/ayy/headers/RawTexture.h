@@ -15,8 +15,11 @@ ETextureDataFormat;
 
 struct RawTexture
 {
+    RawTexture();
     RawTexture(const std::string& filePath);
     ~RawTexture();
+    
+    RawTexture(RawTexture&& other);
     
     bool IsValid() const { return data != nullptr;}
     
@@ -25,8 +28,6 @@ struct RawTexture
     int channels = 0;
     unsigned char* data = nullptr;
     ETextureDataFormat format = ETextureDataFormat::NONE;
-    
-
 };
 }
 

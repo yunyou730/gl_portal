@@ -1,4 +1,5 @@
 #include "../headers/Shader.h"
+#include <cassert>
 
 namespace ayy {
 
@@ -74,15 +75,22 @@ void ShaderProgram::UnUse()
 void ShaderProgram::SetUniform(const std::string& uniformName,const ayy::Vec4f& value)
 {
     GLint location = glGetUniformLocation(program,uniformName.c_str());
-    if(location >= 0)
-    {
-        glUniform4f(location,value.x,value.y,value.z,value.w);
-    }    
+    assert(location >= 0);
+    glUniform4f(location,value.x,value.y,value.z,value.w);
 }
 
 void ShaderProgram::SetUniform(const std::string& uniformName,float value)
 {
-    // @miao @todo
+    GLint location = glGetUniformLocation(program,uniformName.c_str());
+    assert(location >= 0);
+    glUniform1f(location,value);
+}
+
+void ShaderProgram::SetUniform(const std::string& uniformName,int value)
+{
+    GLint location = glGetUniformLocation(program,uniformName.c_str());
+    assert(location >= 0);
+    glUniform1i(location,value);
 }
 
 }

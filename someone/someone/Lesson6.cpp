@@ -14,7 +14,7 @@ Lesson6::~Lesson6()
 
 void Lesson6::Prepare()
 {
-    _shader = ayy::Util::CreateShaderWithFile("res/color_texture.vs", "res/color_texture.fs");
+    _shader = ayy::Util::CreateShaderWithFile("res/color_multi_texture.vs","res/color_multi_texture.fs");
     PrepareMesh(_vao,_vbo,_ebo);
     PrepareTexture();
 }
@@ -24,10 +24,16 @@ void Lesson6::Cleanup()
     delete _shader;
     _shader = nullptr;
     
-    if(_texture != nullptr)
+    if(_texture1 != nullptr)
     {
-        delete _texture;
-        _texture = nullptr;
+        delete _texture1;
+        _texture1 = nullptr;
+    }
+    
+    if(_texture2 != nullptr)
+    {
+        delete _texture2;
+        _texture2 = nullptr;
     }
     
     glDeleteVertexArrays(1,&_vao);
@@ -41,17 +47,21 @@ void Lesson6::OnUpdate()
 {
     // using shader
     _shader->Use();
+
     // using texture
-    glUniform1i(glGetUniformLocation(_shader->program,"myTex"),0);
+    _texture1->Bind(GL_TEXTURE0);
+    _shader->SetUniform("texture1",0);
+    _texture2->Bind(GL_TEXTURE1);
+    _shader->SetUniform("texture2",1);
     
-    _texture->Bind();
     // draw with VAO
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,kIndiceCount,GL_UNSIGNED_INT,(void*)0);
     
     glBindVertexArray(0);
     _shader->UnUse();
-    _texture->UnBind();
+    _texture2->UnBind();
+    _texture1->UnBind();
 }
 
 void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
@@ -118,5 +128,8 @@ void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
 void Lesson6::PrepareTexture()
 {
     ayy::RawTexture rawTexture("res/container.jpg");
-    _texture = new ayy::Texture(&rawTexture);
+    _texture1 = new ayy::Texture(&rawTexture);
+    
+    ayy::RawTexture r2("res/awesomeface.png");
+    _texture2 = new ayy::Texture(&r2);
 }

@@ -26,6 +26,7 @@ private:
     GLuint  _vao,_vbo,_ebo;
     ayy::ShaderProgram*  _shader = nullptr;
     
-    ayy::Texture*    _texture = nullptr;
+    ayy::Texture*   _texture1 = nullptr;
+    ayy::Texture*   _texture2 = nullptr;
     
 };

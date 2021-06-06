@@ -15,11 +15,17 @@ public:
     Texture(RawTexture* rawTexture);
     ~Texture();
     
-    void Bind();
+    void Bind(GLuint textureIndex);
     void UnBind();
 protected:
     ETextureDataFormat  _format = ETextureDataFormat::NONE;
     GLuint  _textureID = 0;
+    
+    RawTexture* _raw = nullptr;
+    GLuint _saveFormat = 0;
+    GLuint _rawFormat = 0;
+    
+//    GLuint  _curTextureIdx = 0;
 };
 
 }
