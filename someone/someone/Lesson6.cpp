@@ -1,9 +1,7 @@
 #include "Lesson6.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
-#include "stb_image.h"
-#include "RawTexture.h"
-#include "Texture.h"
+#include "TextureManager.h"
 
 const int kIndiceCount = 6;
 
@@ -24,35 +22,21 @@ void Lesson6::Cleanup()
     delete _shader;
     _shader = nullptr;
     
-    if(_texture1 != nullptr)
-    {
-        delete _texture1;
-        _texture1 = nullptr;
-    }
-    
-    if(_texture2 != nullptr)
-    {
-        delete _texture2;
-        _texture2 = nullptr;
-    }
-    
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_ebo);
-    
-
 }
 
 void Lesson6::OnUpdate()
 {
     // using shader
     _shader->Use();
-
+    
     // using texture
-    _texture1->Bind(GL_TEXTURE0);
-    _shader->SetUniform("texture1",0);
-    _texture2->Bind(GL_TEXTURE1);
-    _shader->SetUniform("texture2",1);
+    ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture1,0);
+    ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
+    _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
+    _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
     
     // draw with VAO
     glBindVertexArray(_vao);
@@ -60,8 +44,6 @@ void Lesson6::OnUpdate()
     
     glBindVertexArray(0);
     _shader->UnUse();
-    _texture2->UnBind();
-    _texture1->UnBind();
 }
 
 void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
@@ -127,9 +109,6 @@ void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
 
 void Lesson6::PrepareTexture()
 {
-    ayy::RawTexture rawTexture("res/container.jpg");
-    _texture1 = new ayy::Texture(&rawTexture);
-    
-    ayy::RawTexture r2("res/awesomeface.png");
-    _texture2 = new ayy::Texture(&r2);
+    _texture1 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/container.jpg");
+    _texture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/awesomeface.png");
 }

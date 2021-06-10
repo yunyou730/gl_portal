@@ -3,18 +3,9 @@
 #include <cassert>
 
 namespace ayy {
-Texture* Texture::CreateWithRawTexture(RawTexture* rawTexture)
-{
-    if(!rawTexture->IsValid())
-    {
-        return nullptr;
-    }
-    
-    Texture* tex = new Texture(rawTexture);
-    return tex;
-}
 
-Texture::Texture(RawTexture* rawTexture)
+Texture::Texture(TextureUUID uuid,RawTexture* rawTexture)
+    :_uuid(uuid)
 {
     glGenTextures(1,&_textureID);
     

@@ -2,6 +2,7 @@
 #include "LessonBase.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "TextureManager.h"
 
 namespace ayy
 {
@@ -26,7 +27,6 @@ private:
     GLuint  _vao,_vbo,_ebo;
     ayy::ShaderProgram*  _shader = nullptr;
     
-    ayy::Texture*   _texture1 = nullptr;
-    ayy::Texture*   _texture2 = nullptr;
-    
+    ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
+    ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
 };

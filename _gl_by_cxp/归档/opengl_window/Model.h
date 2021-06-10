@@ -1,0 +1,217 @@
+//
+//  Model.h
+//  opengl_window
+//
+//  Created by Tina Green on 2019/10/23.
+//  Copyright © 2019 Tina Green. All rights reserved.
+//
+
+#ifndef Model_h
+#define Model_h
+#include<glad.h>
+#include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
+#include<stb_image.h>
+#include<assimp/Importer.hpp>
+#include<assimp/scene.h>
+#include<assimp/postprocess.h>
+#include"shader.h"
+#include"Mesh.h"
+#include<string>
+#include<fstream>
+#include<sstream>
+#include<iostream>
+#include<vector>
+#include<map>
+
+using namespace std;
+unsigned int TextureFromFile(const char* path, const string &directory, bool gamma=false);
+
+class Model//整体场景
+{
+    public:
+    vector<Texture> textures_loaded;
+    vector<Mesh> meshes;
+    string directory;
+    bool gammaCorrection;
+    
+    Model(string const &path, bool gamma=false):gammaCorrection(gamma)
+    {
+        loadModel(path);//path是model的绝对路径
+    }
+    private:
+    void loadModel(string const &path){
+        Assimp::Importer importer;
+        const aiScene* scene=importer.ReadFile(path, aiProcess_CalcTangentSpace|aiProcess_Triangulate|aiProcess_FlipUVs);
+        if(!scene || scene->mFlags==AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+            {
+                cout<<"error::assimp::"<<importer.GetErrorString()<<endl;
+                return;
+            }
+        directory=path.substr(0,path.find_last_of('/'));//path是model本地的绝对路径
+        processNode(scene->mRootNode,scene);
+        //std::cout<<"meshes count of this model : "<<scene->mNumMeshes<<std::endl;
+        //std::cout<<"materials count of this model: "<<scene->mNumMaterials<<std::endl;
+    }
+    void processNode(aiNode* node,const aiScene* scene)
+    {
+        for(unsigned int i=0; i<node->mNumMeshes;i++)
+            {
+                aiMesh* mesh=scene->mMeshes[node->mMeshes[i]];
+                meshes.push_back(processMesh(mesh, scene));
+            }
+        for(unsigned int i=0; i<node->mNumChildren; i++)
+            {
+                processNode(node->mChildren[i], scene);
+            }
+    }
+    Mesh processMesh(aiMesh* mesh, const aiScene* scene)
+    {
+        vector<Vertex> vertices;
+        vector<unsigned int> indices;
+        vector<Texture> textures;
+        
+        for(unsigned int i=0; i<mesh->mNumVertices; i++)
+            {
+                Vertex vertex;
+                glm::vec3 vector;
+                
+                vector.x=mesh->mVertices[i].x;
+                vector.y=mesh->mVertices[i].y;
+                vector.z=mesh->mVertices[i].z;
+                vertex.Position=vector;
+                
+                vector.x=mesh->mNormals[i].x;
+                vector.y=mesh->mNormals[i].y;
+                vector.z=mesh->mNormals[i].z;
+                vertex.Normal=vector;
+                
+                if(mesh->mTextureCoords[0])
+                    {
+                        glm::vec2 texcoord;
+                        texcoord.x=mesh->mTextureCoords[0][i].x;
+                        texcoord.y=mesh->mTextureCoords[0][i].y;
+                        vertex.Texcoords=texcoord;
+                    }
+                else
+                    vertex.Texcoords=glm::vec2(0.0f,0.0f);
+                
+                vector.x=mesh->mTangents[i].x;
+                vector.y=mesh->mTangents[i].y;
+                vector.z=mesh->mTangents[i].z;
+                vertex.Tangent=vector;
+                
+                vector.x=mesh->mBitangents[i].x;
+                vector.y=mesh->mBitangents[i].y;
+                vector.z=mesh->mBitangents[i].z;
+                vertex.Bitangent=vector;
+                
+                vertices.push_back(vertex);
+            }
+        for(unsigned int i=0;i<mesh->mNumFaces;i++)
+            {
+                aiFace face=mesh->mFaces[i];
+                for(unsigned int j=0;j<face.mNumIndices;j++)
+                    {
+                        indices.push_back(face.mIndices[j]);
+                    }
+            }
+        
+        aiMaterial* material=scene->mMaterials[mesh->mMaterialIndex];//一个mesh只有一个material
+        //std::cout<<"the material index of this mesh is : "<<mesh->mMaterialIndex<<std::endl;
+        vector<Texture> diffuseMaps=loadMaterialTextures(material,aiTextureType_DIFFUSE,"texture_diffuse");
+        textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+        vector<Texture> specularMaps=loadMaterialTextures(material, aiTextureType_SPECULAR,"tecture_specular");
+        textures.insert(textures.end(),specularMaps.begin(),specularMaps.end());
+        vector<Texture> normalMaps=loadMaterialTextures(material, aiTextureType_NORMALS,"tecture_normal");
+        textures.insert(textures.end(),normalMaps.begin(),normalMaps.end());
+        vector<Texture> heightMaps=loadMaterialTextures(material, aiTextureType_HEIGHT,"tecture_height");
+        textures.insert(textures.end(),heightMaps.begin(),heightMaps.end());
+        vector<Texture> ambientMaps=loadMaterialTextures(material, aiTextureType_AMBIENT,"tecture_ambient");
+        textures.insert(textures.end(),ambientMaps.begin(),ambientMaps.end());
+        
+        
+        return Mesh(vertices, textures, indices);//这个mesh包含哪些点、索引和贴图，vertices中存数据、indices中存数据，textures中存图片名字和id
+    }
+    
+    vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, string name_prefix)//返回这个material的某type的图片
+    {
+        vector<Texture> textures;
+        for(unsigned int i=0;i<mat->GetTextureCount(type);i++){
+            aiString str;
+            mat->GetTexture(type, i, &str);//str是图片名字(例如mytexture.jpg)//实际显示的是mtl文件中的路径，mtl中是什么str就是什么
+            bool skip=false;
+            for(unsigned int j=0;j<textures_loaded.size();j++)
+            {
+                if(std::strcmp(textures_loaded[j].path.data(), str.C_Str())==0)
+                    {
+                        textures.push_back(textures_loaded[j]);
+                        skip=true;
+                        break;
+                    }
+            }
+            if(!skip)
+                {
+                    Texture texture;
+                    texture.IDNum=TextureFromFile(str.C_Str(),this->directory);//str是图片名字
+                    texture.type=name_prefix;
+                    texture.path=str.C_Str();//texture中的path存储的也是图片的名字//因图而异
+                    textures.push_back(texture);
+                    textures_loaded.push_back(texture);
+                }
+                
+        }
+        return textures;
+        
+    }
+};
+    
+unsigned int TextureFromFile(const char* path, const string& directory, bool gamma)//path是图片名字//因图而异//注入及定义图片解读格式
+    {
+        string filename = string(path);
+        filename = directory + '/' + filename;
+        
+        unsigned int textureID;
+        glGenTextures(1,&textureID);
+        
+        int width, height, nrComponents=0;
+        glad_glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        unsigned char* data=stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);//把图片数据load到data中
+        if(data)
+            {
+                GLenum format;
+                if(nrComponents==1)
+                    format=GL_RED;
+                else if(nrComponents==3)
+                    format=GL_RGB;
+                else if(nrComponents==4)
+                    format=GL_RGBA;
+                
+                glBindTexture(GL_TEXTURE_2D,textureID);//
+                glTexImage2D(GL_TEXTURE_2D,0,format,width,height,0,format,GL_UNSIGNED_BYTE,data);//
+                glGenerateMipmap(GL_TEXTURE_2D);
+                
+                glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
+                glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
+                glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+                glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+                
+                stbi_image_free(data);
+            }
+        else
+        {
+            std::cout<<"texture failed to load at path:"<<path<<std::endl;
+            stbi_image_free(data);
+        }
+        return textureID;
+    }
+
+
+
+
+
+
+
+
+
+#endif /* Model_h */
