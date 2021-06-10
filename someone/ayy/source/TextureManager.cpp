@@ -84,7 +84,7 @@ void TextureManager::BindTextureToSlot(TextureUUID texUUID,unsigned int slotInde
         TextureUUID alreadyBoundTexUUID = it->second;
         if(alreadyBoundTexUUID == texUUID)
         {
-            alreadyBoundTexUUID = true;
+            bHasAlreadyBound = true;
         }
     }
     
@@ -93,7 +93,6 @@ void TextureManager::BindTextureToSlot(TextureUUID texUUID,unsigned int slotInde
         Texture* texture = GetTextureWithUUID(texUUID);
         assert(texture != nullptr);
         texture->Bind(GL_TEXTURE0 + slotIndex);
-        
         
         if(bSlotHasValue)
         {

@@ -41,11 +41,24 @@ void test()
 //    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
 //    
 //    stbi_image_free(data);
+    
+    
+    ayy::Vec4f v1(1,2,3,4);
+    ayy::Vec4f v2(7,8,9,10);
+    v1.Dump();
+    v2.Dump();
+    
+    (v1+v2).Dump();
+//    (v1 - v2).Dump();
+    v1 = v1 - v2;
+    v1.Dump();
 }
 
 
 int main(int argc, const char * argv[])
 {
+    test();
+    
     // init glfw
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

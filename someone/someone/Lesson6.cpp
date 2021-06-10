@@ -37,7 +37,7 @@ void Lesson6::OnUpdate()
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
     _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
     _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
-    
+
     // draw with VAO
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,kIndiceCount,GL_UNSIGNED_INT,(void*)0);
