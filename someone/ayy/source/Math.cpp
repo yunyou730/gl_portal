@@ -24,17 +24,17 @@ void MakeScaleMatrix(Mat4x4f& mat,float scale)
 void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz)
 {
     mat.Identify();
-    mat.data[0][3] = ox;
-    mat.data[1][3] = oy;
-    mat.data[2][3] = oz;
+    mat.data[3][0] = ox;
+    mat.data[3][1] = oy;
+    mat.data[3][2] = oz;
 }
 
 void MakeRotateByXMatrix(Mat4x4f& mat,float rad)
 {
-    mat.Identify();
     float sinValue = sin(rad);
     float cosValue = cos(rad);
-    
+ 
+    mat.Identify();
     mat.data[1][1] = cosValue;
     mat.data[2][2] = cosValue;
     mat.data[1][2] = -sinValue;
@@ -46,10 +46,11 @@ void MakeRotateByYMatrix(Mat4x4f& mat,float rad)
     float sinValue = sin(rad);
     float cosValue = cos(rad);
     
+    mat.Identify();
     mat.data[0][0] = cosValue;
     mat.data[2][2] = cosValue;
-    mat.data[0][2] = sinValue;
-    mat.data[2][0] = -sinValue;
+    mat.data[2][0] = sinValue;
+    mat.data[0][2] = -sinValue;
     
 }
 
@@ -58,9 +59,10 @@ void MakeRotateByZMatrix(Mat4x4f& mat,float rad)
     float sinValue = sin(rad);
     float cosValue = cos(rad);
     
+    mat.Identify();
     mat.data[0][0] = cosValue;
     mat.data[1][1] = cosValue;
-    mat.data[0][1] = -sinValue;
-    mat.data[1][0] = sinValue;
+    mat.data[1][0] = -sinValue;
+    mat.data[0][1] = sinValue;
 }
 }

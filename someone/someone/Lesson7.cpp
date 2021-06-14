@@ -119,22 +119,24 @@ void Lesson7::UpdateTransform(float deltaTime)
 {
     ayy::Mat4x4f mat;
     mat.Identify();
-//    ayy::MakeMatScale(mat,0.2);
     mat.Dump();
     
     ayy::Mat4x4f matScale;
     ayy::MakeScaleMatrix(matScale,1.f);
     matScale.Dump();
     
-    
     ayy::Mat4x4f matMove;
-    ayy::MakeTranslateMatrix(matMove,0.5f,0.5f,0.0f);
+    ayy::MakeTranslateMatrix(matMove,1.f,0.5f,0.0f);
     
     ayy::Mat4x4f matRotZ;
     ayy::MakeRotateByZMatrix(matRotZ, ayy::DegToRad(_rotZ));
     
-//    mat = mat * matScale * matMove;
-    mat = mat * matRotZ;
+    
+    // 从右到左的顺序 进行矩阵变换
+    mat = mat * matRotZ * matMove;
+//    mat = mat * matMove * matRotZ;
+    
+//    mat = mat * matMove * matRotZ;
     mat.Dump();
     
 //    mat.Set(0,0,1.5);

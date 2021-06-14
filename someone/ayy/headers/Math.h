@@ -7,6 +7,23 @@ const float PI = 3.1415926;
 
 /*
     基于 行向量,向量 x 矩阵 时，向量在左侧,矩阵在右侧 的原则, 实现数学库
+
+ 
+  [
+      3x3 仿射变换,        0,
+                          0
+                          ratio
+      tx,ty,tz,              1
+  ]
+ 
+    shader 里、cpp 里， 都是从左往右 的顺序
+
+    vec = origin_vec * mat1 * mat2 * mat3 * ...
+    
+    从左往右开始变换
+ 
+    cpp 给 shader 传矩阵值时，需要 做 转秩
+ 
  */
 
 /*
@@ -336,14 +353,7 @@ typedef Vec<float,4>        Vec4f;
 typedef Mat<float,4,4>      Mat4x4f;
 
 
-/*
- [
-     3x3 仿射变换,        tx,
-                         ty,
-                         tz,
-     0,0,0,              1
- ]
- */
+
 extern void MakeScaleMatrix(Mat4x4f& mat,float scale);
 extern void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz);
 extern void MakeRotateByXMatrix(Mat4x4f& mat,float rad);

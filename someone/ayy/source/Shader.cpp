@@ -107,7 +107,7 @@ void ShaderProgram::SetUniformMat4x4(const std::string& uniformName,float* data)
 
          */
     // 1 means 1 mat4
-    glUniformMatrix4fv(location,1,GL_FALSE,data);
+    glUniformMatrix4fv(location,1,GL_TRUE,data);
 }
 
 }
