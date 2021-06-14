@@ -1,45 +1,54 @@
-#include "Lesson5.h"
+#include "Lesson7.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
-#include "stb_image.h"
+#include "TextureManager.h"
 
 const int kIndiceCount = 6;
 
-Lesson5::~Lesson5()
+Lesson7::~Lesson7()
 {
     
 }
 
-void Lesson5::Prepare()
+void Lesson7::Prepare()
 {
-    _shader = ayy::Util::CreateShaderWithFile("res/color_texture.vs", "res/color_texture.fs");
+    _shader = ayy::Util::CreateShaderWithFile("res/mvp_test.vs","res/mvp_test.fs");
     PrepareMesh(_vao,_vbo,_ebo);
-    PrepareTexture(_tID);
+    PrepareTexture();
 }
 
-void Lesson5::Cleanup()
+void Lesson7::Cleanup()
 {
     delete _shader;
+    _shader = nullptr;
+    
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_ebo);
 }
 
-void Lesson5::OnUpdate(float deltaTime)
+void Lesson7::OnUpdate(float deltaTime)
 {
     // using shader
     _shader->Use();
+    
     // using texture
-    glActiveTexture(GL_TEXTURE0);
-    glUniform1i(glGetUniformLocation(_shader->program,"myTex"),0);
+    ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture1,0);
+    ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
+    _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
+    _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
+    
+    UpdateTransform(deltaTime);
+    
     // draw with VAO
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,kIndiceCount,GL_UNSIGNED_INT,(void*)0);
+    
     glBindVertexArray(0);
-    glUseProgram(0);
+    _shader->UnUse();
 }
 
-void Lesson5::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
+void Lesson7::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
 {
     // rectangle
     float vertices[] = {
@@ -100,28 +109,41 @@ void Lesson5::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
     glBindVertexArray(0);
 }
 
-void Lesson5::PrepareTexture(GLuint& tid)
+void Lesson7::PrepareTexture()
 {
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("res/container.jpg", &width, &height, &nrChannels, 0);
-    printf("%d,%d,%d\n",width,height,nrChannels);
+    _texture1 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/container.jpg");
+    _texture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/awesomeface.png");
+}
 
-    GLuint textureID;
-    glGenTextures(1,&textureID);
+void Lesson7::UpdateTransform(float deltaTime)
+{
+    ayy::Mat4x4f mat;
+    mat.Identify();
+//    ayy::MakeMatScale(mat,0.2);
+    mat.Dump();
     
-    /*
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);    // set texture wrapping to GL_REPEAT (default wrapping method)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    */
+    ayy::Mat4x4f matScale;
+    ayy::MakeScaleMatrix(matScale,1.f);
+    matScale.Dump();
     
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,textureID);
-//    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
-    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
-    glGenerateMipmap(GL_TEXTURE_2D);    // 有这句才能显示出来，没有不行 !
-
-    stbi_image_free(data);
+    
+    ayy::Mat4x4f matMove;
+    ayy::MakeTranslateMatrix(matMove,0.5f,0.5f,0.0f);
+    
+    ayy::Mat4x4f matRotZ;
+    ayy::MakeRotateByZMatrix(matRotZ, ayy::DegToRad(_rotZ));
+    
+//    mat = mat * matScale * matMove;
+    mat = mat * matRotZ;
+    mat.Dump();
+    
+//    mat.Set(0,0,1.5);
+    // @miao @todo
+//    mat.Set(0,3,0.5);
+    _shader->SetUniformMat4x4("uMVP", (GLfloat*)mat.data);
+    
+    
+    
+    //
+    _rotZ += deltaTime * _rotZSpeed;
 }

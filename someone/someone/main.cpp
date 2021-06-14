@@ -15,14 +15,18 @@
 #include "Lesson4.h"
 #include "Lesson5.h"
 #include "Lesson6.h"
+#include "Lesson7.h"
 
 #include "Math.h"
 #include "IO.h"
 #include "stb_image.h"
 #include "Texture.h"
 
-const unsigned int SCR_WIDTH = 800;
+//const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_WIDTH = 600;
 const unsigned int SCR_HEIGHT = 600;
+
+LessonBase* lesson = nullptr;
 
 void framebuffer_size_callback(GLFWwindow* window,int width,int height);
 void processInput(GLFWwindow *window);
@@ -30,30 +34,72 @@ void processInput(GLFWwindow *window);
 
 void test()
 {
-//    int width, height, nrChannels;
-//    unsigned char *data = stbi_load("res/container.jpg", &width, &height, &nrChannels, 0);
-//    printf("%d,%d,%d\n",width,height,nrChannels);
-//    // @miao @todo
-//    
-//    GLuint textureID;
-//    glGenTextures(1,&textureID);
-//    glBindTexture(GL_TEXTURE_2D,textureID);
-//    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
-//    
-//    stbi_image_free(data);
+//    ayy::Mat<float,4,4> mat;
+//    mat.Dump();
+//    mat.Identify();
+//    mat.Dump();
+//
+//    ayy::Vec<float,4> v1;
+//    printf("%d\n",v1.Dimension());
+//    v1.Dump();
+//
+//    ayy::Vec2f v2(3.,5.);
+//    v2.Dump();
     
+    ayy::Vec3f v2(1,-2,5);
+    printf("len %f\n",v2.Length());
     
-    ayy::Vec4f v1(1,2,3,4);
-    ayy::Vec4f v2(7,8,9,10);
-    v1.Dump();
+    v2.Normalize();
+    printf("len %f\n",v2.Length());
+    
+    v2 = v2 * 100;
     v2.Dump();
-    
-    (v1+v2).Dump();
-//    (v1 - v2).Dump();
-    v1 = v1 - v2;
-    v1.Dump();
-}
+    printf("len %f\n",v2.Length());
 
+    
+    v2 = 10.f * v2;
+    v2.Dump();
+    printf("len %f\n",v2.Length());
+    
+    ayy::Vec3f v3;
+    printf("len %f\n",v3.Length());
+    v3.Dump();
+    
+    v3 = v3 + ayy::Vec3f(1,-1,3);
+    v3.Dump();
+    
+    printf("\ndot %f\n",v3.Dot(v2));
+    
+    v3 = v3 * 3;
+    v3.Dump();
+    
+    ayy::Vec4f v4(1,2,3,1);
+    
+    ayy::Mat4x4f mat;
+//    mat.Identify();
+    int idx = 0;
+    for(int r = 0;r < 4;r++)
+    {
+        for(int c = 0;c < 4;c++)
+        {
+            mat.Set(r,c,idx);
+            idx++;
+        }
+    }
+    mat.Dump();
+    
+    ayy::Mat4x4f mat2;
+    mat2.Identify();
+    mat2.Set(0,0,2);
+    mat2.Set(3,2,5);
+    mat2.Dump();
+    
+    (mat * mat2).Dump();
+    
+    ayy::Vec4f pos(1,1,1,1);
+    pos = pos * mat2;
+    pos.Dump();
+}
 
 int main(int argc, const char * argv[])
 {
@@ -88,11 +134,15 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    Lesson6 lesson;
-    lesson.Prepare();
+    lesson = new Lesson7();
+    lesson->Prepare();
     
     
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    
+    // @miao @todo
+    static double lastFrameTime = glfwGetTime();
+    
     
     while(!glfwWindowShouldClose(window))
     {
@@ -101,14 +151,18 @@ int main(int argc, const char * argv[])
         // Render code here
         glClear(GL_COLOR_BUFFER_BIT);   // render begin
         
-        lesson.OnUpdate();
+        double curTime = glfwGetTime();
+        lesson->OnUpdate(curTime - lastFrameTime);
+        lastFrameTime = curTime;
         
         // render end
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
     
-    lesson.Cleanup();
+    lesson->Cleanup();
+    delete lesson;
+    lesson = nullptr;
     
     glfwTerminate();
     return 0;
@@ -120,9 +174,14 @@ void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 //    printf("%d,%d\n",width,height);
 }
 
-void processInput(GLFWwindow *window)
+void processInput(GLFWwindow* window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+    
+    if(lesson != nullptr)
+    {
+        lesson->HandleKeyboardInput(window);
+    }
 }
 

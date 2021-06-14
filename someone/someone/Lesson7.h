@@ -10,10 +10,10 @@ class ShaderProgram;
 class Texture;
 }
 
-class Lesson6 : public LessonBase
+class Lesson7 : public LessonBase
 {
 public:
-    ~Lesson6();
+    ~Lesson7();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
@@ -23,10 +23,18 @@ protected:
     void PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO);
     void PrepareTexture();
     
+    
+private:
+    void UpdateTransform(float deltaTime);
+    
 private:
     GLuint  _vao,_vbo,_ebo;
     ayy::ShaderProgram*  _shader = nullptr;
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
+    
+    
+    float   _rotZ       = 0.0f;
+    float   _rotZSpeed  = 90;
 };

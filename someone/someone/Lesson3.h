@@ -15,7 +15,7 @@ public:
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
-    virtual void OnUpdate() override;
+    virtual void OnUpdate(float deltaTime) override;
     
 protected:
     void PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO);

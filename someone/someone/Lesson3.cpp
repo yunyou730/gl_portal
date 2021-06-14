@@ -44,7 +44,7 @@ void Lesson3::Cleanup()
     glDeleteBuffers(1,&_ebo);
 }
 
-void Lesson3::OnUpdate()
+void Lesson3::OnUpdate(float deltaTime)
 {
     float t =glfwGetTime();
     

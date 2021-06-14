@@ -37,7 +37,7 @@ void Lesson1::Cleanup()
     delete _shader;
 }
 
-void Lesson1::OnUpdate()
+void Lesson1::OnUpdate(float deltaTime)
 {
     // Do Render
     glUseProgram(_shader->program);

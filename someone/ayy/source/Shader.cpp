@@ -76,7 +76,7 @@ void ShaderProgram::SetUniform(const std::string& uniformName,const ayy::Vec4f& 
 {
     GLint location = glGetUniformLocation(program,uniformName.c_str());
     assert(location >= 0);
-    glUniform4f(location,value.x,value.y,value.z,value.w);
+    glUniform4f(location,value.x(),value.y(),value.z(),value.w());
 }
 
 void ShaderProgram::SetUniform(const std::string& uniformName,float value)
@@ -91,6 +91,23 @@ void ShaderProgram::SetUniform(const std::string& uniformName,int value)
     GLint location = glGetUniformLocation(program,uniformName.c_str());
     assert(location >= 0);
     glUniform1i(location,value);
+}
+
+void ShaderProgram::SetUniformMat4x4(const std::string& uniformName,float* data)
+{
+    GLint location = glGetUniformLocation(program,uniformName.c_str());
+    assert(location >= 0);
+    
+    // @miao @todo
+        /*
+         void glUniformMatrix4fv(    GLint      location,
+              GLsizei      count,
+              GLboolean      transpose,
+              const GLfloat *     value);
+
+         */
+    // 1 means 1 mat4
+    glUniformMatrix4fv(location,1,GL_FALSE,data);
 }
 
 }
