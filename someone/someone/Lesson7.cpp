@@ -117,6 +117,7 @@ void Lesson7::PrepareTexture()
 
 void Lesson7::UpdateTransform(float deltaTime)
 {
+    /*
     ayy::Mat4x4f mat;
     mat.Identify();
     mat.Dump();
@@ -134,18 +135,25 @@ void Lesson7::UpdateTransform(float deltaTime)
     
     // 从右到左的顺序 进行矩阵变换
     mat = mat * matRotZ * matMove;
-//    mat = mat * matMove * matRotZ;
     
-//    mat = mat * matMove * matRotZ;
     mat.Dump();
     
-//    mat.Set(0,0,1.5);
-    // @miao @todo
-//    mat.Set(0,3,0.5);
     _shader->SetUniformMat4x4("uMVP", (GLfloat*)mat.data);
+    */
     
     
+    ayy::Mat4x4f matScale;
+    ayy::Mat4x4f matTranslate;
+    ayy::Mat4x4f matRotateByZ;
     
-    //
+    ayy::MakeTranslateMatrix(matTranslate,0.5f,0,0);
+    ayy::MakeScaleMatrix(matScale,0.7f);
+    ayy::MakeRotateByZMatrix(matRotateByZ,ayy::DegToRad(_rotZ));
+    
+    _shader->SetUniformMat4x4("uScale",(GLfloat*)matScale.data);
+    _shader->SetUniformMat4x4("uRotateZ",(GLfloat*)matRotateByZ.data);
+    _shader->SetUniformMat4x4("uTranslate",(GLfloat*)matTranslate.data);
+    
+    
     _rotZ += deltaTime * _rotZSpeed;
 }
