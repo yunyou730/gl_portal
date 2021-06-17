@@ -16,6 +16,7 @@
 #include "Lesson5.h"
 #include "Lesson6.h"
 #include "Lesson7.h"
+#include "Lesson8.h"
 
 #include "Math.h"
 #include "IO.h"
@@ -30,7 +31,6 @@ LessonBase* lesson = nullptr;
 
 void framebuffer_size_callback(GLFWwindow* window,int width,int height);
 void processInput(GLFWwindow *window);
-
 
 void test()
 {
@@ -134,7 +134,7 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    lesson = new Lesson7();
+    lesson = new Lesson8();
     lesson->Prepare();
     
     
@@ -146,18 +146,22 @@ int main(int argc, const char * argv[])
     
     while(!glfwWindowShouldClose(window))
     {
-        processInput(window);
-        
         // Render code here
         glClear(GL_COLOR_BUFFER_BIT);   // render begin
         
         double curTime = glfwGetTime();
-        lesson->OnUpdate(curTime - lastFrameTime);
+        float deltaTime = curTime - lastFrameTime;
+        lesson->SetDeltaTime(deltaTime);
         lastFrameTime = curTime;
         
+        lesson->OnRender(deltaTime);
+
         // render end
         glfwSwapBuffers(window);
         glfwPollEvents();
+        
+        // frame logic
+        processInput(window);
     }
     
     lesson->Cleanup();
@@ -177,7 +181,9 @@ void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 void processInput(GLFWwindow* window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    {
         glfwSetWindowShouldClose(window, true);
+    }
     
     if(lesson != nullptr)
     {

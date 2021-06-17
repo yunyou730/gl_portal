@@ -1,33 +1,44 @@
-#include "Lesson6.h"
+#include "Lesson8.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
+#include "../ayy/headers/Camera.h"
 #include "TextureManager.h"
 
 const int kIndiceCount = 6;
 
-Lesson6::~Lesson6()
+Lesson8::~Lesson8()
 {
     
 }
 
-void Lesson6::Prepare()
+void Lesson8::Prepare()
 {
-    _shader = ayy::Util::CreateShaderWithFile("res/color_multi_texture.vs","res/color_multi_texture.fs");
+    _shader = ayy::Util::CreateShaderWithFile("res/mvp_test_2.vs","res/mvp_test_2.fs");
     PrepareMesh(_vao,_vbo,_ebo);
     PrepareTexture();
+    _camera = new ayy::Camera();
 }
 
-void Lesson6::Cleanup()
+void Lesson8::Cleanup()
 {
-    delete _shader;
+    if(_shader != nullptr)
+    {
+        delete _shader;
+    }
     _shader = nullptr;
     
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_ebo);
+    
+    if(_camera != nullptr)
+    {
+        delete _camera;
+    }
+    _camera = nullptr;
 }
 
-void Lesson6::OnRender(float deltaTime)
+void Lesson8::OnRender(float deltaTime)
 {
     // using shader
     _shader->Use();
@@ -37,7 +48,9 @@ void Lesson6::OnRender(float deltaTime)
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
     _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
     _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
-
+    
+    UpdateTransform(deltaTime);
+    
     // draw with VAO
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,kIndiceCount,GL_UNSIGNED_INT,(void*)0);
@@ -46,7 +59,7 @@ void Lesson6::OnRender(float deltaTime)
     _shader->UnUse();
 }
 
-void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
+void Lesson8::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
 {
     // rectangle
     float vertices[] = {
@@ -107,8 +120,81 @@ void Lesson6::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
     glBindVertexArray(0);
 }
 
-void Lesson6::PrepareTexture()
+void Lesson8::PrepareTexture()
 {
     _texture1 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/container.jpg");
     _texture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/awesomeface.png");
+}
+
+void Lesson8::UpdateTransform(float deltaTime)
+{
+    ayy::Mat4x4f matScale;
+    ayy::Mat4x4f matTranslate;
+    ayy::Mat4x4f matRotateByZ;
+    
+    ayy::MakeTranslateMatrix(matTranslate,0.0f,0,0);
+    ayy::MakeScaleMatrix(matScale,1.0f);
+    ayy::MakeRotateByZMatrix(matRotateByZ,ayy::DegToRad(_rotZ));
+    
+    _shader->SetUniformMat4x4("uScale",(GLfloat*)matScale.data);
+    _shader->SetUniformMat4x4("uRotateZ",(GLfloat*)matRotateByZ.data);
+    _shader->SetUniformMat4x4("uTranslate",(GLfloat*)matTranslate.data);
+    _shader->SetUniformMat4x4("uView", (GLfloat*)_camera->GetViewMatrix().data);
+}
+
+void Lesson8::HandleKeyboardInput(GLFWwindow* window)
+{
+    // handle camera move
+    float delta = GetDeltaTime() * _camMoveSpeed;
+    if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    {
+        _camera->TakeMove(0.0f, delta, 0.0f);
+    }
+    if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    {
+        _camera->TakeMove(0.0f, -delta, 0.0f);
+    }
+    if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    {
+        _camera->TakeMove(-delta, 0.0f, 0.0f);
+    }
+    if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    {
+        _camera->TakeMove(delta, 0.0f, 0.0f);
+    }
+    if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+    {
+        _camera->TakeMove(0.0f, 0.0f, delta);
+    }
+    if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+    {
+        _camera->TakeMove(0.0f, 0.0f, -delta);
+    }
+    
+    // handle camera rot
+    delta = GetDeltaTime() * _camRotSpeed;
+    if(glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+    {
+        _camera->TakeRot(0,0,-delta);
+    }
+    if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+    {
+        _camera->TakeRot(0,0,delta);
+    }
+    if(glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+    {
+        _camera->TakeRot(delta,0,0);
+    }
+    if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+    {
+        _camera->TakeRot(-delta,0,0);
+    }
+    if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+    {
+        _camera->TakeRot(0.0f,delta, 0.0f);
+    }
+    if(glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+    {
+        _camera->TakeRot(0.0f,-delta,0.0f);
+    }
 }

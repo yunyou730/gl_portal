@@ -17,7 +17,7 @@ public:
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
-    virtual void OnUpdate(float deltaTime) override;
+    virtual void OnRender(float deltaTime) override;
     
 protected:
     void PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO);
@@ -33,7 +33,6 @@ private:
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
-    
     
     float   _rotZ       = 0.0f;
     float   _rotZSpeed  = 90;

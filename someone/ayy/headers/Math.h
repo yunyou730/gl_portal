@@ -23,7 +23,8 @@ const float PI = 3.1415926;
     从左往右开始变换
  
     cpp 给 shader 传矩阵值时，需要 做 转秩
- 
+    glUniformMatrix4fv(location,1,GL_TRUE,data)
+    即 参数3 需要传为 GL_TRUE
  */
 
 /*
@@ -82,15 +83,15 @@ struct Vec
         }
     }
     
-    T x() const {assert(N > 1);return data[0];}
-    T y() const {assert(N > 2);return data[1];}
-    T z() const {assert(N > 3);return data[2];}
-    T w() const {assert(N > 4);return data[3];}
+    T x() const {assert(N > 0);return data[0];}
+    T y() const {assert(N > 1);return data[1];}
+    T z() const {assert(N > 2);return data[2];}
+    T w() const {assert(N > 3);return data[3];}
     
-    void SetX(T v) {assert(N > 1);data[0] = v;}
-    void SetY(T v) {assert(N > 2);data[1] = v;}
-    void SetZ(T v) {assert(N > 3);data[2] = v;}
-    void SetW(T v) {assert(N > 4);data[3] = v;}
+    void SetX(T v) {assert(N > 0);data[0] = v;}
+    void SetY(T v) {assert(N > 1);data[1] = v;}
+    void SetZ(T v) {assert(N > 2);data[2] = v;}
+    void SetW(T v) {assert(N > 3);data[3] = v;}
     
     int Dimension()
     {
@@ -352,19 +353,14 @@ typedef Vec<float,3>        Vec3f;
 typedef Vec<float,4>        Vec4f;
 typedef Mat<float,4,4>      Mat4x4f;
 
-
-
 extern void MakeScaleMatrix(Mat4x4f& mat,float scale);
 extern void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz);
 extern void MakeRotateByXMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByYMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByZMatrix(Mat4x4f& mat,float rad);
 
-
-
-float RadToDeg(float rad);
-float DegToRad(float deg);
-
+extern float RadToDeg(float rad);
+extern float DegToRad(float deg);
 
 }
 

@@ -27,7 +27,7 @@ void Lesson7::Cleanup()
     glDeleteBuffers(1,&_ebo);
 }
 
-void Lesson7::OnUpdate(float deltaTime)
+void Lesson7::OnRender(float deltaTime)
 {
     // using shader
     _shader->Use();
@@ -117,31 +117,6 @@ void Lesson7::PrepareTexture()
 
 void Lesson7::UpdateTransform(float deltaTime)
 {
-    /*
-    ayy::Mat4x4f mat;
-    mat.Identify();
-    mat.Dump();
-    
-    ayy::Mat4x4f matScale;
-    ayy::MakeScaleMatrix(matScale,1.f);
-    matScale.Dump();
-    
-    ayy::Mat4x4f matMove;
-    ayy::MakeTranslateMatrix(matMove,1.f,0.5f,0.0f);
-    
-    ayy::Mat4x4f matRotZ;
-    ayy::MakeRotateByZMatrix(matRotZ, ayy::DegToRad(_rotZ));
-    
-    
-    // 从右到左的顺序 进行矩阵变换
-    mat = mat * matRotZ * matMove;
-    
-    mat.Dump();
-    
-    _shader->SetUniformMat4x4("uMVP", (GLfloat*)mat.data);
-    */
-    
-    
     ayy::Mat4x4f matScale;
     ayy::Mat4x4f matTranslate;
     ayy::Mat4x4f matRotateByZ;

@@ -11,6 +11,7 @@
 		2B1C7D062676ED1D004EC484 /* mvp_test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D042676ED0E004EC484 /* mvp_test.fs */; };
 		2B1C7D072676ED1D004EC484 /* mvp_test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D052676ED0E004EC484 /* mvp_test.vs */; };
 		2B1C7D0A2677137F004EC484 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D092677137F004EC484 /* Math.cpp */; };
+		2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D0D26772AF6004EC484 /* Camera.cpp */; };
 		2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3126628E360078E004 /* stb_image.cpp */; };
 		2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* Texture.cpp */; };
 		2B2A9C3A26630FB50078E004 /* container.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C3926630FA50078E004 /* container.jpg */; };
@@ -22,6 +23,9 @@
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
 		2B7FC9B22667E62C003148A1 /* color_multi_texture.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9AF2667E619003148A1 /* color_multi_texture.vs */; };
+		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
+		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
+		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
 		2BF38CA8265A2F790034A223 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CA7265A2F790034A223 /* main.cpp */; };
 		2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CBA265A3EA50034A223 /* OpenGL.framework */; };
 		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
@@ -47,6 +51,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */,
+				2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */,
 				2B1C7D062676ED1D004EC484 /* mvp_test.fs in CopyFiles */,
 				2B1C7D072676ED1D004EC484 /* mvp_test.vs in CopyFiles */,
 				2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */,
@@ -68,6 +74,8 @@
 		2B1C7D042676ED0E004EC484 /* mvp_test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test.fs; sourceTree = "<group>"; };
 		2B1C7D052676ED0E004EC484 /* mvp_test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test.vs; sourceTree = "<group>"; };
 		2B1C7D092677137F004EC484 /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
+		2B1C7D0C26772AED004EC484 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		2B1C7D0D26772AF6004EC484 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		2B2A9C3026628DF80078E004 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		2B2A9C3126628E360078E004 /* stb_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
 		2B2A9C3426630CF50078E004 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
@@ -84,6 +92,10 @@
 		2B7FC9AD26675877003148A1 /* RawTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RawTexture.h; sourceTree = "<group>"; };
 		2B7FC9AF2667E619003148A1 /* color_multi_texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_multi_texture.vs; sourceTree = "<group>"; };
 		2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_multi_texture.fs; sourceTree = "<group>"; };
+		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
+		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
+		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
+		2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.fs; sourceTree = "<group>"; };
 		2BF38CA4265A2F790034A223 /* someone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = someone; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF38CA7265A2F790034A223 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2BF38CB5265A3E8A0034A223 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "3rd/GLFW/lib-universal/libglfw3.a"; sourceTree = "<group>"; };
@@ -162,6 +174,8 @@
 				2B7FC9A626670815003148A1 /* Lesson6.h */,
 				2B1C7D012675BB74004EC484 /* Lesson7.cpp */,
 				2B1C7D002675BB74004EC484 /* Lesson7.h */,
+				2BE1B4002679D2A6008BA71D /* Lesson8.cpp */,
+				2BE1B3FF2679D2A6008BA71D /* Lesson8.h */,
 				2BF38CD6265EA26C0034A223 /* LessonBase.cpp */,
 				2BF38CD4265EA26C0034A223 /* LessonBase.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
@@ -201,6 +215,7 @@
 				2B2A9C3426630CF50078E004 /* Texture.cpp */,
 				2BFEB880266D1253009407D4 /* TextureManager.cpp */,
 				2B7FC9AA2667586E003148A1 /* RawTexture.cpp */,
+				2B1C7D0D26772AF6004EC484 /* Camera.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -216,6 +231,7 @@
 				2B2A9C3726630D000078E004 /* Texture.h */,
 				2BFEB883266D125E009407D4 /* TextureManager.h */,
 				2B7FC9AD26675877003148A1 /* RawTexture.h */,
+				2B1C7D0C26772AED004EC484 /* Camera.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -233,6 +249,8 @@
 				2B7FC9AF2667E619003148A1 /* color_multi_texture.vs */,
 				2B1C7D042676ED0E004EC484 /* mvp_test.fs */,
 				2B1C7D052676ED0E004EC484 /* mvp_test.vs */,
+				2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */,
+				2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -306,8 +324,10 @@
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
+				2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */,
 				2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */,
 				2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */,
+				2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 				2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */,
 				2BFEB881266D1253009407D4 /* TextureManager.cpp in Sources */,

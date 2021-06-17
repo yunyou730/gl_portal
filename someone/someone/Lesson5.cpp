@@ -25,7 +25,7 @@ void Lesson5::Cleanup()
     glDeleteBuffers(1,&_ebo);
 }
 
-void Lesson5::OnUpdate(float deltaTime)
+void Lesson5::OnRender(float deltaTime)
 {
     // using shader
     _shader->Use();
