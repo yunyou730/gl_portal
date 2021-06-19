@@ -1,6 +1,16 @@
 #include "Camera.h"
 
-namespace ayy {
+namespace ayy
+{
+
+/*
+    default pos  (0,0,5)
+    default look dir (0,0,-1,0) // w = 0 means vector is a direction
+ */
+const static ayy::Vec3f kUpDir(0,1,0);
+const static ayy::Vec3f kDefaultPos(0,0,5);
+const static ayy::Vec4f kDefaultLookDir(0,0,-1,0);
+
 Camera::Camera(int viewportWidth,int viewportHeight)
     :_viewportWidth(viewportWidth)
     ,_viewportHeight(viewportHeight)
@@ -8,9 +18,9 @@ Camera::Camera(int viewportWidth,int viewportHeight)
     ,_far(10.0f)
     ,_near(0.1f)
 {
-    _pos.SetX(0);_pos.SetY(0);_pos.SetZ(5.0f);
-    _euler.SetX(0);_euler.SetY(0);_euler.SetZ(0);
-//    _lookDir.SetX(0);_lookDir.SetY(0);_lookDir.SetZ(-1);
+    _eye = kDefaultPos;
+    _center = ayy::Vec3f(0,0,0);
+    
     _viewMat.Identify();
     _projMat.Identify();
 }
@@ -27,30 +37,57 @@ Mat4x4f& Camera::GetViewMatrix()
 
 void Camera::CalcViewMatrix()
 {
-    Mat4x4f invertTranslate;
-    Mat4x4f invertRotByX,invertRotByY,invertRotByZ;
+    ayy::Vec3f z,x,y;   // camera z,x,y (forward,right,up)
     
-    MakeTranslateMatrix(invertTranslate,-_pos.x(),-_pos.y(),-_pos.z());
-    MakeRotateByXMatrix(invertRotByX,DegToRad(-_euler.x()));
-    MakeRotateByXMatrix(invertRotByY,DegToRad(-_euler.y()));
-    MakeRotateByXMatrix(invertRotByZ,DegToRad(-_euler.z()));
+    z = (_center - _eye).Normalize();
+    x = z.Cross(kUpDir).Normalize();
+    y = x.Cross(z).Normalize();
     
-    _viewMat = invertRotByX * invertRotByY * invertRotByZ * invertTranslate;
+    ayy::Mat4x4f matRot;
+    ayy::Mat4x4f matMove;
+    
+    matRot.Identify();
+    matMove.Identify();
+    
+    matRot.Set(0,0,x.x());    matRot.Set(1,0,x.y());    matRot.Set(2,0,x.z());
+    matRot.Set(0,1,y.x());    matRot.Set(1,1,y.y());    matRot.Set(2,1,y.z());
+    matRot.Set(0,2,z.x());    matRot.Set(1,2,z.y());    matRot.Set(2,2,z.z());
+    
+    matMove.Set(3,0,-_eye.x());    matMove.Set(3,1,-_eye.y());    matMove.Set(3,2,-_eye.z());
+    
+    _viewMat = matRot * matMove;
 }
 
 void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
 {
-    _pos.SetX(_pos.x() + deltaX);
-    _pos.SetY(_pos.y() + deltaY);
-    _pos.SetZ(_pos.z() + deltaZ);
+    _eye.SetX(_eye.x() + deltaX);
+    _eye.SetY(_eye.y() + deltaY);
+    _eye.SetZ(_eye.z() + deltaZ);
     _bViewMatDirty = true;
 }
 
 void Camera::TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ)
 {
-    _euler.SetX(_euler.x() + deltaDegX);
-    _euler.SetY(_euler.y() + deltaDegY);
-    _euler.SetZ(_euler.z() + deltaDegZ);
+//    ayy::Mat4x4f rotX,rotY,rotZ;
+//
+//    _rotEuler.SetX(_rotEuler.x() + deltaDegX);
+//    _rotEuler.SetY(_rotEuler.y() + deltaDegY);
+//    _rotEuler.SetZ(_rotEuler.z() + deltaDegZ);
+//
+//    ayy::MakeRotateByXMatrix(rotX,ayy::DegToRad(_rotEuler.x()));
+//    ayy::MakeRotateByYMatrix(rotY,ayy::DegToRad(_rotEuler.y()));
+//    ayy::MakeRotateByZMatrix(rotZ,ayy::DegToRad(_rotEuler.z()));
+//
+//    _lookDir = (_lookDir * rotX * rotY * rotZ);
+//
+//    _lookDir.Normalize();
+    
+    _bViewMatDirty = true;
+}
+
+void Camera::SetLookTarget(const ayy::Vec3f& lookTarget)
+{
+    _center = lookTarget;
     _bViewMatDirty = true;
 }
 

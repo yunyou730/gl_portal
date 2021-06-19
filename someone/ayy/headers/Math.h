@@ -97,14 +97,20 @@ struct Vec
     void SetZ(T v) {assert(N > 2);data[2] = v;}
     void SetW(T v) {assert(N > 3);data[3] = v;}
     
-    int Dimension()
-    {
-        return N;
-    }
+    int Dimension() const {return N;}
     
-    T operator[](int index)
+    T operator[](int index) const { return data[index]; }
+    
+    
+    void operator=(const Vec& other)
     {
-        return data[index];
+        for(int i = 0;i < N;i++)
+        {
+            if(i < other.Dimension())
+            {
+                data[i] = other.data[i];
+            }
+        }
     }
     
     T Length()
@@ -122,7 +128,7 @@ struct Vec
         return sqrt(total);
     }
     
-    void Normalize()
+    Vec<T,N>& Normalize()
     {
         T len = Length();
         if(len > T(0))
@@ -132,6 +138,7 @@ struct Vec
                 data[i] /= len;
             }
         }
+        return *this;
     }
     
     Vec<T,N> GetNormal()
@@ -180,6 +187,33 @@ struct Vec
             v += data[i] * other.data[i];
         }
         return v;
+    }
+    
+    /*
+        Geo meaning ,length: |A| x |B| * sin(theta)
+     **/
+    Vec<T,N> Cross(const Vec<T,N>& other) const
+    {
+        Vec<T,N> result;
+        
+        assert(N == 3);
+        T x1 = data[0];
+        T y1 = data[1];
+        T z1 = data[2];
+        
+        T x2 = other.data[0];
+        T y2 = other.data[1];
+        T z2 = other.data[2];
+        
+        T x = y1 * z2 - z1 * y2;
+        T y = z1 * x2 - x1 * z2;
+        T z = x1 * y2 - y1 * x2;
+        
+        result.SetX(x);
+        result.SetY(y);
+        result.SetZ(z);
+        
+        return result;
     }
     
     Vec<T,N> operator*(T val)

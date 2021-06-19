@@ -40,11 +40,14 @@ private:
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
     
     
-    float   _rotSpeed  = 90;
+    float       _rotSpeed  = 90;
     ayy::Vec3f  _rot;
     
     ayy::Camera*  _camera = nullptr;
     
     float   _camMoveSpeed   = 0.5f;
-    float   _camRotSpeed    = 45.0f;
+    float   _camRotSpeed    = 4.5f;
+    
+    
+    float _test = 0;
 };

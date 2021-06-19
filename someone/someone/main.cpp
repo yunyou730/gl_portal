@@ -34,18 +34,6 @@ void processInput(GLFWwindow *window);
 
 void test()
 {
-//    ayy::Mat<float,4,4> mat;
-//    mat.Dump();
-//    mat.Identify();
-//    mat.Dump();
-//
-//    ayy::Vec<float,4> v1;
-//    printf("%d\n",v1.Dimension());
-//    v1.Dump();
-//
-//    ayy::Vec2f v2(3.,5.);
-//    v2.Dump();
-    
     ayy::Vec3f v2(1,-2,5);
     printf("len %f\n",v2.Length());
     

@@ -174,12 +174,12 @@ void Lesson8::UpdateTransform(float deltaTime)
     _shader->SetUniformMat4x4("uMVP",(GLfloat*)matMVP.data);
     
     
-    matModel.Dump();
-    _camera->GetViewMatrix().Dump();
-    _camera->GetProjMatrix().Dump();
-    matMVP.Dump();
+//    matModel.Dump();
+//    _camera->GetViewMatrix().Dump();
+//    _camera->GetProjMatrix().Dump();
+//    matMVP.Dump();
     
-    
+    /*
     ayy::Vec4f test;
     test.SetX(-0.5f);
     test.SetY(-0.5f);
@@ -192,6 +192,7 @@ void Lesson8::UpdateTransform(float deltaTime)
     ayy::Vec4f t2 = test * matMVP;
     
     t2.Dump();
+     */
 }
 
 void Lesson8::HandleKeyboardInput(GLFWwindow* window)
@@ -251,26 +252,39 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     }
     
     // mouse input
-    delta = _rotSpeed * GetDeltaTime();
+    delta = _camRotSpeed * GetDeltaTime();
     if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
     {
-
+        _camera->SetLookTarget(ayy::Vec3f(-1,0,-1));
     }
     if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
     {
-
+        _camera->SetLookTarget(ayy::Vec3f(1,0,-1));
+    }
+    if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+    {
+        _camera->SetLookTarget(ayy::Vec3f(-2,0,-1));
+    }
+    if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    {
+        _camera->SetLookTarget(ayy::Vec3f(-10,0,-1));
     }
     
     int mouseLeftBtnState,mouseRightBtnState;
     mouseLeftBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_LEFT);
     if(mouseLeftBtnState == GLFW_PRESS)
     {
-
+        _test += delta;
+        _camera->SetLookTarget(ayy::Vec3f(_test,0,1));
     }
     
     mouseRightBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_RIGHT);
     if(mouseRightBtnState == GLFW_PRESS)
     {
-        
+//        _camera->TakeRot(-delta,0,0);
+        _test -= delta;
+        _camera->SetLookTarget(ayy::Vec3f(_test,0,1));
     }
+    
+
 }

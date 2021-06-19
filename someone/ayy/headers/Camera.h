@@ -22,8 +22,7 @@ public:
     ayy::Mat4x4f& GetViewMatrix();
     ayy::Mat4x4f& GetProjMatrix();
     
-    const ayy::Vec3f& GetPos() const { return _pos;}
-    const ayy::Vec3f& GetEuler() const { return _euler;}
+    void SetLookTarget(const ayy::Vec3f& lookTarget);
     
     void SetPos(const ayy::Vec3f& pos);
     void SetEuler(float byX,float byY,float byZ);
@@ -41,8 +40,11 @@ protected:
 protected:
     ECamProjMode    _mode;
     
-    ayy::Vec3f      _pos;
-    ayy::Vec3f      _euler; // angle
+    
+    ayy::Vec3f      _eye;
+    ayy::Vec3f      _center;
+    
+    ayy::Vec3f      _rotEuler;
     
     ayy::Mat4x4f    _viewMat;
     bool            _bViewMatDirty = true;

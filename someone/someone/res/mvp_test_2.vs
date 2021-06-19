@@ -10,10 +10,8 @@ out vec2 uv;
 void main()
 {
     uv = aUV;
-    
     vec4 pos = vec4(aPos,1.0);
     pos = pos * uMVP;
-    
     gl_Position = pos;
 }
 
