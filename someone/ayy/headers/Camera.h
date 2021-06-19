@@ -17,8 +17,10 @@ public:
     } ECamProjMode;
     
 public:
-    Camera();
+    Camera(int viewportWidth,int viewportHeight);
+    
     ayy::Mat4x4f& GetViewMatrix();
+    ayy::Mat4x4f& GetProjMatrix();
     
     const ayy::Vec3f& GetPos() const { return _pos;}
     const ayy::Vec3f& GetEuler() const { return _euler;}
@@ -28,6 +30,10 @@ public:
     
     void TakeMove(float deltaX,float deltaY,float deltaZ);
     void TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ);
+    
+    float GetFov() const { return _fov;}
+    float GetFar() const { return _far;}
+    float GetNear() const { return _near;}
     
 protected:
     void CalcViewMatrix();
@@ -40,6 +46,14 @@ protected:
     
     ayy::Mat4x4f    _viewMat;
     bool            _bViewMatDirty = true;
+    
+    ayy::Mat4x4f    _projMat;
+    
+    
+    int     _viewportWidth,_viewportHeight;
+    float   _fov;
+    float   _far;
+    float   _near;
 };
 
 }

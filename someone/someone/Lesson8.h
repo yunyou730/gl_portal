@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "TextureManager.h"
+#include "Math.h"
 
 namespace ayy
 {
@@ -14,6 +15,7 @@ class Camera;
 class Lesson8 : public LessonBase
 {
 public:
+    Lesson8(int viewportWidth,int viewportHeight);
     ~Lesson8();
     
     virtual void Prepare() override;
@@ -37,11 +39,12 @@ private:
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
     
-    float   _rotZ       = 0.0f;
-    float   _rotZSpeed  = 90;
+    
+    float   _rotSpeed  = 90;
+    ayy::Vec3f  _rot;
     
     ayy::Camera*  _camera = nullptr;
     
-    float   _camMoveSpeed = 0.5f;
-    float   _camRotSpeed = 45.0f;   
+    float   _camMoveSpeed   = 0.5f;
+    float   _camRotSpeed    = 45.0f;
 };

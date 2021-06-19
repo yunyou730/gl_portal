@@ -22,6 +22,8 @@ ShaderProgram* ShaderProgram::CreateShaderProgram(const std::string& vsSource,co
     {
         glGetShaderInfoLog(shader->vs,512,nullptr,infoLog);
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << std::endl;
+        
+        assert(false);
     }
     
     // fs
@@ -33,6 +35,8 @@ ShaderProgram* ShaderProgram::CreateShaderProgram(const std::string& vsSource,co
     {
         glGetShaderInfoLog(shader->fs,512,nullptr,infoLog);
         std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << std::endl;
+        
+        assert(false);
     }
     
     // program

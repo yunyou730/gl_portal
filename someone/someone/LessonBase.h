@@ -5,6 +5,7 @@
 class LessonBase
 {
 public:
+    LessonBase(int viewportWidth,int viewportHeight);
     virtual ~LessonBase() {}
     
     virtual void Prepare() = 0;
@@ -16,6 +17,12 @@ public:
     
     void SetDeltaTime(float deltaTime) {_deltaTimeThisFrame = deltaTime;}
     float GetDeltaTime() const { return _deltaTimeThisFrame;}
+    
+    int GetViewportWidth() const { return _viewportWidth;}
+    int GetViewportHeight() const { return _viewportHeight;}
+    
 protected:
     float   _deltaTimeThisFrame = 0.0f;
+    int     _viewportWidth,_viewportHeight;
+    
 };

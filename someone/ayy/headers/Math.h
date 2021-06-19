@@ -25,6 +25,10 @@ const float PI = 3.1415926;
     cpp 给 shader 传矩阵值时，需要 做 转秩
     glUniformMatrix4fv(location,1,GL_TRUE,data)
     即 参数3 需要传为 GL_TRUE
+    
+    
+    右手坐标系
+    体现在 camera 的 View矩阵 和 Projection 矩阵里
  */
 
 /*
@@ -207,6 +211,7 @@ struct Vec
         {
             printf("[%d] %.3f,",i,data[i]);
         }
+        printf("\n");
     }
 };
 
@@ -358,6 +363,7 @@ extern void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz);
 extern void MakeRotateByXMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByYMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByZMatrix(Mat4x4f& mat,float rad);
+
 
 extern float RadToDeg(float rad);
 extern float DegToRad(float deg);

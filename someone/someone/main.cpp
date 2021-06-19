@@ -134,20 +134,18 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    lesson = new Lesson8();
+    lesson = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
     lesson->Prepare();
     
-    
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glEnable(GL_DEPTH_TEST);
     
-    // @miao @todo
     static double lastFrameTime = glfwGetTime();
-    
     
     while(!glfwWindowShouldClose(window))
     {
         // Render code here
-        glClear(GL_COLOR_BUFFER_BIT);   // render begin
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   // render begin
         
         double curTime = glfwGetTime();
         float deltaTime = curTime - lastFrameTime;
