@@ -21,6 +21,7 @@ public:
     
     ayy::Mat4x4f& GetViewMatrix();
     ayy::Mat4x4f& GetProjMatrix();
+    const ayy::Vec3f& GetLookDir() const { return _lookDir; }
     
     void SetLookTarget(const ayy::Vec3f& lookTarget);
     
@@ -43,14 +44,13 @@ protected:
     
     ayy::Vec3f      _eye;
     ayy::Vec3f      _center;
-    
-    ayy::Vec3f      _rotEuler;
+    ayy::Vec3f      _lookDir;
     
     ayy::Mat4x4f    _viewMat;
     bool            _bViewMatDirty = true;
     
     ayy::Mat4x4f    _projMat;
-    
+    bool            _bProjMatDirty = true;
     
     int     _viewportWidth,_viewportHeight;
     float   _fov;

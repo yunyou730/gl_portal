@@ -20,6 +20,7 @@ Camera::Camera(int viewportWidth,int viewportHeight)
 {
     _eye = kDefaultPos;
     _center = ayy::Vec3f(0,0,0);
+    _lookDir = _center - _eye;
     
     _viewMat.Identify();
     _projMat.Identify();
@@ -43,19 +44,13 @@ void Camera::CalcViewMatrix()
     x = z.Cross(kUpDir).Normalize();
     y = x.Cross(z).Normalize();
     
-    ayy::Mat4x4f matRot;
-    ayy::Mat4x4f matMove;
-    
-    matRot.Identify();
-    matMove.Identify();
-    
-    matRot.Set(0,0,x.x());    matRot.Set(1,0,x.y());    matRot.Set(2,0,x.z());
-    matRot.Set(0,1,y.x());    matRot.Set(1,1,y.y());    matRot.Set(2,1,y.z());
-    matRot.Set(0,2,z.x());    matRot.Set(1,2,z.y());    matRot.Set(2,2,z.z());
-    
-    matMove.Set(3,0,-_eye.x());    matMove.Set(3,1,-_eye.y());    matMove.Set(3,2,-_eye.z());
-    
-    _viewMat = matRot * matMove;
+    _viewMat.Identify();
+    _viewMat.Set(0,0,x.x());    _viewMat.Set(1,0,x.y());    _viewMat.Set(2,0,x.z());
+    _viewMat.Set(0,1,y.x());    _viewMat.Set(1,1,y.y());    _viewMat.Set(2,1,y.z());
+    _viewMat.Set(0,2,z.x());    _viewMat.Set(1,2,z.y());    _viewMat.Set(2,2,z.z());
+    _viewMat.Set(3,0,-_eye.Dot(x));
+    _viewMat.Set(3,1,-_eye.Dot(y));
+    _viewMat.Set(3,2, _eye.Dot(z));
 }
 
 void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
@@ -68,19 +63,21 @@ void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
 
 void Camera::TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ)
 {
-//    ayy::Mat4x4f rotX,rotY,rotZ;
-//
-//    _rotEuler.SetX(_rotEuler.x() + deltaDegX);
-//    _rotEuler.SetY(_rotEuler.y() + deltaDegY);
-//    _rotEuler.SetZ(_rotEuler.z() + deltaDegZ);
-//
-//    ayy::MakeRotateByXMatrix(rotX,ayy::DegToRad(_rotEuler.x()));
-//    ayy::MakeRotateByYMatrix(rotY,ayy::DegToRad(_rotEuler.y()));
-//    ayy::MakeRotateByZMatrix(rotZ,ayy::DegToRad(_rotEuler.z()));
-//
-//    _lookDir = (_lookDir * rotX * rotY * rotZ);
-//
-//    _lookDir.Normalize();
+    ayy::Mat4x4f rotX,rotY,rotZ;
+    
+    ayy::MakeRotateByXMatrix(rotX,ayy::DegToRad(deltaDegX));
+    ayy::MakeRotateByYMatrix(rotY,ayy::DegToRad(deltaDegY));
+    ayy::MakeRotateByZMatrix(rotZ,ayy::DegToRad(deltaDegZ));
+    
+    _lookDir.Normalize();
+    
+    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z());
+    tempDir = (tempDir * rotX * rotY * rotZ);
+    tempDir.Normalize();
+    
+    
+    _center = _eye + ayy::Vec3f(tempDir.x(),tempDir.y(),tempDir.z());
+    _lookDir = _center - _eye;
     
     _bViewMatDirty = true;
 }
@@ -88,23 +85,26 @@ void Camera::TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ)
 void Camera::SetLookTarget(const ayy::Vec3f& lookTarget)
 {
     _center = lookTarget;
+    _lookDir = (_center - _eye).Normalize();
     _bViewMatDirty = true;
 }
 
 ayy::Mat4x4f& Camera::GetProjMatrix()
 {
-    float cotangent = 1.0f / tan(DegToRad(GetFov() * 0.5f));
-    float aspect = (float)_viewportWidth / (float)_viewportHeight;
-    
-    _projMat.Identify();
-    
-    _projMat.Set(0,0,cotangent / aspect);
-    _projMat.Set(1,1,cotangent);
-    _projMat.Set(2,2,-1.f * (GetFar() + GetNear())/(GetFar() - GetNear()));
-    _projMat.Set(3,2,-1 * (2 * GetNear() * GetFar())/(GetFar() - GetNear()) );
-    _projMat.Set(2,3,-1.f);
-    _projMat.Set(3,3,0);          // 这里 如果设置为 0 ， 会导致整个顶点 x mvp 之后，w 为 0. 所以这样是不是不对？
-    
+    if(_bProjMatDirty)
+    {
+        float cotangent = 1.0f / tan(DegToRad(GetFov() * 0.5f));
+        float aspect = (float)_viewportWidth / (float)_viewportHeight;
+        
+        _projMat.Identify();
+        
+        _projMat.Set(0,0,cotangent / aspect);
+        _projMat.Set(1,1,cotangent);
+        _projMat.Set(2,2,-1.f * (GetFar() + GetNear())/(GetFar() - GetNear()));
+        _projMat.Set(3,2,-1 * (2 * GetNear() * GetFar())/(GetFar() - GetNear()) );
+        _projMat.Set(2,3,-1.f);
+        _projMat.Set(3,3,0);
+    }
     return _projMat;
 }
 

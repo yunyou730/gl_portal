@@ -156,72 +156,48 @@ void Lesson8::UpdateTransform(float deltaTime)
     ayy::MakeTranslateMatrix(matTranslate,0.0f,0,0);
     ayy::MakeScaleMatrix(matScale,1.0f);
     
-    
     ayy::MakeRotateByXMatrix(matRotateByX,ayy::DegToRad(_rot.x()));
     ayy::MakeRotateByYMatrix(matRotateByY,ayy::DegToRad(_rot.y()));
     ayy::MakeRotateByZMatrix(matRotateByZ,ayy::DegToRad(_rot.z()));
     matRot = matRotateByX * matRotateByY * matRotateByZ;
     
-//    _shader->SetUniformMat4x4("uScale",(GLfloat*)matScale.data);
-//    _shader->SetUniformMat4x4("uRotateZ",(GLfloat*)matRotateByZ.data);
-//    _shader->SetUniformMat4x4("uTranslate",(GLfloat*)matTranslate.data);
-//    _shader->SetUniformMat4x4("uView", (GLfloat*)_camera->GetViewMatrix().data);
-//    _shader->SetUniformMat4x4("uProject",(GLfloat*)_camera->GetProjMatrix().data);
-    
 //     mvp
     ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
     ayy::Mat4x4f matMVP = matModel * _camera->GetViewMatrix() * _camera->GetProjMatrix();
     _shader->SetUniformMat4x4("uMVP",(GLfloat*)matMVP.data);
-    
-    
-//    matModel.Dump();
-//    _camera->GetViewMatrix().Dump();
-//    _camera->GetProjMatrix().Dump();
-//    matMVP.Dump();
-    
-    /*
-    ayy::Vec4f test;
-    test.SetX(-0.5f);
-    test.SetY(-0.5f);
-    test.SetZ( 0.0f);
-    test.SetW( 1.0f);
-    
-    test.Dump();
-    matMVP.Dump();
-    
-    ayy::Vec4f t2 = test * matMVP;
-    
-    t2.Dump();
-     */
 }
 
 void Lesson8::HandleKeyboardInput(GLFWwindow* window)
 {
     // handle camera move
     float delta = GetDeltaTime() * _camMoveSpeed;
+    float deltaRot = GetDeltaTime() * _camRotSpeed;
+    
     if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
-        _camera->TakeMove(0.0f, delta, 0.0f);
+        ayy::Vec3f deltaVec = delta * _camera->GetLookDir();
+        _camera->TakeMove(deltaVec.x(),deltaVec.y(),deltaVec.z());
     }
     if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
-        _camera->TakeMove(0.0f, -delta, 0.0f);
+        ayy::Vec3f deltaVec = -delta * _camera->GetLookDir();
+        _camera->TakeMove(deltaVec.x(),deltaVec.y(),deltaVec.z());
     }
     if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        _camera->TakeMove(-delta, 0.0f, 0.0f);
+        _camera->TakeRot(0,deltaRot,0);
     }
     if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        _camera->TakeMove(delta, 0.0f, 0.0f);
+        _camera->TakeRot(0,-deltaRot,0);
     }
     if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
     {
-        _camera->TakeMove(0.0f, 0.0f, delta);
+        _camera->TakeRot(deltaRot,0,0);
     }
     if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
     {
-        _camera->TakeMove(0.0f, 0.0f, -delta);
+        _camera->TakeRot(-deltaRot,0,0);
     }
     
     // box rotate
@@ -255,36 +231,35 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     delta = _camRotSpeed * GetDeltaTime();
     if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
     {
-        _camera->SetLookTarget(ayy::Vec3f(-1,0,-1));
+//        _camera->TakeRot(delta,0,0);
     }
     if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
     {
-        _camera->SetLookTarget(ayy::Vec3f(1,0,-1));
+//        _camera->TakeRot(-delta,0,0);
     }
     if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
     {
-        _camera->SetLookTarget(ayy::Vec3f(-2,0,-1));
+//        _camera->SetLookTarget(ayy::Vec3f(-2,0,-1));
     }
     if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
     {
-        _camera->SetLookTarget(ayy::Vec3f(-10,0,-1));
+//        _camera->SetLookTarget(ayy::Vec3f(-10,0,-1));
     }
     
+    
+    /*
     int mouseLeftBtnState,mouseRightBtnState;
     mouseLeftBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_LEFT);
     if(mouseLeftBtnState == GLFW_PRESS)
     {
-        _test += delta;
-        _camera->SetLookTarget(ayy::Vec3f(_test,0,1));
+        _camera->TakeRot(0, delta,0);
     }
     
     mouseRightBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_RIGHT);
     if(mouseRightBtnState == GLFW_PRESS)
     {
-//        _camera->TakeRot(-delta,0,0);
-        _test -= delta;
-        _camera->SetLookTarget(ayy::Vec3f(_test,0,1));
+        _camera->TakeRot(0,-delta,0);
     }
-    
+    */
 
 }
