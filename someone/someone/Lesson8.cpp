@@ -70,30 +70,30 @@ void Lesson8::PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO)
     // rectangle
     float vertices[] = {
         // front
-        -0.5f,-0.5f,0.0f,       // left bottom pos
+        -0.5f,-0.5f,0.5f,       // left bottom pos
          0.0f, 0.0f,            // uv
         
-        -0.5f, 0.5f,0.0f,       // left top
+        -0.5f, 0.5f,0.5f,       // left top
          0.0f, 1.0f,            // uv
         
-         0.5f,-0.5f,0.0f,       // right bottom
+         0.5f,-0.5f,0.5f,       // right bottom
          1.0f, 0.0f,            // uv
         
-         0.5f, 0.5f,0.0f,       // right top
+         0.5f, 0.5f,0.5f,       // right top
          1.0f, 1.0f,            // uv
         
         
         // back
-        -0.5f,-0.5f,1.0f,       // left bottom pos
+        -0.5f,-0.5f,-0.5f,       // left bottom pos
          0.0f, 0.0f,            // uv
         
-        -0.5f, 0.5f,1.0f,       // left top
+        -0.5f, 0.5f,-0.5f,       // left top
          0.0f, 1.0f,            // uv
         
-         0.5f,-0.5f,1.0f,       // right bottom
+         0.5f,-0.5f,-0.5f,       // right bottom
          1.0f, 0.0f,            // uv
         
-         0.5f, 0.5f,1.0f,       // right top
+         0.5f, 0.5f,-0.5f,       // right top
          1.0f, 1.0f,            // uv
     };
     
@@ -223,49 +223,54 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
         _camera->TakeMove(0.0f, 0.0f, -delta);
     }
     
-    // handle camera rot
-    delta = GetDeltaTime() * _camRotSpeed;
+    // box rotate
+    delta = _rotSpeed * GetDeltaTime();
     if(glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
     {
-        _camera->TakeRot(0,0,-delta);
+        _rot.SetZ(_rot.z() + delta);
     }
     if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
     {
-        _camera->TakeRot(0,0,delta);
+        _rot.SetZ(_rot.z() - delta);
     }
     if(glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
     {
-        _camera->TakeRot(delta,0,0);
+        _rot.SetX(_rot.x() + delta);
     }
     if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
     {
-        _camera->TakeRot(-delta,0,0);
+        _rot.SetX(_rot.x() - delta);
     }
     if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
     {
-        _camera->TakeRot(0.0f,delta, 0.0f);
+        _rot.SetY(_rot.y() + delta);
     }
     if(glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
     {
-        _camera->TakeRot(0.0f,-delta,0.0f);
+        _rot.SetY(_rot.y() - delta);
     }
     
-    // handle box rot
+    // mouse input
     delta = _rotSpeed * GetDeltaTime();
     if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
     {
-        _rot.SetX(_rot.x() + delta);
+
     }
     if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
     {
-        _rot.SetX(_rot.x() - delta);
+
     }
-    if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+    
+    int mouseLeftBtnState,mouseRightBtnState;
+    mouseLeftBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_LEFT);
+    if(mouseLeftBtnState == GLFW_PRESS)
     {
-        _rot.SetZ(_rot.z() - delta);
+
     }
-    if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    
+    mouseRightBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_RIGHT);
+    if(mouseRightBtnState == GLFW_PRESS)
     {
-        _rot.SetZ(_rot.z() + delta);
+        
     }
 }
