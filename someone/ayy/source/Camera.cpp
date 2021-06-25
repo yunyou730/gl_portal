@@ -9,7 +9,6 @@ namespace ayy
  */
 const static ayy::Vec3f kUpDir(0,1,0);
 const static ayy::Vec3f kDefaultPos(0,0,5);
-const static ayy::Vec4f kDefaultLookDir(0,0,-1,0);
 
 Camera::Camera(int viewportWidth,int viewportHeight)
     :_viewportWidth(viewportWidth)
@@ -40,7 +39,7 @@ void Camera::CalcViewMatrix()
 {
     ayy::Vec3f z,x,y;   // camera z,x,y (forward,right,up)
     
-    z = (_center - _eye).Normalize();
+    z = _lookDir.Normalize();   // center - eye. center is target point, eye is position of camera
     x = z.Cross(kUpDir).Normalize();
     y = x.Cross(z).Normalize();
     
@@ -48,9 +47,9 @@ void Camera::CalcViewMatrix()
     _viewMat.Set(0,0,x.x());    _viewMat.Set(1,0,x.y());    _viewMat.Set(2,0,x.z());
     _viewMat.Set(0,1,y.x());    _viewMat.Set(1,1,y.y());    _viewMat.Set(2,1,y.z());
     _viewMat.Set(0,2,z.x());    _viewMat.Set(1,2,z.y());    _viewMat.Set(2,2,z.z());
-    _viewMat.Set(3,0,-_eye.Dot(x));
-    _viewMat.Set(3,1,-_eye.Dot(y));
-    _viewMat.Set(3,2, _eye.Dot(z));
+    _viewMat.Set(3,0,_eye.Dot(x));
+    _viewMat.Set(3,1,_eye.Dot(y));
+    _viewMat.Set(3,2,_eye.Dot(z));
 }
 
 void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
@@ -61,6 +60,10 @@ void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
     _bViewMatDirty = true;
 }
 
+/*
+ 核心是更新了 look dir
+ @miao todo
+*/
 void Camera::TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ)
 {
     ayy::Mat4x4f rotX,rotY,rotZ;
@@ -71,13 +74,26 @@ void Camera::TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ)
     
     _lookDir.Normalize();
     
-    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z());
-    tempDir = (tempDir * rotX * rotY * rotZ);
+//    _lookDir = _lookDir * rotY;
+//    _lookDir.Normalize();
+    
+    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z(),0.0f);
+    tempDir = tempDir * rotX * rotY * rotZ;
     tempDir.Normalize();
     
     
-    _center = _eye + ayy::Vec3f(tempDir.x(),tempDir.y(),tempDir.z());
-    _lookDir = _center - _eye;
+    _lookDir.SetX(tempDir.x());
+    _lookDir.SetY(tempDir.y());
+    _lookDir.SetZ(tempDir.z());
+    _lookDir.Normalize();
+    
+    // @miao @todo
+    
+//    tempDir = (tempDir * rotX * rotY * rotZ);
+//    tempDir.Normalize();
+//
+//    _center = _eye + ayy::Vec3f(tempDir.x(),tempDir.y(),tempDir.z());
+//    _lookDir = (_center - _eye).Normalize();
     
     _bViewMatDirty = true;
 }
@@ -87,6 +103,15 @@ void Camera::SetLookTarget(const ayy::Vec3f& lookTarget)
     _center = lookTarget;
     _lookDir = (_center - _eye).Normalize();
     _bViewMatDirty = true;
+}
+
+void Camera::SetLookDir(const ayy::Vec3f& lookDir)
+{
+    if(lookDir.Length() > 0)
+    {
+        _lookDir = lookDir.GetNormalize();
+        _bViewMatDirty = true;
+    }
 }
 
 ayy::Mat4x4f& Camera::GetProjMatrix()

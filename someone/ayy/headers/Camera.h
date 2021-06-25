@@ -24,6 +24,7 @@ public:
     const ayy::Vec3f& GetLookDir() const { return _lookDir; }
     
     void SetLookTarget(const ayy::Vec3f& lookTarget);
+    void SetLookDir(const ayy::Vec3f& lookDir);
     
     void SetPos(const ayy::Vec3f& pos);
     void SetEuler(float byX,float byY,float byZ);

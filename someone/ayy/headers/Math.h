@@ -113,7 +113,7 @@ struct Vec
         }
     }
     
-    T Length()
+    T Length() const
     {
         float total = 0;
         for(int i = 0;i < N;i++)
@@ -140,6 +140,21 @@ struct Vec
         }
         return *this;
     }
+    
+    Vec<T,N> GetNormalize() const
+    {
+        T len = Length();
+        Vec<T,N> result = *this;
+        if(len > T(0))
+        {
+            for(int i = 0;i < N;i++)
+            {
+                result.data[i] = data[i] / len;
+            }
+        }
+        return result;
+    }
+    
     
     Vec<T,N> GetNormal()
     {
@@ -252,7 +267,6 @@ struct Vec
 template<typename T,int RN,int CN>
 struct Mat
 {
-    
     /*
      [0][0] [0][1] [0][2] [0][3]
      [1][0] [1][1] [1][2] [1][3]

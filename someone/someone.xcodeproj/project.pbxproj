@@ -22,6 +22,8 @@
 		2B2A9C43266317B90078E004 /* color_texture.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C41266317AF0078E004 /* color_texture.vs */; };
 		2B2A9C462663200F0078E004 /* awesomeface.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C45266320060078E004 /* awesomeface.png */; };
 		2B3E7B43268554DD00B7D00B /* TestBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B42268554DD00B7D00B /* TestBatch.cpp */; };
+		2B3E7B54268587FB00B7D00B /* ground_plane.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B51268587DB00B7D00B /* ground_plane.fs */; };
+		2B3E7B55268587FB00B7D00B /* ground_plane.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B52268587DB00B7D00B /* ground_plane.vs */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -54,6 +56,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B3E7B54268587FB00B7D00B /* ground_plane.fs in CopyFiles */,
+				2B3E7B55268587FB00B7D00B /* ground_plane.vs in CopyFiles */,
 				2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */,
 				2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */,
 				2B1C7D062676ED1D004EC484 /* mvp_test.fs in CopyFiles */,
@@ -95,6 +99,8 @@
 		2B3E7B4D26857BD300B7D00B /* Batch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
 		2B3E7B4E26857BD300B7D00B /* PlaneBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaneBatch.h; sourceTree = "<group>"; };
 		2B3E7B4F26857BD300B7D00B /* TestBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBatch.h; sourceTree = "<group>"; };
+		2B3E7B51268587DB00B7D00B /* ground_plane.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.fs; sourceTree = "<group>"; };
+		2B3E7B52268587DB00B7D00B /* ground_plane.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.vs; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -291,6 +297,8 @@
 				2B1C7D052676ED0E004EC484 /* mvp_test.vs */,
 				2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */,
 				2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */,
+				2B3E7B51268587DB00B7D00B /* ground_plane.fs */,
+				2B3E7B52268587DB00B7D00B /* ground_plane.vs */,
 			);
 			path = res;
 			sourceTree = "<group>";

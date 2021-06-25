@@ -30,12 +30,14 @@ protected:
     void PrepareTexture();
     
 private:
-    void UpdateTransform(float deltaTime);
-    
+    void UpdateTransformBox(float deltaTime);
+    void UpdateTransformGround(float deltaTime);
 private:
-    ayy::Batch*   _batch = nullptr;
+    ayy::Batch*     _batch = nullptr;
+    ayy::Batch*     _groundBatch = nullptr;
     
-    ayy::ShaderProgram*  _shader = nullptr;
+    ayy::ShaderProgram*  _shader        = nullptr;
+    ayy::ShaderProgram*  _groundShader  = nullptr;
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;

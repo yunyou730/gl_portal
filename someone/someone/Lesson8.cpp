@@ -4,11 +4,17 @@
 #include "../ayy/headers/Camera.h"
 #include "TextureManager.h"
 #include "../ayy/headers/Batch/TestBatch.h"
+#include "../ayy/headers/Batch/PlaneBatch.h"
+
+
+static float _test = 0;
+static float _testSpeed = 0.5;
 
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
     :LessonBase(viewportWidth,viewportHeight)
 {
     _batch = new ayy::TestBatch();
+    _groundBatch = new ayy::PlaneBatch();
 }
 
 Lesson8::~Lesson8()
@@ -18,12 +24,22 @@ Lesson8::~Lesson8()
         delete _batch;
         _batch = nullptr;
     }
+    
+    if(_groundBatch != nullptr)
+    {
+        delete _groundBatch;
+        _groundBatch = nullptr;
+    }
 }
 
 void Lesson8::Prepare()
 {
     _shader = ayy::Util::CreateShaderWithFile("res/mvp_test_2.vs","res/mvp_test_2.fs");
+    _groundShader = ayy::Util::CreateShaderWithFile("res/ground_plane.vs","res/ground_plane.fs");
+    
     _batch->Prepare();
+    _groundBatch->Prepare();
+    
     PrepareTexture();
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
 }
@@ -33,37 +49,60 @@ void Lesson8::Cleanup()
     if(_shader != nullptr)
     {
         delete _shader;
+        _shader = nullptr;
     }
-    _shader = nullptr;
     
+    if(_groundShader != nullptr)
+    {
+        delete _groundShader;
+        _groundShader = nullptr;
+    }
     
     _batch->Cleanup();
+    _groundBatch->Cleanup();
     
     if(_camera != nullptr)
     {
         delete _camera;
+        _camera = nullptr;
     }
-    _camera = nullptr;
 }
 
 void Lesson8::OnRender(float deltaTime)
 {
-    // using shader
-    _shader->Use();
+    // draw box
+    {
+        // using shader
+        _shader->Use();
+        
+        // using texture
+        ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture1,0);
+        ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
+        _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
+        _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
+        
+        UpdateTransformBox(deltaTime);
+        
+        // box batch
+        _batch->Bind();
+        _batch->Draw();
+        _batch->UnBind();
+        
+        _shader->UnUse();
+    }
     
-    // using texture
-    ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture1,0);
-    ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
-    _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
-    _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
-    
-    UpdateTransform(deltaTime);
-    
-    // draw with VAO
-    _batch->Bind();
-    _batch->Draw();
-    _batch->UnBind();
-    _shader->UnUse();
+    // draw plane
+    {
+        _groundShader->Use();
+        
+        UpdateTransformGround(deltaTime);
+        
+        _groundBatch->Bind();
+        _groundBatch->Draw();
+        _groundBatch->UnBind();
+        
+        _groundShader->UnUse();
+    }
 }
 
 void Lesson8::PrepareTexture()
@@ -72,7 +111,7 @@ void Lesson8::PrepareTexture()
     _texture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/awesomeface.png");
 }
 
-void Lesson8::UpdateTransform(float deltaTime)
+void Lesson8::UpdateTransformBox(float deltaTime)
 {
     ayy::Mat4x4f matScale;
     ayy::Mat4x4f matTranslate;
@@ -90,6 +129,22 @@ void Lesson8::UpdateTransform(float deltaTime)
     ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
     ayy::Mat4x4f matMVP = matModel * _camera->GetViewMatrix() * _camera->GetProjMatrix();
     _shader->SetUniformMat4x4("uMVP",(GLfloat*)matMVP.data);
+}
+
+void Lesson8::UpdateTransformGround(float deltaTime)
+{
+    ayy::Mat4x4f matModel;
+    
+    ayy::Mat4x4f matScale,matTrans;
+    ayy::MakeScaleMatrix(matScale,20.0f);
+    ayy::MakeTranslateMatrix(matTrans,-10,-1,-10);
+    
+    matModel = matScale * matTrans;
+    
+    
+    _groundShader->SetUniformMat4x4("u_Model",(GLfloat*)matModel.data);
+    _groundShader->SetUniformMat4x4("u_View",(GLfloat*)_camera->GetViewMatrix().data);
+    _groundShader->SetUniformMat4x4("u_Projection",(GLfloat*)_camera->GetProjMatrix().data);
 }
 
 void Lesson8::HandleKeyboardInput(GLFWwindow* window)
@@ -110,11 +165,11 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     }
     if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        _camera->TakeRot(0,deltaRot,0);
+        _camera->TakeRot(0,-deltaRot,0);
     }
     if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        _camera->TakeRot(0,-deltaRot,0);
+        _camera->TakeRot(0,deltaRot,0);
     }
     if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
     {
