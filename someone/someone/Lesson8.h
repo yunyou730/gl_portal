@@ -10,6 +10,7 @@ namespace ayy
 class ShaderProgram;
 class Texture;
 class Camera;
+class Node;
 }
 
 class Lesson8 : public LessonBase
@@ -26,14 +27,14 @@ protected:
     virtual void HandleKeyboardInput(GLFWwindow* window) override;
     
 protected:
-    void PrepareMesh(GLuint& VAO,GLuint& VBO,GLuint& EBO);
     void PrepareTexture();
     
 private:
     void UpdateTransform(float deltaTime);
     
 private:
-    GLuint  _vao,_vbo,_ebo;
+    ayy::Node*   _node = nullptr;
+    
     ayy::ShaderProgram*  _shader = nullptr;
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
