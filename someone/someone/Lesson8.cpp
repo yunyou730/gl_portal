@@ -8,27 +8,24 @@
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
     :LessonBase(viewportWidth,viewportHeight)
 {
-    _node = new ayy::TestBatch();
+    _batch = new ayy::TestBatch();
 }
 
 Lesson8::~Lesson8()
 {
-    if(_node != nullptr)
+    if(_batch != nullptr)
     {
-        delete _node;
-        _node = nullptr;
+        delete _batch;
+        _batch = nullptr;
     }
 }
 
 void Lesson8::Prepare()
 {
     _shader = ayy::Util::CreateShaderWithFile("res/mvp_test_2.vs","res/mvp_test_2.fs");
-    
-    _node->Prepare();
+    _batch->Prepare();
     PrepareTexture();
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
-    
-    _node->Prepare();
 }
 
 void Lesson8::Cleanup()
@@ -40,7 +37,7 @@ void Lesson8::Cleanup()
     _shader = nullptr;
     
     
-    _node->Cleanup();
+    _batch->Cleanup();
     
     if(_camera != nullptr)
     {
@@ -63,10 +60,9 @@ void Lesson8::OnRender(float deltaTime)
     UpdateTransform(deltaTime);
     
     // draw with VAO
-    _node->Bind();
-    _node->Draw();
-    
-    _node->UnBind();
+    _batch->Bind();
+    _batch->Draw();
+    _batch->UnBind();
     _shader->UnUse();
 }
 

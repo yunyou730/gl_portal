@@ -33,7 +33,7 @@ private:
     void UpdateTransform(float deltaTime);
     
 private:
-    ayy::Batch*   _node = nullptr;
+    ayy::Batch*   _batch = nullptr;
     
     ayy::ShaderProgram*  _shader = nullptr;
     
