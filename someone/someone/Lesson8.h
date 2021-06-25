@@ -10,7 +10,7 @@ namespace ayy
 class ShaderProgram;
 class Texture;
 class Camera;
-class Node;
+class Batch;
 }
 
 class Lesson8 : public LessonBase
@@ -33,7 +33,7 @@ private:
     void UpdateTransform(float deltaTime);
     
 private:
-    ayy::Node*   _node = nullptr;
+    ayy::Batch*   _node = nullptr;
     
     ayy::ShaderProgram*  _shader = nullptr;
     

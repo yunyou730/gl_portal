@@ -1,13 +1,13 @@
-#include "Node.h"
+#include "Batch.h"
 #include "../TextureManager.h"
 
 namespace ayy {
 
-class TestNode : public Node
+class TestBatch : public Batch
 {
 public:
-    TestNode();
-    virtual ~TestNode();
+    TestBatch();
+    virtual ~TestBatch();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;

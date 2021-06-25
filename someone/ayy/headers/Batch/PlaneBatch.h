@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Batch.h"
 
 namespace ayy {
-class PlaneNode : public Node
+class PlaneNode : public Batch
 {
 public:
     

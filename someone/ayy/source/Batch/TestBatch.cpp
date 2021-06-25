@@ -1,34 +1,34 @@
-#include "../../headers/Node/TestNode.h"
+#include "../../headers/Batch/TestBatch.h"
 
 namespace ayy {
 
-TestNode::TestNode()
+TestBatch::TestBatch()
     :_vao(0),_vbo(0),_ebo(0)
 {
     
 }
 
-TestNode::~TestNode()
+TestBatch::~TestBatch()
 {
 
 }
 
-void TestNode::Bind()
+void TestBatch::Bind()
 {
     glBindVertexArray(_vao);
 }
 
-void TestNode::UnBind()
+void TestBatch::UnBind()
 {
     glBindVertexArray(0);
 }
 
-int TestNode::GetIndexCount()
+int TestBatch::GetIndexCount()
 {
     return 18;
 }
 
-void TestNode::Prepare()
+void TestBatch::Prepare()
 {
     GLuint& VAO = _vao;
     GLuint& VBO = _vbo;
@@ -109,7 +109,7 @@ void TestNode::Prepare()
 
 }
 
-void TestNode::Cleanup()
+void TestBatch::Cleanup()
 {
     if(_vao > 0)
     {
@@ -130,7 +130,7 @@ void TestNode::Cleanup()
     }
 }
 
-void TestNode::Draw()
+void TestBatch::Draw()
 {
     GLsizei indiceCount = GetIndexCount();
     glDrawElements(GL_TRIANGLES,indiceCount,GL_UNSIGNED_INT,(void*)0);

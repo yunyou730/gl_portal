@@ -3,12 +3,12 @@
 #include "../ayy/headers/Util.h"
 #include "../ayy/headers/Camera.h"
 #include "TextureManager.h"
-#include "../ayy/headers/Node/TestNode.h"
+#include "../ayy/headers/Batch/TestBatch.h"
 
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
     :LessonBase(viewportWidth,viewportHeight)
 {
-    _node = new ayy::TestNode();
+    _node = new ayy::TestBatch();
 }
 
 Lesson8::~Lesson8()
