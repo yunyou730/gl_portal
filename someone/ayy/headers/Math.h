@@ -26,7 +26,6 @@ const float PI = 3.1415926;
     glUniformMatrix4fv(location,1,GL_TRUE,data)
     即 参数3 需要传为 GL_TRUE
     
-    
     右手坐标系
     体现在 camera 的 View矩阵 和 Projection 矩阵里
  */
@@ -171,7 +170,7 @@ struct Vec
     }
     
     
-    Vec<T,N> operator+(const Vec<T,N>& other)
+    Vec<T,N> operator+(const Vec<T,N>& other) const
     {
         Vec<T,N> result;
         for(int i = 0;i < N;i++)
@@ -181,7 +180,7 @@ struct Vec
         return result;
     }
     
-    Vec<T,N> operator-(const Vec<T,N>& other)
+    Vec<T,N> operator-(const Vec<T,N>& other) const
     {
         Vec<T,N> result;
         for(int i = 0;i < N;i++)
@@ -251,6 +250,15 @@ struct Vec
             result.data[i] *= inverse;
         }
         return result;
+    }
+    
+    
+    void InvserSelf()
+    {
+        for(int i = 0;i < N;i++)
+        {
+            data[i] = -data[i];
+        }
     }
     
     void Dump()
@@ -325,6 +333,20 @@ struct Mat
     {
         assert(r >= 0 && r < RN && c >= 0 && c < CN);
         return data[r][c];
+    }
+    
+    // @miao @todo
+    void InverseSelf()
+    {
+        assert(RN == CN);
+        
+        for(int r = 0;r < RN;r++)
+        {
+            for(int c = 0;c < CN;c++)
+            {
+                
+            }
+        }
     }
     
     void Dump()
@@ -411,6 +433,7 @@ extern void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz);
 extern void MakeRotateByXMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByYMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByZMatrix(Mat4x4f& mat,float rad);
+extern void MakeRotateByAxisMatrix(Mat4x4f& mat,const Vec3f& axis,float rad);
 
 
 extern float RadToDeg(float rad);

@@ -65,4 +65,44 @@ void MakeRotateByZMatrix(Mat4x4f& mat,float rad)
     mat.data[1][0] = -sinValue;
     mat.data[0][1] = sinValue;
 }
+
+
+void MakeRotateByAxisMatrix(Mat4x4f& mat,const Vec3f& axis,float rad)
+{
+    float sinV = sin(rad);
+    float cosV = cos(rad);
+    
+    float nx = axis.x();
+    float ny = axis.y();
+    float nz = axis.z();
+    
+    mat.Identify();
+
+    /*
+    mat.data[0][0] = nx * nx * (1 - cosV) + cosV;
+    mat.data[1][0] = nx * ny * (1 - cosV) + nz * cosV;
+    mat.data[2][0] = nx * nz * (1 - cosV) - ny * sinV;
+    
+    mat.data[0][1] = nx * ny * (1 - cosV) - nz * sinV;
+    mat.data[1][1] = ny * ny * (1 - cosV) + cosV;
+    mat.data[2][1] = ny * nz * (1 - cosV) + nx * sinV;
+    
+    mat.data[0][2] = nx * nz * (1 - cosV) + ny * sinV;
+    mat.data[1][2] = ny * nz * (1 - cosV) - nx * sinV;
+    mat.data[2][2] = nz * nz * (1 - cosV) + cosV;
+    */
+    
+    mat.data[0][0] = nx * nx * (1 - cosV) + cosV;
+    mat.data[0][1] = nx * ny * (1 - cosV) + nz * cosV;
+    mat.data[0][2] = nx * nz * (1 - cosV) - ny * sinV;
+    
+    mat.data[1][0] = nx * ny * (1 - cosV) - nz * sinV;
+    mat.data[1][1] = ny * ny * (1 - cosV) + cosV;
+    mat.data[1][2] = ny * nz * (1 - cosV) + nx * sinV;
+    
+    mat.data[2][0] = nx * nz * (1 - cosV) + ny * sinV;
+    mat.data[2][1] = ny * nz * (1 - cosV) - nx * sinV;
+    mat.data[2][2] = nz * nz * (1 - cosV) + cosV;
+}
+
 }

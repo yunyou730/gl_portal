@@ -31,23 +31,24 @@ protected:
     
 private:
     void UpdateTransformBox(float deltaTime);
+    void UpdateTransformBox2(float deltaTime);
     void UpdateTransformGround(float deltaTime);
 private:
     ayy::Batch*     _batch = nullptr;
     ayy::Batch*     _groundBatch = nullptr;
     
     ayy::ShaderProgram*  _shader        = nullptr;
+    ayy::ShaderProgram*  _box2Shader   = nullptr;
     ayy::ShaderProgram*  _groundShader  = nullptr;
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
-    
     
     float       _rotSpeed  = 90;
     ayy::Vec3f  _rot;
     
     ayy::Camera*  _camera = nullptr;
     
-    float   _camMoveSpeed   = 1.0f;
-    float   _camRotSpeed    = 45.0f;
+    float   _camMoveSpeed   = 3.0f;
+    float   _camRotSpeed    = 180.0f;
 };
