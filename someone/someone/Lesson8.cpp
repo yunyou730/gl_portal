@@ -60,6 +60,7 @@ void Lesson8::Prepare()
     
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
+    _camera->SetPos(ayy::Vec3f(0,0,-7));
 }
 
 void Lesson8::Cleanup()

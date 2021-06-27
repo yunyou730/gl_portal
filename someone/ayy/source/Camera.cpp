@@ -157,6 +157,12 @@ void Camera::CalcLocalAxis()
     CalcLocalDirByLookDir();
 }
 
+
+void Camera::SetPos(const ayy::Vec3f& pos)
+{
+    _eye = pos;
+}
+
 void Camera::Dump() const
 {
     // dump
