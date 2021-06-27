@@ -23,7 +23,7 @@ public:
     ayy::Mat4x4f& GetProjMatrix();
     
     const ayy::Vec3f& GetLookDir() const { return _lookDir; }
-    const ayy::Vec3f& GetLeftDir() const { return _leftDir; }
+    const ayy::Vec3f& GetRightDir() const { return _rightDir; }
     const ayy::Vec3f& GetUpDir() const { return _upDir; }
     
     void SetPos(const ayy::Vec3f& pos);
@@ -46,6 +46,8 @@ public:
     float GetFar() const { return _far;}
     float GetNear() const { return _near;}
     
+    void Dump() const;
+    
 protected:
     void CalcViewMatrix();
     void CalcLocalDirByLookDir();
@@ -58,7 +60,7 @@ protected:
     ayy::Vec3f      _eye;
     
     ayy::Vec3f      _lookDir;       // local z
-    ayy::Vec3f      _leftDir;      // local x
+    ayy::Vec3f      _rightDir;      // local x
     ayy::Vec3f      _upDir;         // local y
     
     ayy::Mat4x4f    _viewMat;

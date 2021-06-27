@@ -5,6 +5,8 @@
 #include "TextureManager.h"
 #include "../ayy/headers/Batch/TestBatch.h"
 #include "../ayy/headers/Batch/PlaneBatch.h"
+#include "Node/CommonNode.h"
+#include "../ayy/headers/Common.h"
 
 
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
@@ -12,208 +14,84 @@ Lesson8::Lesson8(int viewportWidth,int viewportHeight)
 {
     _batch = new ayy::TestBatch();
     _groundBatch = new ayy::PlaneBatch();
+    _box1 = new CommonNode();
+    _box2 = new CommonNode();
+    _ground = new CommonNode();
 }
 
 Lesson8::~Lesson8()
 {
-    if(_batch != nullptr)
-    {
-        delete _batch;
-        _batch = nullptr;
-    }
-    
-    if(_groundBatch != nullptr)
-    {
-        delete _groundBatch;
-        _groundBatch = nullptr;
-    }
+    AYY_SAFE_DEL(_batch);
+    AYY_SAFE_DEL(_groundBatch);
+    AYY_SAFE_DEL(_box1);
+    AYY_SAFE_DEL(_box2);
 }
 
 void Lesson8::Prepare()
 {
-    _shader = ayy::Util::CreateShaderWithFile("res/mvp_test_2.vs","res/mvp_test_2.fs");
-    _box2Shader = ayy::Util::CreateShaderWithFile("res/mvp_test_2.vs","res/mvp_test_2.fs");
+    // res
+    _commonShader = ayy::Util::CreateShaderWithFile("res/common.vs","res/common.fs");
     _groundShader = ayy::Util::CreateShaderWithFile("res/ground_plane.vs","res/ground_plane.fs");
     
     _batch->Prepare();
-//    _box2Batch->Prepare();
     _groundBatch->Prepare();
-    
+        
     PrepareTexture();
+    
+    // box1
+    _box1->AddTex(_texture1);
+    _box1->AddTex(_texture2);
+    _box1->SetBatch(_batch);
+    _box1->SetShader(_commonShader);
+    _box1->SetRotAxis(ayy::Vec3f(1,1,1));
+    
+    // box2
+    _box2->AddTex(_texture1);
+    _box2->AddTex(_texture2);
+    _box2->SetBatch(_batch);
+    _box2->SetShader(_commonShader);
+    _box2->SetRotAxis(ayy::Vec3f(0,1,0));
+    
+    // ground
+    _ground->SetBatch(_groundBatch);
+    _ground->SetShader(_groundShader);
+    _ground->SetPosition(-10,-2,-10);
+    _ground->SetScale(20);
+    
+    // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
 }
 
 void Lesson8::Cleanup()
 {
-    if(_shader != nullptr)
-    {
-        delete _shader;
-        _shader = nullptr;
-    }
-    
-    if(_groundShader != nullptr)
-    {
-        delete _groundShader;
-        _groundShader = nullptr;
-    }
-    
+    AYY_SAFE_DEL(_commonShader);
+    AYY_SAFE_DEL(_groundShader);
     _batch->Cleanup();
     _groundBatch->Cleanup();
+    AYY_SAFE_DEL(_camera);
+}
+
+void Lesson8::OnUpdate()
+{
+    _box1->SetRotation(_box1->GetRotation() + GetDeltaTime() * _rotSpeed);
+    _box1->SetPosition(0,0,0);
     
-    if(_camera != nullptr)
-    {
-        delete _camera;
-        _camera = nullptr;
-    }
+//    _box2->SetRotation(_box2->GetRotation() + GetDeltaTime() * _rotSpeed);
+    _box2->SetPosition(0,1,-4);
 }
 
 void Lesson8::OnRender(float deltaTime)
 {
-    // draw box
-    {
-        // using shader
-        _shader->Use();
-        
-        // using texture
-        ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture1,0);
-        ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
-        _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
-        _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
-        
-        UpdateTransformBox(deltaTime);
-        
-        // box batch
-        _batch->Bind();
-        _batch->Draw();
-        _batch->UnBind();
-        
-        _shader->UnUse();
-    }
-    
-    // box2
-    {
-        _box2Shader->Use();
-        
-        // using texture
-        ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture1,0);
-        ayy::TextureManager::GetInstance()->BindTextureToSlot(_texture2,1);
-        _box2Shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
-        _box2Shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
-        
-        UpdateTransformBox2(deltaTime);
-        
-        // box2 batch
-        _batch->Bind();
-        _batch->Draw();
-        _batch->UnBind();
-        
-        _box2Shader->UnUse();
-    }
-    
-    // draw plane
-    {
-        _groundShader->Use();
-        
-        UpdateTransformGround(deltaTime);
-        
-        _groundBatch->Bind();
-        _groundBatch->Draw();
-        _groundBatch->UnBind();
-        
-        _groundShader->UnUse();
-    }
-    
-    
-    // dump
-    ayy::Vec3f look = _camera->GetLookDir();
-    printf("camera look");
-    look.Dump();
-    
-    
-    ayy::Vec3f left = _camera->GetLeftDir();
-    printf("left dir");
-    left.Dump();
-    
-    ayy::Vec3f up = _camera->GetUpDir();
-    
-    float dot = left.Dot(look);
-    printf("left dot look:%.5f\n",dot);
-    
-    dot = up.Dot(look);
-    printf("up dot look:%.5f\n",dot);
-    
-    dot = up.Dot(left);
-    printf("up dot left:%.5f\n",dot);
-    
+    _box1->OnRender(_camera);
+    _box2->OnRender(_camera);
+    _ground->OnRender(_camera);
+//    _camera->Dump();
 }
 
 void Lesson8::PrepareTexture()
 {
     _texture1 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/container.jpg");
     _texture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/awesomeface.png");
-}
-
-void Lesson8::UpdateTransformBox(float deltaTime)
-{
-    ayy::Vec3f pos(1,1,1);
-    ayy::Vec3f axis(1,1,0);
-    
-    axis.Normalize();
-    _box1Rot += deltaTime * _rotSpeed;
-    
-    
-    ayy::Mat4x4f matScale;
-    ayy::Mat4x4f matTranslate;
-    ayy::Mat4x4f matRot;
-
-    
-//    matTranslate.Identify();
-    ayy::MakeTranslateMatrix(matTranslate,1,0,1);
-    matScale.Identify();
-    
-    ayy::MakeRotateByAxisMatrix(matRot,axis,ayy::DegToRad(_box1Rot));
-    
-    
-    
-//     mvp
-    ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
-    ayy::Mat4x4f matMVP = matModel * _camera->GetViewMatrix() * _camera->GetProjMatrix();
-    _shader->SetUniformMat4x4("uMVP",(GLfloat*)matMVP.data);
-}
-
-void Lesson8::UpdateTransformBox2(float deltaTime)
-{
-    ayy::Mat4x4f matScale;
-    ayy::Mat4x4f matTranslate;
-    ayy::Mat4x4f matRot,matRotateByX,matRotateByY,matRotateByZ;
-    
-    ayy::MakeTranslateMatrix(matTranslate,0,1,-4);
-    ayy::MakeScaleMatrix(matScale,1.0f);
-    
-    ayy::MakeRotateByXMatrix(matRotateByX,ayy::DegToRad(_rot.x()));
-    ayy::MakeRotateByYMatrix(matRotateByY,ayy::DegToRad(_rot.y()));
-    ayy::MakeRotateByZMatrix(matRotateByZ,ayy::DegToRad(_rot.z()));
-    matRot = matRotateByX * matRotateByY * matRotateByZ;
-    
-//     mvp
-    ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
-    ayy::Mat4x4f matMVP = matModel * _camera->GetViewMatrix() * _camera->GetProjMatrix();
-    _box2Shader->SetUniformMat4x4("uMVP",(GLfloat*)matMVP.data);
-}
-
-void Lesson8::UpdateTransformGround(float deltaTime)
-{
-    ayy::Mat4x4f matModel;
-    
-    ayy::Mat4x4f matScale,matTrans;
-    ayy::MakeScaleMatrix(matScale,20.0f);
-    ayy::MakeTranslateMatrix(matTrans,-10,-1,-10);
-    
-    matModel = matScale * matTrans;
-    
-    _groundShader->SetUniformMat4x4("u_Model",(GLfloat*)matModel.data);
-    _groundShader->SetUniformMat4x4("u_View",(GLfloat*)_camera->GetViewMatrix().data);
-    _groundShader->SetUniformMat4x4("u_Projection",(GLfloat*)_camera->GetProjMatrix().data);
 }
 
 void Lesson8::HandleKeyboardInput(GLFWwindow* window)
@@ -234,21 +112,21 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     }
     if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        ayy::Vec3f deltaVec = delta * _camera->GetLeftDir();
+        ayy::Vec3f deltaVec = -delta * _camera->GetRightDir();
         _camera->TakeMove(deltaVec.x(),deltaVec.y(),deltaVec.z());
     }
     if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        ayy::Vec3f deltaVec = -delta * _camera->GetLeftDir();
+        ayy::Vec3f deltaVec = delta * _camera->GetRightDir();
         _camera->TakeMove(deltaVec.x(),deltaVec.y(),deltaVec.z());
     }
     if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
     {
-        _camera->TakeRoll(deltaRot);
+        _camera->TakeYaw(-deltaRot);
     }
     if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
     {
-        _camera->TakeRoll(-deltaRot);
+        _camera->TakeYaw(deltaRot);
     }
     
     // box rotate
@@ -296,5 +174,4 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     {
         _camera->TakeYaw(deltaRot);
     }
-
 }

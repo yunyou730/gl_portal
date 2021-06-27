@@ -6,10 +6,12 @@ namespace ayy
 /*
     default pos  (0,0,5)
     default look dir (0,0,-1,0) // w = 0 means vector is a direction
+ 
+    right hand coordinate
  */
 const static ayy::Vec3f kWorldUpDir(0,1,0);
-const static ayy::Vec3f kDefaultPos(0,0,5);
-const static ayy::Vec3f kDefaultLookDir(0,0,-1);
+const static ayy::Vec3f kDefaultPos(0,0,-5);
+const static ayy::Vec3f kDefaultLookDir(0,0,1);
 
 Camera::Camera(int viewportWidth,int viewportHeight)
     :_viewportWidth(viewportWidth)
@@ -41,25 +43,10 @@ void Camera::CalcViewMatrix()
 {
     ayy::Vec3f z,x,y;   // camera z,x,y (forward,right,up)
     
-    z = _lookDir;
-    x = _leftDir;
+    z = _lookDir * -1;
+    x = _rightDir;
     y = _upDir;
     
-    /*
-    _viewMat.Identify();
-    
-    _viewMat.Set(0,0,x.x());    _viewMat.Set(0,1,x.y());    _viewMat.Set(0,2,x.z());
-    _viewMat.Set(1,0,y.x());    _viewMat.Set(1,1,y.y());    _viewMat.Set(1,2,y.z());
-    _viewMat.Set(2,0,z.x());    _viewMat.Set(2,1,z.y());    _viewMat.Set(2,2,z.z());
-    
-    _viewMat.Set(3,0,_eye.Dot(x));
-    _viewMat.Set(3,1,_eye.Dot(y));
-    _viewMat.Set(3,2,_eye.Dot(z));
-    */
-    
-    
-    
-    // @miao @todo
     ayy::Mat4x4f matRot,matTrans;
     
     matRot.Identify();
@@ -69,9 +56,9 @@ void Camera::CalcViewMatrix()
     matRot.Set(0,2,z.x());    matRot.Set(1,2,z.y());    matRot.Set(2,2,z.z());
     
     matTrans.Identify();
-    matTrans.Set(3,0,_eye.Dot(x));
-    matTrans.Set(3,1,_eye.Dot(y));
-    matTrans.Set(3,2,_eye.Dot(z));
+    matTrans.Set(3,0,-_eye.Dot(x));
+    matTrans.Set(3,1,-_eye.Dot(y));
+    matTrans.Set(3,2,-_eye.Dot(z));
     
     _viewMat = matRot * matTrans;
     
@@ -90,6 +77,7 @@ void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
 void Camera::TakePitch(float deltaDeg)
 {
     _pitch += deltaDeg;
+    ayy::Clamp<float>(_pitch,-45,45);
     CalcLocalAxis();
     _bViewMatDirty = true;
 }
@@ -132,8 +120,8 @@ ayy::Mat4x4f& Camera::GetProjMatrix()
 
 void Camera::CalcLocalDirByLookDir()
 {
-    _leftDir = _lookDir.Cross(kWorldUpDir).Normalize();
-    _upDir = _leftDir.Cross(_lookDir).Normalize();
+    _rightDir = kWorldUpDir.Cross(_lookDir).Normalize();
+    _upDir = _lookDir.Cross(_rightDir).Normalize();
 }
 
 void Camera::CalcLocalAxis()
@@ -159,16 +147,38 @@ void Camera::CalcLocalAxis()
     // look dir
     ayy::Vec4f tempLookDir = defaultLookDir * rotX * rotY;// * rotZ;
     tempLookDir.Normalize();
+    tempLookDir = tempLookDir;
     
     _lookDir.SetX(tempLookDir.x());
     _lookDir.SetY(tempLookDir.y());
     _lookDir.SetZ(tempLookDir.z());
     _lookDir.Normalize();
     
+    CalcLocalDirByLookDir();
+}
+
+void Camera::Dump() const
+{
+    // dump
+    ayy::Vec3f look = GetLookDir();
+    printf("camera look");
+    look.Dump();
+
+
+    ayy::Vec3f localXDir = GetRightDir();
+    printf("localXDir");
+    localXDir.Dump();
+
+    ayy::Vec3f up = GetUpDir();
+
+    float dot = localXDir.Dot(look);
+    printf("left dot look:%.5f\n",dot);
+
+    dot = up.Dot(look);
+    printf("up dot look:%.5f\n",dot);
+
+    dot = up.Dot(localXDir);
+    printf("up dot left:%.5f\n",dot);
     
-    
-    
-    _leftDir = _lookDir.Cross(kWorldUpDir).Normalize();
-    _upDir = _leftDir.Cross(_lookDir).Normalize();
 }
 }

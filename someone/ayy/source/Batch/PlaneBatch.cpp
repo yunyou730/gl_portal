@@ -18,10 +18,10 @@ PlaneBatch::~PlaneBatch()
 void PlaneBatch::Prepare()
 {
     float vertices[] = {
-                0, kPosY, 0,       // left back
-                0, kPosY, kSideLen,        // left front
-         kSideLen, kPosY, 0,        // right back
-         kSideLen, kPosY, kSideLen,        // right front
+                0,          kPosY, 0,       // left back
+                0,          kPosY, kSideLen,        // left front
+                kSideLen,   kPosY, 0,        // right back
+                kSideLen,   kPosY, kSideLen,        // right front
     };
     
     // rectangle indice

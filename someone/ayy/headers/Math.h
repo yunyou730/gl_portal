@@ -429,6 +429,7 @@ typedef Vec<float,4>        Vec4f;
 typedef Mat<float,4,4>      Mat4x4f;
 
 extern void MakeScaleMatrix(Mat4x4f& mat,float scale);
+extern void MakeScaleMatrix(Mat4x4f& mat,float sx,float sy,float sz);
 extern void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz);
 extern void MakeRotateByXMatrix(Mat4x4f& mat,float rad);
 extern void MakeRotateByYMatrix(Mat4x4f& mat,float rad);

@@ -21,6 +21,14 @@ void MakeScaleMatrix(Mat4x4f& mat,float scale)
     mat.data[2][2] = scale;
 }
 
+void MakeScaleMatrix(Mat4x4f& mat,float sx,float sy,float sz)
+{
+    mat.Identify();
+    mat.data[0][0] = sx;
+    mat.data[1][1] = sy;
+    mat.data[2][2] = sz;
+}
+
 void MakeTranslateMatrix(Mat4x4f& mat,float ox,float oy,float oz)
 {
     mat.Identify();

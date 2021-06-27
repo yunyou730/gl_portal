@@ -140,6 +140,7 @@ int main(int argc, const char * argv[])
         lesson->SetDeltaTime(deltaTime);
         lastFrameTime = curTime;
         
+        lesson->OnUpdate();
         lesson->OnRender(deltaTime);
 
         // render end
