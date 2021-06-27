@@ -26,9 +26,6 @@ public:
     const ayy::Vec3f& GetLeftDir() const { return _leftDir; }
     const ayy::Vec3f& GetUpDir() const { return _upDir; }
     
-    void SetLookTarget(const ayy::Vec3f& lookTarget);
-    void SetLookDir(const ayy::Vec3f& lookDir);
-    
     void SetPos(const ayy::Vec3f& pos);
     void SetEuler(float byX,float byY,float byZ);
     
@@ -42,6 +39,9 @@ public:
     // rot by local z
     void TakeRoll(float deltaDeg);
     
+    // rot by world y
+    void TakeHeading(float deltaDeg);
+    
     float GetFov() const { return _fov;}
     float GetFar() const { return _far;}
     float GetNear() const { return _near;}
@@ -49,6 +49,8 @@ public:
 protected:
     void CalcViewMatrix();
     void CalcLocalDirByLookDir();
+    void CalcLocalAxis();
+    
 protected:
     ECamProjMode    _mode;
     
@@ -69,6 +71,10 @@ protected:
     float   _fov;
     float   _far;
     float   _near;
+    
+    float   _pitch = 0;
+    float   _yaw = 0;
+    float   _roll = 0;
 };
 
 }

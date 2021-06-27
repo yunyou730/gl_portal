@@ -50,5 +50,8 @@ private:
     ayy::Camera*  _camera = nullptr;
     
     float   _camMoveSpeed   = 3.0f;
-    float   _camRotSpeed    = 180.0f;
+    float   _camRotSpeed    = 180;
+    
+    
+    float   _box1Rot = 0;
 };

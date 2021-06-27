@@ -439,5 +439,17 @@ extern void MakeRotateByAxisMatrix(Mat4x4f& mat,const Vec3f& axis,float rad);
 extern float RadToDeg(float rad);
 extern float DegToRad(float deg);
 
+
+template<typename T>
+void Clamp(T& v,T min,T max)
+{
+    assert(min <= max);
+    
+    if(v < min)
+        v = min;
+    if(v > max)
+        v = max;
+}
+
 }
 

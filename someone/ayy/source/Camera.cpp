@@ -9,6 +9,7 @@ namespace ayy
  */
 const static ayy::Vec3f kWorldUpDir(0,1,0);
 const static ayy::Vec3f kDefaultPos(0,0,5);
+const static ayy::Vec3f kDefaultLookDir(0,0,-1);
 
 Camera::Camera(int viewportWidth,int viewportHeight)
     :_viewportWidth(viewportWidth)
@@ -19,7 +20,7 @@ Camera::Camera(int viewportWidth,int viewportHeight)
 {
     _eye = kDefaultPos;
     
-    _lookDir = ayy::Vec3f(0,0,-1);
+    _lookDir = kDefaultLookDir;
     CalcLocalDirByLookDir();
     
     _viewMat.Identify();
@@ -44,13 +45,37 @@ void Camera::CalcViewMatrix()
     x = _leftDir;
     y = _upDir;
     
+    /*
     _viewMat.Identify();
-    _viewMat.Set(0,0,x.x());    _viewMat.Set(1,0,x.y());    _viewMat.Set(2,0,x.z());
-    _viewMat.Set(0,1,y.x());    _viewMat.Set(1,1,y.y());    _viewMat.Set(2,1,y.z());
-    _viewMat.Set(0,2,z.x());    _viewMat.Set(1,2,z.y());    _viewMat.Set(2,2,z.z());
+    
+    _viewMat.Set(0,0,x.x());    _viewMat.Set(0,1,x.y());    _viewMat.Set(0,2,x.z());
+    _viewMat.Set(1,0,y.x());    _viewMat.Set(1,1,y.y());    _viewMat.Set(1,2,y.z());
+    _viewMat.Set(2,0,z.x());    _viewMat.Set(2,1,z.y());    _viewMat.Set(2,2,z.z());
+    
     _viewMat.Set(3,0,_eye.Dot(x));
     _viewMat.Set(3,1,_eye.Dot(y));
     _viewMat.Set(3,2,_eye.Dot(z));
+    */
+    
+    
+    
+    // @miao @todo
+    ayy::Mat4x4f matRot,matTrans;
+    
+    matRot.Identify();
+    
+    matRot.Set(0,0,x.x());    matRot.Set(1,0,x.y());    matRot.Set(2,0,x.z());
+    matRot.Set(0,1,y.x());    matRot.Set(1,1,y.y());    matRot.Set(2,1,y.z());
+    matRot.Set(0,2,z.x());    matRot.Set(1,2,z.y());    matRot.Set(2,2,z.z());
+    
+    matTrans.Identify();
+    matTrans.Set(3,0,_eye.Dot(x));
+    matTrans.Set(3,1,_eye.Dot(y));
+    matTrans.Set(3,2,_eye.Dot(z));
+    
+    _viewMat = matRot * matTrans;
+    
+    
 }
 
 void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
@@ -61,110 +86,27 @@ void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
     _bViewMatDirty = true;
 }
 
-/*
- 更新 look dir
-*/
-void Camera::TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ)
-{
-    ayy::Mat4x4f rotX,rotY,rotZ;
-    ayy::MakeRotateByXMatrix(rotX,ayy::DegToRad(deltaDegX));
-    ayy::MakeRotateByYMatrix(rotY,ayy::DegToRad(deltaDegY));
-    ayy::MakeRotateByZMatrix(rotZ,ayy::DegToRad(deltaDegZ));
-    
-    _lookDir.Normalize();
-    
-    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z(),0.0f);
-    tempDir = tempDir * rotY * rotX * rotZ;
-    tempDir.Normalize();
-    
-    _lookDir.SetX(tempDir.x());
-    _lookDir.SetY(tempDir.y());
-    _lookDir.SetZ(tempDir.z());
-    _lookDir.Normalize();
-    CalcLocalDirByLookDir();
-    
-    _bViewMatDirty = true;
-}
-
-
 // rot by local x
 void Camera::TakePitch(float deltaDeg)
 {
-    ayy::Mat4x4f rot;
-    ayy::MakeRotateByAxisMatrix(rot,_leftDir,ayy::DegToRad(deltaDeg));
-    
-    _lookDir.Normalize();
-    
-    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z(),0.0f);
-    tempDir = tempDir * rot;
-    tempDir.Normalize();
-    
-    _lookDir.SetX(tempDir.x());
-    _lookDir.SetY(tempDir.y());
-    _lookDir.SetZ(tempDir.z());
-    _lookDir.Normalize();
-    CalcLocalDirByLookDir();
-    
+    _pitch += deltaDeg;
+    CalcLocalAxis();
     _bViewMatDirty = true;
 }
 // rot by local y
 void Camera::TakeYaw(float deltaDeg)
 {
-    ayy::Mat4x4f rot;
-    ayy::MakeRotateByAxisMatrix(rot,_upDir,ayy::DegToRad(deltaDeg));
-    
-    _lookDir.Normalize();
-    
-    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z(),0.0f);
-    tempDir = tempDir * rot;
-    tempDir.Normalize();
-    
-    _lookDir.SetX(tempDir.x());
-    _lookDir.SetY(tempDir.y());
-    _lookDir.SetZ(tempDir.z());
-    _lookDir.Normalize();
-    CalcLocalDirByLookDir();
-    
+    _yaw += deltaDeg;
+    CalcLocalAxis();
     _bViewMatDirty = true;
 }
 
 // rot by local z
 void Camera::TakeRoll(float deltaDeg)
 {
-    ayy::Mat4x4f rot;
-    ayy::MakeRotateByAxisMatrix(rot,_lookDir,ayy::DegToRad(deltaDeg));
-    
-    _lookDir.Normalize();
-    
-    ayy::Vec4f tempDir(_lookDir.x(),_lookDir.y(),_lookDir.z(),0.0f);
-    tempDir = tempDir * rot;
-    tempDir.Normalize();
-    
-    _lookDir.SetX(tempDir.x());
-    _lookDir.SetY(tempDir.y());
-    _lookDir.SetZ(tempDir.z());
-    _lookDir.Normalize();
-    CalcLocalDirByLookDir();
-    
+    _roll += deltaDeg;
+    CalcLocalAxis();
     _bViewMatDirty = true;
-}
-
-void Camera::SetLookTarget(const ayy::Vec3f& lookTarget)
-{
-    _lookDir = (lookTarget - _eye).Normalize();
-    assert(_lookDir.Length() > 0);
-    CalcLocalDirByLookDir();
-    _bViewMatDirty = true;
-}
-
-void Camera::SetLookDir(const ayy::Vec3f& lookDir)
-{
-    if(lookDir.Length() > 0)
-    {
-        _lookDir = lookDir.GetNormalize();
-        CalcLocalDirByLookDir();
-        _bViewMatDirty = true;
-    }
 }
 
 ayy::Mat4x4f& Camera::GetProjMatrix()
@@ -186,10 +128,47 @@ ayy::Mat4x4f& Camera::GetProjMatrix()
     return _projMat;
 }
 
+
+
 void Camera::CalcLocalDirByLookDir()
 {
     _leftDir = _lookDir.Cross(kWorldUpDir).Normalize();
     _upDir = _leftDir.Cross(_lookDir).Normalize();
 }
 
+void Camera::CalcLocalAxis()
+{
+    // default look dir
+    ayy::Vec4f defaultLookDir;
+    defaultLookDir.SetX(kDefaultLookDir.x());
+    defaultLookDir.SetY(kDefaultLookDir.y());
+    defaultLookDir.SetZ(kDefaultLookDir.z());
+    defaultLookDir.SetW(0.0f);
+    
+    // rot matrix
+    ayy::Mat4x4f rotX,rotY,rotZ;
+    
+//    ayy::MakeRotateByAxisMatrix(rotY,ayy::Vec3f(0,1,0),ayy::DegToRad(_yaw));
+//    ayy::MakeRotateByAxisMatrix(rotX,ayy::Vec3f(1,0,0),ayy::DegToRad(_pitch));
+//    ayy::MakeRotateByAxisMatrix(rotZ,ayy::Vec3f(0,0,1),ayy::DegToRad(_roll));
+    
+    ayy::MakeRotateByYMatrix(rotY,ayy::DegToRad(_yaw));
+    ayy::MakeRotateByXMatrix(rotX,ayy::DegToRad(_pitch));
+    
+    
+    // look dir
+    ayy::Vec4f tempLookDir = defaultLookDir * rotX * rotY;// * rotZ;
+    tempLookDir.Normalize();
+    
+    _lookDir.SetX(tempLookDir.x());
+    _lookDir.SetY(tempLookDir.y());
+    _lookDir.SetZ(tempLookDir.z());
+    _lookDir.Normalize();
+    
+    
+    
+    
+    _leftDir = _lookDir.Cross(kWorldUpDir).Normalize();
+    _upDir = _leftDir.Cross(_lookDir).Normalize();
+}
 }

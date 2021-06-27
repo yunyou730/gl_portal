@@ -122,6 +122,29 @@ void Lesson8::OnRender(float deltaTime)
         
         _groundShader->UnUse();
     }
+    
+    
+    // dump
+    ayy::Vec3f look = _camera->GetLookDir();
+    printf("camera look");
+    look.Dump();
+    
+    
+    ayy::Vec3f left = _camera->GetLeftDir();
+    printf("left dir");
+    left.Dump();
+    
+    ayy::Vec3f up = _camera->GetUpDir();
+    
+    float dot = left.Dot(look);
+    printf("left dot look:%.5f\n",dot);
+    
+    dot = up.Dot(look);
+    printf("up dot look:%.5f\n",dot);
+    
+    dot = up.Dot(left);
+    printf("up dot left:%.5f\n",dot);
+    
 }
 
 void Lesson8::PrepareTexture()
@@ -132,17 +155,25 @@ void Lesson8::PrepareTexture()
 
 void Lesson8::UpdateTransformBox(float deltaTime)
 {
+    ayy::Vec3f pos(1,1,1);
+    ayy::Vec3f axis(1,1,0);
+    
+    axis.Normalize();
+    _box1Rot += deltaTime * _rotSpeed;
+    
+    
     ayy::Mat4x4f matScale;
     ayy::Mat4x4f matTranslate;
-    ayy::Mat4x4f matRot,matRotateByX,matRotateByY,matRotateByZ;
+    ayy::Mat4x4f matRot;
+
     
-    ayy::MakeTranslateMatrix(matTranslate,0,0,0);
-    ayy::MakeScaleMatrix(matScale,1.0f);
+//    matTranslate.Identify();
+    ayy::MakeTranslateMatrix(matTranslate,1,0,1);
+    matScale.Identify();
     
-    ayy::MakeRotateByXMatrix(matRotateByX,ayy::DegToRad(_rot.x()));
-    ayy::MakeRotateByYMatrix(matRotateByY,ayy::DegToRad(_rot.y()));
-    ayy::MakeRotateByZMatrix(matRotateByZ,ayy::DegToRad(_rot.z()));
-    matRot = matRotateByX * matRotateByY * matRotateByZ;
+    ayy::MakeRotateByAxisMatrix(matRot,axis,ayy::DegToRad(_box1Rot));
+    
+    
     
 //     mvp
     ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
@@ -213,11 +244,11 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     }
     if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
     {
-//        _camera->TakePitch(-deltaRot);
+        _camera->TakeRoll(deltaRot);
     }
     if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
     {
-//        _camera->TakePitch(deltaRot);
+        _camera->TakeRoll(-deltaRot);
     }
     
     // box rotate
@@ -251,35 +282,19 @@ void Lesson8::HandleKeyboardInput(GLFWwindow* window)
     delta = _camRotSpeed * GetDeltaTime();
     if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
     {
-        _camera->TakeRot(deltaRot,0,0);
+        _camera->TakePitch(-deltaRot);
     }
     if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
     {
-        _camera->TakeRot(-deltaRot,0,0);
+        _camera->TakePitch(deltaRot);
     }
     if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
     {
-        _camera->TakeRot(0,-deltaRot,0);
+        _camera->TakeYaw(-deltaRot);
     }
     if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
     {
-        _camera->TakeRot(0,deltaRot,0);
+        _camera->TakeYaw(deltaRot);
     }
-    
-    
-    /*
-    int mouseLeftBtnState,mouseRightBtnState;
-    mouseLeftBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_LEFT);
-    if(mouseLeftBtnState == GLFW_PRESS)
-    {
-        _camera->TakeRot(0, delta,0);
-    }
-    
-    mouseRightBtnState = glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_RIGHT);
-    if(mouseRightBtnState == GLFW_PRESS)
-    {
-        _camera->TakeRot(0,-delta,0);
-    }
-    */
 
 }
