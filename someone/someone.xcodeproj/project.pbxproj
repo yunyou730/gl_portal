@@ -29,6 +29,10 @@
 		2B3E7B6026881BCD00B7D00B /* GroundNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B5D26881BCD00B7D00B /* GroundNode.cpp */; };
 		2B3E7B6B268831EC00B7D00B /* common.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B69268831E200B7D00B /* common.fs */; };
 		2B3E7B6C268831EC00B7D00B /* common.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B6A268831E300B7D00B /* common.vs */; };
+		2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B6E2688D1A700B7D00B /* Lesson9.cpp */; };
+		2B3E7B74268ABDD400B7D00B /* dummy_light.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B72268ABDC900B7D00B /* dummy_light.fs */; };
+		2B3E7B75268ABDD400B7D00B /* dummy_light.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B73268ABDC900B7D00B /* dummy_light.vs */; };
+		2B3E7B79268ABE9500B7D00B /* BoxBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -61,6 +65,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B3E7B74268ABDD400B7D00B /* dummy_light.fs in CopyFiles */,
+				2B3E7B75268ABDD400B7D00B /* dummy_light.vs in CopyFiles */,
 				2B3E7B6B268831EC00B7D00B /* common.fs in CopyFiles */,
 				2B3E7B6C268831EC00B7D00B /* common.vs in CopyFiles */,
 				2B3E7B54268587FB00B7D00B /* ground_plane.fs in CopyFiles */,
@@ -118,6 +124,12 @@
 		2B3E7B6726882C1800B7D00B /* Ayy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ayy.h; sourceTree = "<group>"; };
 		2B3E7B69268831E200B7D00B /* common.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = common.fs; sourceTree = "<group>"; };
 		2B3E7B6A268831E300B7D00B /* common.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = common.vs; sourceTree = "<group>"; };
+		2B3E7B6E2688D1A700B7D00B /* Lesson9.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson9.cpp; sourceTree = "<group>"; };
+		2B3E7B6F2688D1A700B7D00B /* Lesson9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson9.h; sourceTree = "<group>"; };
+		2B3E7B72268ABDC900B7D00B /* dummy_light.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = dummy_light.fs; sourceTree = "<group>"; };
+		2B3E7B73268ABDC900B7D00B /* dummy_light.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = dummy_light.vs; sourceTree = "<group>"; };
+		2B3E7B77268ABE8600B7D00B /* BoxBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxBatch.h; sourceTree = "<group>"; };
+		2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxBatch.cpp; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -185,6 +197,7 @@
 				2B1304CD267F906100050A9E /* Batch.cpp */,
 				2B1304D2267F90B100050A9E /* PlaneBatch.cpp */,
 				2B3E7B42268554DD00B7D00B /* TestBatch.cpp */,
+				2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */,
 			);
 			path = Batch;
 			sourceTree = "<group>";
@@ -195,6 +208,7 @@
 				2B3E7B4D26857BD300B7D00B /* Batch.h */,
 				2B3E7B4E26857BD300B7D00B /* PlaneBatch.h */,
 				2B3E7B4F26857BD300B7D00B /* TestBatch.h */,
+				2B3E7B77268ABE8600B7D00B /* BoxBatch.h */,
 			);
 			path = Batch;
 			sourceTree = "<group>";
@@ -250,6 +264,8 @@
 				2B1C7D002675BB74004EC484 /* Lesson7.h */,
 				2BE1B4002679D2A6008BA71D /* Lesson8.cpp */,
 				2BE1B3FF2679D2A6008BA71D /* Lesson8.h */,
+				2B3E7B6E2688D1A700B7D00B /* Lesson9.cpp */,
+				2B3E7B6F2688D1A700B7D00B /* Lesson9.h */,
 				2BF38CD6265EA26C0034A223 /* LessonBase.cpp */,
 				2BF38CD4265EA26C0034A223 /* LessonBase.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
@@ -322,6 +338,8 @@
 				2B2A9C45266320060078E004 /* awesomeface.png */,
 				2BF38CEC2661D91B0034A223 /* test.fs */,
 				2BF38CEB2661D91B0034A223 /* test.vs */,
+				2B3E7B72268ABDC900B7D00B /* dummy_light.fs */,
+				2B3E7B73268ABDC900B7D00B /* dummy_light.vs */,
 				2B2A9C40266317AF0078E004 /* color_texture.fs */,
 				2B2A9C41266317AF0078E004 /* color_texture.vs */,
 				2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */,
@@ -394,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3E7B79268ABE9500B7D00B /* BoxBatch.cpp in Sources */,
 				2B3E7B43268554DD00B7D00B /* TestBatch.cpp in Sources */,
 				2B1304D5267F90E000050A9E /* Batch.cpp in Sources */,
 				2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */,
@@ -410,6 +429,7 @@
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2B3E7B6026881BCD00B7D00B /* GroundNode.cpp in Sources */,
 				2B1304D3267F90B100050A9E /* PlaneBatch.cpp in Sources */,
+				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */,
 				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
 				2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */,

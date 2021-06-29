@@ -17,6 +17,7 @@
 #include "Lesson6.h"
 #include "Lesson7.h"
 #include "Lesson8.h"
+#include "Lesson9.h"
 
 #include "Math.h"
 #include "IO.h"
@@ -24,7 +25,6 @@
 #include "Texture.h"
 
 const unsigned int SCR_WIDTH = 800;
-//const unsigned int SCR_WIDTH = 600;
 const unsigned int SCR_HEIGHT = 600;
 
 LessonBase* lesson = nullptr;
@@ -122,7 +122,7 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    lesson = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
+    lesson = new Lesson9(SCR_WIDTH,SCR_HEIGHT);
     lesson->Prepare();
     
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
