@@ -21,6 +21,7 @@ Lesson9::Lesson9(int viewportWidth,int viewportHeight)
     _box2 = new CommonNode();
     _ground = new CommonNode();
     _dummyLight = new CommonNode();
+    _beLight = new CommonNode();
 }
 
 Lesson9::~Lesson9()
@@ -31,6 +32,7 @@ Lesson9::~Lesson9()
     AYY_SAFE_DEL(_box1);
     AYY_SAFE_DEL(_box2);
     AYY_SAFE_DEL(_dummyLight);
+    AYY_SAFE_DEL(_beLight);
 }
 
 void Lesson9::Prepare()
@@ -39,6 +41,7 @@ void Lesson9::Prepare()
     _commonShader = ayy::Util::CreateShaderWithFile("res/common.vs","res/common.fs");
     _groundShader = ayy::Util::CreateShaderWithFile("res/ground_plane.vs","res/ground_plane.fs");
     _dummyLightShader = ayy::Util::CreateShaderWithFile("res/dummy_light.vs","res/dummy_light.fs");
+    _phongShader = ayy::Util::CreateShaderWithFile("res/phong.vs","res/phong.fs");
     
     _batch->Prepare();
     _groundBatch->Prepare();
@@ -52,6 +55,7 @@ void Lesson9::Prepare()
     _box1->SetBatch(_batch);
     _box1->SetShader(_commonShader);
     _box1->SetRotAxis(ayy::Vec3f(1,1,1));
+    _box1->SetPosition(0,0,3);
     
     // box2
     _box2->AddTex(_texture1);
@@ -59,6 +63,7 @@ void Lesson9::Prepare()
     _box2->SetBatch(_batch);
     _box2->SetShader(_commonShader);
     _box2->SetRotAxis(ayy::Vec3f(0,1,0));
+    _box2->SetPosition(0,1,-8);
     
     // ground
     _ground->SetBatch(_groundBatch);
@@ -73,6 +78,12 @@ void Lesson9::Prepare()
     _dummyLight->SetPosition(0,2,0);
     _dummyLight->SetScale(1.0f);
     
+        
+    // be light box
+    _beLight->SetBatch(_boxBatch);
+    _beLight->SetShader(_phongShader);  // @miao @todo
+    _beLight->SetPosition(0,0,0);
+    
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
     _camera->SetPos(ayy::Vec3f(0,0,-7));
@@ -83,6 +94,7 @@ void Lesson9::Cleanup()
     AYY_SAFE_DEL(_commonShader);
     AYY_SAFE_DEL(_groundShader);
     AYY_SAFE_DEL(_dummyLightShader);
+    AYY_SAFE_DEL(_phongShader);
     _batch->Cleanup();
     _groundBatch->Cleanup();
     AYY_SAFE_DEL(_camera);
@@ -91,10 +103,9 @@ void Lesson9::Cleanup()
 void Lesson9::OnUpdate()
 {
     _box1->SetRotation(_box1->GetRotation() + GetDeltaTime() * _rotSpeed);
-    _box1->SetPosition(0,0,0);
     
 //    _box2->SetRotation(_box2->GetRotation() + GetDeltaTime() * _rotSpeed);
-    _box2->SetPosition(0,1,-4);
+
 }
 
 void Lesson9::OnRender(float deltaTime)
@@ -103,6 +114,7 @@ void Lesson9::OnRender(float deltaTime)
     _box2->OnRender(_camera);
     _ground->OnRender(_camera);
     _dummyLight->OnRender(_camera);
+    _beLight->OnRender(_camera);
 //    _camera->Dump();
 }
 

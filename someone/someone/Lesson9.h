@@ -39,6 +39,7 @@ private:
     ayy::ShaderProgram*  _commonShader = nullptr;
     ayy::ShaderProgram*  _groundShader  = nullptr;
     ayy::ShaderProgram*  _dummyLightShader = nullptr;
+    ayy::ShaderProgram*     _phongShader = nullptr;
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
@@ -55,4 +56,5 @@ private:
     CommonNode*     _box2 = nullptr;
     CommonNode*     _ground = nullptr;
     CommonNode*     _dummyLight = nullptr;
+    CommonNode*     _beLight = nullptr;
 };
