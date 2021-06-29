@@ -18,8 +18,9 @@ public:
     
     virtual void OnCreate() override;
     virtual void OnUpdate(float dt) override;
-    virtual void OnRender(ayy::Camera* mainCam) override;
     virtual void OnCleanUp() override;
+        
+    virtual void OnRender(ayy::Camera* mainCam) override;
     
     void SetShader(ayy::ShaderProgram* shader);
     void SetBatch(ayy::Batch* batch);
@@ -36,10 +37,10 @@ public:
 //    const ayy::Vec3f& GetRotation() {return _rot;}
     const float GetRotation() const {return _rot;}
     
-private:
-    void SyncPropToShader(ayy::Camera* mainCam);
+protected:
+    virtual void SyncPropToShader(ayy::Camera* mainCam);
     
-private:
+protected:
     ayy::ShaderProgram*  _shader = nullptr;
     std::vector<ayy::TextureUUID> _texIDs;
     ayy::Batch* _batch = nullptr;

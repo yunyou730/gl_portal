@@ -59,7 +59,6 @@ void MakeRotateByYMatrix(Mat4x4f& mat,float rad)
     mat.data[2][2] = cosValue;
     mat.data[2][0] = sinValue;
     mat.data[0][2] = -sinValue;
-    
 }
 
 void MakeRotateByZMatrix(Mat4x4f& mat,float rad)

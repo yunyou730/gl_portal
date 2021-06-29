@@ -21,13 +21,8 @@ public:
     
     virtual void OnCreate() = 0;
     virtual void OnUpdate(float dt);
-    virtual void OnRender(ayy::Camera* mainCam);
     virtual void OnCleanUp()= 0;
-    
-//protected:
-//    ayy::Batch* _batch = nullptr;
-//    ayy::ShaderProgram* _shader = nullptr;
-//    std::vector<ayy::TextureUUID> _textureIDs;
+    virtual void OnRender(ayy::Camera* mainCam) = 0;
 };
 
 

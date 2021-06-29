@@ -14,6 +14,7 @@ class Batch;
 }
 
 class CommonNode;
+class PhongNode;
 class Lesson9 : public LessonBase
 {
 public:
@@ -37,9 +38,9 @@ private:
     ayy::Batch*     _boxBatch = nullptr;
     
     ayy::ShaderProgram*  _commonShader = nullptr;
-    ayy::ShaderProgram*  _groundShader  = nullptr;
+    ayy::ShaderProgram*  _groundShader = nullptr;
     ayy::ShaderProgram*  _dummyLightShader = nullptr;
-    ayy::ShaderProgram*     _phongShader = nullptr;
+    ayy::ShaderProgram*  _phongShader = nullptr;
     
     ayy::TextureUUID   _texture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
@@ -56,5 +57,6 @@ private:
     CommonNode*     _box2 = nullptr;
     CommonNode*     _ground = nullptr;
     CommonNode*     _dummyLight = nullptr;
-    CommonNode*     _beLight = nullptr;
+//    CommonNode*     _beLight = nullptr;
+    PhongNode*      _obj = nullptr;
 };

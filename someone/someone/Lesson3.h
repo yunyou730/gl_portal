@@ -11,7 +11,8 @@ class ShaderProgram;
 class Lesson3 : public LessonBase
 {
 public:
-    ~Lesson3();
+    Lesson3() {}
+    virtual ~Lesson3();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;

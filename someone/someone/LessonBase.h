@@ -5,6 +5,7 @@
 class LessonBase
 {
 public:
+    LessonBase() {}
     LessonBase(int viewportWidth,int viewportHeight);
     virtual ~LessonBase() {}
     

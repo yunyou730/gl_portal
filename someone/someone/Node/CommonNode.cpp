@@ -50,6 +50,7 @@ void CommonNode::OnUpdate(float dt)
 
 void CommonNode::OnRender(ayy::Camera* mainCam)
 {
+    // @miao @todo
     // shader
     _shader->Use();
     
@@ -124,9 +125,11 @@ void CommonNode::SyncPropToShader(ayy::Camera* mainCam)
     
     ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
     _shader->SetUniformMat4x4("u_Model",(GLfloat*)matModel.data);
+    glCheckError();
     
     
     // view projection
     _shader->SetUniformMat4x4("u_View", (GLfloat*)mainCam->GetViewMatrix().data);
-    _shader->SetUniformMat4x4("u_Projection", (GLfloat*)mainCam->GetProjMatrix().data);
+    _shader->SetUniformMat4x4("u_Projection", (GLfloat*)mainCam->GetProjMatrix().data);    
+    glCheckError();
 }

@@ -8,6 +8,10 @@
 #include "../ayy/headers/Batch/BoxBatch.h"
 #include "Node/CommonNode.h"
 #include "../ayy/headers/Common.h"
+#include "PhongNode.h"
+
+
+const static ayy::Vec3f kLightColor(1.0f,1.0f,1.0f);
 
 
 Lesson9::Lesson9(int viewportWidth,int viewportHeight)
@@ -21,7 +25,7 @@ Lesson9::Lesson9(int viewportWidth,int viewportHeight)
     _box2 = new CommonNode();
     _ground = new CommonNode();
     _dummyLight = new CommonNode();
-    _beLight = new CommonNode();
+    _obj = new PhongNode();
 }
 
 Lesson9::~Lesson9()
@@ -32,7 +36,7 @@ Lesson9::~Lesson9()
     AYY_SAFE_DEL(_box1);
     AYY_SAFE_DEL(_box2);
     AYY_SAFE_DEL(_dummyLight);
-    AYY_SAFE_DEL(_beLight);
+    AYY_SAFE_DEL(_obj);
 }
 
 void Lesson9::Prepare()
@@ -46,7 +50,7 @@ void Lesson9::Prepare()
     _batch->Prepare();
     _groundBatch->Prepare();
     _boxBatch->Prepare();
-        
+    
     PrepareTexture();
     
     // box1
@@ -71,18 +75,20 @@ void Lesson9::Prepare()
     _ground->SetPosition(-10,-2,-10);
     _ground->SetScale(20);
     
-    
     // dummy light
     _dummyLight->SetBatch(_boxBatch);
     _dummyLight->SetShader(_dummyLightShader);
     _dummyLight->SetPosition(0,2,0);
     _dummyLight->SetScale(1.0f);
     
-        
     // be light box
-    _beLight->SetBatch(_boxBatch);
-    _beLight->SetShader(_phongShader);  // @miao @todo
-    _beLight->SetPosition(0,0,0);
+    _obj->SetBatch(_boxBatch);
+    _obj->SetShader(_phongShader);  // @miao @todo
+    _obj->SetPosition(0,0,0);
+    
+    _obj->SetLightColor(kLightColor);
+    _obj->SetLightSourcePos(_dummyLight->GetPosition());
+    _obj->SetObjectColor(ayy::Vec3f(1.0f, 0.5f, 0.31f));
     
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
@@ -114,7 +120,7 @@ void Lesson9::OnRender(float deltaTime)
     _box2->OnRender(_camera);
     _ground->OnRender(_camera);
     _dummyLight->OnRender(_camera);
-    _beLight->OnRender(_camera);
+    _obj->OnRender(_camera);
 //    _camera->Dump();
 }
 

@@ -104,6 +104,8 @@ int main(int argc, const char * argv[])
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
     
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT,GL_TRUE);
+    
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
@@ -123,6 +125,7 @@ int main(int argc, const char * argv[])
     
     
     lesson = new Lesson9(SCR_WIDTH,SCR_HEIGHT);
+//    lesson = new Lesson3();
     lesson->Prepare();
     
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);

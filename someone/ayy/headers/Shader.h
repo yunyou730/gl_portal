@@ -15,6 +15,7 @@ public:
     void UnUse();
     
     void SetUniform(const std::string& uniformName,const ayy::Vec4f& value);
+    void SetUniform(const std::string& uniformName,const ayy::Vec3f& value);
     void SetUniform(const std::string& uniformName,float value);
     void SetUniform(const std::string& uniformName,int value);
     void SetUniformMat4x4(const std::string& uniformName,float* data);

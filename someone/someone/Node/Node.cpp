@@ -14,8 +14,3 @@ void Node::OnUpdate(float dt)
 {
     
 }
-
-void Node::OnRender(ayy::Camera* mainCam)
-{
-    
-}
