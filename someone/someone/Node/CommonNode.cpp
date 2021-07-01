@@ -80,6 +80,11 @@ void CommonNode::OnCleanUp()
     
 }
 
+void CommonNode::SetPosition(const ayy::Vec3f& pos)
+{
+    _pos = pos;
+}
+
 void CommonNode::SetPosition(float x,float y,float z)
 {
     _pos.SetX(x);    _pos.SetY(y);    _pos.SetZ(z);

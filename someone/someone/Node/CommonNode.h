@@ -26,6 +26,7 @@ public:
     void SetBatch(ayy::Batch* batch);
     void AddTex(ayy::TextureUUID texId);
     
+    void SetPosition(const ayy::Vec3f& pos);
     void SetPosition(float x,float y,float z);
 //    void SetRotation(float rx,float ry,float rz);
     void SetRotation(float deg);

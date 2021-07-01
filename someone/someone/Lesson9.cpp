@@ -9,10 +9,9 @@
 #include "Node/CommonNode.h"
 #include "../ayy/headers/Common.h"
 #include "PhongNode.h"
-
+#include "../ayy/headers/Batch/BoxNormalBatch.h"
 
 const static ayy::Vec3f kLightColor(1.0f,1.0f,1.0f);
-
 
 Lesson9::Lesson9(int viewportWidth,int viewportHeight)
     :LessonBase(viewportWidth,viewportHeight)
@@ -20,12 +19,15 @@ Lesson9::Lesson9(int viewportWidth,int viewportHeight)
     _batch = new ayy::TestBatch();
     _groundBatch = new ayy::PlaneBatch();
     _boxBatch = new ayy::BoxBatch();
+    _boxNormalBatch = new ayy::BoxNormalBatch();
     
     _box1 = new CommonNode();
     _box2 = new CommonNode();
     _ground = new CommonNode();
     _dummyLight = new CommonNode();
     _obj = new PhongNode();
+    
+    _curLightPos = ayy::Vec3f(1,2,-3);
 }
 
 Lesson9::~Lesson9()
@@ -33,6 +35,7 @@ Lesson9::~Lesson9()
     AYY_SAFE_DEL(_batch);
     AYY_SAFE_DEL(_groundBatch);
     AYY_SAFE_DEL(_boxBatch);
+    AYY_SAFE_DEL(_boxNormalBatch);
     AYY_SAFE_DEL(_box1);
     AYY_SAFE_DEL(_box2);
     AYY_SAFE_DEL(_dummyLight);
@@ -50,8 +53,14 @@ void Lesson9::Prepare()
     _batch->Prepare();
     _groundBatch->Prepare();
     _boxBatch->Prepare();
+    _boxNormalBatch->Prepare();
     
     PrepareTexture();
+    
+    // camera
+    _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
+    _camera->SetPos(ayy::Vec3f(0,0,-7));
+    
     
     // box1
     _box1->AddTex(_texture1);
@@ -78,21 +87,20 @@ void Lesson9::Prepare()
     // dummy light
     _dummyLight->SetBatch(_boxBatch);
     _dummyLight->SetShader(_dummyLightShader);
-    _dummyLight->SetPosition(0,2,0);
+    _dummyLight->SetPosition(_curLightPos);
     _dummyLight->SetScale(1.0f);
     
     // be light box
-    _obj->SetBatch(_boxBatch);
-    _obj->SetShader(_phongShader);  // @miao @todo
+    _obj->SetBatch(_boxNormalBatch);
+    _obj->SetShader(_phongShader);
     _obj->SetPosition(0,0,0);
+    _obj->SetRotAxis(ayy::Vec3f(0,1,0));
+    _obj->SetRotation(45);
     
     _obj->SetLightColor(kLightColor);
     _obj->SetLightSourcePos(_dummyLight->GetPosition());
     _obj->SetObjectColor(ayy::Vec3f(1.0f, 0.5f, 0.31f));
-    
-    // camera
-    _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
-    _camera->SetPos(ayy::Vec3f(0,0,-7));
+    _obj->SetViewPos(_camera->GetPos());
 }
 
 void Lesson9::Cleanup()
@@ -108,10 +116,24 @@ void Lesson9::Cleanup()
 
 void Lesson9::OnUpdate()
 {
+    // box1 rotation
     _box1->SetRotation(_box1->GetRotation() + GetDeltaTime() * _rotSpeed);
     
-//    _box2->SetRotation(_box2->GetRotation() + GetDeltaTime() * _rotSpeed);
-
+    // light pos
+    ayy::Mat4x4f trans,rot;
+    ayy::MakeTranslateMatrix(trans,4,0,0);
+    ayy::MakeRotateByYMatrix(rot,ayy::DegToRad(_curLightDeg));
+    
+    _curLightDeg += GetDeltaTime() * 45.0f;
+    
+    ayy::Vec4f tempPos = ayy::Vec4f(0,0,0,1) * trans * rot;
+    _curLightPos = ayy::Vec3f(tempPos.x(),tempPos.y(),tempPos.z());
+    _dummyLight->SetPosition(_curLightPos);
+    
+    // update light info to be lighted objects
+    _obj->SetLightColor(kLightColor);
+    _obj->SetLightSourcePos(_dummyLight->GetPosition());
+    _obj->SetViewPos(_camera->GetPos());
 }
 
 void Lesson9::OnRender(float deltaTime)
@@ -166,31 +188,31 @@ void Lesson9::HandleKeyboardInput(GLFWwindow* window)
     }
     
     // box rotate
-    delta = _rotSpeed * GetDeltaTime();
-    if(glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-    {
-        _rot.SetZ(_rot.z() + delta);
-    }
-    if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
-    {
-        _rot.SetZ(_rot.z() - delta);
-    }
-    if(glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-    {
-        _rot.SetX(_rot.x() + delta);
-    }
-    if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
-    {
-        _rot.SetX(_rot.x() - delta);
-    }
-    if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-    {
-        _rot.SetY(_rot.y() + delta);
-    }
-    if(glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
-    {
-        _rot.SetY(_rot.y() - delta);
-    }
+//    delta = _rotSpeed * GetDeltaTime();
+//    if(glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+//    {
+//        _rot.SetZ(_rot.z() + delta);
+//    }
+//    if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+//    {
+//        _rot.SetZ(_rot.z() - delta);
+//    }
+//    if(glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+//    {
+//        _rot.SetX(_rot.x() + delta);
+//    }
+//    if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+//    {
+//        _rot.SetX(_rot.x() - delta);
+//    }
+//    if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+//    {
+//        _rot.SetY(_rot.y() + delta);
+//    }
+//    if(glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+//    {
+//        _rot.SetY(_rot.y() - delta);
+//    }
     
     // mouse input
     delta = _camRotSpeed * GetDeltaTime();

@@ -3,11 +3,11 @@
 
 namespace ayy {
 
-class TestBatch : public Batch
+class BoxNormalBatch : public Batch
 {
 public:
-    TestBatch();
-    virtual ~TestBatch();
+    BoxNormalBatch();
+    virtual ~BoxNormalBatch();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
@@ -20,6 +20,9 @@ public:
     
 protected:
     GLuint _vao,_vbo,_ebo;
+    int     _indexCount = 0;
 };
 
 }
+
+

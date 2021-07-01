@@ -336,7 +336,8 @@ struct Mat
     }
     
     // @miao @todo
-    void InverseSelf()
+    // 转置矩阵 应该返回一个值
+    void Transpose()
     {
         assert(RN == CN);
         
@@ -347,6 +348,13 @@ struct Mat
                 
             }
         }
+    }
+    
+    // @miao @todo
+    // 逆矩阵 应该返回一个值
+    void Inverse()
+    {
+        
     }
     
     void Dump()

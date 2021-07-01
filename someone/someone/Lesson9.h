@@ -36,6 +36,7 @@ private:
     ayy::Batch*     _batch = nullptr;
     ayy::Batch*     _groundBatch = nullptr;
     ayy::Batch*     _boxBatch = nullptr;
+    ayy::Batch*     _boxNormalBatch = nullptr;
     
     ayy::ShaderProgram*  _commonShader = nullptr;
     ayy::ShaderProgram*  _groundShader = nullptr;
@@ -46,7 +47,7 @@ private:
     ayy::TextureUUID   _texture2 = ayy::TextureManager::kInvalidTextureUUID;
     
     float       _rotSpeed  = 90;
-    ayy::Vec3f  _rot;
+//    ayy::Vec3f  _rot;
     
     ayy::Camera*  _camera = nullptr;
     
@@ -57,6 +58,8 @@ private:
     CommonNode*     _box2 = nullptr;
     CommonNode*     _ground = nullptr;
     CommonNode*     _dummyLight = nullptr;
-//    CommonNode*     _beLight = nullptr;
     PhongNode*      _obj = nullptr;
+    
+    ayy::Vec3f      _curLightPos;
+    float       _curLightDeg = 0;
 };

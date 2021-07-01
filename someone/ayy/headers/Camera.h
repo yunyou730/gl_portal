@@ -27,6 +27,7 @@ public:
     const ayy::Vec3f& GetUpDir() const { return _upDir; }
     
     void SetPos(const ayy::Vec3f& pos);
+    ayy::Vec3f GetPos() const { return _eye; }
     
     void TakeMove(float deltaX,float deltaY,float deltaZ);
     void TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ);

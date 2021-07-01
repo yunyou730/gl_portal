@@ -16,6 +16,10 @@ void PhongNode::SetObjectColor(const ayy::Vec3f& color)
     _objectColor = color;
 }
 
+void PhongNode::SetViewPos(const ayy::Vec3f& pos)
+{
+    _viewPos = pos;
+}
 
 void PhongNode::SyncPropToShader(ayy::Camera* mainCam)
 {
@@ -24,5 +28,9 @@ void PhongNode::SyncPropToShader(ayy::Camera* mainCam)
     _shader->SetUniform("u_LightColor",_lightColor);
     glCheckError();
     _shader->SetUniform("u_ObjColor",_objectColor);
+    glCheckError();
+    _shader->SetUniform("u_LightPos",_lightSourcePos);
+    glCheckError();
+    _shader->SetUniform("u_ViewPos",_viewPos);
     glCheckError();
 }

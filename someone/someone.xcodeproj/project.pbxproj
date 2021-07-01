@@ -37,6 +37,7 @@
 		2B3E7B7E268AE6FF00B7D00B /* phong.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B7C268AE6F500B7D00B /* phong.vs */; };
 		2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */; };
 		2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* Common.cpp */; };
+		2B3E7B89268CB85D00B7D00B /* BoxNormalBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -141,6 +142,8 @@
 		2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongNode.cpp; sourceTree = "<group>"; };
 		2B3E7B81268B51DC00B7D00B /* PhongNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongNode.h; sourceTree = "<group>"; };
 		2B3E7B84268B62F900B7D00B /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
+		2B3E7B87268CB85200B7D00B /* BoxNormalBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxNormalBatch.h; sourceTree = "<group>"; };
+		2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxNormalBatch.cpp; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 				2B1304D2267F90B100050A9E /* PlaneBatch.cpp */,
 				2B3E7B42268554DD00B7D00B /* TestBatch.cpp */,
 				2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */,
+				2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */,
 			);
 			path = Batch;
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 				2B3E7B4E26857BD300B7D00B /* PlaneBatch.h */,
 				2B3E7B4F26857BD300B7D00B /* TestBatch.h */,
 				2B3E7B77268ABE8600B7D00B /* BoxBatch.h */,
+				2B3E7B87268CB85200B7D00B /* BoxNormalBatch.h */,
 			);
 			path = Batch;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */,
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
 				2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */,
+				2B3E7B89268CB85D00B7D00B /* BoxNormalBatch.cpp in Sources */,
 				2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
