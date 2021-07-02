@@ -38,6 +38,12 @@
 		2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */; };
 		2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* Common.cpp */; };
 		2B3E7B89268CB85D00B7D00B /* BoxNormalBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */; };
+		2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */; };
+		2B3E7B92268EA32400B7D00B /* phong_mat.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B91268EA31700B7D00B /* phong_mat.fs */; };
+		2B3E7B93268EA32400B7D00B /* phong_mat.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B90268EA31700B7D00B /* phong_mat.vs */; };
+		2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B9B268EA83E00B7D00B /* PhongMatNode.cpp */; };
+		2B3E7B9F268EB47800B7D00B /* PhongMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B97268EA37900B7D00B /* PhongMaterial.cpp */; };
+		2B3E7BA0268EB47800B7D00B /* BaseMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B99268EA37900B7D00B /* BaseMaterial.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -70,6 +76,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B3E7B92268EA32400B7D00B /* phong_mat.fs in CopyFiles */,
+				2B3E7B93268EA32400B7D00B /* phong_mat.vs in CopyFiles */,
 				2B3E7B7D268AE6FF00B7D00B /* phong.fs in CopyFiles */,
 				2B3E7B7E268AE6FF00B7D00B /* phong.vs in CopyFiles */,
 				2B3E7B74268ABDD400B7D00B /* dummy_light.fs in CopyFiles */,
@@ -144,6 +152,16 @@
 		2B3E7B84268B62F900B7D00B /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		2B3E7B87268CB85200B7D00B /* BoxNormalBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxNormalBatch.h; sourceTree = "<group>"; };
 		2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxNormalBatch.cpp; sourceTree = "<group>"; };
+		2B3E7B8B268EA2A300B7D00B /* Lesson10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson10.h; sourceTree = "<group>"; };
+		2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson10.cpp; sourceTree = "<group>"; };
+		2B3E7B90268EA31700B7D00B /* phong_mat.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_mat.vs; sourceTree = "<group>"; };
+		2B3E7B91268EA31700B7D00B /* phong_mat.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_mat.fs; sourceTree = "<group>"; };
+		2B3E7B96268EA37900B7D00B /* PhongMaterial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhongMaterial.h; sourceTree = "<group>"; };
+		2B3E7B97268EA37900B7D00B /* PhongMaterial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhongMaterial.cpp; sourceTree = "<group>"; };
+		2B3E7B98268EA37900B7D00B /* BaseMaterial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMaterial.h; sourceTree = "<group>"; };
+		2B3E7B99268EA37900B7D00B /* BaseMaterial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseMaterial.cpp; sourceTree = "<group>"; };
+		2B3E7B9B268EA83E00B7D00B /* PhongMatNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongMatNode.cpp; sourceTree = "<group>"; };
+		2B3E7B9C268EA83E00B7D00B /* PhongMatNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongMatNode.h; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -234,6 +252,8 @@
 			children = (
 				2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */,
 				2B3E7B81268B51DC00B7D00B /* PhongNode.h */,
+				2B3E7B9B268EA83E00B7D00B /* PhongMatNode.cpp */,
+				2B3E7B9C268EA83E00B7D00B /* PhongMatNode.h */,
 				2B3E7B5926881BCD00B7D00B /* CommonNode.cpp */,
 				2B3E7B5A26881BCD00B7D00B /* CommonNode.h */,
 				2B3E7B5D26881BCD00B7D00B /* GroundNode.cpp */,
@@ -243,6 +263,18 @@
 			);
 			path = Node;
 			sourceTree = "<group>";
+		};
+		2B3E7B95268EA37900B7D00B /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				2B3E7B96268EA37900B7D00B /* PhongMaterial.h */,
+				2B3E7B97268EA37900B7D00B /* PhongMaterial.cpp */,
+				2B3E7B98268EA37900B7D00B /* BaseMaterial.h */,
+				2B3E7B99268EA37900B7D00B /* BaseMaterial.cpp */,
+			);
+			name = Material;
+			path = someone/Material;
+			sourceTree = SOURCE_ROOT;
 		};
 		2BF38C9B265A2F790034A223 = {
 			isa = PBXGroup;
@@ -265,6 +297,7 @@
 		2BF38CA6265A2F790034A223 /* someone */ = {
 			isa = PBXGroup;
 			children = (
+				2B3E7B95268EA37900B7D00B /* Material */,
 				2B3E7B5726881B8D00B7D00B /* Node */,
 				2BF38CD1265EA26C0034A223 /* Lesson1.cpp */,
 				2BF38CD3265EA26C0034A223 /* Lesson1.h */,
@@ -284,6 +317,8 @@
 				2BE1B3FF2679D2A6008BA71D /* Lesson8.h */,
 				2B3E7B6E2688D1A700B7D00B /* Lesson9.cpp */,
 				2B3E7B6F2688D1A700B7D00B /* Lesson9.h */,
+				2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */,
+				2B3E7B8B268EA2A300B7D00B /* Lesson10.h */,
 				2BF38CD6265EA26C0034A223 /* LessonBase.cpp */,
 				2BF38CD4265EA26C0034A223 /* LessonBase.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
@@ -373,6 +408,8 @@
 				2B3E7B7C268AE6F500B7D00B /* phong.vs */,
 				2B3E7B69268831E200B7D00B /* common.fs */,
 				2B3E7B6A268831E300B7D00B /* common.vs */,
+				2B3E7B91268EA31700B7D00B /* phong_mat.fs */,
+				2B3E7B90268EA31700B7D00B /* phong_mat.vs */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -433,6 +470,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3E7B9F268EB47800B7D00B /* PhongMaterial.cpp in Sources */,
+				2B3E7BA0268EB47800B7D00B /* BaseMaterial.cpp in Sources */,
 				2B3E7B79268ABE9500B7D00B /* BoxBatch.cpp in Sources */,
 				2B3E7B43268554DD00B7D00B /* TestBatch.cpp in Sources */,
 				2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */,
@@ -451,6 +490,8 @@
 				2B1C7D0A2677137F004EC484 /* Math.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
+				2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */,
+				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
 				2B3E7B6026881BCD00B7D00B /* GroundNode.cpp in Sources */,
 				2B1304D3267F90B100050A9E /* PlaneBatch.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,

@@ -61,8 +61,6 @@ void Camera::CalcViewMatrix()
     matTrans.Set(3,2,-_eye.Dot(z));
     
     _viewMat = matRot * matTrans;
-    
-    
 }
 
 void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
@@ -77,7 +75,7 @@ void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
 void Camera::TakePitch(float deltaDeg)
 {
     _pitch += deltaDeg;
-    ayy::Clamp<float>(_pitch,-45,45);
+    ayy::Clamp<float>(_pitch,-90,90);
     CalcLocalAxis();
     _bViewMatDirty = true;
 }

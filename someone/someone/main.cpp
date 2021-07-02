@@ -18,6 +18,7 @@
 #include "Lesson7.h"
 #include "Lesson8.h"
 #include "Lesson9.h"
+#include "Lesson10.h"
 
 #include "Math.h"
 #include "IO.h"
@@ -124,7 +125,7 @@ int main(int argc, const char * argv[])
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
     
-    lesson = new Lesson9(SCR_WIDTH,SCR_HEIGHT);
+    lesson = new Lesson10(SCR_WIDTH,SCR_HEIGHT);
 //    lesson = new Lesson3();
     lesson->Prepare();
     
