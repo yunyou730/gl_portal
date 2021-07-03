@@ -43,7 +43,7 @@ void Lesson2::Cleanup()
     glDeleteBuffers(1,&_ebo);
 }
 
-void Lesson2::OnRender(float deltaTime)
+void Lesson2::OnRender()
 {
     glUseProgram(_shader->program);
     glBindVertexArray(_vao);

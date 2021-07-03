@@ -134,7 +134,7 @@ int main(int argc, const char * argv[])
     }
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
-    ayy::ImGUIIntegration imguiDelegate;
+    ayy::ImGUIDelegate imguiDelegate;
     imguiDelegate.Setup(window,"#version 330 core");
     
     lesson = new Lesson10(SCR_WIDTH,SCR_HEIGHT);
@@ -157,7 +157,7 @@ int main(int argc, const char * argv[])
         lastFrameTime = curTime;
         
         lesson->OnUpdate();
-        lesson->OnRender(deltaTime);
+        lesson->OnRender();
 
         imguiDelegate.OnFrameBegin();
         imguiDelegate.Render();
@@ -184,7 +184,7 @@ int main(int argc, const char * argv[])
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 {
 //    glViewport(0,0,width,height);
-//    printf("%d,%d\n",width,height);
+    printf("%d,%d\n",width,height);
 }
 
 void processInput(GLFWwindow* window)

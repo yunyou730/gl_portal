@@ -23,7 +23,7 @@ public:
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
-    virtual void OnRender(float deltaTime) override;
+    virtual void OnRender() override;
     virtual void OnUpdate() override;
     
 protected:

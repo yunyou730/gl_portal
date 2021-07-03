@@ -11,7 +11,7 @@ public:
     
     virtual void Prepare() = 0;
     virtual void Cleanup() = 0;
-    virtual void OnRender(float deltaTime) = 0;
+    virtual void OnRender() = 0;
     
     virtual void OnUpdate();
     virtual void HandleKeyboardInput(GLFWwindow* window);

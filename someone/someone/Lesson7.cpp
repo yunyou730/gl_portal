@@ -27,7 +27,7 @@ void Lesson7::Cleanup()
     glDeleteBuffers(1,&_ebo);
 }
 
-void Lesson7::OnRender(float deltaTime)
+void Lesson7::OnRender()
 {
     // using shader
     _shader->Use();
@@ -38,7 +38,7 @@ void Lesson7::OnRender(float deltaTime)
     _shader->SetUniform("texture1",0);      // texture1 使用 GL_TEXTURE0 slot
     _shader->SetUniform("texture2",1);      // texture2 使用 GL_TEXTURE1 slot
     
-    UpdateTransform(deltaTime);
+    UpdateTransform(GetDeltaTime());
     
     // draw with VAO
     glBindVertexArray(_vao);

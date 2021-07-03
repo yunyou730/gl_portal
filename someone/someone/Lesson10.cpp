@@ -133,7 +133,7 @@ void Lesson10::OnUpdate()
     _obj->SetViewPos(_camera->GetPos());
 }
 
-void Lesson10::OnRender(float deltaTime)
+void Lesson10::OnRender()
 {
     _box1->OnRender(_camera);
     _box2->OnRender(_camera);

@@ -13,7 +13,7 @@ public:
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
-    virtual void OnRender(float deltaTime) override;
+    virtual void OnRender() override;
     
 protected:
     void PrepareMesh(GLuint& VAO,GLuint& VBO);

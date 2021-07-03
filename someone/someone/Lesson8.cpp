@@ -81,7 +81,7 @@ void Lesson8::OnUpdate()
     _box2->SetPosition(0,1,-4);
 }
 
-void Lesson8::OnRender(float deltaTime)
+void Lesson8::OnRender()
 {
     _box1->OnRender(_camera);
     _box2->OnRender(_camera);
