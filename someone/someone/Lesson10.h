@@ -1,5 +1,5 @@
 #pragma once
-#include "LessonBase.h"
+#include "BaseScene.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "TextureManager.h"
@@ -15,7 +15,7 @@ class Batch;
 
 class CommonNode;
 class PhongMatNode;
-class Lesson10 : public LessonBase
+class Lesson10 : public ayy::BaseScene
 {
 public:
     Lesson10(int viewportWidth,int viewportHeight);

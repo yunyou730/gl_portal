@@ -1,5 +1,5 @@
 #pragma once
-#include "LessonBase.h"
+#include "BaseScene.h"
 #include <glad/glad.h>
 
 namespace ayy
@@ -7,7 +7,7 @@ namespace ayy
 class ShaderProgram;
 }
 
-class Lesson2 : public LessonBase
+class Lesson2 : public ayy::BaseScene
 {
 public:
     ~Lesson2();

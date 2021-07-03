@@ -1,12 +1,12 @@
 #pragma once
-#include "LessonBase.h"
+#include "BaseScene.h"
 
 namespace ayy
 {
 class ShaderProgram;
 }
 
-class Lesson1 : public LessonBase
+class Lesson1 : public ayy::BaseScene
 {
 public:
     ~Lesson1();

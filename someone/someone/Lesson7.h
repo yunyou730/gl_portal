@@ -1,5 +1,5 @@
 #pragma once
-#include "LessonBase.h"
+#include "BaseScene.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "TextureManager.h"
@@ -10,7 +10,7 @@ class ShaderProgram;
 class Texture;
 }
 
-class Lesson7 : public LessonBase
+class Lesson7 : public ayy::BaseScene
 {
 public:
     ~Lesson7();

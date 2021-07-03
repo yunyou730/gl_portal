@@ -2,12 +2,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-class LessonBase
+namespace ayy {
+class BaseScene
 {
 public:
-    LessonBase() {}
-    LessonBase(int viewportWidth,int viewportHeight);
-    virtual ~LessonBase() {}
+    BaseScene() {}
+    BaseScene(int viewportWidth,int viewportHeight);
+    virtual ~BaseScene() {}
     
     virtual void Prepare() = 0;
     virtual void Cleanup() = 0;
@@ -29,3 +30,5 @@ protected:
     int     _viewportWidth,_viewportHeight;
     
 };
+
+}

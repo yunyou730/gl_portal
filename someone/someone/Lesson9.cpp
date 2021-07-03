@@ -14,7 +14,7 @@
 const static ayy::Vec3f kLightColor(1.0f,1.0f,1.0f);
 
 Lesson9::Lesson9(int viewportWidth,int viewportHeight)
-    :LessonBase(viewportWidth,viewportHeight)
+    :ayy::BaseScene(viewportWidth,viewportHeight)
 {
     _batch = new ayy::TestBatch();
     _groundBatch = new ayy::PlaneBatch();

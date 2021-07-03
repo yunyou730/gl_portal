@@ -12,7 +12,7 @@
 #include "../ayy/headers/Batch/BoxNormalBatch.h"
 
 Lesson10::Lesson10(int viewportWidth,int viewportHeight)
-    :LessonBase(viewportWidth,viewportHeight)
+    :ayy::BaseScene(viewportWidth,viewportHeight)
 {
     _batch = new ayy::TestBatch();
     _groundBatch = new ayy::PlaneBatch();
@@ -145,7 +145,7 @@ void Lesson10::OnRender()
 
 void Lesson10::OnViewportSizeChanged(int width,int height)
 {
-    LessonBase::OnViewportSizeChanged(width,height);
+    ayy::BaseScene::OnViewportSizeChanged(width,height);
     _camera->SetViewportSize(width,height);
 }
 
