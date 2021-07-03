@@ -5,6 +5,8 @@
 //  Created by bytedance on 2021/5/23.
 //
 
+#include "AyyImGUI.h"
+
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -30,8 +32,10 @@ const unsigned int SCR_HEIGHT = 600;
 
 LessonBase* lesson = nullptr;
 
+
 void framebuffer_size_callback(GLFWwindow* window,int width,int height);
 void processInput(GLFWwindow *window);
+void glfw_error_callback(int error, const char* description);
 
 void test()
 {
@@ -93,12 +97,17 @@ void test()
 int main(int argc, const char * argv[])
 {
     test();
-    
+        
     // init glfw
-    glfwInit();
+    glfwSetErrorCallback(glfw_error_callback);
+    if(!glfwInit())
+    {
+        return -1;
+    }
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    
     
     // create window with glfw
 #ifdef __APPLE__
@@ -106,6 +115,7 @@ int main(int argc, const char * argv[])
 #endif
     
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT,GL_TRUE);
+    
     
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
@@ -124,6 +134,8 @@ int main(int argc, const char * argv[])
     }
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
     
+    ayy::ImGUIIntegration imguiDelegate;
+    imguiDelegate.Setup(window,"#version 330 core");
     
     lesson = new Lesson10(SCR_WIDTH,SCR_HEIGHT);
 //    lesson = new Lesson3();
@@ -147,6 +159,10 @@ int main(int argc, const char * argv[])
         lesson->OnUpdate();
         lesson->OnRender(deltaTime);
 
+        imguiDelegate.OnFrameBegin();
+        imguiDelegate.Render();
+        imguiDelegate.OnFrameEnd();
+        
         // render end
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -159,6 +175,8 @@ int main(int argc, const char * argv[])
     delete lesson;
     lesson = nullptr;
     
+    imguiDelegate.Destroy();
+    glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
 }
@@ -181,4 +199,10 @@ void processInput(GLFWwindow* window)
         lesson->HandleKeyboardInput(window);
     }
 }
+
+void glfw_error_callback(int error, const char* description)
+{
+    fprintf(stderr, "Glfw Error %d: %s\n", error, description);
+}
+
 
