@@ -20,12 +20,14 @@ public:
     void MainLoop();
     void Cleanup();
     
-    void SetScene(BaseScene* scene);// { _runningScene = scene;}
+    void SetScene(BaseScene* scene);
+    
+protected:
+    void SetupImGUI();
     
 protected:
     GLFWwindow* _window = nullptr;
     ImGUIDelegate _imguiDelegate;
-    
     BaseScene* _runningScene = nullptr;
 };
 

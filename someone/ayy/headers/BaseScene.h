@@ -17,6 +17,8 @@ public:
     virtual void OnUpdate();
     virtual void HandleKeyboardInput(GLFWwindow* window);
     
+    virtual void OnGUI();
+    
     void SetDeltaTime(float deltaTime) {_deltaTimeThisFrame = deltaTime;}
     float GetDeltaTime() const { return _deltaTimeThisFrame;}
     

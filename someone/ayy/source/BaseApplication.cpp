@@ -71,10 +71,8 @@ bool BaseApplication::CreateWindow()
     }
     glfwSetFramebufferSizeCallback(_window,framebuffer_size_callback);
     
-    
     // imgui
-    ayy::ImGUIDelegate imguiDelegate;
-    imguiDelegate.Setup(_window,"#version 330 core");
+    _imguiDelegate.Setup(_window,"#version 330 core");
     
     return true;
 }
@@ -100,18 +98,23 @@ void BaseApplication::MainLoop()
         }
         lastFrameTime = curTime;
         
+        // 3D Render logic
         if(_runningScene != nullptr)
         {
             _runningScene->OnUpdate();
             _runningScene->OnRender();
         }
-
-
+        
+        // ImGUI
         _imguiDelegate.OnFrameBegin();
+        if(_runningScene != nullptr)
+        {
+            _runningScene->OnGUI();
+        }
         _imguiDelegate.Render();
         _imguiDelegate.OnFrameEnd();
         
-        // render end
+        // Render end
         glfwSwapBuffers(_window);
         glfwPollEvents();
         
@@ -155,9 +158,5 @@ void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
-
-
-
-
 
 }

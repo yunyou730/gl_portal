@@ -54,6 +54,7 @@
 		2B3E7BF426901AFD00B7D00B /* AyyImGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF326901AFD00B7D00B /* AyyImGUI.cpp */; };
 		2B3E7BFA26902EC200B7D00B /* BaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */; };
 		2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* BaseScene.cpp */; };
+		2B3E7C0526903D5700B7D00B /* Lesson11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C0426903D5700B7D00B /* Lesson11.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -192,6 +193,8 @@
 		2B3E7BFC26902ED000B7D00B /* BaseApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseApplication.h; sourceTree = "<group>"; };
 		2B3E7BFE2690306E00B7D00B /* BaseScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScene.h; sourceTree = "<group>"; };
 		2B3E7BFF2690308000B7D00B /* BaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseScene.cpp; sourceTree = "<group>"; };
+		2B3E7C0326903D5700B7D00B /* Lesson11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson11.h; sourceTree = "<group>"; };
+		2B3E7C0426903D5700B7D00B /* Lesson11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson11.cpp; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -396,6 +399,8 @@
 				2B3E7B6F2688D1A700B7D00B /* Lesson9.h */,
 				2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */,
 				2B3E7B8B268EA2A300B7D00B /* Lesson10.h */,
+				2B3E7C0426903D5700B7D00B /* Lesson11.cpp */,
+				2B3E7C0326903D5700B7D00B /* Lesson11.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -552,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B3E7B9F268EB47800B7D00B /* PhongMaterial.cpp in Sources */,
+				2B3E7C0526903D5700B7D00B /* Lesson11.cpp in Sources */,
 				2B3E7BEE269019E500B7D00B /* imgui_demo.cpp in Sources */,
 				2B3E7BA0268EB47800B7D00B /* BaseMaterial.cpp in Sources */,
 				2B3E7B79268ABE9500B7D00B /* BoxBatch.cpp in Sources */,

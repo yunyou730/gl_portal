@@ -14,6 +14,11 @@ void BaseScene::OnUpdate()
     
 }
 
+void BaseScene::OnGUI()
+{
+    
+}
+
 void BaseScene::HandleKeyboardInput(GLFWwindow* window)
 {
     

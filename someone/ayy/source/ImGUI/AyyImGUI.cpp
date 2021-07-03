@@ -29,12 +29,13 @@ void ImGUIDelegate::OnFrameBegin()
 
 void ImGUIDelegate::OnFrameEnd()
 {
+    ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
 void ImGUIDelegate::Render()
-{    
-    ImGui::ShowDemoWindow();
+{
+//    ImGui::ShowDemoWindow();
 //
 //    ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 //
@@ -52,7 +53,7 @@ void ImGUIDelegate::Render()
 //    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 //    ImGui::End();
     
-    ImGui::Render();
+
 }
 
 void ImGUIDelegate::Destroy()
