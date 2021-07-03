@@ -25,6 +25,7 @@ public:
     virtual void Cleanup() override;
     virtual void OnRender() override;
     virtual void OnUpdate() override;
+    virtual void OnViewportSizeChanged(int width,int height) override;
     
 protected:
     virtual void HandleKeyboardInput(GLFWwindow* window) override;

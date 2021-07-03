@@ -143,6 +143,12 @@ void Lesson10::OnRender()
 //    _camera->Dump();
 }
 
+void Lesson10::OnViewportSizeChanged(int width,int height)
+{
+    LessonBase::OnViewportSizeChanged(width,height);
+    _camera->SetViewportSize(width,height);
+}
+
 void Lesson10::PrepareTexture()
 {
     _texture1 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/container.jpg");

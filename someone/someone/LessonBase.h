@@ -22,6 +22,8 @@ public:
     int GetViewportWidth() const { return _viewportWidth;}
     int GetViewportHeight() const { return _viewportHeight;}
     
+    virtual void OnViewportSizeChanged(int width,int height);
+    
 protected:
     float   _deltaTimeThisFrame = 0.0f;
     int     _viewportWidth,_viewportHeight;

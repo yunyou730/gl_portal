@@ -184,7 +184,11 @@ int main(int argc, const char * argv[])
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 {
 //    glViewport(0,0,width,height);
-    printf("%d,%d\n",width,height);
+    printf("[framebuffer_size_callback] %d,%d\n",width,height);
+    if(lesson != nullptr)
+    {
+        lesson->OnViewportSizeChanged(width,height);
+    }
 }
 
 void processInput(GLFWwindow* window)
