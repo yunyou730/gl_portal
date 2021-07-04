@@ -20,12 +20,25 @@
 #include "Lesson11.h"
 #include "Lesson12.h"
 
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
 
+void test()
+{
+    Assimp::Importer importer;
+    const aiScene *scene = importer.ReadFile("ssss", aiProcess_Triangulate | aiProcess_FlipUVs);
+    printf("fds\n");
+}
+
 int main(int argc, const char * argv[])
 {
+    test();
+    
     ayy::BaseApplication app;
     
     app.Setup();
