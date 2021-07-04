@@ -18,6 +18,7 @@
 #include "Lesson9.h"
 #include "Lesson10.h"
 #include "Lesson11.h"
+#include "Lesson12.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -30,7 +31,8 @@ int main(int argc, const char * argv[])
     app.Setup();
     app.CreateWindow();
     
-    Lesson11 lesson(SCR_WIDTH,SCR_HEIGHT);
+    Lesson12 lesson(SCR_WIDTH,SCR_HEIGHT);
+//    Lesson11 lesson(SCR_WIDTH,SCR_HEIGHT);
 //    Lesson8 lesson;
     lesson.Prepare();
     

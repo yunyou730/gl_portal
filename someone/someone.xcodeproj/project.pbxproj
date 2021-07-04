@@ -55,6 +55,8 @@
 		2B3E7BFA26902EC200B7D00B /* BaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */; };
 		2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* BaseScene.cpp */; };
 		2B3E7C0526903D5700B7D00B /* Lesson11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C0426903D5700B7D00B /* Lesson11.cpp */; };
+		2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C07269046DF00B7D00B /* Lesson12.cpp */; };
+		2B3E7C0E26904AAC00B7D00B /* BoxUVNormBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C0D26904AAC00B7D00B /* BoxUVNormBatch.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -195,6 +197,10 @@
 		2B3E7BFF2690308000B7D00B /* BaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseScene.cpp; sourceTree = "<group>"; };
 		2B3E7C0326903D5700B7D00B /* Lesson11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson11.h; sourceTree = "<group>"; };
 		2B3E7C0426903D5700B7D00B /* Lesson11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson11.cpp; sourceTree = "<group>"; };
+		2B3E7C07269046DF00B7D00B /* Lesson12.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson12.cpp; sourceTree = "<group>"; };
+		2B3E7C08269046DF00B7D00B /* Lesson12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson12.h; sourceTree = "<group>"; };
+		2B3E7C0C26904AA200B7D00B /* BoxUVNormBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxUVNormBatch.h; sourceTree = "<group>"; };
+		2B3E7C0D26904AAC00B7D00B /* BoxUVNormBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxUVNormBatch.cpp; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -262,6 +268,7 @@
 				2B3E7B42268554DD00B7D00B /* TestBatch.cpp */,
 				2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */,
 				2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */,
+				2B3E7C0D26904AAC00B7D00B /* BoxUVNormBatch.cpp */,
 			);
 			path = Batch;
 			sourceTree = "<group>";
@@ -274,6 +281,7 @@
 				2B3E7B4F26857BD300B7D00B /* TestBatch.h */,
 				2B3E7B77268ABE8600B7D00B /* BoxBatch.h */,
 				2B3E7B87268CB85200B7D00B /* BoxNormalBatch.h */,
+				2B3E7C0C26904AA200B7D00B /* BoxUVNormBatch.h */,
 			);
 			path = Batch;
 			sourceTree = "<group>";
@@ -401,6 +409,8 @@
 				2B3E7B8B268EA2A300B7D00B /* Lesson10.h */,
 				2B3E7C0426903D5700B7D00B /* Lesson11.cpp */,
 				2B3E7C0326903D5700B7D00B /* Lesson11.h */,
+				2B3E7C07269046DF00B7D00B /* Lesson12.cpp */,
+				2B3E7C08269046DF00B7D00B /* Lesson12.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -584,11 +594,13 @@
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */,
 				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
+				2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */,
 				2B3E7B6026881BCD00B7D00B /* GroundNode.cpp in Sources */,
 				2B1304D3267F90B100050A9E /* PlaneBatch.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */,
 				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
+				2B3E7C0E26904AAC00B7D00B /* BoxUVNormBatch.cpp in Sources */,
 				2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */,
 				2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */,
 				2B3E7B5F26881BCD00B7D00B /* CommonNode.cpp in Sources */,
