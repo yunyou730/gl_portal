@@ -22,6 +22,8 @@ public:
     
     void SetScene(BaseScene* scene);
     
+    ImGUIDelegate* GetGUIDelegate() { return &_imguiDelegate;}
+    
 protected:
     void SetupImGUI();
     

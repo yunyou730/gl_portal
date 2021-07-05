@@ -9,7 +9,6 @@ public:
     
     // light
     void SetLightPos(const ayy::Vec3f& lightPos);
-    // @miao @todo
     
     // object
     void SetAmbientColor(const ayy::Vec3f& color);

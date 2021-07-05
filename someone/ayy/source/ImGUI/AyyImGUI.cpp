@@ -36,6 +36,7 @@ void ImGUIDelegate::OnFrameEnd()
 void ImGUIDelegate::Render()
 {
 //    ImGui::ShowDemoWindow();
+    
 //
 //    ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 //
@@ -53,7 +54,16 @@ void ImGUIDelegate::Render()
 //    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 //    ImGui::End();
     
+//    ImGui::Begin("Scene select");
+//    ImGui::D
+//    ImGui::End();
+    
 
+    
+    if(_guiFunc != nullptr)
+    {
+        _guiFunc();
+    }
 }
 
 void ImGUIDelegate::Destroy()
@@ -61,6 +71,11 @@ void ImGUIDelegate::Destroy()
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
+}
+
+void ImGUIDelegate::SetFuncCallback(const std::function<void()>& guiFunc)
+{
+    _guiFunc = guiFunc;
 }
 
 }

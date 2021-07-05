@@ -14,7 +14,7 @@ class Batch;
 }
 
 class CommonNode;
-class PhongMatNode;
+class PhongTexMatNode;
 class Lesson12 : public ayy::BaseScene
 {
 public:
@@ -35,11 +35,9 @@ protected:
     void PrepareTexture();
     
 private:
-    ayy::Batch*     _groundBatch = nullptr;
     ayy::Batch*     _boxBatch = nullptr;
     ayy::Batch*     _objBatch = nullptr;
     
-    ayy::ShaderProgram*  _groundShader = nullptr;
     ayy::ShaderProgram*  _dummyLightShader = nullptr;
     ayy::ShaderProgram*  _phongShader = nullptr;
     
@@ -52,9 +50,8 @@ private:
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
     
-    CommonNode*     _ground = nullptr;
     CommonNode*     _dummyLight = nullptr;
-    PhongMatNode*   _obj = nullptr;
+    PhongTexMatNode*   _obj = nullptr;
     
     float       _curLightDeg = 0;
     
@@ -63,9 +60,10 @@ private:
     ayy::Vec3f  _lightDiffuse;
     ayy::Vec3f  _lightSpecular;
     
-    ayy::Vec3f  _objAmbient;
-    ayy::Vec3f  _objDiffuse;
-    ayy::Vec3f  _objSpecular;
     float       _objShininess = 32.0f;
     float       _objCurScale = 2.0f;
+    
+    
+    ayy::TextureUUID _texDiffuse = ayy::TextureManager::kInvalidTextureUUID;
+    ayy::TextureUUID _texSpecular = ayy::TextureManager::kInvalidTextureUUID;
 };

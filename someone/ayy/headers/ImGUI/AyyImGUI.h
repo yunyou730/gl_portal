@@ -44,6 +44,9 @@ using namespace gl;
 #pragma comment(lib, "legacy_stdio_definitions")
 #endif
 
+
+#include <functional>
+
 namespace ayy {
 
 class ImGUIDelegate
@@ -54,8 +57,11 @@ public:
     void OnFrameEnd();
     void Render();
     void Destroy();
+    
+    void SetFuncCallback(const std::function<void()>& guiFunc);
 private:
     bool show_demo_window = true;
     bool show_another_window = true;
+    std::function<void()> _guiFunc = nullptr;
 };
 }
