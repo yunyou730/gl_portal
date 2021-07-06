@@ -32,4 +32,12 @@ namespace ayy {
          
         return nullptr;
     }
+
+    int Util::Rand(int min,int max)
+    {
+//        static bool b
+        assert(max > min);
+        int n = rand() % (max - min);
+        return n + min;
+    }
 }

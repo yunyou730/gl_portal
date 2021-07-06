@@ -15,5 +15,9 @@ public:
     
     static RawTexture* CreateRawTextureWithFile(const std::string& filePath);
     static Texture* CreateTexturehWithFile(const std::string& filePath);
+    
+    
+    // return [min,max)
+    static int Rand(int min,int max);
 };
 }

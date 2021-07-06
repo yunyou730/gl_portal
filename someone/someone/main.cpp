@@ -20,6 +20,7 @@
 #include "Lesson10.h"
 #include "Lesson11.h"
 #include "Lesson12.h"
+#include "Lesson13.h"
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -42,7 +43,7 @@ static ayy::BaseScene* scene = nullptr;
 void ChooseSceneGUI()
 {
     static int item_current = 0;
-    static const char* items[] = { "lesson12", "lesson11", "lesson10"};
+    static const char* items[] = { "lesson13", "lesson12", "lesson11"};
     
     int prevItem = item_current;
     ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
@@ -56,13 +57,13 @@ void ChooseSceneGUI()
         switch(item_current)
         {
             case 0:
-                scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
+                scene = new Lesson13(SCR_WIDTH,SCR_HEIGHT);
                 break;
             case 1:
-                scene = new Lesson11(SCR_WIDTH,SCR_HEIGHT);
+                scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
                 break;
             case 2:
-                scene = new Lesson10(SCR_WIDTH,SCR_HEIGHT);
+                scene = new Lesson11(SCR_WIDTH,SCR_HEIGHT);
                 break;
             default:
                 break;
@@ -81,7 +82,7 @@ int main(int argc, const char * argv[])
     
     app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
     
-    scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
+    scene = new Lesson13(SCR_WIDTH,SCR_HEIGHT);
     scene->Prepare();
     app.SetScene(scene);
     
