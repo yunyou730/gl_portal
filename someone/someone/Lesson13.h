@@ -67,4 +67,8 @@ private:
     DirectionLight  _dirLightParam;
     PointLight      _pointLightParam;
     SpotLight       _spotLightParam;
+    
+    bool        _bEnableDirLight = false;
+    bool        _bEnablePointLight = true;
+    bool        _bEnableSpotLight = true;
 };

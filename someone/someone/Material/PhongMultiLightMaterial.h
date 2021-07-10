@@ -63,7 +63,6 @@ class SpotLight
 public:
     ayy::Vec3f position = ayy::Vec3f(0.0f,0.0f,0.0f);
     ayy::Vec3f direction = ayy::Vec3f(0.0f,0.0f,-1.0f);
-//    float cutOff = cos(ayy::DegToRad(7.5f));
     float deg = 5.5f;
     float outerDeg = 7.5f;
     
@@ -77,6 +76,7 @@ public:
         position = other.position;
         direction = other.direction;
         deg = other.deg;
+        outerDeg = other.outerDeg;
         
         ambient = other.ambient;
         diffuse = other.diffuse;
@@ -101,6 +101,10 @@ public:
     
     void SetTexture(ayy::TextureUUID texDiffuse,ayy::TextureUUID texSpecular);
     void SetSpecularShininess(float shininess);
+        
+    void SetDirLightEnable(bool bEnable) { _bEnableDirLight = bEnable;}
+    void SetPointLightEnable(bool bEnable) { _bEnablePointLight = bEnable;}
+    void SetSpotLightEnable(bool bEnable) { _bEnableSpotLight = bEnable;}
     
 protected:
     ayy::TextureUUID    _texDiffuse = ayy::TextureManager::kInvalidTextureUUID;
@@ -112,4 +116,8 @@ protected:
     DirectionLight  _dirLightParam;
     PointLight      _pointLightParam;
     SpotLight       _spotLightParam;
+    
+    bool _bEnableDirLight = true;
+    bool _bEnablePointLight = true;
+    bool _bEnableSpotLight = true;
 };

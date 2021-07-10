@@ -51,6 +51,10 @@ uniform DirectionLight u_DirLight;
 uniform PointLight u_PointLight;
 uniform SpotLight u_SpotLight;
 
+uniform bool u_bEnableDirLight;
+uniform bool u_bEnablePointLight;
+uniform bool u_bEnableSpotLight;
+
 in vec3 Normal;
 in vec3 FragPos;
 in vec2 UV;
@@ -144,9 +148,25 @@ vec3 CalcWithSpotLight(SpotLight light)
 
 void main()
 {
-    vec3 dirLightColor = CalcWithDirectionLight(u_DirLight);
-    vec3 pointLightColor = CalcWithPointLight(u_PointLight);
-    vec3 spotLightColor = CalcWithSpotLight(u_SpotLight);
+    vec3 dirLightColor = vec3(0.0);
+    if(u_bEnableDirLight)
+    {
+        dirLightColor = CalcWithDirectionLight(u_DirLight);
+    }
+        
+    vec3 pointLightColor = vec3(0.0);
+    if(u_bEnablePointLight)
+    {
+        pointLightColor = CalcWithPointLight(u_PointLight);
+    }
+
+    
+    vec3 spotLightColor = vec3(0.0);
+    if(u_bEnableSpotLight)
+    {
+        spotLightColor = CalcWithSpotLight(u_SpotLight);
+    }
+
     
     vec3 result = dirLightColor + pointLightColor + spotLightColor;
     FragColor = vec4(result,1.0);

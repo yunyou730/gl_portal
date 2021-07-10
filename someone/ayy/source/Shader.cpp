@@ -119,6 +119,13 @@ void ShaderProgram::SetUniform(const std::string& uniformName,int value)
     glUniform1i(location,value);
 }
 
+void ShaderProgram::SetUniform(const std::string& uniformName,bool bValue)
+{
+    GLint location = glGetUniformLocation(program,uniformName.c_str());
+    assert(location >= 0);
+    glUniform1ui(location,bValue);
+}
+
 void ShaderProgram::SetUniformMat4x4(const std::string& uniformName,float* data)
 {
     GLint location = glGetUniformLocation(program,uniformName.c_str());

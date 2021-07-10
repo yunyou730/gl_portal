@@ -14,7 +14,7 @@
 #include "PhongMultiLightMaterial.h"
 
 static const int kBoxCount = 7;
-static const int kBoxPosClamp = 10;
+static const int kBoxPosClamp = 5;
 
 
 Lesson13::Lesson13(int viewportWidth,int viewportHeight)
@@ -135,11 +135,6 @@ void Lesson13::OnUpdate()
     _spotLightParam.position = _camera->GetPos();
     _spotLightParam.direction = _camera->GetLookDir();
     
-    printf("spot light pos\n");
-    _spotLightParam.position.Dump();
-    printf("spot light dir\n");
-    _spotLightParam.direction.Dump();
-    
     // boxes
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
@@ -149,10 +144,17 @@ void Lesson13::OnUpdate()
         // obj light info
         PhongMultiLightMaterial* mat = box->GetMaterial();
         mat->SetSpecularShininess(_objShininess);
+        
+        // light info
         mat->SetLightType(ELightType::ELightType_Direction);
         mat->SetDirectionLightParam(_dirLightParam);
         mat->SetPosLightParam(_pointLightParam);
         mat->SetSpotLightParam(_spotLightParam);
+        
+        // light switchers
+        mat->SetDirLightEnable(_bEnableDirLight);
+        mat->SetPointLightEnable(_bEnablePointLight);
+        mat->SetSpotLightEnable(_bEnableSpotLight);
     }
 }
 
@@ -236,33 +238,38 @@ void Lesson13::HandleKeyboardInput(GLFWwindow* window)
 void Lesson13::OnGUI()
 {
     BaseScene::OnGUI();
-      
+        
 
     ImGui::Begin("Light Panel");
-    ImGui::LabelText("dirLight","dir light property");
-    ImGui::DragFloat3("dirLight.dir",_dirLightParam.direction.data);
-    ImGui::ColorEdit3("dirLight.ambient",_dirLightParam.ambient.data);
-    ImGui::ColorEdit3("dirLight.diffuse",_dirLightParam.diffuse.data);
-    ImGui::ColorEdit3("dirLight.specular",_dirLightParam.specular.data);
-    
-    ImGui::LabelText("pointLight","point light property");
-    ImGui::SliderFloat("light rot speed",&_lightRotSpeed,0.0f,360.0f);
-    ImGui::ColorEdit3("pointLight.ambient",_pointLightParam.ambient.data);
-    ImGui::ColorEdit3("pointLight.diffuse",_pointLightParam.diffuse.data);
-    ImGui::ColorEdit3("pointLight.specular",_pointLightParam.specular.data);
-    ImGui::SliderFloat("pointLight.constant",&_pointLightParam.constant,1.0f,3.0f);
-    ImGui::SliderFloat("pointLight.linear",&_pointLightParam.linear,0.0f,1.0f);
-    ImGui::SliderFloat("pointLight.quadratic",&_pointLightParam.quadratic,0.0f,2.0f);
-    
-    
-    ImGui::LabelText("spotLight","spot light property");
-    ImGui::SliderFloat("spotLight angle",&_spotLightParam.deg,0.f,45.0f);
-    ImGui::SliderFloat("spotLight outer angle",&_spotLightParam.outerDeg,0.f,45.0f);
-    
-    ImGui::ColorEdit3("spotLight.ambient",_spotLightParam.ambient.data);
-    ImGui::ColorEdit3("spotLight.diffuse",_spotLightParam.diffuse.data);
-    ImGui::ColorEdit3("spotLight.specular",_spotLightParam.specular.data);
-    
+    {
+        ImGui::Checkbox("dir light enable",&_bEnableDirLight);
+        ImGui::Checkbox("point light enable",&_bEnablePointLight);
+        ImGui::Checkbox("spot light enable",&_bEnableSpotLight);
+        
+        ImGui::LabelText("dirLight","dir light property");
+        ImGui::DragFloat3("dirLight.dir",_dirLightParam.direction.data);
+        ImGui::ColorEdit3("dirLight.ambient",_dirLightParam.ambient.data);
+        ImGui::ColorEdit3("dirLight.diffuse",_dirLightParam.diffuse.data);
+        ImGui::ColorEdit3("dirLight.specular",_dirLightParam.specular.data);
+        
+        ImGui::LabelText("pointLight","point light property");
+        ImGui::SliderFloat("light rot speed",&_lightRotSpeed,0.0f,360.0f);
+        ImGui::ColorEdit3("pointLight.ambient",_pointLightParam.ambient.data);
+        ImGui::ColorEdit3("pointLight.diffuse",_pointLightParam.diffuse.data);
+        ImGui::ColorEdit3("pointLight.specular",_pointLightParam.specular.data);
+        ImGui::SliderFloat("pointLight.constant",&_pointLightParam.constant,1.0f,3.0f);
+        ImGui::SliderFloat("pointLight.linear",&_pointLightParam.linear,0.0f,1.0f);
+        ImGui::SliderFloat("pointLight.quadratic",&_pointLightParam.quadratic,0.0f,2.0f);
+        
+        
+        ImGui::LabelText("spotLight","spot light property");
+        ImGui::SliderFloat("spotLight inner angle",&_spotLightParam.deg,0.f,45.0f);
+        ImGui::SliderFloat("spotLight outer angle",&_spotLightParam.outerDeg,0.f,45.0f);
+        
+        ImGui::ColorEdit3("spotLight.ambient",_spotLightParam.ambient.data);
+        ImGui::ColorEdit3("spotLight.diffuse",_spotLightParam.diffuse.data);
+        ImGui::ColorEdit3("spotLight.specular",_spotLightParam.specular.data);
+    }
     ImGui::End();
 
     

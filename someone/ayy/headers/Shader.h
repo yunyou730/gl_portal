@@ -18,6 +18,7 @@ public:
     void SetUniform(const std::string& uniformName,const ayy::Vec3f& value);
     void SetUniform(const std::string& uniformName,float value);
     void SetUniform(const std::string& uniformName,int value);
+    void SetUniform(const std::string& uniformName,bool bValue);
     void SetUniformMat4x4(const std::string& uniformName,float* data);
     
 public:

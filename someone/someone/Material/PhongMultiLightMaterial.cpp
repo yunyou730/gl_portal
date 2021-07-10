@@ -16,13 +16,14 @@ void PhongMultiLightMaterial::SyncShaderParam()
     // object material
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_texDiffuse, 0);
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_texSpecular, 1);
-
     _shader->SetUniform("u_Material.diffuse",0);
-    glCheckError();
     _shader->SetUniform("u_Material.specular",1);
-    glCheckError();
     _shader->SetUniform("u_Material.shininess",_shininess);
-    glCheckError();
+    
+    // light enable
+    _shader->SetUniform("u_bEnableDirLight",_bEnableDirLight);
+    _shader->SetUniform("u_bEnablePointLight",_bEnablePointLight);
+    _shader->SetUniform("u_bEnableSpotLight",_bEnableSpotLight);
     
     // dir light
     _shader->SetUniform("u_DirLight.direction",_dirLightParam.direction);
