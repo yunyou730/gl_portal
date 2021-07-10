@@ -116,6 +116,10 @@ void Lesson13::Cleanup()
 
 void Lesson13::OnUpdate()
 {
+    glClearColor(_dirLightParam.ambient.data[0],
+                 _dirLightParam.ambient.data[1],
+                 _dirLightParam.ambient.data[2],
+                 1.0f);
     // dummy light
     {
         ayy::Mat4x4f trans,rot;
