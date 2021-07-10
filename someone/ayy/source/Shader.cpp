@@ -35,7 +35,7 @@ ShaderProgram* ShaderProgram::CreateShaderProgram(const std::string& vsSource,co
     if(!success)
     {
         glGetShaderInfoLog(shader->fs,512,nullptr,infoLog);
-        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << std::endl;
+        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
         
         assert(false);
     }
@@ -50,6 +50,8 @@ ShaderProgram* ShaderProgram::CreateShaderProgram(const std::string& vsSource,co
     {
         glGetProgramInfoLog(shader->program,512,NULL,infoLog);
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+        
+        assert(false);
     }
     
     glDeleteShader(shader->vs);

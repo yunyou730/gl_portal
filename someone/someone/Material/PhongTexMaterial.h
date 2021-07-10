@@ -18,5 +18,5 @@ public:
 protected:
     ayy::TextureUUID _texDiffuse;
     ayy::TextureUUID _texSpecular;
-    float       _shininess = 32.0f;
+    float _shininess = 32.0f;
 };

@@ -5,6 +5,7 @@
 #include "TextureManager.h"
 #include "Math.h"
 #include <vector>
+#include "PhongMultiLightMaterial.h"
 
 namespace ayy
 {
@@ -15,7 +16,7 @@ class Batch;
 }
 
 class CommonNode;
-class PhongTexMatNode;
+class PhongMultLightNode;
 class Lesson13 : public ayy::BaseScene
 {
 public:
@@ -49,19 +50,21 @@ private:
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
     
-    CommonNode*         _dummyLight = nullptr;
-    std::vector<PhongTexMatNode*>   _boxes;
+    CommonNode*                         _dummyLight = nullptr;
+    std::vector<PhongMultLightNode*>    _boxes;
     
     float       _curLightDeg = 0;
     
-    // bridge with ImGUI
-    ayy::Vec3f  _lightAmbient;
-    ayy::Vec3f  _lightDiffuse;
-    ayy::Vec3f  _lightSpecular;
-    
-    float       _objShininess = 32.0f;
-    float       _objCurScale = 2.0f;
     
     ayy::TextureUUID _texDiffuse = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _texSpecular = ayy::TextureManager::kInvalidTextureUUID;
+    
+    
+    
+    float       _objShininess   = 32.0f;
+    float       _objCurScale    = 1.5f;
+    
+    DirectionLight  _dirLightParam;
+    PointLight      _pointLightParam;
+    SpotLight       _spotLightParam;
 };

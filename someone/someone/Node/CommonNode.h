@@ -23,6 +23,8 @@ public:
     virtual void OnRender(ayy::Camera* mainCam) override;
     
     virtual void SetShader(ayy::ShaderProgram* shader);
+    ayy::ShaderProgram* GetShader() { return _shader;}
+    
     void SetBatch(ayy::Batch* batch);
     void AddTex(ayy::TextureUUID texId);
     

@@ -10,25 +10,28 @@
 #include "../ayy/headers/Common.h"
 #include "AyyImGUI.h"
 #include "../ayy/headers/Batch/BoxUVNormBatch.h"
-#include "PhongTexMatNode.h"
+#include "PhongMultLightNode.h"
+#include "PhongMultiLightMaterial.h"
+
+static const int kBoxCount = 7;
+static const int kBoxPosClamp = 10;
+
 
 Lesson13::Lesson13(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
     _boxBatch = new ayy::BoxBatch();
     _objBatch = new ayy::BoxUVNormBatch();
-    
     _dummyLight = new CommonNode();
-    for(int i = 0;i < 7;i++)
+    
+    for(int i = 0;i < kBoxCount;i++)
     {
-        _boxes.push_back(new PhongTexMatNode());
+        _boxes.push_back(new PhongMultLightNode());
     }
     
-    _lightAmbient = ayy::Vec3f(0.2f,0.2f,0.2f);
-    _lightDiffuse = ayy::Vec3f(0.5f,0.5f,0.5f);
-    _lightSpecular = ayy::Vec3f(1.0f,1.0f,1.0f);
-    
     _objShininess = 32.0f;
+    
+    _dirLightParam.direction = ayy::Vec3f(-1,-6,9);
 }
 
 Lesson13::~Lesson13()
@@ -38,7 +41,7 @@ Lesson13::~Lesson13()
     AYY_SAFE_DEL(_dummyLight);
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
-        PhongTexMatNode* box = *it;
+        PhongMultLightNode* box = *it;
         AYY_SAFE_DEL(box);
     }
     _boxes.clear();
@@ -48,11 +51,10 @@ void Lesson13::Prepare()
 {
     // res
     _dummyLightShader = ayy::Util::CreateShaderWithFile("res/dummy_light.vs","res/dummy_light.fs");
-    _phongShader = ayy::Util::CreateShaderWithFile("res/phong_tex_mat.vs","res/phong_tex_mat.fs");
+    _phongShader = ayy::Util::CreateShaderWithFile("res/phong_mul_light_src.vs","res/phong_mul_light_src.fs");
     
     _boxBatch->Prepare();
     _objBatch->Prepare();
-    
     
     PrepareTexture();
     
@@ -66,51 +68,40 @@ void Lesson13::Prepare()
     _dummyLight->SetScale(1.0f);
     
     // be light box
-//    _obj->SetBatch(_objBatch);
-//    _obj->SetShader(_phongShader);
-//    _obj->SetPosition(0,0,0);
-//    _obj->SetRotAxis(ayy::Vec3f(0,1,0));
-////    _obj->SetRotation(45);
-//    _obj->SetScale(_objCurScale);
-//
-//    _obj->SetLightSourcePos(_dummyLight->GetPosition());
-//    _obj->SetViewPos(_camera->GetPos());
-//    _obj->SetLight(_lightAmbient,_lightDiffuse,_lightSpecular);
-//
-//    // material
-//    _obj->SetMaterial(_texDiffuse,_texSpecular,_objShininess);
-    
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
-        PhongTexMatNode* box = *it;
+        PhongMultLightNode* box = *it;
         
-        // @miao @todo
-        int x = ayy::Util::Rand(-5,5);
-        int y = ayy::Util::Rand(-5,5);
-        int z = ayy::Util::Rand(-5,5);
+        int x = ayy::Util::Rand(-kBoxPosClamp,kBoxPosClamp);
+        int y = ayy::Util::Rand(-kBoxPosClamp,kBoxPosClamp);
+        int z = ayy::Util::Rand(-kBoxPosClamp,kBoxPosClamp);
         
         float rx = (float)ayy::Util::Rand(-10,10) / 10.0f;
         float ry = (float)ayy::Util::Rand(-10,10) / 10.0f;
         float rz = (float)ayy::Util::Rand(-10,10) / 10.0f;
         
         float rotAngle = ayy::Util::Rand(-180,180);
-        
         box->SetRotAxis(ayy::Vec3f(rx,ry,rz));
         
         // random
         box->SetBatch(_objBatch);
         box->SetShader(_phongShader);
         box->SetPosition(x,y,z);
-        box->SetRotAxis(ayy::Vec3f(0,1,0));
         box->SetRotation(rotAngle);
         box->SetScale(_objCurScale);
         
-        box->SetLightSourcePos(_dummyLight->GetPosition());
         box->SetViewPos(_camera->GetPos());
-        box->SetLight(_lightAmbient,_lightDiffuse,_lightSpecular);
+//        box->SetLight(_lightAmbient,_lightDiffuse,_lightSpecular);
         
-        // material
-        box->SetMaterial(_texDiffuse,_texSpecular,_objShininess);
+        // material 
+        PhongMultiLightMaterial* mat = box->GetMaterial();
+        mat->SetTexture(_texDiffuse,_texSpecular);
+        mat->SetSpecularShininess(_objShininess);
+        
+        mat->SetLightType(ELightType::ELightType_Direction);
+        mat->SetDirectionLightParam(_dirLightParam);
+        mat->SetPosLightParam(_pointLightParam);
+        mat->SetSpotLightParam(_spotLightParam);
     }
 }
 
@@ -121,13 +112,11 @@ void Lesson13::Cleanup()
     _boxBatch->Cleanup();
     _objBatch->Cleanup();
     AYY_SAFE_DEL(_camera);
-    
-    
 }
 
 void Lesson13::OnUpdate()
 {
-    // light pos
+    // dummy light
     {
         ayy::Mat4x4f trans,rot;
         ayy::MakeTranslateMatrix(trans,4,-0.5,0);
@@ -139,17 +128,31 @@ void Lesson13::OnUpdate()
         _dummyLight->SetPosition(tempPos.x(),tempPos.y(),tempPos.z());
     }
     
+    // point light
+    _pointLightParam.position = _dummyLight->GetPosition();
+    
+    // spot light
+    _spotLightParam.position = _camera->GetPos();
+    _spotLightParam.direction = _camera->GetLookDir();
+    
+    printf("spot light pos\n");
+    _spotLightParam.position.Dump();
+    printf("spot light dir\n");
+    _spotLightParam.direction.Dump();
+    
     // boxes
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
-        PhongTexMatNode* box = *it;
-        
+        PhongMultLightNode* box = *it;
         box->SetScale(_objCurScale);
+        
         // obj light info
-        box->SetLightSourcePos(_dummyLight->GetPosition());
-        box->SetViewPos(_camera->GetPos());
-        // light color
-        box->SetLight(_lightAmbient,_lightDiffuse,_lightSpecular);
+        PhongMultiLightMaterial* mat = box->GetMaterial();
+        mat->SetSpecularShininess(_objShininess);
+        mat->SetLightType(ELightType::ELightType_Direction);
+        mat->SetDirectionLightParam(_dirLightParam);
+        mat->SetPosLightParam(_pointLightParam);
+        mat->SetSpotLightParam(_spotLightParam);
     }
 }
 
@@ -158,7 +161,7 @@ void Lesson13::OnRender()
     _dummyLight->OnRender(_camera);
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
-        PhongTexMatNode* box = *it;
+        PhongMultLightNode* box = *it;
         box->OnRender(_camera);
     }
 }
@@ -233,13 +236,35 @@ void Lesson13::HandleKeyboardInput(GLFWwindow* window)
 void Lesson13::OnGUI()
 {
     BaseScene::OnGUI();
-        
+      
+
     ImGui::Begin("Light Panel");
-    ImGui::ColorEdit3("light ambient",_lightAmbient.data);
-    ImGui::ColorEdit3("light diffuse",_lightDiffuse.data);
-    ImGui::ColorEdit3("light specular",_lightSpecular.data);
+    ImGui::LabelText("dirLight","dir light property");
+    ImGui::DragFloat3("dirLight.dir",_dirLightParam.direction.data);
+    ImGui::ColorEdit3("dirLight.ambient",_dirLightParam.ambient.data);
+    ImGui::ColorEdit3("dirLight.diffuse",_dirLightParam.diffuse.data);
+    ImGui::ColorEdit3("dirLight.specular",_dirLightParam.specular.data);
+    
+    ImGui::LabelText("pointLight","point light property");
     ImGui::SliderFloat("light rot speed",&_lightRotSpeed,0.0f,360.0f);
+    ImGui::ColorEdit3("pointLight.ambient",_pointLightParam.ambient.data);
+    ImGui::ColorEdit3("pointLight.diffuse",_pointLightParam.diffuse.data);
+    ImGui::ColorEdit3("pointLight.specular",_pointLightParam.specular.data);
+    ImGui::SliderFloat("pointLight.constant",&_pointLightParam.constant,1.0f,3.0f);
+    ImGui::SliderFloat("pointLight.linear",&_pointLightParam.linear,0.0f,1.0f);
+    ImGui::SliderFloat("pointLight.quadratic",&_pointLightParam.quadratic,0.0f,2.0f);
+    
+    
+    ImGui::LabelText("spotLight","spot light property");
+    ImGui::SliderFloat("spotLight angle",&_spotLightParam.deg,0.f,45.0f);
+    ImGui::SliderFloat("spotLight outer angle",&_spotLightParam.outerDeg,0.f,45.0f);
+    
+    ImGui::ColorEdit3("spotLight.ambient",_spotLightParam.ambient.data);
+    ImGui::ColorEdit3("spotLight.diffuse",_spotLightParam.diffuse.data);
+    ImGui::ColorEdit3("spotLight.specular",_spotLightParam.specular.data);
+    
     ImGui::End();
+
     
     ImGui::Begin("Obj Material Panel");
     ImGui::SliderFloat("obj shiness",&_objShininess,0.0f,128.0f);
