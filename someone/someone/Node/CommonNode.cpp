@@ -67,12 +67,15 @@ void CommonNode::OnRender(ayy::Camera* mainCam)
     SyncPropToShader(mainCam);
     
     // draw batch
-    _batch->Bind();
-    _batch->Draw();
-    
-    // after draw
-    _batch->UnBind();
-    _shader->UnUse();
+    if(_batch != nullptr)
+    {
+        _batch->Bind();
+        _batch->Draw();
+        
+        // after draw
+        _batch->UnBind();
+        _shader->UnUse();
+    }
 }
 
 void CommonNode::OnCleanUp()
@@ -131,7 +134,6 @@ void CommonNode::SyncPropToShader(ayy::Camera* mainCam)
     ayy::Mat4x4f matModel = matScale * matRot * matTranslate;
     _shader->SetUniformMat4x4("u_Model",(GLfloat*)matModel.data);
     glCheckError();
-    
     
     // view projection
     _shader->SetUniformMat4x4("u_View", (GLfloat*)mainCam->GetViewMatrix().data);

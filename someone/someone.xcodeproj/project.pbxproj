@@ -78,7 +78,6 @@
 		2B3E81D02691B4A400B7D00B /* body_showroom_spec.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81BA2691B40E00B7D00B /* body_showroom_spec.png */; };
 		2B3E81D12691B4A400B7D00B /* hand_dif.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81BB2691B40E00B7D00B /* hand_dif.png */; };
 		2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */; };
-		2B3E81D92691BFD000B7D00B /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81D72691BFD000B7D00B /* Model.cpp */; };
 		2B3E81E12691C17B00B7D00B /* GUISceneSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81E02691C17B00B7D00B /* GUISceneSelection.cpp */; };
 		2B3E81E526921D5700B7D00B /* box_diffuse.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E326921D4800B7D00B /* box_diffuse.png */; };
 		2B3E81E626921D5700B7D00B /* box_specular.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E426921D4800B7D00B /* box_specular.png */; };
@@ -86,6 +85,12 @@
 		2B3E81EB26921DCB00B7D00B /* phong_tex_mat.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E926921DBA00B7D00B /* phong_tex_mat.vs */; };
 		2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81ED2692229C00B7D00B /* PhongTexMatNode.cpp */; };
 		2B3E81F32692238000B7D00B /* PhongTexMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81F12692238000B7D00B /* PhongTexMaterial.cpp */; };
+		2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F852F269A7D3B00E77543 /* Model.cpp */; };
+		2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F8532269A7D4100E77543 /* Mesh.cpp */; };
+		2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F853A269ABE8100E77543 /* Lesson14.cpp */; };
+		2B5F8544269ADBF000E77543 /* ayy_model.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5F853E269ADB2D00E77543 /* ayy_model.fs */; };
+		2B5F8545269ADBF000E77543 /* ayy_model.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5F853F269ADB2D00E77543 /* ayy_model.vs */; };
+		2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F854A269AEE6A00E77543 /* ModelNode.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -95,7 +100,6 @@
 		2B8FE4552694A752000E4079 /* phong_mul_light_src.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B8FE4512694A734000E4079 /* phong_mul_light_src.vs */; };
 		2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE45B2694BA83000E4079 /* PhongMultiLightMaterial.cpp */; };
 		2B8FE4632695C3D5000E4079 /* PhongMultLightNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE4622695C3D5000E4079 /* PhongMultLightNode.cpp */; };
-		2B8FE4692699F6B1000E4079 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE4682699F6B1000E4079 /* Model.cpp */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -151,6 +155,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B5F8544269ADBF000E77543 /* ayy_model.fs in CopyFiles */,
+				2B5F8545269ADBF000E77543 /* ayy_model.vs in CopyFiles */,
 				2B8FE4542694A752000E4079 /* phong_mul_light_src.fs in CopyFiles */,
 				2B8FE4552694A752000E4079 /* phong_mul_light_src.vs in CopyFiles */,
 				2B3E81EA26921DCB00B7D00B /* phong_tex_mat.fs in CopyFiles */,
@@ -341,19 +347,26 @@
 		2B3E81BA2691B40E00B7D00B /* body_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body_showroom_spec.png; sourceTree = "<group>"; };
 		2B3E81BB2691B40E00B7D00B /* hand_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_dif.png; sourceTree = "<group>"; };
 		2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelImporter.cpp; sourceTree = "<group>"; };
-		2B3E81D72691BFD000B7D00B /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
-		2B3E81DB2691BFF900B7D00B /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		2B3E81DC2691BFF900B7D00B /* ModelImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelImporter.h; sourceTree = "<group>"; };
 		2B3E81DF2691C17B00B7D00B /* GUISceneSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISceneSelection.h; sourceTree = "<group>"; };
 		2B3E81E02691C17B00B7D00B /* GUISceneSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUISceneSelection.cpp; sourceTree = "<group>"; };
-		2B3E81E326921D4800B7D00B /* box_diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_diffuse.png; path = someone/res/box_diffuse.png; sourceTree = SOURCE_ROOT; };
-		2B3E81E426921D4800B7D00B /* box_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_specular.png; path = someone/res/box_specular.png; sourceTree = SOURCE_ROOT; };
+		2B3E81E326921D4800B7D00B /* box_diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_diffuse.png; path = someone/res/nanosuit/box_diffuse.png; sourceTree = SOURCE_ROOT; };
+		2B3E81E426921D4800B7D00B /* box_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_specular.png; path = someone/res/nanosuit/box_specular.png; sourceTree = SOURCE_ROOT; };
 		2B3E81E826921DBA00B7D00B /* phong_tex_mat.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_tex_mat.fs; sourceTree = "<group>"; };
 		2B3E81E926921DBA00B7D00B /* phong_tex_mat.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_tex_mat.vs; sourceTree = "<group>"; };
 		2B3E81ED2692229C00B7D00B /* PhongTexMatNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongTexMatNode.cpp; sourceTree = "<group>"; };
 		2B3E81EE2692229C00B7D00B /* PhongTexMatNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongTexMatNode.h; sourceTree = "<group>"; };
 		2B3E81F12692238000B7D00B /* PhongTexMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongTexMaterial.cpp; sourceTree = "<group>"; };
 		2B3E81F22692238000B7D00B /* PhongTexMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongTexMaterial.h; sourceTree = "<group>"; };
+		2B5F852E269A7D2500E77543 /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		2B5F852F269A7D3B00E77543 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
+		2B5F8532269A7D4100E77543 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		2B5F8539269ABE8000E77543 /* Lesson14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson14.h; sourceTree = "<group>"; };
+		2B5F853A269ABE8100E77543 /* Lesson14.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson14.cpp; sourceTree = "<group>"; };
+		2B5F853E269ADB2D00E77543 /* ayy_model.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = ayy_model.fs; path = someone/res/ayy_model.fs; sourceTree = SOURCE_ROOT; };
+		2B5F853F269ADB2D00E77543 /* ayy_model.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = ayy_model.vs; path = someone/res/ayy_model.vs; sourceTree = SOURCE_ROOT; };
+		2B5F8549269AEE6900E77543 /* ModelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelNode.h; sourceTree = "<group>"; };
+		2B5F854A269AEE6A00E77543 /* ModelNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelNode.cpp; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
@@ -368,7 +381,6 @@
 		2B8FE45C2694BA83000E4079 /* PhongMultiLightMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongMultiLightMaterial.h; sourceTree = "<group>"; };
 		2B8FE4612695C3D5000E4079 /* PhongMultLightNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongMultLightNode.h; sourceTree = "<group>"; };
 		2B8FE4622695C3D5000E4079 /* PhongMultLightNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongMultLightNode.cpp; sourceTree = "<group>"; };
-		2B8FE4682699F6B1000E4079 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		2B8FE46B2699F6C6000E4079 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
@@ -453,6 +465,8 @@
 		2B3E7B5726881B8D00B7D00B /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				2B5F854A269AEE6A00E77543 /* ModelNode.cpp */,
+				2B5F8549269AEE6900E77543 /* ModelNode.h */,
 				2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */,
 				2B3E7B81268B51DC00B7D00B /* PhongNode.h */,
 				2B3E7B9B268EA83E00B7D00B /* PhongMatNode.cpp */,
@@ -665,7 +679,8 @@
 		2B3E81D42691BF9E00B7D00B /* ModelImporter */ = {
 			isa = PBXGroup;
 			children = (
-				2B3E81DB2691BFF900B7D00B /* Model.h */,
+				2B8FE46B2699F6C6000E4079 /* Model.h */,
+				2B5F852E269A7D2500E77543 /* Mesh.h */,
 				2B3E81DC2691BFF900B7D00B /* ModelImporter.h */,
 			);
 			path = ModelImporter;
@@ -674,8 +689,9 @@
 		2B3E81D52691BFD000B7D00B /* ModelImporter */ = {
 			isa = PBXGroup;
 			children = (
+				2B5F852F269A7D3B00E77543 /* Model.cpp */,
+				2B5F8532269A7D4100E77543 /* Mesh.cpp */,
 				2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */,
-				2B3E81D72691BFD000B7D00B /* Model.cpp */,
 			);
 			path = ModelImporter;
 			sourceTree = "<group>";
@@ -741,6 +757,8 @@
 				2B3E7C08269046DF00B7D00B /* Lesson12.h */,
 				2B8FE44E269422B6000E4079 /* Lesson13.cpp */,
 				2B8FE44D269422B6000E4079 /* Lesson13.h */,
+				2B5F853A269ABE8100E77543 /* Lesson14.cpp */,
+				2B5F8539269ABE8000E77543 /* Lesson14.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -786,7 +804,6 @@
 				2BFEB880266D1253009407D4 /* TextureManager.cpp */,
 				2B7FC9AA2667586E003148A1 /* RawTexture.cpp */,
 				2B1C7D0D26772AF6004EC484 /* Camera.cpp */,
-				2B8FE4682699F6B1000E4079 /* Model.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -810,7 +827,6 @@
 				2BFEB883266D125E009407D4 /* TextureManager.h */,
 				2B7FC9AD26675877003148A1 /* RawTexture.h */,
 				2B1C7D0C26772AED004EC484 /* Camera.h */,
-				2B8FE46B2699F6C6000E4079 /* Model.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -845,6 +861,8 @@
 				2B3E81E926921DBA00B7D00B /* phong_tex_mat.vs */,
 				2B8FE4522694A734000E4079 /* phong_mul_light_src.fs */,
 				2B8FE4512694A734000E4079 /* phong_mul_light_src.vs */,
+				2B5F853E269ADB2D00E77543 /* ayy_model.fs */,
+				2B5F853F269ADB2D00E77543 /* ayy_model.vs */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -917,14 +935,15 @@
 				2B1304D5267F90E000050A9E /* Batch.cpp in Sources */,
 				2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */,
 				2B3E7BE9269019E500B7D00B /* imgui_widgets.cpp in Sources */,
-				2B8FE4692699F6B1000E4079 /* Model.cpp in Sources */,
 				2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */,
 				2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */,
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
 				2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */,
 				2B3E7B89268CB85D00B7D00B /* BoxNormalBatch.cpp in Sources */,
+				2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */,
 				2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */,
 				2B3E7BEF269019E500B7D00B /* imgui_draw.cpp in Sources */,
+				2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */,
 				2B3E7BED269019E500B7D00B /* imgui_tables.cpp in Sources */,
 				2B3E7BEC269019E500B7D00B /* imgui.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
@@ -936,6 +955,7 @@
 				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
 				2B3E7BF426901AFD00B7D00B /* AyyImGUI.cpp in Sources */,
 				2B1C7D0A2677137F004EC484 /* Math.cpp in Sources */,
+				2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
 				2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */,
@@ -950,7 +970,6 @@
 				2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */,
 				2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */,
 				2B3E7B5F26881BCD00B7D00B /* CommonNode.cpp in Sources */,
-				2B3E81D92691BFD000B7D00B /* Model.cpp in Sources */,
 				2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */,
 				2B3E7BEA269019E500B7D00B /* imgui_impl_opengl3.cpp in Sources */,
 				2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */,
@@ -961,6 +980,7 @@
 				2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */,
 				2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */,
 				2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */,
+				2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */,
 				2BFEB881266D1253009407D4 /* TextureManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

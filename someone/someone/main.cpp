@@ -21,21 +21,10 @@
 #include "Lesson11.h"
 #include "Lesson12.h"
 #include "Lesson13.h"
-
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
+#include "Lesson14.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
-
-
-void test()
-{
-//    Assimp::Importer importer;
-//    const aiScene *scene = importer.ReadFile("res/nanosuit/nanosuit.obj", aiProcess_Triangulate | aiProcess_FlipUVs);
-//    printf("fds\n");
-}
 
 static ayy::BaseApplication app;
 static ayy::BaseScene* scene = nullptr;
@@ -43,7 +32,7 @@ static ayy::BaseScene* scene = nullptr;
 void ChooseSceneGUI()
 {
     static int item_current = 0;
-    static const char* items[] = { "lesson13", "lesson12", "lesson11"};
+    static const char* items[] = { "lesson13", "lesson12", "lesson11","lesson10","lesson9","lesson8","lesson7","lesson6","lesson5","lesson4","lesson3","lesson2","lesson1"};
     
     int prevItem = item_current;
     ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
@@ -65,6 +54,36 @@ void ChooseSceneGUI()
             case 2:
                 scene = new Lesson11(SCR_WIDTH,SCR_HEIGHT);
                 break;
+            case 3:
+                scene = new Lesson10(SCR_WIDTH,SCR_HEIGHT);
+                break;
+            case 4:
+                scene = new Lesson9(SCR_WIDTH,SCR_HEIGHT);
+                break;
+            case 5:
+                scene = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
+                break;
+            case 6:
+                scene = new Lesson7();
+                break;
+            case 7:
+                scene = new Lesson6();
+                break;
+            case 8:
+                scene = new Lesson5();
+                break;
+            case 9:
+                scene = new Lesson4();
+                break;
+            case 10:
+                scene = new Lesson3();
+                break;
+            case 11:
+                scene = new Lesson2();
+                break;
+            case 12:
+                scene = new Lesson1();
+                break;
             default:
                 break;
         }
@@ -75,14 +94,12 @@ void ChooseSceneGUI()
 
 int main(int argc, const char * argv[])
 {
-    test();
-    
     app.Setup();
     app.CreateWindow();
     
     app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
     
-    scene = new Lesson13(SCR_WIDTH,SCR_HEIGHT);
+    scene = new Lesson14(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson8();
     scene->Prepare();
     app.SetScene(scene);
