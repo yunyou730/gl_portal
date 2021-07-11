@@ -42,7 +42,6 @@ public:
     std::vector<unsigned int>           _indices;
     std::vector<ayy::model::Texture>    _textures;
     
-    
     GLuint  _VAO,_VBO,_EBO;
 };
 

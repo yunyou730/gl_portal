@@ -18,7 +18,6 @@ Mesh::Mesh(const std::vector<ayy::model::Vertex>& vertices,
     SetupMesh();
 }
 
-
 void Mesh::SetupMesh()
 {
     glGenVertexArrays(1, &_VAO);
@@ -44,7 +43,6 @@ void Mesh::SetupMesh()
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
     
-    
     glBindVertexArray(0);
 }
 
@@ -54,7 +52,10 @@ void Mesh::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
     unsigned int specularNr = 1;
     for(unsigned int i = 0; i < _textures.size(); i++)
     {
-        glActiveTexture(GL_TEXTURE0 + i); // 在绑定之前激活相应的纹理单元
+//        glActiveTexture(GL_TEXTURE0 + i); // 在绑定之前激活相应的纹理单元
+        // @miao @todo
+        TextureManager::GetInstance()->BindTextureToSlot(_textures[i].uuid, i);
+        
         // 获取纹理序号（diffuse_textureN 中的 N）
         std::string number;
         std::string name = _textures[i].type;
@@ -65,10 +66,9 @@ void Mesh::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
 
         // @miao @todo
         shader->SetUniform("material." + name + number,(int)i);
-        glBindTexture(GL_TEXTURE_2D, _textures[i].uuid);
+//        glBindTexture(GL_TEXTURE_2D, _textures[i].uuid);
     }
-    glActiveTexture(GL_TEXTURE0);
-    glCheckError();
+//    glActiveTexture(GL_TEXTURE0);
 
     // 绘制网格
     glBindVertexArray(_VAO);

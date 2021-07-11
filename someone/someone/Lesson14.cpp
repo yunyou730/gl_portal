@@ -34,6 +34,7 @@ Lesson14::Lesson14(int viewportWidth,int viewportHeight)
     _objShininess = 32.0f;
     
     _dirLightParam.direction = ayy::Vec3f(-1,-6,9);
+    _dirLightParam.ambient = ayy::Vec3f(0.8,0.7,0.7);
 }
 
 Lesson14::~Lesson14()
@@ -168,14 +169,13 @@ void Lesson14::OnUpdate()
 
 void Lesson14::OnRender()
 {
-//    _dummyLight->OnRender(_camera);
-    /*
+    _dummyLight->OnRender(_camera);
+
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
         PhongMultLightNode* box = *it;
         box->OnRender(_camera);
     }
-    */
     
     glCheckError();
     _modelNode->OnRender(_camera);
