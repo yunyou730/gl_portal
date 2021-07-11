@@ -43,8 +43,6 @@ private:
     ayy::ShaderProgram*  _dummyLightShader = nullptr;
     ayy::ShaderProgram*  _phongShader = nullptr;
     
-    float       _lightRotSpeed = 45.0f;
-    
     ayy::Camera*  _camera = nullptr;
     
     float   _camMoveSpeed   = 7.0f;
@@ -52,8 +50,6 @@ private:
     
     CommonNode*                         _dummyLight = nullptr;
     std::vector<PhongMultLightNode*>    _boxes;
-    
-    float       _curLightDeg = 0;
     
     
     ayy::TextureUUID _texDiffuse = ayy::TextureManager::kInvalidTextureUUID;
@@ -71,4 +67,6 @@ private:
     bool        _bEnableDirLight = false;
     bool        _bEnablePointLight = true;
     bool        _bEnableSpotLight = true;
+    
+    ayy::Vec3f  _pointLightPos;
 };

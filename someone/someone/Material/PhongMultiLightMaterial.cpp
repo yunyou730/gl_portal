@@ -13,6 +13,9 @@ void PhongMultiLightMaterial::SetSpecularShininess(float shininess)
 
 void PhongMultiLightMaterial::SyncShaderParam()
 {
+    // view pos
+    _shader->SetUniform("u_ViewPos",_viewPos);
+    
     // object material
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_texDiffuse, 0);
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_texSpecular, 1);

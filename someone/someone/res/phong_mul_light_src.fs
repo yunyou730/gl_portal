@@ -99,12 +99,15 @@ vec3 CalcWithPointLight(PointLight light)
     // attenuation
     float dis = length(light.position - FragPos);
     float attenuation = 1.0 / (light.constant + light.linear * dis + light.quadratic * dis * dis);
+//    float attenuation = 1.0;
     
     ambient *= attenuation;
     diffuse *= attenuation;
     specular *= attenuation;
     
-    return ambient + diffuse + specular;
+//    return ambient + diffuse + specular;
+    // @miao @temp
+    return specular;
 }
 
 vec3 CalcWithSpotLight(SpotLight light)

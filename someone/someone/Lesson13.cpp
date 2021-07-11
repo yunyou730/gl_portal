@@ -90,7 +90,6 @@ void Lesson13::Prepare()
         box->SetRotation(rotAngle);
         box->SetScale(_objCurScale);
         
-        box->SetViewPos(_camera->GetPos());
 //        box->SetLight(_lightAmbient,_lightDiffuse,_lightSpecular);
         
         // material 
@@ -98,10 +97,12 @@ void Lesson13::Prepare()
         mat->SetTexture(_texDiffuse,_texSpecular);
         mat->SetSpecularShininess(_objShininess);
         
-        mat->SetLightType(ELightType::ELightType_Direction);
+        // light
         mat->SetDirectionLightParam(_dirLightParam);
         mat->SetPosLightParam(_pointLightParam);
         mat->SetSpotLightParam(_spotLightParam);
+        
+        mat->SetViewPos(_camera->GetPos());
     }
 }
 
@@ -120,17 +121,9 @@ void Lesson13::OnUpdate()
                  _dirLightParam.ambient.data[1],
                  _dirLightParam.ambient.data[2],
                  1.0f);
+    
     // dummy light
-    {
-        ayy::Mat4x4f trans,rot;
-        ayy::MakeTranslateMatrix(trans,4,-0.5,0);
-        ayy::MakeRotateByYMatrix(rot,ayy::DegToRad(_curLightDeg));
-        _curLightDeg += GetDeltaTime() * _lightRotSpeed;
-        
-        // dummy light
-        ayy::Vec4f tempPos = ayy::Vec4f(0,0,0,1) * trans * rot;
-        _dummyLight->SetPosition(tempPos.x(),tempPos.y(),tempPos.z());
-    }
+    _dummyLight->SetPosition(_pointLightPos.x(),_pointLightPos.y(),_pointLightPos.z());
     
     // point light
     _pointLightParam.position = _dummyLight->GetPosition();
@@ -150,7 +143,6 @@ void Lesson13::OnUpdate()
         mat->SetSpecularShininess(_objShininess);
         
         // light info
-        mat->SetLightType(ELightType::ELightType_Direction);
         mat->SetDirectionLightParam(_dirLightParam);
         mat->SetPosLightParam(_pointLightParam);
         mat->SetSpotLightParam(_spotLightParam);
@@ -159,6 +151,9 @@ void Lesson13::OnUpdate()
         mat->SetDirLightEnable(_bEnableDirLight);
         mat->SetPointLightEnable(_bEnablePointLight);
         mat->SetSpotLightEnable(_bEnableSpotLight);
+        
+        // view pos
+        mat->SetViewPos(_camera->GetPos());
     }
 }
 
@@ -257,7 +252,13 @@ void Lesson13::OnGUI()
         ImGui::ColorEdit3("dirLight.specular",_dirLightParam.specular.data);
         
         ImGui::LabelText("pointLight","point light property");
-        ImGui::SliderFloat("light rot speed",&_lightRotSpeed,0.0f,360.0f);
+//        ImGui::SliderFloat("light rot speed",&_lightRotSpeed,0.0f,360.0f);
+        
+        ImGui::SliderFloat("point light x",&_pointLightPos.data[0],-5.0f,5.0f);
+        ImGui::SliderFloat("point light y",&_pointLightPos.data[1],-5.0f,5.0f);
+        ImGui::SliderFloat("point light z",&_pointLightPos.data[2],-5.0f,5.0f);
+        
+        
         ImGui::ColorEdit3("pointLight.ambient",_pointLightParam.ambient.data);
         ImGui::ColorEdit3("pointLight.diffuse",_pointLightParam.diffuse.data);
         ImGui::ColorEdit3("pointLight.specular",_pointLightParam.specular.data);

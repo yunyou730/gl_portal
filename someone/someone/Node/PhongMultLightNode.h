@@ -11,7 +11,6 @@ public:
     
     virtual void SetShader(ayy::ShaderProgram* shader) override;
     
-    void SetViewPos(const ayy::Vec3f& viewPos);
     void SetLightSourcePos(const ayy::Vec3f& lightPos) { _lightSourcePos = lightPos;}
     
     PhongMultiLightMaterial* GetMaterial() { return _material; }

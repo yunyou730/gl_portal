@@ -83,6 +83,7 @@ int main(int argc, const char * argv[])
     app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
     
     scene = new Lesson13(SCR_WIDTH,SCR_HEIGHT);
+//    scene = new Lesson8();
     scene->Prepare();
     app.SetScene(scene);
     

@@ -89,8 +89,6 @@ class PhongMultiLightMaterial : public BaseMaterial
 public:
     virtual void SyncShaderParam() override;
     
-    void SetLightType(ELightType lightType) { _lightType = lightType;}
-    
     void SetSpotLightParam(const SpotLight& spotLightParam) { _spotLightParam = spotLightParam;}
     void SetDirectionLightParam(const DirectionLight& dirLightParam) { _dirLightParam = dirLightParam;}
     void SetPosLightParam(const PointLight& pointLightParam) { _pointLightParam = pointLightParam;}
@@ -106,12 +104,13 @@ public:
     void SetPointLightEnable(bool bEnable) { _bEnablePointLight = bEnable;}
     void SetSpotLightEnable(bool bEnable) { _bEnableSpotLight = bEnable;}
     
+    void SetViewPos(const ayy::Vec3f& viewPos) { _viewPos = viewPos; }
 protected:
+    ayy::Vec3f      _viewPos;
+    
     ayy::TextureUUID    _texDiffuse = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID    _texSpecular = ayy::TextureManager::kInvalidTextureUUID;
     float               _shininess = 32.0f;
-    
-    ELightType  _lightType = ELightType::ELightType_Spot;
     
     DirectionLight  _dirLightParam;
     PointLight      _pointLightParam;
