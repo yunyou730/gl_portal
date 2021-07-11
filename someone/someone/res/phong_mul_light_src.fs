@@ -105,9 +105,7 @@ vec3 CalcWithPointLight(PointLight light)
     diffuse *= attenuation;
     specular *= attenuation;
     
-//    return ambient + diffuse + specular;
-    // @miao @temp
-    return specular;
+    return ambient + diffuse + specular;
 }
 
 vec3 CalcWithSpotLight(SpotLight light)
