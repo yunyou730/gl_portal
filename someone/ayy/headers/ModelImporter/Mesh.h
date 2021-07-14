@@ -32,10 +32,13 @@ public:
          const std::vector<unsigned int>& indices,
          const std::vector<ayy::model::Texture>& textures);
     
+    ~Mesh();
+    
     void Draw(ayy::ShaderProgram* shader,ayy::Camera* camera);
     
 protected:
     void SetupMesh();
+    void DeleteMesh();
     
 public:
     std::vector<ayy::model::Vertex>     _vertices;

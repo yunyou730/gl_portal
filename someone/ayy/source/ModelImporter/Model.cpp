@@ -14,6 +14,15 @@ Model::Model()
     
 }
 
+Model::~Model()
+{
+    for(auto it = _meshes.begin();it != _meshes.end();it++)
+    {
+        delete *it;
+    }
+    _meshes.clear();
+}
+
 void Model::Load(const std::string& path,const std::string& prefixPath)
 {
     Assimp::Importer import;
@@ -34,7 +43,7 @@ void Model::processNode(aiNode* node,const aiScene* scene)
     for(unsigned int i = 0;i < node->mNumMeshes;i++)
     {
         aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-        _meshes.push_back(processMesh(mesh,scene));
+        _meshes.push_back(processAndCreateMesh(mesh,scene));
     }
 
     for(unsigned int i = 0;i < node->mNumChildren;i++)
@@ -43,7 +52,7 @@ void Model::processNode(aiNode* node,const aiScene* scene)
     }
 }
 
-ayy::model::Mesh Model::processMesh(aiMesh* mesh,const aiScene* scene)
+ayy::model::Mesh* Model::processAndCreateMesh(aiMesh* mesh,const aiScene* scene)
 {
     std::vector<ayy::model::Vertex> vertices;
     std::vector<unsigned int> indices;
@@ -89,7 +98,7 @@ ayy::model::Mesh Model::processMesh(aiMesh* mesh,const aiScene* scene)
         textures.insert(textures.end(),specularMaps.begin(),specularMaps.end());
     }
     
-    ayy::model::Mesh result(vertices,indices,textures);
+    ayy::model::Mesh* result = new ayy::model::Mesh(vertices,indices,textures);
     return result;
 }
 
@@ -117,7 +126,7 @@ void Model::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
 {
     for(unsigned int i = 0;i < _meshes.size();i++)
     {
-        _meshes[i].Draw(shader,camera);
+        _meshes[i]->Draw(shader,camera);
     }
 }
 

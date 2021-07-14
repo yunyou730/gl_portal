@@ -165,6 +165,13 @@ void Lesson14::OnUpdate()
         // view pos
         mat->SetViewPos(_camera->GetPos());
     }
+    
+    // model
+    static float modelAngle = 0;
+    modelAngle += GetDeltaTime() * 90;
+    _modelNode->SetScale(ayy::Vec3f(0.3,0.3,0.3));
+    _modelNode->SetRotAxis(ayy::Vec3f(0,1,0));
+    _modelNode->SetRotation(modelAngle);
 }
 
 void Lesson14::OnRender()
@@ -177,9 +184,7 @@ void Lesson14::OnRender()
         box->OnRender(_camera);
     }
     
-    glCheckError();
     _modelNode->OnRender(_camera);
-    glCheckError();
 }
 
 void Lesson14::OnViewportSizeChanged(int width,int height)

@@ -18,6 +18,27 @@ Mesh::Mesh(const std::vector<ayy::model::Vertex>& vertices,
     SetupMesh();
 }
 
+Mesh::~Mesh()
+{
+    if(_VAO > 0)
+    {
+        glDeleteVertexArrays(1,&_VAO);
+        _VAO = 0;
+    }
+    
+    if(_VBO > 0)
+    {
+        glDeleteBuffers(1,&_VBO);
+        _VBO = 0;
+    }
+    
+    if(_EBO > 0)
+    {
+        glDeleteBuffers(1,&_EBO);
+        _EBO = 0;
+    }
+}
+
 void Mesh::SetupMesh()
 {
     glGenVertexArrays(1, &_VAO);
@@ -52,8 +73,6 @@ void Mesh::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
     unsigned int specularNr = 1;
     for(unsigned int i = 0; i < _textures.size(); i++)
     {
-//        glActiveTexture(GL_TEXTURE0 + i); // 在绑定之前激活相应的纹理单元
-        // @miao @todo
         TextureManager::GetInstance()->BindTextureToSlot(_textures[i].uuid, i);
         
         // 获取纹理序号（diffuse_textureN 中的 N）
@@ -64,11 +83,8 @@ void Mesh::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
         else if(name == "texture_specular")
             number = std::to_string(specularNr++);
 
-        // @miao @todo
         shader->SetUniform("material." + name + number,(int)i);
-//        glBindTexture(GL_TEXTURE_2D, _textures[i].uuid);
     }
-//    glActiveTexture(GL_TEXTURE0);
 
     // 绘制网格
     glBindVertexArray(_VAO);

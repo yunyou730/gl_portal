@@ -21,6 +21,8 @@ TextureManager::~TextureManager()
 
 TextureUUID TextureManager::CreateTextureWithFilePath(const std::string& filePath)
 {
+    printf("CreateTextureWithFilePath:%s\n",filePath.c_str());
+    
     RawTexture raw(filePath);
     TextureUUID uuid = CreateTextureWithRaw(&raw);
     return uuid;
