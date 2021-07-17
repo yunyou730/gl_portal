@@ -9,10 +9,14 @@ uniform mat4 u_View;
 uniform mat4 u_Projection;
 
 out vec2 uv;
+out vec3 Normal;
+out vec3 FragPos;
 
 void main()
 {
     uv = aUV;
+    Normal = aNormal * mat3(transpose(inverse(u_Model)));
+    FragPos = vec3(vec4(aPos,1.0) * u_Model);
     
     vec4 pos = vec4(aPos,1.0);
     pos = pos * u_Model * u_View * u_Projection;

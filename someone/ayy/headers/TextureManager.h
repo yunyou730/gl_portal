@@ -12,6 +12,8 @@ class TextureManager
     typedef std::map<TextureUUID,Texture*> TextureMap;
     typedef std::map<unsigned int,TextureUUID> TextureSlotMap;
     
+    typedef std::map<std::string,TextureUUID> TexturePathMap;
+    
 public:
     static const TextureUUID kInvalidTextureUUID = 0;
     
@@ -38,6 +40,9 @@ protected:
     
     TextureMap      _textureMap;
     TextureSlotMap  _textureSlotMap;
+    
+    // @miao @todo
+    TexturePathMap  _texturePathMap;
     
 };
 

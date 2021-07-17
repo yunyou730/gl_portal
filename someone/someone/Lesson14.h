@@ -63,9 +63,9 @@ private:
     PointLight      _pointLightParam;
     SpotLight       _spotLightParam;
     
-    bool        _bEnableDirLight = false;
-    bool        _bEnablePointLight = true;
-    bool        _bEnableSpotLight = true;
+    bool        _bEnableDirLight    = false;
+    bool        _bEnablePointLight  = true;
+    bool        _bEnableSpotLight   = true;
     
     ayy::Vec3f  _pointLightPos;
     

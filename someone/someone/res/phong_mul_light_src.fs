@@ -2,7 +2,6 @@
 
 out vec4 FragColor;
 
-
 struct Material
 {
     sampler2D diffuse;

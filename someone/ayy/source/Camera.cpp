@@ -114,8 +114,6 @@ ayy::Mat4x4f& Camera::GetProjMatrix()
     return _projMat;
 }
 
-
-
 void Camera::CalcLocalDirByLookDir()
 {
     _rightDir = kWorldUpDir.Cross(_lookDir).Normalize();

@@ -34,7 +34,7 @@ Lesson14::Lesson14(int viewportWidth,int viewportHeight)
     _objShininess = 32.0f;
     
     _dirLightParam.direction = ayy::Vec3f(-1,-6,9);
-    _dirLightParam.ambient = ayy::Vec3f(0.8,0.7,0.7);
+    _dirLightParam.ambient = ayy::Vec3f(0.1,0.1,0.12);
 }
 
 Lesson14::~Lesson14()
@@ -72,9 +72,16 @@ void Lesson14::Prepare()
     _dummyLight->SetShader(_dummyLightShader);
     _dummyLight->SetScale(1.0f);
     
-    
     // model node
     _modelNode->SetShader(_modelShader);
+    _modelNode->SetDirLight(_dirLightParam);
+    _modelNode->SetPointLight(_pointLightParam);
+    _modelNode->SetSpotLight(_spotLightParam);
+    _modelNode->SetShininess(32.0f);
+    
+    _modelNode->SetDirLightEnable(_bEnableDirLight);
+    _modelNode->SetPointLightEnable(_bEnablePointLight);
+    _modelNode->SetSpotLightEnable(_bEnableSpotLight);
     
     // be light box
     for(auto it = _boxes.begin();it != _boxes.end();it++)
@@ -133,10 +140,24 @@ void Lesson14::OnUpdate()
                  1.0f);
     
     // dummy light
+    static float s_lightRotDeg = 0;
+    s_lightRotDeg += GetDeltaTime() * -30.0f;
+    ayy::Mat4x4f lightMoveMat,lightRotMat;
+    ayy::MakeRotateByYMatrix(lightRotMat,ayy::DegToRad(s_lightRotDeg));
+    ayy::MakeTranslateMatrix(lightMoveMat,7,0,0);
+    
+    ayy::Vec4f tempLightPos = ayy::Vec4f(0.0,0.0,0.0,1.0) * lightMoveMat * lightRotMat;
+    
+    _pointLightPos.SetX(tempLightPos.x());
+    _pointLightPos.SetY(tempLightPos.y());
+    _pointLightPos.SetZ(tempLightPos.z());
     _dummyLight->SetPosition(_pointLightPos.x(),_pointLightPos.y(),_pointLightPos.z());
     
     // point light
     _pointLightParam.position = _dummyLight->GetPosition();
+    
+
+
     
     // spot light
     _spotLightParam.position = _camera->GetPos();
@@ -169,9 +190,20 @@ void Lesson14::OnUpdate()
     // model
     static float modelAngle = 0;
     modelAngle += GetDeltaTime() * 90;
+    _modelNode->SetPosition(ayy::Vec3f(0.0,-3,0.0));
     _modelNode->SetScale(ayy::Vec3f(0.3,0.3,0.3));
     _modelNode->SetRotAxis(ayy::Vec3f(0,1,0));
     _modelNode->SetRotation(modelAngle);
+    
+    _modelNode->SetShader(_modelShader);
+    _modelNode->SetDirLight(_dirLightParam);
+    _modelNode->SetPointLight(_pointLightParam);
+    _modelNode->SetSpotLight(_spotLightParam);
+    _modelNode->SetShininess(_objShininess);
+    
+    _modelNode->SetDirLightEnable(_bEnableDirLight);
+    _modelNode->SetPointLightEnable(_bEnablePointLight);
+    _modelNode->SetSpotLightEnable(_bEnableSpotLight);
 }
 
 void Lesson14::OnRender()

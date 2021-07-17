@@ -22,7 +22,7 @@ ShaderProgram* ShaderProgram::CreateShaderProgram(const std::string& vsSource,co
     if(!success)
     {
         glGetShaderInfoLog(shader->vs,512,nullptr,infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << std::endl;
+        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
         
         assert(false);
     }
