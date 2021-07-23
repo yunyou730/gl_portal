@@ -53,12 +53,12 @@ void Lesson12::Prepare()
     
     
     // dummy light
-    _dummyLight->SetBatch(_boxBatch);
+    _dummyLight->SetMesh(_boxBatch);
     _dummyLight->SetShader(_dummyLightShader);
     _dummyLight->SetScale(1.0f);
     
     // be light box
-    _obj->SetBatch(_objBatch);
+    _obj->SetMesh(_objBatch);
     _obj->SetShader(_phongShader);
     _obj->SetPosition(0,0,0);
     _obj->SetRotAxis(ayy::Vec3f(0,1,0));

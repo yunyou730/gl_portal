@@ -33,9 +33,9 @@ void CommonNode::SetShader(ayy::ShaderProgram* shader)
     _shader = shader;
 }
 
-void CommonNode::SetBatch(ayy::AYYMesh* batch)
+void CommonNode::SetMesh(ayy::AYYMesh* mesh)
 {
-    _batch = batch;
+    _mesh = mesh;
 }
 
 void CommonNode::OnCreate()
@@ -67,13 +67,13 @@ void CommonNode::OnRender(ayy::Camera* mainCam)
     SyncPropToShader(mainCam);
     
     // draw batch
-    if(_batch != nullptr)
+    if(_mesh != nullptr)
     {
-        _batch->Bind();
-        _batch->Draw();
+        _mesh->Bind();
+        _mesh->Draw();
         
         // after draw
-        _batch->UnBind();
+        _mesh->UnBind();
         _shader->UnUse();
     }
 }

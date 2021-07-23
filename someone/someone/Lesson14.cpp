@@ -68,7 +68,7 @@ void Lesson14::Prepare()
     _camera->SetPos(ayy::Vec3f(0,0,-7));
     
     // dummy light
-    _dummyLight->SetBatch(_boxBatch);
+    _dummyLight->SetMesh(_boxBatch);
     _dummyLight->SetShader(_dummyLightShader);
     _dummyLight->SetScale(1.0f);
     
@@ -100,7 +100,7 @@ void Lesson14::Prepare()
         box->SetRotAxis(ayy::Vec3f(rx,ry,rz));
         
         // random
-        box->SetBatch(_objBatch);
+        box->SetMesh(_objBatch);
         box->SetShader(_phongShader);
         box->SetPosition(x,y,z);
         box->SetRotation(rotAngle);

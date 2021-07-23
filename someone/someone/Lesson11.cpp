@@ -72,7 +72,7 @@ void Lesson11::Prepare()
     // box1
     _box1->AddTex(_texture1);
     _box1->AddTex(_texture2);
-    _box1->SetBatch(_batch);
+    _box1->SetMesh(_batch);
     _box1->SetShader(_commonShader);
     _box1->SetRotAxis(ayy::Vec3f(1,1,1));
     _box1->SetPosition(0,0,3);
@@ -80,25 +80,25 @@ void Lesson11::Prepare()
     // box2
     _box2->AddTex(_texture1);
     _box2->AddTex(_texture2);
-    _box2->SetBatch(_batch);
+    _box2->SetMesh(_batch);
     _box2->SetShader(_commonShader);
     _box2->SetRotAxis(ayy::Vec3f(0,1,0));
     _box2->SetPosition(0,1,-8);
     
     // ground
-    _ground->SetBatch(_groundBatch);
+    _ground->SetMesh(_groundBatch);
     _ground->SetShader(_groundShader);
     _ground->SetPosition(-10,-2,-10);
     _ground->SetScale(20);
     
     // dummy light
-    _dummyLight->SetBatch(_boxBatch);
+    _dummyLight->SetMesh(_boxBatch);
     _dummyLight->SetShader(_dummyLightShader);
     _dummyLight->SetPosition(_curLightPos);
     _dummyLight->SetScale(1.0f);
     
     // be light box
-    _obj->SetBatch(_boxNormalBatch);
+    _obj->SetMesh(_boxNormalBatch);
     _obj->SetShader(_phongShader);
     _obj->SetPosition(0,0,0);
     _obj->SetRotAxis(ayy::Vec3f(0,1,0));

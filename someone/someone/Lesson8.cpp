@@ -41,19 +41,19 @@ void Lesson8::Prepare()
     // box1
     _box1->AddTex(_texture1);
     _box1->AddTex(_texture2);
-    _box1->SetBatch(_batch);
+    _box1->SetMesh(_batch);
     _box1->SetShader(_commonShader);
     _box1->SetRotAxis(ayy::Vec3f(1,1,1));
     
     // box2
     _box2->AddTex(_texture1);
     _box2->AddTex(_texture2);
-    _box2->SetBatch(_batch);
+    _box2->SetMesh(_batch);
     _box2->SetShader(_commonShader);
     _box2->SetRotAxis(ayy::Vec3f(0,1,0));
     
     // ground
-    _ground->SetBatch(_groundBatch);
+    _ground->SetMesh(_groundBatch);
     _ground->SetShader(_groundShader);
     _ground->SetPosition(-10,-2,-10);
     _ground->SetScale(20);

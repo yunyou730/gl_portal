@@ -58,7 +58,7 @@ void Lesson15::Prepare()
     {
         CommonNode* node = new Lesson15BoxNode();
         node->SetShader(_boxShader);
-        node->SetBatch(_boxBatch);
+        node->SetMesh(_boxBatch);
         
         float x = ayy::Util::Rand(-kBoxPosClamp,kBoxPosClamp);
         float z = ayy::Util::Rand(-kBoxPosClamp,kBoxPosClamp);
