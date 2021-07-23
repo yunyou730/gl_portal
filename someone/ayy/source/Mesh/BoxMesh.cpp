@@ -1,34 +1,34 @@
-#include "../../headers/Batch/BoxBatch.h"
+#include "../../headers/Mesh/BoxMesh.h"
 
 namespace ayy {
 
-BoxBatch::BoxBatch()
+BoxMesh::BoxMesh()
     :_vao(0),_vbo(0),_ebo(0)
 {
     
 }
 
-BoxBatch::~BoxBatch()
+BoxMesh::~BoxMesh()
 {
 
 }
 
-void BoxBatch::Bind()
+void BoxMesh::Bind()
 {
     glBindVertexArray(_vao);
 }
 
-void BoxBatch::UnBind()
+void BoxMesh::UnBind()
 {
     glBindVertexArray(0);
 }
 
-int BoxBatch::GetIndexCount()
+int BoxMesh::GetIndexCount()
 {
     return _indexCount;
 }
 
-void BoxBatch::Prepare()
+void BoxMesh::Prepare()
 {
     GLuint& VAO = _vao;
     GLuint& VBO = _vbo;
@@ -47,9 +47,7 @@ void BoxBatch::Prepare()
         -0.5f, 0.5f,-0.5f,       // left top
          0.5f,-0.5f,-0.5f,       // right bottom
          0.5f, 0.5f,-0.5f,       // right top
-
     };
-    
     
     // rectangle indice
     unsigned int indices[] = {
@@ -108,7 +106,7 @@ void BoxBatch::Prepare()
 
 }
 
-void BoxBatch::Cleanup()
+void BoxMesh::Cleanup()
 {
     if(_vao > 0)
     {
@@ -129,7 +127,7 @@ void BoxBatch::Cleanup()
     }
 }
 
-void BoxBatch::Draw()
+void BoxMesh::Draw()
 {
     GLsizei indiceCount = GetIndexCount();
     glDrawElements(GL_TRIANGLES,indiceCount,GL_UNSIGNED_INT,(void*)0);

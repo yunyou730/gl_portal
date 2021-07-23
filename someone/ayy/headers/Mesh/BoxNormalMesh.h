@@ -1,12 +1,13 @@
-#pragma once
-#include "Batch.h"
+#include "AYYMesh.h"
+#include "../TextureManager.h"
 
 namespace ayy {
-class PlaneBatch : public Batch
+
+class BoxNormalMesh : public AYYMesh
 {
 public:
-    PlaneBatch();
-    virtual ~PlaneBatch();
+    BoxNormalMesh();
+    virtual ~BoxNormalMesh();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
@@ -18,7 +19,10 @@ public:
     virtual int GetIndexCount() override;
     
 protected:
-    GLuint  _vao,_vbo,_ebo;
+    GLuint _vao,_vbo,_ebo;
+    int     _indexCount = 0;
 };
 
 }
+
+

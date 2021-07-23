@@ -3,8 +3,8 @@
 #include "../ayy/headers/Util.h"
 #include "../ayy/headers/Camera.h"
 #include "TextureManager.h"
-#include "../ayy/headers/Batch/TestBatch.h"
-#include "../ayy/headers/Batch/PlaneBatch.h"
+#include "../ayy/headers/Mesh/TestMesh.h"
+#include "../ayy/headers/Mesh/PlaneMesh.h"
 #include "Node/CommonNode.h"
 #include "../ayy/headers/Common.h"
 
@@ -12,8 +12,8 @@
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
-    _batch = new ayy::TestBatch();
-    _groundBatch = new ayy::PlaneBatch();
+    _batch = new ayy::TestMesh();
+    _groundBatch = new ayy::PlaneMesh();
     _box1 = new CommonNode();
     _box2 = new CommonNode();
     _ground = new CommonNode();

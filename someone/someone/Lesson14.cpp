@@ -3,13 +3,13 @@
 #include "../ayy/headers/Util.h"
 #include "../ayy/headers/Camera.h"
 #include "TextureManager.h"
-#include "../ayy/headers/Batch/TestBatch.h"
-#include "../ayy/headers/Batch/PlaneBatch.h"
-#include "../ayy/headers/Batch/BoxBatch.h"
+#include "../ayy/headers/Mesh/TestMesh.h"
+#include "../ayy/headers/Mesh/PlaneMesh.h"
+#include "../ayy/headers/Mesh/BoxMesh.h"
 #include "Node/CommonNode.h"
 #include "../ayy/headers/Common.h"
 #include "AyyImGUI.h"
-#include "../ayy/headers/Batch/BoxUVNormBatch.h"
+#include "../ayy/headers/Mesh/BoxUVNormMesh.h"
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
 #include "ModelNode.h"
@@ -20,8 +20,8 @@ static const int kBoxPosClamp = 5;
 Lesson14::Lesson14(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
-    _boxBatch = new ayy::BoxBatch();
-    _objBatch = new ayy::BoxUVNormBatch();
+    _boxBatch = new ayy::BoxMesh();
+    _objBatch = new ayy::BoxUVNormMesh();
     _dummyLight = new CommonNode();
     _modelNode = new ModelNode("res/nanosuit/nanosuit.obj","res/nanosuit/");
     

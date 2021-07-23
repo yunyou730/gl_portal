@@ -1,21 +1,21 @@
-#include "../../headers/Batch/PlaneBatch.h"
+#include "../../headers/Mesh/PlaneMesh.h"
 
 
 static const float kSideLen = 1.0f;
 static const float kPosY = 0.0f;
 
 namespace ayy {
-PlaneBatch::PlaneBatch()
+PlaneMesh::PlaneMesh()
 {
     
 }
 
-PlaneBatch::~PlaneBatch()
+PlaneMesh::~PlaneMesh()
 {
     
 }
 
-void PlaneBatch::Prepare()
+void PlaneMesh::Prepare()
 {
     float vertices[] = {
                 0,          kPosY, 0,       // left back
@@ -53,7 +53,7 @@ void PlaneBatch::Prepare()
     glBindVertexArray(0);
 }
 
-void PlaneBatch::Cleanup()
+void PlaneMesh::Cleanup()
 {
     if(_vao > 0)
     {
@@ -74,23 +74,23 @@ void PlaneBatch::Cleanup()
     }
 }
 
-void PlaneBatch::Draw()
+void PlaneMesh::Draw()
 {
     GLsizei indiceCount = GetIndexCount();
     glDrawElements(GL_TRIANGLES,indiceCount,GL_UNSIGNED_INT,(void*)0);
 }
 
-void PlaneBatch::Bind()
+void PlaneMesh::Bind()
 {
     glBindVertexArray(_vao);
 }
 
-void PlaneBatch::UnBind()
+void PlaneMesh::UnBind()
 {
     glBindVertexArray(0);
 }
 
-int PlaneBatch::GetIndexCount()
+int PlaneMesh::GetIndexCount()
 {
     return 6;
 }

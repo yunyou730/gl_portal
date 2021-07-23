@@ -10,7 +10,7 @@ namespace ayy
 class ShaderProgram;
 class Texture;
 class Camera;
-class Batch;
+class AYYMesh;
 }
 
 class CommonNode;
@@ -35,8 +35,8 @@ protected:
     void PrepareTexture();
     
 private:
-    ayy::Batch*     _boxBatch = nullptr;
-    ayy::Batch*     _objBatch = nullptr;
+    ayy::AYYMesh*     _boxBatch = nullptr;
+    ayy::AYYMesh*     _objBatch = nullptr;
     
     ayy::ShaderProgram*  _dummyLightShader = nullptr;
     ayy::ShaderProgram*  _phongShader = nullptr;

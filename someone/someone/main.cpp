@@ -22,6 +22,7 @@
 #include "Lesson12.h"
 #include "Lesson13.h"
 #include "Lesson14.h"
+#include "Lesson15.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -98,9 +99,11 @@ int main(int argc, const char * argv[])
     app.CreateWindow();
     
     app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
-    
-    scene = new Lesson14(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson8();
+  
+    scene = new Lesson15(SCR_WIDTH,SCR_HEIGHT);
+//    scene = new Lesson14(SCR_WIDTH,SCR_HEIGHT);
+//    scene = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
+//    scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
     scene->Prepare();
     app.SetScene(scene);
     

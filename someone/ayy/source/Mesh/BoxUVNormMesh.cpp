@@ -1,34 +1,34 @@
-#include "../../headers/Batch/BoxUVNormBatch.h"
+#include "../../headers/Mesh/BoxUVNormMesh.h"
 
 namespace ayy {
 
-BoxUVNormBatch::BoxUVNormBatch()
+BoxUVNormMesh::BoxUVNormMesh()
     :_vao(0),_vbo(0),_ebo(0)
 {
     
 }
 
-BoxUVNormBatch::~BoxUVNormBatch()
+BoxUVNormMesh::~BoxUVNormMesh()
 {
 
 }
 
-void BoxUVNormBatch::Bind()
+void BoxUVNormMesh::Bind()
 {
     glBindVertexArray(_vao);
 }
 
-void BoxUVNormBatch::UnBind()
+void BoxUVNormMesh::UnBind()
 {
     glBindVertexArray(0);
 }
 
-int BoxUVNormBatch::GetIndexCount()
+int BoxUVNormMesh::GetIndexCount()
 {
     return _indexCount;
 }
 
-void BoxUVNormBatch::Prepare()
+void BoxUVNormMesh::Prepare()
 {
     GLuint& VAO = _vao;
     GLuint& VBO = _vbo;
@@ -141,7 +141,7 @@ void BoxUVNormBatch::Prepare()
 
 }
 
-void BoxUVNormBatch::Cleanup()
+void BoxUVNormMesh::Cleanup()
 {
     if(_vao > 0)
     {
@@ -162,7 +162,7 @@ void BoxUVNormBatch::Cleanup()
     }
 }
 
-void BoxUVNormBatch::Draw()
+void BoxUVNormMesh::Draw()
 {
     GLsizei indiceCount = GetIndexCount();
     glDrawElements(GL_TRIANGLES,indiceCount,GL_UNSIGNED_INT,(void*)0);

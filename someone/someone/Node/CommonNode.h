@@ -7,7 +7,7 @@ namespace ayy
 {
 class ShaderProgram;
 class Texture;
-class Batch;
+class AYYMesh;
 }
 
 class CommonNode : public Node
@@ -25,7 +25,7 @@ public:
     virtual void SetShader(ayy::ShaderProgram* shader);
     ayy::ShaderProgram* GetShader() { return _shader;}
     
-    void SetBatch(ayy::Batch* batch);
+    void SetBatch(ayy::AYYMesh* batch);
     void AddTex(ayy::TextureUUID texId);
     
     void SetPosition(const ayy::Vec3f& pos);
@@ -46,7 +46,7 @@ protected:
 protected:
     ayy::ShaderProgram*  _shader = nullptr;
     std::vector<ayy::TextureUUID> _texIDs;
-    ayy::Batch* _batch = nullptr;
+    ayy::AYYMesh* _batch = nullptr;
     
     ayy::Vec3f  _pos;
 //    ayy::Vec3f  _rot;

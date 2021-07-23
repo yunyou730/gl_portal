@@ -1,13 +1,13 @@
-#include "Batch.h"
+#include "AYYMesh.h"
 #include "../TextureManager.h"
 
 namespace ayy {
 
-class BoxBatch : public Batch
+class BoxMesh : public AYYMesh
 {
 public:
-    BoxBatch();
-    virtual ~BoxBatch();
+    BoxMesh();
+    virtual ~BoxMesh();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;

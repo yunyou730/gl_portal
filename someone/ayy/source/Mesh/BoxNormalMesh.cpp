@@ -1,34 +1,34 @@
-#include "../../headers/Batch/BoxNormalBatch.h"
+#include "../../headers/Mesh/BoxNormalMesh.h"
 
 namespace ayy {
 
-BoxNormalBatch::BoxNormalBatch()
+BoxNormalMesh::BoxNormalMesh()
     :_vao(0),_vbo(0),_ebo(0)
 {
     
 }
 
-BoxNormalBatch::~BoxNormalBatch()
+BoxNormalMesh::~BoxNormalMesh()
 {
 
 }
 
-void BoxNormalBatch::Bind()
+void BoxNormalMesh::Bind()
 {
     glBindVertexArray(_vao);
 }
 
-void BoxNormalBatch::UnBind()
+void BoxNormalMesh::UnBind()
 {
     glBindVertexArray(0);
 }
 
-int BoxNormalBatch::GetIndexCount()
+int BoxNormalMesh::GetIndexCount()
 {
     return _indexCount;
 }
 
-void BoxNormalBatch::Prepare()
+void BoxNormalMesh::Prepare()
 {
     GLuint& VAO = _vao;
     GLuint& VBO = _vbo;
@@ -73,7 +73,6 @@ void BoxNormalBatch::Prepare()
         -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
     };
     
-    // @miao @todo
     // rectangle indice
     unsigned int indices[] = {
         // back
@@ -135,7 +134,7 @@ void BoxNormalBatch::Prepare()
 
 }
 
-void BoxNormalBatch::Cleanup()
+void BoxNormalMesh::Cleanup()
 {
     if(_vao > 0)
     {
@@ -156,7 +155,7 @@ void BoxNormalBatch::Cleanup()
     }
 }
 
-void BoxNormalBatch::Draw()
+void BoxNormalMesh::Draw()
 {
     GLsizei indiceCount = GetIndexCount();
     glDrawElements(GL_TRIANGLES,indiceCount,GL_UNSIGNED_INT,(void*)0);

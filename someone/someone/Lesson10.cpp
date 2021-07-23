@@ -3,21 +3,21 @@
 #include "../ayy/headers/Util.h"
 #include "../ayy/headers/Camera.h"
 #include "TextureManager.h"
-#include "../ayy/headers/Batch/TestBatch.h"
-#include "../ayy/headers/Batch/PlaneBatch.h"
-#include "../ayy/headers/Batch/BoxBatch.h"
+#include "../ayy/headers/Mesh/TestMesh.h"
+#include "../ayy/headers/Mesh/PlaneMesh.h"
+#include "../ayy/headers/Mesh/BoxMesh.h"
 #include "Node/CommonNode.h"
 #include "../ayy/headers/Common.h"
 #include "PhongMatNode.h"
-#include "../ayy/headers/Batch/BoxNormalBatch.h"
+#include "../ayy/headers/Mesh/BoxNormalMesh.h"
 
 Lesson10::Lesson10(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
-    _batch = new ayy::TestBatch();
-    _groundBatch = new ayy::PlaneBatch();
-    _boxBatch = new ayy::BoxBatch();
-    _boxNormalBatch = new ayy::BoxNormalBatch();
+    _batch = new ayy::TestMesh();
+    _groundBatch = new ayy::PlaneMesh();
+    _boxBatch = new ayy::BoxMesh();
+    _boxNormalBatch = new ayy::BoxNormalMesh();
     
     _box1 = new CommonNode();
     _box2 = new CommonNode();

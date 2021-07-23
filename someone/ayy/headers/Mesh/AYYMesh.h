@@ -3,11 +3,11 @@
 
 namespace ayy
 {
-class Batch
+class AYYMesh
 {
 public:
-    Batch();
-    virtual ~Batch();
+    AYYMesh();
+    virtual ~AYYMesh();
         
     virtual void Prepare() = 0;
     virtual void Cleanup() = 0;

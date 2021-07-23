@@ -54,7 +54,7 @@ bool BaseApplication::Setup()
 
 bool BaseApplication::CreateWindow()
 {
-    _window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    _window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ayy730", NULL, NULL);
     if (_window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;

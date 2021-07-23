@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B1304D3267F90B100050A9E /* PlaneBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1304D2267F90B100050A9E /* PlaneBatch.cpp */; };
-		2B1304D5267F90E000050A9E /* Batch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1304CD267F906100050A9E /* Batch.cpp */; };
 		2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D012675BB74004EC484 /* Lesson7.cpp */; };
 		2B1C7D062676ED1D004EC484 /* mvp_test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D042676ED0E004EC484 /* mvp_test.fs */; };
 		2B1C7D072676ED1D004EC484 /* mvp_test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D052676ED0E004EC484 /* mvp_test.vs */; };
 		2B1C7D0A2677137F004EC484 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D092677137F004EC484 /* Math.cpp */; };
 		2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D0D26772AF6004EC484 /* Camera.cpp */; };
+		2B23B74126AB4EAE00F69677 /* TestMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73B26AB4EAE00F69677 /* TestMesh.cpp */; };
+		2B23B74226AB4EAF00F69677 /* BoxMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73C26AB4EAE00F69677 /* BoxMesh.cpp */; };
+		2B23B74326AB4EAF00F69677 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73D26AB4EAE00F69677 /* Mesh.cpp */; };
+		2B23B74426AB4EAF00F69677 /* BoxUVNormMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73E26AB4EAE00F69677 /* BoxUVNormMesh.cpp */; };
+		2B23B74526AB4EAF00F69677 /* BoxNormalMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73F26AB4EAE00F69677 /* BoxNormalMesh.cpp */; };
+		2B23B74626AB4EAF00F69677 /* PlaneMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B74026AB4EAE00F69677 /* PlaneMesh.cpp */; };
+		2B24BE2426A2D759007B6EB9 /* Lesson15.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B24BE2226A2D759007B6EB9 /* Lesson15.cpp */; };
+		2B24BE2E26A56F00007B6EB9 /* lesson15_box.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B24BE2626A3D03F007B6EB9 /* lesson15_box.fs */; };
+		2B24BE2F26A56F00007B6EB9 /* lesson15_box.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B24BE2726A3D03F007B6EB9 /* lesson15_box.vs */; };
+		2B24BE3426A68E38007B6EB9 /* emoji_wa.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B24BE3326A68E28007B6EB9 /* emoji_wa.png */; };
+		2B24BE3826A69266007B6EB9 /* Lesson15BoxNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B24BE3626A69266007B6EB9 /* Lesson15BoxNode.cpp */; };
+		2B24BE3B26A69FB6007B6EB9 /* marble.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B24BE3A26A69FA5007B6EB9 /* marble.jpg */; };
 		2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3126628E360078E004 /* stb_image.cpp */; };
 		2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* Texture.cpp */; };
 		2B2A9C3A26630FB50078E004 /* container.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C3926630FA50078E004 /* container.jpg */; };
@@ -21,7 +31,6 @@
 		2B2A9C42266317B90078E004 /* color_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C40266317AF0078E004 /* color_texture.fs */; };
 		2B2A9C43266317B90078E004 /* color_texture.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C41266317AF0078E004 /* color_texture.vs */; };
 		2B2A9C462663200F0078E004 /* awesomeface.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C45266320060078E004 /* awesomeface.png */; };
-		2B3E7B43268554DD00B7D00B /* TestBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B42268554DD00B7D00B /* TestBatch.cpp */; };
 		2B3E7B54268587FB00B7D00B /* ground_plane.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B51268587DB00B7D00B /* ground_plane.fs */; };
 		2B3E7B55268587FB00B7D00B /* ground_plane.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B52268587DB00B7D00B /* ground_plane.vs */; };
 		2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B5826881BCD00B7D00B /* Node.cpp */; };
@@ -32,12 +41,10 @@
 		2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B6E2688D1A700B7D00B /* Lesson9.cpp */; };
 		2B3E7B74268ABDD400B7D00B /* dummy_light.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B72268ABDC900B7D00B /* dummy_light.fs */; };
 		2B3E7B75268ABDD400B7D00B /* dummy_light.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B73268ABDC900B7D00B /* dummy_light.vs */; };
-		2B3E7B79268ABE9500B7D00B /* BoxBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */; };
 		2B3E7B7D268AE6FF00B7D00B /* phong.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B7B268AE6F500B7D00B /* phong.fs */; };
 		2B3E7B7E268AE6FF00B7D00B /* phong.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B7C268AE6F500B7D00B /* phong.vs */; };
 		2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */; };
 		2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* Common.cpp */; };
-		2B3E7B89268CB85D00B7D00B /* BoxNormalBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */; };
 		2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */; };
 		2B3E7B92268EA32400B7D00B /* phong_mat.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B91268EA31700B7D00B /* phong_mat.fs */; };
 		2B3E7B93268EA32400B7D00B /* phong_mat.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B90268EA31700B7D00B /* phong_mat.vs */; };
@@ -56,7 +63,6 @@
 		2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* BaseScene.cpp */; };
 		2B3E7C0526903D5700B7D00B /* Lesson11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C0426903D5700B7D00B /* Lesson11.cpp */; };
 		2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C07269046DF00B7D00B /* Lesson12.cpp */; };
-		2B3E7C0E26904AAC00B7D00B /* BoxUVNormBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C0D26904AAC00B7D00B /* BoxUVNormBatch.cpp */; };
 		2B3E81A62691AE4B00B7D00B /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E81A52691ADF000B7D00B /* libassimp.4.0.1.dylib */; };
 		2B3E81BF2691B4A400B7D00B /* body_showroom_ddn.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81A92691B40E00B7D00B /* body_showroom_ddn.png */; };
 		2B3E81C02691B4A400B7D00B /* helmet_showroom_ddn.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81AA2691B40E00B7D00B /* helmet_showroom_ddn.png */; };
@@ -155,6 +161,10 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B24BE3B26A69FB6007B6EB9 /* marble.jpg in CopyFiles */,
+				2B24BE3426A68E38007B6EB9 /* emoji_wa.png in CopyFiles */,
+				2B24BE2E26A56F00007B6EB9 /* lesson15_box.fs in CopyFiles */,
+				2B24BE2F26A56F00007B6EB9 /* lesson15_box.vs in CopyFiles */,
 				2B5F8544269ADBF000E77543 /* ayy_model.fs in CopyFiles */,
 				2B5F8545269ADBF000E77543 /* ayy_model.vs in CopyFiles */,
 				2B8FE4542694A752000E4079 /* phong_mul_light_src.fs in CopyFiles */,
@@ -191,8 +201,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2B1304CD267F906100050A9E /* Batch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Batch.cpp; sourceTree = "<group>"; };
-		2B1304D2267F90B100050A9E /* PlaneBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneBatch.cpp; sourceTree = "<group>"; };
 		2B1C7D002675BB74004EC484 /* Lesson7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson7.h; sourceTree = "<group>"; };
 		2B1C7D012675BB74004EC484 /* Lesson7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson7.cpp; sourceTree = "<group>"; };
 		2B1C7D042676ED0E004EC484 /* mvp_test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test.fs; sourceTree = "<group>"; };
@@ -200,6 +208,26 @@
 		2B1C7D092677137F004EC484 /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
 		2B1C7D0C26772AED004EC484 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		2B1C7D0D26772AF6004EC484 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		2B23B73426AB4E8600F69677 /* AYYMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYMesh.h; sourceTree = "<group>"; };
+		2B23B73526AB4E8600F69677 /* PlaneMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaneMesh.h; sourceTree = "<group>"; };
+		2B23B73626AB4E8600F69677 /* TestMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMesh.h; sourceTree = "<group>"; };
+		2B23B73726AB4E8600F69677 /* BoxMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxMesh.h; sourceTree = "<group>"; };
+		2B23B73826AB4E8600F69677 /* BoxUVNormMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxUVNormMesh.h; sourceTree = "<group>"; };
+		2B23B73926AB4E8600F69677 /* BoxNormalMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxNormalMesh.h; sourceTree = "<group>"; };
+		2B23B73B26AB4EAE00F69677 /* TestMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestMesh.cpp; sourceTree = "<group>"; };
+		2B23B73C26AB4EAE00F69677 /* BoxMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxMesh.cpp; sourceTree = "<group>"; };
+		2B23B73D26AB4EAE00F69677 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		2B23B73E26AB4EAE00F69677 /* BoxUVNormMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxUVNormMesh.cpp; sourceTree = "<group>"; };
+		2B23B73F26AB4EAE00F69677 /* BoxNormalMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxNormalMesh.cpp; sourceTree = "<group>"; };
+		2B23B74026AB4EAE00F69677 /* PlaneMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneMesh.cpp; sourceTree = "<group>"; };
+		2B24BE2226A2D759007B6EB9 /* Lesson15.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson15.cpp; sourceTree = "<group>"; };
+		2B24BE2326A2D759007B6EB9 /* Lesson15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson15.h; sourceTree = "<group>"; };
+		2B24BE2626A3D03F007B6EB9 /* lesson15_box.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson15_box.fs; sourceTree = "<group>"; };
+		2B24BE2726A3D03F007B6EB9 /* lesson15_box.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson15_box.vs; sourceTree = "<group>"; };
+		2B24BE3326A68E28007B6EB9 /* emoji_wa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emoji_wa.png; path = someone/res/emoji_wa.png; sourceTree = SOURCE_ROOT; };
+		2B24BE3626A69266007B6EB9 /* Lesson15BoxNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson15BoxNode.cpp; sourceTree = "<group>"; };
+		2B24BE3726A69266007B6EB9 /* Lesson15BoxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson15BoxNode.h; sourceTree = "<group>"; };
+		2B24BE3A26A69FA5007B6EB9 /* marble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = marble.jpg; path = someone/res/marble.jpg; sourceTree = SOURCE_ROOT; };
 		2B2A9C3026628DF80078E004 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		2B2A9C3126628E360078E004 /* stb_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
 		2B2A9C3426630CF50078E004 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
@@ -210,10 +238,6 @@
 		2B2A9C40266317AF0078E004 /* color_texture.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_texture.fs; sourceTree = "<group>"; };
 		2B2A9C41266317AF0078E004 /* color_texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_texture.vs; sourceTree = "<group>"; };
 		2B2A9C45266320060078E004 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
-		2B3E7B42268554DD00B7D00B /* TestBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestBatch.cpp; sourceTree = "<group>"; };
-		2B3E7B4D26857BD300B7D00B /* Batch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
-		2B3E7B4E26857BD300B7D00B /* PlaneBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaneBatch.h; sourceTree = "<group>"; };
-		2B3E7B4F26857BD300B7D00B /* TestBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBatch.h; sourceTree = "<group>"; };
 		2B3E7B51268587DB00B7D00B /* ground_plane.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.fs; sourceTree = "<group>"; };
 		2B3E7B52268587DB00B7D00B /* ground_plane.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.vs; sourceTree = "<group>"; };
 		2B3E7B5826881BCD00B7D00B /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
@@ -230,15 +254,11 @@
 		2B3E7B6F2688D1A700B7D00B /* Lesson9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson9.h; sourceTree = "<group>"; };
 		2B3E7B72268ABDC900B7D00B /* dummy_light.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = dummy_light.fs; sourceTree = "<group>"; };
 		2B3E7B73268ABDC900B7D00B /* dummy_light.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = dummy_light.vs; sourceTree = "<group>"; };
-		2B3E7B77268ABE8600B7D00B /* BoxBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxBatch.h; sourceTree = "<group>"; };
-		2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxBatch.cpp; sourceTree = "<group>"; };
 		2B3E7B7B268AE6F500B7D00B /* phong.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong.fs; sourceTree = "<group>"; };
 		2B3E7B7C268AE6F500B7D00B /* phong.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong.vs; sourceTree = "<group>"; };
 		2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongNode.cpp; sourceTree = "<group>"; };
 		2B3E7B81268B51DC00B7D00B /* PhongNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongNode.h; sourceTree = "<group>"; };
 		2B3E7B84268B62F900B7D00B /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
-		2B3E7B87268CB85200B7D00B /* BoxNormalBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxNormalBatch.h; sourceTree = "<group>"; };
-		2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxNormalBatch.cpp; sourceTree = "<group>"; };
 		2B3E7B8B268EA2A300B7D00B /* Lesson10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson10.h; sourceTree = "<group>"; };
 		2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson10.cpp; sourceTree = "<group>"; };
 		2B3E7B90268EA31700B7D00B /* phong_mat.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_mat.vs; sourceTree = "<group>"; };
@@ -274,8 +294,6 @@
 		2B3E7C0426903D5700B7D00B /* Lesson11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson11.cpp; sourceTree = "<group>"; };
 		2B3E7C07269046DF00B7D00B /* Lesson12.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson12.cpp; sourceTree = "<group>"; };
 		2B3E7C08269046DF00B7D00B /* Lesson12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson12.h; sourceTree = "<group>"; };
-		2B3E7C0C26904AA200B7D00B /* BoxUVNormBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxUVNormBatch.h; sourceTree = "<group>"; };
-		2B3E7C0D26904AAC00B7D00B /* BoxUVNormBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxUVNormBatch.cpp; sourceTree = "<group>"; };
 		2B3E81702691ADF000B7D00B /* IOSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IOSystem.hpp; sourceTree = "<group>"; };
 		2B3E81712691ADF000B7D00B /* Logger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
 		2B3E81722691ADF000B7D00B /* IOStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IOStream.hpp; sourceTree = "<group>"; };
@@ -436,35 +454,37 @@
 			path = ayy/res;
 			sourceTree = SOURCE_ROOT;
 		};
-		2B1304CC267F906100050A9E /* Batch */ = {
+		2B1304CC267F906100050A9E /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
-				2B1304CD267F906100050A9E /* Batch.cpp */,
-				2B1304D2267F90B100050A9E /* PlaneBatch.cpp */,
-				2B3E7B42268554DD00B7D00B /* TestBatch.cpp */,
-				2B3E7B78268ABE9500B7D00B /* BoxBatch.cpp */,
-				2B3E7B88268CB85D00B7D00B /* BoxNormalBatch.cpp */,
-				2B3E7C0D26904AAC00B7D00B /* BoxUVNormBatch.cpp */,
+				2B23B73C26AB4EAE00F69677 /* BoxMesh.cpp */,
+				2B23B73F26AB4EAE00F69677 /* BoxNormalMesh.cpp */,
+				2B23B73E26AB4EAE00F69677 /* BoxUVNormMesh.cpp */,
+				2B23B73D26AB4EAE00F69677 /* Mesh.cpp */,
+				2B23B74026AB4EAE00F69677 /* PlaneMesh.cpp */,
+				2B23B73B26AB4EAE00F69677 /* TestMesh.cpp */,
 			);
-			path = Batch;
+			path = Mesh;
 			sourceTree = "<group>";
 		};
-		2B3E7B4C26857BD300B7D00B /* Batch */ = {
+		2B3E7B4C26857BD300B7D00B /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
-				2B3E7B4D26857BD300B7D00B /* Batch.h */,
-				2B3E7B4E26857BD300B7D00B /* PlaneBatch.h */,
-				2B3E7B4F26857BD300B7D00B /* TestBatch.h */,
-				2B3E7B77268ABE8600B7D00B /* BoxBatch.h */,
-				2B3E7B87268CB85200B7D00B /* BoxNormalBatch.h */,
-				2B3E7C0C26904AA200B7D00B /* BoxUVNormBatch.h */,
+				2B23B73726AB4E8600F69677 /* BoxMesh.h */,
+				2B23B73926AB4E8600F69677 /* BoxNormalMesh.h */,
+				2B23B73826AB4E8600F69677 /* BoxUVNormMesh.h */,
+				2B23B73426AB4E8600F69677 /* AYYMesh.h */,
+				2B23B73526AB4E8600F69677 /* PlaneMesh.h */,
+				2B23B73626AB4E8600F69677 /* TestMesh.h */,
 			);
-			path = Batch;
+			path = Mesh;
 			sourceTree = "<group>";
 		};
 		2B3E7B5726881B8D00B7D00B /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				2B24BE3626A69266007B6EB9 /* Lesson15BoxNode.cpp */,
+				2B24BE3726A69266007B6EB9 /* Lesson15BoxNode.h */,
 				2B5F854A269AEE6A00E77543 /* ModelNode.cpp */,
 				2B5F8549269AEE6900E77543 /* ModelNode.h */,
 				2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */,
@@ -651,6 +671,8 @@
 		2B3E81A82691B40E00B7D00B /* nanosuit */ = {
 			isa = PBXGroup;
 			children = (
+				2B24BE3A26A69FA5007B6EB9 /* marble.jpg */,
+				2B24BE3326A68E28007B6EB9 /* emoji_wa.png */,
 				2B3E81E326921D4800B7D00B /* box_diffuse.png */,
 				2B3E81E426921D4800B7D00B /* box_specular.png */,
 				2B3E81A92691B40E00B7D00B /* body_showroom_ddn.png */,
@@ -759,6 +781,8 @@
 				2B8FE44D269422B6000E4079 /* Lesson13.h */,
 				2B5F853A269ABE8100E77543 /* Lesson14.cpp */,
 				2B5F8539269ABE8000E77543 /* Lesson14.h */,
+				2B24BE2226A2D759007B6EB9 /* Lesson15.cpp */,
+				2B24BE2326A2D759007B6EB9 /* Lesson15.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -793,7 +817,7 @@
 				2B3E7BFF2690308000B7D00B /* BaseScene.cpp */,
 				2B3E81D52691BFD000B7D00B /* ModelImporter */,
 				2B3E7BF226901AFD00B7D00B /* ImGUI */,
-				2B1304CC267F906100050A9E /* Batch */,
+				2B1304CC267F906100050A9E /* Mesh */,
 				2B2A9C3126628E360078E004 /* stb_image.cpp */,
 				2B3E7B84268B62F900B7D00B /* Common.cpp */,
 				2BF38CCB265E195D0034A223 /* Shader.cpp */,
@@ -816,7 +840,7 @@
 				2B3E7BFE2690306E00B7D00B /* BaseScene.h */,
 				2B3E81D42691BF9E00B7D00B /* ModelImporter */,
 				2B3E7BF626901B0B00B7D00B /* ImGUI */,
-				2B3E7B4C26857BD300B7D00B /* Batch */,
+				2B3E7B4C26857BD300B7D00B /* Mesh */,
 				2B2A9C3026628DF80078E004 /* stb_image.h */,
 				2BF38CCD265E195D0034A223 /* Shader.h */,
 				2BF38CDF266138A30034A223 /* Math.h */,
@@ -863,6 +887,8 @@
 				2B8FE4512694A734000E4079 /* phong_mul_light_src.vs */,
 				2B5F853E269ADB2D00E77543 /* ayy_model.fs */,
 				2B5F853F269ADB2D00E77543 /* ayy_model.vs */,
+				2B24BE2626A3D03F007B6EB9 /* lesson15_box.fs */,
+				2B24BE2726A3D03F007B6EB9 /* lesson15_box.vs */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -929,18 +955,17 @@
 				2B3E7BEE269019E500B7D00B /* imgui_demo.cpp in Sources */,
 				2B8FE4632695C3D5000E4079 /* PhongMultLightNode.cpp in Sources */,
 				2B3E7BA0268EB47800B7D00B /* BaseMaterial.cpp in Sources */,
-				2B3E7B79268ABE9500B7D00B /* BoxBatch.cpp in Sources */,
-				2B3E7B43268554DD00B7D00B /* TestBatch.cpp in Sources */,
 				2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */,
-				2B1304D5267F90E000050A9E /* Batch.cpp in Sources */,
 				2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */,
 				2B3E7BE9269019E500B7D00B /* imgui_widgets.cpp in Sources */,
 				2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */,
 				2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */,
+				2B23B74626AB4EAF00F69677 /* PlaneMesh.cpp in Sources */,
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
 				2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */,
-				2B3E7B89268CB85D00B7D00B /* BoxNormalBatch.cpp in Sources */,
 				2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */,
+				2B23B74126AB4EAE00F69677 /* TestMesh.cpp in Sources */,
+				2B24BE2426A2D759007B6EB9 /* Lesson15.cpp in Sources */,
 				2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */,
 				2B3E7BEF269019E500B7D00B /* imgui_draw.cpp in Sources */,
 				2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */,
@@ -948,11 +973,13 @@
 				2B3E7BEC269019E500B7D00B /* imgui.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
+				2B24BE3826A69266007B6EB9 /* Lesson15BoxNode.cpp in Sources */,
 				2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */,
 				2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */,
 				2B3E81E12691C17B00B7D00B /* GUISceneSelection.cpp in Sources */,
 				2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */,
 				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
+				2B23B74526AB4EAF00F69677 /* BoxNormalMesh.cpp in Sources */,
 				2B3E7BF426901AFD00B7D00B /* AyyImGUI.cpp in Sources */,
 				2B1C7D0A2677137F004EC484 /* Math.cpp in Sources */,
 				2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */,
@@ -962,15 +989,15 @@
 				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
 				2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */,
 				2B3E7B6026881BCD00B7D00B /* GroundNode.cpp in Sources */,
-				2B1304D3267F90B100050A9E /* PlaneBatch.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */,
 				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
-				2B3E7C0E26904AAC00B7D00B /* BoxUVNormBatch.cpp in Sources */,
+				2B23B74326AB4EAF00F69677 /* Mesh.cpp in Sources */,
 				2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */,
 				2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */,
 				2B3E7B5F26881BCD00B7D00B /* CommonNode.cpp in Sources */,
 				2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */,
+				2B23B74226AB4EAF00F69677 /* BoxMesh.cpp in Sources */,
 				2B3E7BEA269019E500B7D00B /* imgui_impl_opengl3.cpp in Sources */,
 				2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */,
 				2B3E81F32692238000B7D00B /* PhongTexMaterial.cpp in Sources */,
@@ -982,6 +1009,7 @@
 				2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */,
 				2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */,
 				2BFEB881266D1253009407D4 /* TextureManager.cpp in Sources */,
+				2B23B74426AB4EAF00F69677 /* BoxUVNormMesh.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

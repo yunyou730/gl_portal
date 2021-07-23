@@ -3,12 +3,12 @@
 #include "../../ayy/headers/Util.h"
 #include "../../ayy/headers/Shader.h"
 #include "TextureManager.h"
-#include "../../ayy/headers/Batch/TestBatch.h"
+#include "../../ayy/headers/Mesh/TestMesh.h"
 #include "../../ayy/headers/Common.h"
 
 #include <sstream>
 
-static const std::string textureUniformNamePrefix = "texture";
+static const std::string kTextureUniformNamePrefix = "texture";
 static const ayy::Vec3f kDefaultRotAxis(0,1,0);
 static const ayy::Vec3f kDefaultScale(1,1,1);
 
@@ -33,7 +33,7 @@ void CommonNode::SetShader(ayy::ShaderProgram* shader)
     _shader = shader;
 }
 
-void CommonNode::SetBatch(ayy::Batch* batch)
+void CommonNode::SetBatch(ayy::AYYMesh* batch)
 {
     _batch = batch;
 }
@@ -50,8 +50,8 @@ void CommonNode::OnUpdate(float dt)
 
 void CommonNode::OnRender(ayy::Camera* mainCam)
 {
-    // @miao @todo
     // shader
+    assert(_shader != nullptr);
     _shader->Use();
     
     // using texture
@@ -59,7 +59,7 @@ void CommonNode::OnRender(ayy::Camera* mainCam)
     {
         ayy::TextureManager::GetInstance()->BindTextureToSlot(_texIDs[i],i);
         std::stringstream ssUniformName;
-        ssUniformName << textureUniformNamePrefix << i + 1;
+        ssUniformName << kTextureUniformNamePrefix << i + 1;
         _shader->SetUniform(ssUniformName.str(),i);
     }
     
