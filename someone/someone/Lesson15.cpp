@@ -16,6 +16,7 @@ static const int kBoxCount = 7;
 static const int kBoxPosClamp = 5;
 
 static const ayy::Vec3f kCameraDefaultPos(0,0,-7);
+static const float kBorderScale = 1.1f;
 
 Lesson15::Lesson15(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
@@ -70,7 +71,7 @@ void Lesson15::Prepare()
         borderNode->SetShader(_borderShader);
         borderNode->SetMesh(_boxMesh);
         borderNode->SetPosition(ayy::Vec3f(x,0,z));
-        borderNode->SetScale(ayy::Vec3f(1.1,1.1,1.1));
+        borderNode->SetScale(ayy::Vec3f(kBorderScale,kBorderScale,kBorderScale));
         _borders.push_back(borderNode);
     }
     
