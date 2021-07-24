@@ -2,7 +2,7 @@
 
 #include "CommonNode.h"
 
-class Lesson15BoxNode : public CommonNode
+class Lesson15PlaneNode : public CommonNode
 {
 public:
     virtual void SyncPropToShader(ayy::Camera* mainCam);

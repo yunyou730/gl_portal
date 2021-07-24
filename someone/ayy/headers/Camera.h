@@ -47,6 +47,9 @@ public:
     float GetFar() const { return _far;}
     float GetNear() const { return _near;}
     
+    void SetNear(float near) { _near = near;}
+    void SetFar(float far) {_far = far;}
+    
     void Dump() const;
     
 protected:

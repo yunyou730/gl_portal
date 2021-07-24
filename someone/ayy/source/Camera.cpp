@@ -19,6 +19,7 @@ Camera::Camera(int viewportWidth,int viewportHeight)
     ,_fov(45)
     ,_far(100.0f)
     ,_near(0.1f)
+//    ,_near(3.0f)
 {
     _eye = kDefaultPos;
     

@@ -16,7 +16,6 @@ class AYYMesh;
 
 class CommonNode;
 class Lesson15BoxNode;
-class GroundNode;
 class Lesson15 : public ayy::BaseScene
 {
 public:
@@ -37,18 +36,20 @@ protected:
     void PrepareTexture();
     
 private:
-    ayy::AYYMesh*     _boxBatch = nullptr;
-    ayy::AYYMesh*     _planeMesh = nullptr;
-    ayy::Camera*    _camera = nullptr;
+    ayy::AYYMesh*       _boxMesh = nullptr;
+    ayy::AYYMesh*       _planeMesh = nullptr;
+    ayy::Camera*        _camera = nullptr;
     
     ayy::ShaderProgram*  _boxShader = nullptr;
+    ayy::ShaderProgram*  _borderShader = nullptr;
     ayy::ShaderProgram*  _planeShader = nullptr;
     
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
     
     std::vector<CommonNode*>    _boxes;
-    GroundNode*                 _plane = nullptr;
+    std::vector<CommonNode*>    _borders;
+    CommonNode*                 _planeNode = nullptr;
     
     ayy::TextureUUID _boxTexture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _boxTexture2 = ayy::TextureManager::kInvalidTextureUUID;
