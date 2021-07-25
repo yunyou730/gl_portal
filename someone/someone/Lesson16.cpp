@@ -1,4 +1,4 @@
-#include "Lesson15.h"
+#include "Lesson16.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
 #include "../ayy/headers/Camera.h"
@@ -11,6 +11,7 @@
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
 #include "Lesson15Nodes.h"
+#include "AYYFrameBuffer.h"
 
 static const int kBoxCount = 7;
 static const int kBoxPosClamp = 5;
@@ -19,18 +20,20 @@ static const int kWindowsCount = 20;
 static const ayy::Vec3f kCameraDefaultPos(0,0,-7);
 static const float kBorderScale = 1.1f;
 
-Lesson15::Lesson15(int viewportWidth,int viewportHeight)
+Lesson16::Lesson16(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
 }
 
-Lesson15::~Lesson15()
+Lesson16::~Lesson16()
 {
 
 }
 
-void Lesson15::Prepare()
+void Lesson16::Prepare()
 {
+    _frameBuffer = new ayy::AYYFrameBuffer();
+    
     // meshes
     _boxMesh = new ayy::BoxUVNormMesh();
     _boxMesh->Prepare();
@@ -101,8 +104,10 @@ void Lesson15::Prepare()
     
 }
 
-void Lesson15::Cleanup()
+void Lesson16::Cleanup()
 {
+    AYY_SAFE_DEL(_frameBuffer);
+    
     _boxMesh->Cleanup();
     AYY_SAFE_DEL(_boxMesh);
     
@@ -137,13 +142,13 @@ void Lesson15::Cleanup()
     AYY_SAFE_DEL(_planeNode);
 }
 
-void Lesson15::OnUpdate()
+void Lesson16::OnUpdate()
 {
     // @miao @todo
     
 }
 
-void Lesson15::OnRender()
+void Lesson16::OnRender()
 {
     // gl settings
 //    glClearStencil(0);  //  设置 用什么值, 在 glClear 的时候 来清空 模版缓冲区 .不写默认是 0
@@ -224,13 +229,13 @@ void Lesson15::OnRender()
 //    glEnable(GL_DEPTH_TEST);
 }
 
-void Lesson15::OnViewportSizeChanged(int width,int height)
+void Lesson16::OnViewportSizeChanged(int width,int height)
 {
     ayy::BaseScene::OnViewportSizeChanged(width,height);
     _camera->SetViewportSize(width,height);
 }
 
-void Lesson15::PrepareTexture()
+void Lesson16::PrepareTexture()
 {
     _boxTexture1 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/box_diffuse.png");
     _boxTexture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/emoji_wa.png");
@@ -243,7 +248,7 @@ void Lesson15::PrepareTexture()
 //    ayy::TextureManager::GetInstance()->BindTextureToSlot(_boxTexture2,1);
 }
 
-void Lesson15::HandleKeyboardInput(GLFWwindow* window)
+void Lesson16::HandleKeyboardInput(GLFWwindow* window)
 {
     // handle camera move
     float delta = GetDeltaTime() * _camMoveSpeed;
@@ -298,7 +303,7 @@ void Lesson15::HandleKeyboardInput(GLFWwindow* window)
     }
 }
 
-void Lesson15::OnGUI()
+void Lesson16::OnGUI()
 {
     BaseScene::OnGUI();
         

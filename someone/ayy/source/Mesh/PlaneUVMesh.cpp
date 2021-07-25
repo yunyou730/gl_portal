@@ -34,7 +34,7 @@ void PlaneUVMesh::Prepare()
     // rectangle indice
     unsigned int indices[] = {
         0,1,2,
-        2,3,1,
+        2,1,3,
     };
     
     glGenVertexArrays(1,&_vao);
