@@ -113,6 +113,10 @@
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
+		2BED340926ACF78B001E0FF0 /* blending_transparent_window.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED340826ACF77E001E0FF0 /* blending_transparent_window.png */; };
+		2BED340C26AD0A0E001E0FF0 /* grass.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED340B26AD09FA001E0FF0 /* grass.png */; };
+		2BED341026AD0ED3001E0FF0 /* lesson15_window.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED340E26AD0EC6001E0FF0 /* lesson15_window.fs */; };
+		2BED341126AD0ED3001E0FF0 /* lesson15_window.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED340F26AD0EC6001E0FF0 /* lesson15_window.vs */; };
 		2BF38CA8265A2F790034A223 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CA7265A2F790034A223 /* main.cpp */; };
 		2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CBA265A3EA50034A223 /* OpenGL.framework */; };
 		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
@@ -165,6 +169,10 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2BED341026AD0ED3001E0FF0 /* lesson15_window.fs in CopyFiles */,
+				2BED341126AD0ED3001E0FF0 /* lesson15_window.vs in CopyFiles */,
+				2BED340C26AD0A0E001E0FF0 /* grass.png in CopyFiles */,
+				2BED340926ACF78B001E0FF0 /* blending_transparent_window.png in CopyFiles */,
 				2B23B75926ABE2B200F69677 /* lesson15_single_color.fs in CopyFiles */,
 				2B23B75A26ABE2B200F69677 /* lesson15_single_color.vs in CopyFiles */,
 				2B23B74E26ABBC4D00F69677 /* lesson15_plane.fs in CopyFiles */,
@@ -416,6 +424,10 @@
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
 		2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.fs; sourceTree = "<group>"; };
+		2BED340826ACF77E001E0FF0 /* blending_transparent_window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blending_transparent_window.png; sourceTree = "<group>"; };
+		2BED340B26AD09FA001E0FF0 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = someone/res/grass.png; sourceTree = SOURCE_ROOT; };
+		2BED340E26AD0EC6001E0FF0 /* lesson15_window.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson15_window.fs; sourceTree = "<group>"; };
+		2BED340F26AD0EC6001E0FF0 /* lesson15_window.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson15_window.vs; sourceTree = "<group>"; };
 		2BF38CA4265A2F790034A223 /* someone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = someone; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF38CA7265A2F790034A223 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2BF38CB5265A3E8A0034A223 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "3rd/GLFW/lib-universal/libglfw3.a"; sourceTree = "<group>"; };
@@ -683,6 +695,7 @@
 		2B3E81A82691B40E00B7D00B /* nanosuit */ = {
 			isa = PBXGroup;
 			children = (
+				2BED340B26AD09FA001E0FF0 /* grass.png */,
 				2B24BE3A26A69FA5007B6EB9 /* marble.jpg */,
 				2B24BE3326A68E28007B6EB9 /* emoji_wa.png */,
 				2B3E81E326921D4800B7D00B /* box_diffuse.png */,
@@ -905,6 +918,9 @@
 				2B23B74D26ABBC0500F69677 /* lesson15_plane.vs */,
 				2B23B75726ABE2A600F69677 /* lesson15_single_color.fs */,
 				2B23B75826ABE2A600F69677 /* lesson15_single_color.vs */,
+				2BED340E26AD0EC6001E0FF0 /* lesson15_window.fs */,
+				2BED340F26AD0EC6001E0FF0 /* lesson15_window.vs */,
+				2BED340826ACF77E001E0FF0 /* blending_transparent_window.png */,
 			);
 			path = res;
 			sourceTree = "<group>";

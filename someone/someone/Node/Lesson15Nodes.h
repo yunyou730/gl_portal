@@ -21,3 +21,9 @@ protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
 };
 
+class Lesson15WindowNode : public CommonNode
+{
+protected:
+    virtual void SyncPropToShader(ayy::Camera* mainCam);
+};
+

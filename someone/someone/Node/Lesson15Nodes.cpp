@@ -18,3 +18,9 @@ void Lesson15BorderNode::SyncPropToShader(ayy::Camera* mainCam)
     CommonNode::SyncPropToShader(mainCam);
 }
 
+
+void Lesson15WindowNode::SyncPropToShader(ayy::Camera* mainCam)
+{
+    CommonNode::SyncPropToShader(mainCam);
+    GetShader()->SetUniform("u_Tex1",0);
+}

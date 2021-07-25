@@ -43,6 +43,7 @@ private:
     ayy::ShaderProgram*  _boxShader = nullptr;
     ayy::ShaderProgram*  _borderShader = nullptr;
     ayy::ShaderProgram*  _planeShader = nullptr;
+    ayy::ShaderProgram*  _windowShader = nullptr;
     
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
@@ -50,8 +51,10 @@ private:
     std::vector<CommonNode*>    _boxes;
     std::vector<CommonNode*>    _borders;
     CommonNode*                 _planeNode = nullptr;
+    std::vector<CommonNode*>    _windows;
     
     ayy::TextureUUID _boxTexture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _boxTexture2 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _planeTexture = ayy::TextureManager::kInvalidTextureUUID;
+    ayy::TextureUUID _windowTexture = ayy::TextureManager::kInvalidTextureUUID;
 };
