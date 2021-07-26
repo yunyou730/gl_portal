@@ -10,7 +10,8 @@
 #include "../ayy/headers/Mesh/BoxUVNormMesh.h"
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
-#include "Lesson15Nodes.h"
+#include "LessonSpecialNodes.h"
+#include "../ayy/headers/Mesh/QuadMesh.h"
 
 static const int kBoxCount = 7;
 static const int kBoxPosClamp = 5;
@@ -37,6 +38,9 @@ void Lesson15::Prepare()
     
     _planeMesh = new ayy::PlaneUVMesh();
     _planeMesh->Prepare();
+    
+    _quadMesh = new ayy::QuadMesh();
+    _quadMesh->Prepare();
     
     // textures
     PrepareTexture();
@@ -108,6 +112,9 @@ void Lesson15::Cleanup()
     
     _planeMesh->Cleanup();
     AYY_SAFE_DEL(_planeMesh);
+    
+    _quadMesh->Cleanup();
+    AYY_SAFE_DEL(_quadMesh);
     
     AYY_SAFE_DEL(_camera);
     AYY_SAFE_DEL(_boxShader);

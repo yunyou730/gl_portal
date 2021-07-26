@@ -43,6 +43,14 @@ TextureUUID TextureManager::CreateTextureWithRaw(RawTexture* raw)
     return uuid;
 }
 
+TextureUUID TextureManager::CreateRenderTexture(int width,int height)
+{
+    TextureUUID uuid = NextUUID();
+    Texture* tex = new Texture(uuid,width,height);
+    _textureMap.insert(std::make_pair(uuid,tex));
+    return uuid;
+}
+
 TextureUUID TextureManager::NextUUID()
 {
     _uuidCounter++;

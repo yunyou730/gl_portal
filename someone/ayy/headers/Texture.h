@@ -7,9 +7,19 @@ namespace ayy {
 
 
 typedef unsigned int TextureUUID;
+
+typedef enum TextureType
+{
+    TT_None,
+    
+    TT_2D,
+    TT_RT,
+};
+
 class Texture
 {
-public:    
+public:
+    Texture(TextureUUID uuid,int width,int height);
     Texture(TextureUUID uuid,RawTexture* rawTexture);
     ~Texture();
     
@@ -17,6 +27,7 @@ public:
     void UnBind();
     
     unsigned int GetUUID() const { return _uuid;}
+    GLuint GetGLTextureID() { return _textureID;}
     
 protected:
     ETextureDataFormat  _format = ETextureDataFormat::NONE;
@@ -27,6 +38,8 @@ protected:
     GLuint _rawFormat = 0;
     
     TextureUUID _uuid = 0;
+    
+    TextureType     _type = TextureType::TT_None;
 };
 
 }

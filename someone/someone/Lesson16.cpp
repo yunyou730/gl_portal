@@ -10,8 +10,9 @@
 #include "../ayy/headers/Mesh/BoxUVNormMesh.h"
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
-#include "Lesson15Nodes.h"
+#include "LessonSpecialNodes.h"
 #include "AYYFrameBuffer.h"
+#include "../ayy/headers/Mesh/QuadMesh.h"
 
 static const int kBoxCount = 7;
 static const int kBoxPosClamp = 5;
@@ -19,6 +20,8 @@ static const int kWindowsCount = 20;
 
 static const ayy::Vec3f kCameraDefaultPos(0,0,-7);
 static const float kBorderScale = 1.1f;
+
+static const char* items[] = { "InverseColor", "Gray", "Sharpen","Blur","Edge","Origin" };
 
 Lesson16::Lesson16(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
@@ -32,7 +35,7 @@ Lesson16::~Lesson16()
 
 void Lesson16::Prepare()
 {
-    _frameBuffer = new ayy::AYYFrameBuffer();
+    _frameBuffer = new ayy::AYYFrameBuffer(GetViewportWidth(),GetViewportHeight());
     
     // meshes
     _boxMesh = new ayy::BoxUVNormMesh();
@@ -40,6 +43,9 @@ void Lesson16::Prepare()
     
     _planeMesh = new ayy::PlaneUVMesh();
     _planeMesh->Prepare();
+    
+    _quadMesh = new ayy::QuadMesh();
+    _quadMesh->Prepare();
     
     // textures
     PrepareTexture();
@@ -49,6 +55,7 @@ void Lesson16::Prepare()
     _planeShader = ayy::Util::CreateShaderWithFile("res/lesson15_plane.vs","res/lesson15_plane.fs");
     _borderShader = ayy::Util::CreateShaderWithFile("res/lesson15_single_color.vs","res/lesson15_single_color.fs");
     _windowShader = ayy::Util::CreateShaderWithFile("res/lesson15_window.vs","res/lesson15_window.fs");
+    _postProcessShader = ayy::Util::CreateShaderWithFile("res/lesson16_fbo.vs","res/lesson16_fbo.fs");
     
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
@@ -102,6 +109,11 @@ void Lesson16::Prepare()
     _planeNode->SetScale(ayy::Vec3f(20.0,1.0,20.0));
     _planeNode->SetPosition(ayy::Vec3f(-10.0,-0.51f,-10.0));
     
+    
+    // post process node
+    _postProcessNode = new Lesson16PostProcessNode();
+    _postProcessNode->SetShader(_postProcessShader);
+    _postProcessNode->SetMesh(_quadMesh);
 }
 
 void Lesson16::Cleanup()
@@ -119,6 +131,7 @@ void Lesson16::Cleanup()
     AYY_SAFE_DEL(_planeShader);
     AYY_SAFE_DEL(_borderShader);
     AYY_SAFE_DEL(_windowShader);
+    AYY_SAFE_DEL(_postProcessShader);
     
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
@@ -140,6 +153,10 @@ void Lesson16::Cleanup()
     _windows.clear();
     
     AYY_SAFE_DEL(_planeNode);
+    
+    
+    AYY_SAFE_DEL(_postProcessNode);
+   
 }
 
 void Lesson16::OnUpdate()
@@ -150,12 +167,23 @@ void Lesson16::OnUpdate()
 
 void Lesson16::OnRender()
 {
-    // gl settings
-//    glClearStencil(0);  //  设置 用什么值, 在 glClear 的时候 来清空 模版缓冲区 .不写默认是 0
+    if(_frameBuffer != nullptr)
+    {
+        _frameBuffer->Bind();
+    }
+
+    DrawScene();
     
-//    glEnable(GL_CULL_FACE);
-//    glCullFace(GL_BACK);
+    if(_frameBuffer != nullptr)
+    {
+        _frameBuffer->UnBind();
+    }
     
+    DrawPostProcess();
+}
+
+void Lesson16::DrawScene()
+{
     glDisable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     
@@ -166,7 +194,6 @@ void Lesson16::OnRender()
     glStencilOp(GL_KEEP,GL_KEEP,GL_REPLACE);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-    
     
     // draw plane
 //    glDisable(GL_STENCIL_TEST);
@@ -191,8 +218,6 @@ void Lesson16::OnRender()
         box->OnRender(_camera);
     }
 
-
-    
     
     // draw box borders
     glDisable(GL_CULL_FACE);
@@ -204,8 +229,6 @@ void Lesson16::OnRender()
         (*it)->OnRender(_camera);
     }
     
-    
-
     // draw windows
     glDisable(GL_CULL_FACE);
     glStencilMask(0x00);
@@ -229,10 +252,36 @@ void Lesson16::OnRender()
 //    glEnable(GL_DEPTH_TEST);
 }
 
+void Lesson16::DrawPostProcess()
+{
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+//    glDisable(GL_CULL_FACE);
+//    glStencilMask(0x00);
+    
+    
+    // @miao @todo
+    // how to set texture id...
+    
+//    glActiveTexture(GL_TEXTURE0);
+//    glBindTexture(GL_TEXTURE_2D,_frameBuffer->GetGLTextureID());
+    
+    if(_frameBuffer != nullptr)
+    {
+        ayy::TextureManager::GetInstance()->BindTextureToSlot(_frameBuffer->GetTextureUUID(),0);
+        _postProcessNode->OnRender(_camera);
+    }
+}
+
 void Lesson16::OnViewportSizeChanged(int width,int height)
 {
     ayy::BaseScene::OnViewportSizeChanged(width,height);
     _camera->SetViewportSize(width,height);
+    
+    
+    // @miao @todo
+    // 这里好像还是有问题。。。  render texture 没有办法更新, why s
+    AYY_SAFE_DEL(_frameBuffer);
+//    _frameBuffer = new ayy::AYYFrameBuffer(width,height);
 }
 
 void Lesson16::PrepareTexture()
@@ -241,11 +290,6 @@ void Lesson16::PrepareTexture()
     _boxTexture2 = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/emoji_wa.png");
     _planeTexture = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/marble.jpg");
     _windowTexture = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/blending_transparent_window.png");
-    
-    // @miao @todo
-    // 这一步绑定 是不是应该在绘制之前再绑 ?
-//    ayy::TextureManager::GetInstance()->BindTextureToSlot(_boxTexture1,0);
-//    ayy::TextureManager::GetInstance()->BindTextureToSlot(_boxTexture2,1);
 }
 
 void Lesson16::HandleKeyboardInput(GLFWwindow* window)
@@ -306,6 +350,9 @@ void Lesson16::HandleKeyboardInput(GLFWwindow* window)
 void Lesson16::OnGUI()
 {
     BaseScene::OnGUI();
-        
-
+    
+    if(ImGui::Combo("postprocessing", &_selectPostProcess, items, IM_ARRAYSIZE(items)))
+    {
+        _postProcessNode->postProcessIndex = _selectPostProcess;
+    }
 }

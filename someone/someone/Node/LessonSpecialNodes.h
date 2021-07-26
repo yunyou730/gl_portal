@@ -27,3 +27,12 @@ protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
 };
 
+
+class Lesson16PostProcessNode : public CommonNode
+{
+public:
+    int postProcessIndex = 0;
+protected:
+    virtual void SyncPropToShader(ayy::Camera* mainCam);
+};
+

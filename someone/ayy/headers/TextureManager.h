@@ -23,6 +23,7 @@ public:
     
     TextureUUID CreateTextureWithFilePath(const std::string& filePath);
     TextureUUID CreateTextureWithRaw(RawTexture* raw);
+    TextureUUID CreateRenderTexture(int width,int height);
     
     Texture* GetTextureWithUUID(TextureUUID uuid);
     

@@ -3,7 +3,9 @@
 
 namespace ayy {
 
-AYYFrameBuffer::AYYFrameBuffer()
+AYYFrameBuffer::AYYFrameBuffer(int width,int height)
+    :_width(width)
+    ,_height(height)
 {
     Gen();
 }
@@ -25,8 +27,8 @@ void AYYFrameBuffer::UnBind()
 
 void AYYFrameBuffer::Gen()
 {
-    int width = 800;
-    int height = 600;
+    int width = _width;
+    int height = _height;
     
     // generate FBO
     glGenFramebuffers(1,&_fbo);
@@ -35,21 +37,9 @@ void AYYFrameBuffer::Gen()
     
     // frame buffer 颜色缓冲
     // generate Texture saving color for FBO
+    /*
     glGenTextures(1,&_texColoBuffer);
     glBindTexture(GL_TEXTURE_2D,_texColoBuffer);
-    /*
-     
-     // Pass data from memory to GPU
-     glTexImage2D(GL_TEXTURE_2D,0,
-                  _saveFormat,
-                  _raw->width,
-                  _raw->height,
-                  0,
-                  _rawFormat,
-                  GL_UNSIGNED_BYTE,
-                  _raw->data);
-     
-     **/
     // @miao @temp 800 x 600
     glTexImage2D(GL_TEXTURE_2D,
                  0,
@@ -60,14 +50,16 @@ void AYYFrameBuffer::Gen()
                  GL_RGB,
                  GL_UNSIGNED_BYTE,
                  nullptr);
-    
-    
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    */
+    TextureUUID tid = TextureManager::GetInstance()->CreateRenderTexture(800,600);
+    Texture* t = TextureManager::GetInstance()->GetTextureWithUUID(tid);
+    _texColoBuffer = t->GetGLTextureID();
+    _rtUUID = tid;
     
     // attach texture to current frame buffer
     glFramebufferTexture2D(GL_FRAMEBUFFER,GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D,_texColoBuffer,0);
-    
     
     
     // frame buffer 深度缓冲
@@ -95,6 +87,16 @@ void AYYFrameBuffer::Destroy()
     glDeleteRenderbuffers(1,&_rbo);
     glDeleteTextures(1,&_texColoBuffer);
     glDeleteFramebuffers(1,&_fbo);
+}
+
+GLuint AYYFrameBuffer::GetGLTextureID()
+{
+    return _texColoBuffer;
+}
+
+TextureUUID AYYFrameBuffer::GetTextureUUID()
+{
+    return _rtUUID;
 }
 
 }
