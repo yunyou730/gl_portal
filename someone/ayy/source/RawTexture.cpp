@@ -1,4 +1,4 @@
-#include "../headers/Texture.h"
+#include "../headers/AYYTexture.h"
 #include "stb_image.h"
 
 namespace ayy {

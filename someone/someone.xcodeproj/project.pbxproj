@@ -30,7 +30,7 @@
 		2B24BE3826A69266007B6EB9 /* LessonSpecialNodes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B24BE3626A69266007B6EB9 /* LessonSpecialNodes.cpp */; };
 		2B24BE3B26A69FB6007B6EB9 /* marble.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B24BE3A26A69FA5007B6EB9 /* marble.jpg */; };
 		2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3126628E360078E004 /* stb_image.cpp */; };
-		2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* Texture.cpp */; };
+		2B2A9C3526630CF50078E004 /* AYYTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* AYYTexture.cpp */; };
 		2B2A9C3A26630FB50078E004 /* container.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C3926630FA50078E004 /* container.jpg */; };
 		2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3D266315000078E004 /* Lesson5.cpp */; };
 		2B2A9C42266317B90078E004 /* color_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C40266317AF0078E004 /* color_texture.fs */; };
@@ -122,6 +122,16 @@
 		2BED341E26AD7163001E0FF0 /* lesson16_fbo.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED341D26AD7154001E0FF0 /* lesson16_fbo.fs */; };
 		2BED341F26AD7163001E0FF0 /* lesson16_fbo.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED341C26AD7154001E0FF0 /* lesson16_fbo.vs */; };
 		2BED342226ADA315001E0FF0 /* QuadMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED342126ADA315001E0FF0 /* QuadMesh.cpp */; };
+		2BED342926B16D96001E0FF0 /* Lesson17.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED342826B16D96001E0FF0 /* Lesson17.cpp */; };
+		2BED343526B52731001E0FF0 /* bottom.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED342D26B52692001E0FF0 /* bottom.jpg */; };
+		2BED343626B52731001E0FF0 /* left.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED342E26B52692001E0FF0 /* left.jpg */; };
+		2BED343726B52731001E0FF0 /* top.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED342F26B52692001E0FF0 /* top.jpg */; };
+		2BED343826B52731001E0FF0 /* back.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED343026B52692001E0FF0 /* back.jpg */; };
+		2BED343926B52731001E0FF0 /* right.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED343126B52692001E0FF0 /* right.jpg */; };
+		2BED343A26B52731001E0FF0 /* front.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED343226B52692001E0FF0 /* front.jpg */; };
+		2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */; };
+		2BED344526B53C2E001E0FF0 /* skybox.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED344326B53C12001E0FF0 /* skybox.fs */; };
+		2BED344626B53C2E001E0FF0 /* skybox.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED344426B53C12001E0FF0 /* skybox.vs */; };
 		2BF38CA8265A2F790034A223 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CA7265A2F790034A223 /* main.cpp */; };
 		2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CBA265A3EA50034A223 /* OpenGL.framework */; };
 		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
@@ -168,12 +178,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BED343426B52711001E0FF0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = res/skybox;
+			dstSubfolderSpec = 7;
+			files = (
+				2BED343526B52731001E0FF0 /* bottom.jpg in CopyFiles */,
+				2BED343626B52731001E0FF0 /* left.jpg in CopyFiles */,
+				2BED343726B52731001E0FF0 /* top.jpg in CopyFiles */,
+				2BED343826B52731001E0FF0 /* back.jpg in CopyFiles */,
+				2BED343926B52731001E0FF0 /* right.jpg in CopyFiles */,
+				2BED343A26B52731001E0FF0 /* front.jpg in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BF38CA2265A2F790034A223 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2BED344526B53C2E001E0FF0 /* skybox.fs in CopyFiles */,
+				2BED344626B53C2E001E0FF0 /* skybox.vs in CopyFiles */,
 				2BED341E26AD7163001E0FF0 /* lesson16_fbo.fs in CopyFiles */,
 				2BED341F26AD7163001E0FF0 /* lesson16_fbo.vs in CopyFiles */,
 				2BED341026AD0ED3001E0FF0 /* lesson15_window.fs in CopyFiles */,
@@ -259,8 +286,8 @@
 		2B24BE3A26A69FA5007B6EB9 /* marble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = marble.jpg; path = someone/res/marble.jpg; sourceTree = SOURCE_ROOT; };
 		2B2A9C3026628DF80078E004 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		2B2A9C3126628E360078E004 /* stb_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
-		2B2A9C3426630CF50078E004 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
-		2B2A9C3726630D000078E004 /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		2B2A9C3426630CF50078E004 /* AYYTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYTexture.cpp; sourceTree = "<group>"; };
+		2B2A9C3726630D000078E004 /* AYYTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYTexture.h; sourceTree = "<group>"; };
 		2B2A9C3926630FA50078E004 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
 		2B2A9C3C266315000078E004 /* Lesson5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson5.h; sourceTree = "<group>"; };
 		2B2A9C3D266315000078E004 /* Lesson5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson5.cpp; sourceTree = "<group>"; };
@@ -443,6 +470,18 @@
 		2BED341D26AD7154001E0FF0 /* lesson16_fbo.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson16_fbo.fs; sourceTree = "<group>"; };
 		2BED342126ADA315001E0FF0 /* QuadMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadMesh.cpp; sourceTree = "<group>"; };
 		2BED342426ADA325001E0FF0 /* QuadMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadMesh.h; sourceTree = "<group>"; };
+		2BED342726B16D96001E0FF0 /* Lesson17.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson17.h; sourceTree = "<group>"; };
+		2BED342826B16D96001E0FF0 /* Lesson17.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson17.cpp; sourceTree = "<group>"; };
+		2BED342D26B52692001E0FF0 /* bottom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bottom.jpg; sourceTree = "<group>"; };
+		2BED342E26B52692001E0FF0 /* left.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = left.jpg; sourceTree = "<group>"; };
+		2BED342F26B52692001E0FF0 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
+		2BED343026B52692001E0FF0 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		2BED343126B52692001E0FF0 /* right.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = right.jpg; sourceTree = "<group>"; };
+		2BED343226B52692001E0FF0 /* front.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = front.jpg; sourceTree = "<group>"; };
+		2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkyBoxMesh.cpp; sourceTree = "<group>"; };
+		2BED344126B53BB7001E0FF0 /* SkyBoxMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkyBoxMesh.h; sourceTree = "<group>"; };
+		2BED344326B53C12001E0FF0 /* skybox.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skybox.fs; sourceTree = "<group>"; };
+		2BED344426B53C12001E0FF0 /* skybox.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skybox.vs; sourceTree = "<group>"; };
 		2BF38CA4265A2F790034A223 /* someone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = someone; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF38CA7265A2F790034A223 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2BF38CB5265A3E8A0034A223 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "3rd/GLFW/lib-universal/libglfw3.a"; sourceTree = "<group>"; };
@@ -504,6 +543,7 @@
 				2B23B75326ABBD7600F69677 /* PlaneUVMesh.cpp */,
 				2B23B73B26AB4EAE00F69677 /* TestMesh.cpp */,
 				2BED342126ADA315001E0FF0 /* QuadMesh.cpp */,
+				2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -519,6 +559,7 @@
 				2B23B75226ABBD6C00F69677 /* PlaneUVMesh.h */,
 				2B23B73626AB4E8600F69677 /* TestMesh.h */,
 				2BED342426ADA325001E0FF0 /* QuadMesh.h */,
+				2BED344126B53BB7001E0FF0 /* SkyBoxMesh.h */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -769,6 +810,20 @@
 			path = ImGUI;
 			sourceTree = "<group>";
 		};
+		2BED342C26B52692001E0FF0 /* skybox */ = {
+			isa = PBXGroup;
+			children = (
+				2BED342D26B52692001E0FF0 /* bottom.jpg */,
+				2BED342E26B52692001E0FF0 /* left.jpg */,
+				2BED342F26B52692001E0FF0 /* top.jpg */,
+				2BED343026B52692001E0FF0 /* back.jpg */,
+				2BED343126B52692001E0FF0 /* right.jpg */,
+				2BED343226B52692001E0FF0 /* front.jpg */,
+			);
+			name = skybox;
+			path = someone/res/skybox;
+			sourceTree = SOURCE_ROOT;
+		};
 		2BF38C9B265A2F790034A223 = {
 			isa = PBXGroup;
 			children = (
@@ -827,6 +882,8 @@
 				2B24BE2326A2D759007B6EB9 /* Lesson15.h */,
 				2BED341426AD4262001E0FF0 /* Lesson16.cpp */,
 				2BED341326AD4262001E0FF0 /* Lesson16.h */,
+				2BED342826B16D96001E0FF0 /* Lesson17.cpp */,
+				2BED342726B16D96001E0FF0 /* Lesson17.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -868,7 +925,7 @@
 				2B1C7D092677137F004EC484 /* Math.cpp */,
 				2BF38CE52661CDF70034A223 /* IO.cpp */,
 				2BF38CF42661E2EF0034A223 /* Util.cpp */,
-				2B2A9C3426630CF50078E004 /* Texture.cpp */,
+				2B2A9C3426630CF50078E004 /* AYYTexture.cpp */,
 				2BFEB880266D1253009407D4 /* TextureManager.cpp */,
 				2B7FC9AA2667586E003148A1 /* RawTexture.cpp */,
 				2B1C7D0D26772AF6004EC484 /* Camera.cpp */,
@@ -892,7 +949,7 @@
 				2B3E7B642688231900B7D00B /* Common.h */,
 				2BF38CE82661CE020034A223 /* IO.h */,
 				2BF38CF72661E2FC0034A223 /* Util.h */,
-				2B2A9C3726630D000078E004 /* Texture.h */,
+				2B2A9C3726630D000078E004 /* AYYTexture.h */,
 				2BFEB883266D125E009407D4 /* TextureManager.h */,
 				2B7FC9AD26675877003148A1 /* RawTexture.h */,
 				2B1C7D0C26772AED004EC484 /* Camera.h */,
@@ -904,6 +961,7 @@
 		2BF38CEA2661D8BC0034A223 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				2BED342C26B52692001E0FF0 /* skybox */,
 				2B3E81A82691B40E00B7D00B /* nanosuit */,
 				2B2A9C3926630FA50078E004 /* container.jpg */,
 				2B2A9C45266320060078E004 /* awesomeface.png */,
@@ -944,6 +1002,8 @@
 				2BED340826ACF77E001E0FF0 /* blending_transparent_window.png */,
 				2BED341D26AD7154001E0FF0 /* lesson16_fbo.fs */,
 				2BED341C26AD7154001E0FF0 /* lesson16_fbo.vs */,
+				2BED344326B53C12001E0FF0 /* skybox.fs */,
+				2BED344426B53C12001E0FF0 /* skybox.vs */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -959,6 +1019,7 @@
 				2BF38CA1265A2F790034A223 /* Frameworks */,
 				2BF38CA2265A2F790034A223 /* CopyFiles */,
 				2B3E81BE2691B47600B7D00B /* CopyFiles */,
+				2BED343426B52711001E0FF0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1030,6 +1091,7 @@
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
 				2B24BE3826A69266007B6EB9 /* LessonSpecialNodes.cpp in Sources */,
+				2BED342926B16D96001E0FF0 /* Lesson17.cpp in Sources */,
 				2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */,
 				2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */,
 				2B3E81E12691C17B00B7D00B /* GUISceneSelection.cpp in Sources */,
@@ -1045,6 +1107,7 @@
 				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
 				2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
+				2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */,
 				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
 				2B23B74326AB4EAF00F69677 /* Mesh.cpp in Sources */,
@@ -1052,7 +1115,7 @@
 				2B1C7D0E26772AF6004EC484 /* Camera.cpp in Sources */,
 				2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */,
 				2B3E7B5F26881BCD00B7D00B /* CommonNode.cpp in Sources */,
-				2B2A9C3526630CF50078E004 /* Texture.cpp in Sources */,
+				2B2A9C3526630CF50078E004 /* AYYTexture.cpp in Sources */,
 				2B23B74226AB4EAF00F69677 /* BoxMesh.cpp in Sources */,
 				2B3E7BEA269019E500B7D00B /* imgui_impl_opengl3.cpp in Sources */,
 				2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */,

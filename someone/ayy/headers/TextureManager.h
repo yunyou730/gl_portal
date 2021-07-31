@@ -2,14 +2,14 @@
 #include <glad/glad.h>
 #include <string>
 #include <map>
-#include "Texture.h"
+#include "AYYTexture.h"
 
 namespace ayy {
 
 
 class TextureManager
 {
-    typedef std::map<TextureUUID,Texture*> TextureMap;
+    typedef std::map<TextureUUID,ayy::BaseTexture*> TextureMap;
     typedef std::map<unsigned int,TextureUUID> TextureSlotMap;
     
     typedef std::map<std::string,TextureUUID> TexturePathMap;
@@ -24,10 +24,17 @@ public:
     TextureUUID CreateTextureWithFilePath(const std::string& filePath);
     TextureUUID CreateTextureWithRaw(RawTexture* raw);
     TextureUUID CreateRenderTexture(int width,int height);
+    TextureUUID CreateCubeTexture(const std::string& right,
+                                  const std::string& left,
+                                  const std::string& top,
+                                  const std::string& bottom,
+                                  const std::string& back,
+                                  const std::string& front);
     
-    Texture* GetTextureWithUUID(TextureUUID uuid);
+    ayy::BaseTexture* GetTextureWithUUID(TextureUUID uuid);
     
     void BindTextureToSlot(TextureUUID texUUID,unsigned int slotIndex);
+    void BindTextureToCube(TextureUUID texUUID);
     
 protected:
     TextureManager();
@@ -42,7 +49,6 @@ protected:
     TextureMap      _textureMap;
     TextureSlotMap  _textureSlotMap;
     
-    // @miao @todo
     TexturePathMap  _texturePathMap;
     
 };

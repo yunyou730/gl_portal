@@ -54,7 +54,7 @@ void AYYFrameBuffer::Gen()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     */
     TextureUUID tid = TextureManager::GetInstance()->CreateRenderTexture(800,600);
-    Texture* t = TextureManager::GetInstance()->GetTextureWithUUID(tid);
+    ayy::BaseTexture* t = TextureManager::GetInstance()->GetTextureWithUUID(tid);
     _texColoBuffer = t->GetGLTextureID();
     _rtUUID = tid;
     

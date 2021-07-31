@@ -36,7 +36,7 @@ TextureUUID TextureManager::CreateTextureWithRaw(RawTexture* raw)
     }
     
     TextureUUID uuid = NextUUID();
-    Texture* tex = new Texture(uuid,raw);
+    ayy::Texture2D* tex = new ayy::Texture2D(uuid,raw);
     
     _textureMap.insert(std::make_pair(uuid,tex));
     
@@ -46,7 +46,20 @@ TextureUUID TextureManager::CreateTextureWithRaw(RawTexture* raw)
 TextureUUID TextureManager::CreateRenderTexture(int width,int height)
 {
     TextureUUID uuid = NextUUID();
-    Texture* tex = new Texture(uuid,width,height);
+    ayy::Texture2D* tex = new ayy::Texture2D(uuid,width,height);
+    _textureMap.insert(std::make_pair(uuid,tex));
+    return uuid;
+}
+
+TextureUUID TextureManager::CreateCubeTexture(const std::string& right,
+                              const std::string& left,
+                              const std::string& top,
+                              const std::string& bottom,
+                              const std::string& back,
+                              const std::string& front)
+{
+    TextureUUID uuid = NextUUID();
+    ayy::BaseTexture* tex = new ayy::TextureCube(uuid,left,top,top,bottom,back,front);
     _textureMap.insert(std::make_pair(uuid,tex));
     return uuid;
 }
@@ -71,7 +84,7 @@ void TextureManager::ClearTextureSlotMap()
     _textureSlotMap.clear();
 }
 
-Texture* TextureManager::GetTextureWithUUID(TextureUUID uuid)
+ayy::BaseTexture* TextureManager::GetTextureWithUUID(TextureUUID uuid)
 {
     TextureMap::iterator it = _textureMap.find(uuid);
     if(it != _textureMap.end())
@@ -100,7 +113,7 @@ void TextureManager::BindTextureToSlot(TextureUUID texUUID,unsigned int slotInde
     
     if(!bHasAlreadyBound)
     {
-        Texture* texture = GetTextureWithUUID(texUUID);
+        ayy::BaseTexture* texture = GetTextureWithUUID(texUUID);
         assert(texture != nullptr);
         texture->Bind(GL_TEXTURE0 + slotIndex);
         
@@ -113,6 +126,12 @@ void TextureManager::BindTextureToSlot(TextureUUID texUUID,unsigned int slotInde
             _textureSlotMap.insert(std::make_pair(slotIndex,texUUID));
         }
     }
+}
+
+void TextureManager::BindTextureToCube(TextureUUID texUUID)
+{
+    ayy::BaseTexture* cubTex = _textureMap.find(texUUID)->second;
+    cubTex->Bind();
 }
 
 }

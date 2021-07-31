@@ -1,7 +1,7 @@
 #include "../headers/Util.h"
 #include "Shader.h"
 #include "IO.h"
-#include "Texture.h"
+#include "AYYTexture.h"
 #include "stb_image.h"
 
 namespace ayy {
