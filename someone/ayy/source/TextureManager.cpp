@@ -59,7 +59,7 @@ TextureUUID TextureManager::CreateCubeTexture(const std::string& right,
                               const std::string& front)
 {
     TextureUUID uuid = NextUUID();
-    ayy::BaseTexture* tex = new ayy::TextureCube(uuid,left,top,top,bottom,back,front);
+    ayy::BaseTexture* tex = new ayy::TextureCube(uuid,right,left,top,bottom,back,front);
     _textureMap.insert(std::make_pair(uuid,tex));
     return uuid;
 }

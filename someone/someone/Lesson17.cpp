@@ -267,11 +267,11 @@ void Lesson17::DrawScene()
         auto win = *it;
         win->OnRender(_camera);
     }
-
     
     //  恢复绘制
     glStencilMask(0xff);    // 允许写入
 //    glEnable(GL_DEPTH_TEST);
+
 }
 
 void Lesson17::DrawPostProcess()

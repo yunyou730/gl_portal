@@ -126,8 +126,9 @@ TextureCube::TextureCube(TextureUUID uuid,
     texturePath.push_back(left);
     texturePath.push_back(top);
     texturePath.push_back(bottom);
+//    texturePath.push_back(back);
+    texturePath.push_back(front);       // 这里要注意顺序 !!
     texturePath.push_back(back);
-    texturePath.push_back(front);
     
     int width,height,nrChannels;
     unsigned char* data = nullptr;

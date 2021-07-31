@@ -22,5 +22,5 @@ void main()
     
     gl_Position = pos;
     
-    v_TextureDir = normalize(aPos);
+    v_TextureDir = aPos;
 }
