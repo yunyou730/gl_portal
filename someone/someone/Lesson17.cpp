@@ -14,6 +14,8 @@
 #include "AYYFrameBuffer.h"
 #include "../ayy/headers/Mesh/QuadMesh.h"
 #include "stb_image.h"
+#include "../ayy/headers/Mesh/SkyBoxMesh.h"
+#include "SkyBoxNode.h"
 
 static const int kBoxCount = 7;
 static const int kBoxPosClamp = 5;
@@ -48,6 +50,9 @@ void Lesson17::Prepare()
     _quadMesh = new ayy::QuadMesh();
     _quadMesh->Prepare();
     
+    _skyBoxMesh = new ayy::SkyBoxMesh();
+    _skyBoxMesh->Prepare();
+    
     // textures
     Prepare2DTexture();
     PrepareCubeTexture();
@@ -58,6 +63,7 @@ void Lesson17::Prepare()
     _borderShader = ayy::Util::CreateShaderWithFile("res/lesson15_single_color.vs","res/lesson15_single_color.fs");
     _windowShader = ayy::Util::CreateShaderWithFile("res/lesson15_window.vs","res/lesson15_window.fs");
     _postProcessShader = ayy::Util::CreateShaderWithFile("res/lesson16_fbo.vs","res/lesson16_fbo.fs");
+    _skyBoxShader = ayy::Util::CreateShaderWithFile("res/skybox.vs","res/skybox.fs");
     
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
@@ -116,25 +122,39 @@ void Lesson17::Prepare()
     _postProcessNode = new Lesson16PostProcessNode();
     _postProcessNode->SetShader(_postProcessShader);
     _postProcessNode->SetMesh(_quadMesh);
+    
+    // skybox node
+    _skyBoxNode = new SkyBoxNode();
+    _skyBoxNode->SetShader(_skyBoxShader);
+    _skyBoxNode->SetMesh(_skyBoxMesh);
+    _skyBoxNode->SetTexture(_skyboxTexture);
 }
 
 void Lesson17::Cleanup()
 {
+    // clean specials
+    AYY_SAFE_DEL(_camera);
     AYY_SAFE_DEL(_frameBuffer);
     
+    // clean mesh
     _boxMesh->Cleanup();
     AYY_SAFE_DEL(_boxMesh);
     
     _planeMesh->Cleanup();
     AYY_SAFE_DEL(_planeMesh);
     
-    AYY_SAFE_DEL(_camera);
+    _skyBoxMesh->Cleanup();
+    AYY_SAFE_DEL(_skyBoxMesh);
+    
+    // clean shaders
     AYY_SAFE_DEL(_boxShader);
     AYY_SAFE_DEL(_planeShader);
     AYY_SAFE_DEL(_borderShader);
     AYY_SAFE_DEL(_windowShader);
     AYY_SAFE_DEL(_postProcessShader);
+    AYY_SAFE_DEL(_skyBoxShader);
     
+    // clean nodes
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
         CommonNode* box = *it;
@@ -155,9 +175,8 @@ void Lesson17::Cleanup()
     _windows.clear();
     
     AYY_SAFE_DEL(_planeNode);
-    
-    
     AYY_SAFE_DEL(_postProcessNode);
+    AYY_SAFE_DEL(_skyBoxNode);
    
 }
 
@@ -195,7 +214,9 @@ void Lesson17::DrawScene()
     glEnable(GL_STENCIL_TEST);
     glStencilOp(GL_KEEP,GL_KEEP,GL_REPLACE);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
+    
+    // draw sky box
+    _skyBoxNode->OnRender(_camera);
     
     // draw plane
 //    glDisable(GL_STENCIL_TEST);

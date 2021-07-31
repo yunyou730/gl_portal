@@ -76,6 +76,13 @@ void CommonNode::OnRender(ayy::Camera* mainCam)
         _mesh->UnBind();
         _shader->UnUse();
     }
+    
+    AfterDraw();
+}
+
+void CommonNode::AfterDraw()
+{
+    
 }
 
 void CommonNode::OnCleanUp()

@@ -42,7 +42,7 @@ public:
     
 protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
-    
+    virtual void AfterDraw();
 protected:
     ayy::ShaderProgram*  _shader = nullptr;
     std::vector<ayy::TextureUUID> _texIDs;

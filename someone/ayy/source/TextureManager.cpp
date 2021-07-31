@@ -130,8 +130,9 @@ void TextureManager::BindTextureToSlot(TextureUUID texUUID,unsigned int slotInde
 
 void TextureManager::BindTextureToCube(TextureUUID texUUID)
 {
-    ayy::BaseTexture* cubTex = _textureMap.find(texUUID)->second;
-    cubTex->Bind();
+    ayy::BaseTexture* texture = GetTextureWithUUID(texUUID);
+    assert(texture != nullptr);
+    texture->Bind();
 }
 
 }

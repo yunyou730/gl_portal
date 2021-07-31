@@ -17,6 +17,7 @@ class AYYFrameBuffer;
 
 class CommonNode;
 class Lesson16PostProcessNode;
+class SkyBoxNode;
 class Lesson17 : public ayy::BaseScene
 {
 public:
@@ -46,6 +47,7 @@ private:
     ayy::AYYMesh*       _boxMesh = nullptr;
     ayy::AYYMesh*       _planeMesh = nullptr;
     ayy::AYYMesh*       _quadMesh = nullptr;
+    ayy::AYYMesh*       _skyBoxMesh = nullptr;
     
     ayy::Camera*        _camera = nullptr;
     
@@ -54,6 +56,7 @@ private:
     ayy::ShaderProgram*  _planeShader = nullptr;
     ayy::ShaderProgram*  _windowShader = nullptr;
     ayy::ShaderProgram*  _postProcessShader = nullptr;
+    ayy::ShaderProgram*  _skyBoxShader = nullptr;
     
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
@@ -63,6 +66,7 @@ private:
     CommonNode*                 _planeNode = nullptr;
     std::vector<CommonNode*>    _windows;
     Lesson16PostProcessNode*    _postProcessNode = nullptr;
+    SkyBoxNode*                 _skyBoxNode = nullptr;
     
     ayy::TextureUUID _boxTexture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _boxTexture2 = ayy::TextureManager::kInvalidTextureUUID;

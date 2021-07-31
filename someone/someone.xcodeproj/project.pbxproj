@@ -132,6 +132,7 @@
 		2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */; };
 		2BED344526B53C2E001E0FF0 /* skybox.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED344326B53C12001E0FF0 /* skybox.fs */; };
 		2BED344626B53C2E001E0FF0 /* skybox.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BED344426B53C12001E0FF0 /* skybox.vs */; };
+		2BED344A26B53EFF001E0FF0 /* SkyBoxNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED344926B53EFF001E0FF0 /* SkyBoxNode.cpp */; };
 		2BF38CA8265A2F790034A223 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CA7265A2F790034A223 /* main.cpp */; };
 		2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CBA265A3EA50034A223 /* OpenGL.framework */; };
 		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
@@ -482,6 +483,8 @@
 		2BED344126B53BB7001E0FF0 /* SkyBoxMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkyBoxMesh.h; sourceTree = "<group>"; };
 		2BED344326B53C12001E0FF0 /* skybox.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skybox.fs; sourceTree = "<group>"; };
 		2BED344426B53C12001E0FF0 /* skybox.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skybox.vs; sourceTree = "<group>"; };
+		2BED344826B53EFF001E0FF0 /* SkyBoxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyBoxNode.h; sourceTree = "<group>"; };
+		2BED344926B53EFF001E0FF0 /* SkyBoxNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkyBoxNode.cpp; sourceTree = "<group>"; };
 		2BF38CA4265A2F790034A223 /* someone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = someone; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF38CA7265A2F790034A223 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2BF38CB5265A3E8A0034A223 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "3rd/GLFW/lib-universal/libglfw3.a"; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 		2B3E7B5726881B8D00B7D00B /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				2BED344926B53EFF001E0FF0 /* SkyBoxNode.cpp */,
+				2BED344826B53EFF001E0FF0 /* SkyBoxNode.h */,
 				2B24BE3626A69266007B6EB9 /* LessonSpecialNodes.cpp */,
 				2B24BE3726A69266007B6EB9 /* LessonSpecialNodes.h */,
 				2B5F854A269AEE6A00E77543 /* ModelNode.cpp */,
@@ -1099,6 +1104,7 @@
 				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
 				2B23B74526AB4EAF00F69677 /* BoxNormalMesh.cpp in Sources */,
 				2B3E7BF426901AFD00B7D00B /* AyyImGUI.cpp in Sources */,
+				2BED344A26B53EFF001E0FF0 /* SkyBoxNode.cpp in Sources */,
 				2B1C7D0A2677137F004EC484 /* Math.cpp in Sources */,
 				2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,

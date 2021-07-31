@@ -37,16 +37,16 @@ void SkyBoxMesh::Prepare()
     // box
     float vertices[] = {
         // front
-        -0.5f,-0.5f,0.5f,       // left bottom pos
-        -0.5f, 0.5f,0.5f,       // left top
-         0.5f,-0.5f,0.5f,       // right bottom
-         0.5f, 0.5f,0.5f,       // right top
+        -1.0f,-1.0f,1.0f,       // left bottom pos
+        -1.0f, 1.0f,1.0f,       // left top
+         1.0f,-1.0f,1.0f,       // right bottom
+         1.0f, 1.0f,1.0f,       // right top
         
         // back
-        -0.5f,-0.5f,-0.5f,       // left bottom pos
-        -0.5f, 0.5f,-0.5f,       // left top
-         0.5f,-0.5f,-0.5f,       // right bottom
-         0.5f, 0.5f,-0.5f,       // right top
+        -1.0f,-1.0f,-1.0f,       // left bottom pos
+        -1.0f, 1.0f,-1.0f,       // left top
+         1.0f,-1.0f,-1.0f,       // right bottom
+         1.0f, 1.0f,-1.0f,       // right top
     };
     
     // rectangle indice
