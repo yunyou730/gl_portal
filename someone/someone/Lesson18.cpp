@@ -84,7 +84,6 @@ void Lesson18::Prepare()
         
         _boxes.push_back(node);
         
-        
         // border
         CommonNode* borderNode = new Lesson15BorderNode();
         borderNode->SetShader(_borderShader);

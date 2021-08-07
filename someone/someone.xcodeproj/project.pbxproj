@@ -10,6 +10,8 @@
 		2B0A7BD926BA91C80052B1EC /* Lesson18.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A7BD726BA91C80052B1EC /* Lesson18.cpp */; };
 		2B0A7BDD26BA96E20052B1EC /* lesson18_reflect.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B0A7BDC26BA96CD0052B1EC /* lesson18_reflect.fs */; };
 		2B0A7BDE26BA96E20052B1EC /* lesson18_reflect.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B0A7BDB26BA96CD0052B1EC /* lesson18_reflect.vs */; };
+		2B16EE6C26BE702C00155AD5 /* ModelMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B16EE6B26BE702C00155AD5 /* ModelMesh.cpp */; };
+		2B16EE6D26BE702C00155AD5 /* ModelMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B16EE6B26BE702C00155AD5 /* ModelMesh.cpp */; };
 		2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D012675BB74004EC484 /* Lesson7.cpp */; };
 		2B1C7D062676ED1D004EC484 /* mvp_test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D042676ED0E004EC484 /* mvp_test.fs */; };
 		2B1C7D072676ED1D004EC484 /* mvp_test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D052676ED0E004EC484 /* mvp_test.vs */; };
@@ -312,6 +314,8 @@
 		2B0A7BD826BA91C80052B1EC /* Lesson18.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson18.h; sourceTree = "<group>"; };
 		2B0A7BDB26BA96CD0052B1EC /* lesson18_reflect.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson18_reflect.vs; sourceTree = "<group>"; };
 		2B0A7BDC26BA96CD0052B1EC /* lesson18_reflect.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson18_reflect.fs; sourceTree = "<group>"; };
+		2B16EE6B26BE702C00155AD5 /* ModelMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelMesh.cpp; sourceTree = "<group>"; };
+		2B16EE7026BE703D00155AD5 /* ModelMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelMesh.h; sourceTree = "<group>"; };
 		2B1C7D002675BB74004EC484 /* Lesson7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson7.h; sourceTree = "<group>"; };
 		2B1C7D012675BB74004EC484 /* Lesson7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson7.cpp; sourceTree = "<group>"; };
 		2B1C7D042676ED0E004EC484 /* mvp_test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test.fs; sourceTree = "<group>"; };
@@ -618,6 +622,7 @@
 				2B23B73B26AB4EAE00F69677 /* TestMesh.cpp */,
 				2BED342126ADA315001E0FF0 /* QuadMesh.cpp */,
 				2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */,
+				2B16EE6B26BE702C00155AD5 /* ModelMesh.cpp */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				2B23B73626AB4E8600F69677 /* TestMesh.h */,
 				2BED342426ADA325001E0FF0 /* QuadMesh.h */,
 				2BED344126B53BB7001E0FF0 /* SkyBoxMesh.h */,
+				2B16EE7026BE703D00155AD5 /* ModelMesh.h */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -1247,6 +1253,7 @@
 				2B30007126BDA2030041F051 /* BaseScene.cpp in Sources */,
 				2B30007226BDA2030041F051 /* Model.cpp in Sources */,
 				2B30007326BDA2030041F051 /* Mesh.cpp in Sources */,
+				2B16EE6D26BE702C00155AD5 /* ModelMesh.cpp in Sources */,
 				2B30007426BDA2030041F051 /* ModelImporter.cpp in Sources */,
 				2B30007526BDA2030041F051 /* AyyImGUI.cpp in Sources */,
 				2B30007626BDA2030041F051 /* BoxMesh.cpp in Sources */,
@@ -1333,6 +1340,7 @@
 				2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */,
 				2BED341526AD4262001E0FF0 /* Lesson16.cpp in Sources */,
 				2B3E81F32692238000B7D00B /* PhongTexMaterial.cpp in Sources */,
+				2B16EE6C26BE702C00155AD5 /* ModelMesh.cpp in Sources */,
 				2B3E7BFA26902EC200B7D00B /* BaseApplication.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 				2B23B75426ABBD7600F69677 /* PlaneUVMesh.cpp in Sources */,

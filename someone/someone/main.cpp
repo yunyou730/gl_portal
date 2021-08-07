@@ -4,8 +4,6 @@
 //
 //  Created by bytedance on 2021/5/23.
 //
-
-#include "BaseApplication.h"
 #include "Ayy.h"
 
 #include "Lesson1.h"
