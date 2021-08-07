@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonNode.h"
+#include "Ayy.h"
 
 class PhongMultiLightMaterial;
 class PhongMultLightNode : public ayy::CommonNode

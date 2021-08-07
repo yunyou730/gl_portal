@@ -1,4 +1,4 @@
-#include "CommonNode.h"
+#include "AYYCommonNode.h"
 #include <sstream>
 
 static const std::string kTextureUniformNamePrefix = "texture";

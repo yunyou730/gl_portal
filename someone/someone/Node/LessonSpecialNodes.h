@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonNode.h"
+#include "Ayy.h"
 
 class Lesson15BoxNode : public ayy::CommonNode
 {

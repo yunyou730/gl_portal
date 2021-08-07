@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonNode.h"
+#include "Ayy.h"
 #include "PhongMultiLightMaterial.h"
 
 namespace ayy

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonNode.h"
+#include "Ayy.h"
 
 class PhongMaterial;
 class PhongMatNode : public ayy::CommonNode

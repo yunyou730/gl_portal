@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "AYYNode.h"
 
 namespace ayy {
 Node::Node()
