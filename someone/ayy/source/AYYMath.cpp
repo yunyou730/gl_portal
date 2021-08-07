@@ -1,4 +1,4 @@
-#include "Math.h"
+#include "AYYMath.h"
 
 namespace ayy
 {

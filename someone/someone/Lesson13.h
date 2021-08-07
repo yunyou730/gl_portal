@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "AYYTextureManager.h"
-#include "Math.h"
+#include "AYYMath.h"
 #include <vector>
 #include "PhongMultiLightMaterial.h"
 

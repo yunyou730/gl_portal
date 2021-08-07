@@ -4,7 +4,7 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "Math.h"
+#include "AYYMath.h"
 
 namespace ayy {
 

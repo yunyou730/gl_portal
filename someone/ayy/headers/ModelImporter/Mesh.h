@@ -1,7 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <iostream>
-#include "Math.h"
+#include "AYYMath.h"
 #include <string>
 #include <vector>
 #include "Shader.h"

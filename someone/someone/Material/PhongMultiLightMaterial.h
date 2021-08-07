@@ -1,7 +1,7 @@
 #pragma once
 
 #include "BaseMaterial.h"
-#include "Math.h"
+#include "AYYMath.h"
 
 typedef enum
 {
