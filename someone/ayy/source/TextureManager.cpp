@@ -135,4 +135,11 @@ void TextureManager::BindTextureToCube(TextureUUID texUUID)
     texture->Bind();
 }
 
+void TextureManager::UnBindCubeTexture(TextureUUID texUUID)
+{
+    ayy::BaseTexture* texture = GetTextureWithUUID(texUUID);
+    assert(texture != nullptr);
+    texture->UnBind();
+}
+
 }

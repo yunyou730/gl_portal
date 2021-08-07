@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0A7BD926BA91C80052B1EC /* Lesson18.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A7BD726BA91C80052B1EC /* Lesson18.cpp */; };
+		2B0A7BDD26BA96E20052B1EC /* lesson18_reflect.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B0A7BDC26BA96CD0052B1EC /* lesson18_reflect.fs */; };
+		2B0A7BDE26BA96E20052B1EC /* lesson18_reflect.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B0A7BDB26BA96CD0052B1EC /* lesson18_reflect.vs */; };
 		2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D012675BB74004EC484 /* Lesson7.cpp */; };
 		2B1C7D062676ED1D004EC484 /* mvp_test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D042676ED0E004EC484 /* mvp_test.fs */; };
 		2B1C7D072676ED1D004EC484 /* mvp_test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B1C7D052676ED0E004EC484 /* mvp_test.vs */; };
@@ -36,6 +39,33 @@
 		2B2A9C42266317B90078E004 /* color_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C40266317AF0078E004 /* color_texture.fs */; };
 		2B2A9C43266317B90078E004 /* color_texture.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C41266317AF0078E004 /* color_texture.vs */; };
 		2B2A9C462663200F0078E004 /* awesomeface.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C45266320060078E004 /* awesomeface.png */; };
+		2B30006D26BDA1E70041F051 /* libassimp.4.0.1.dylib in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81A52691ADF000B7D00B /* libassimp.4.0.1.dylib */; };
+		2B30007026BDA2030041F051 /* BaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */; };
+		2B30007126BDA2030041F051 /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* BaseScene.cpp */; };
+		2B30007226BDA2030041F051 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F852F269A7D3B00E77543 /* Model.cpp */; };
+		2B30007326BDA2030041F051 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F8532269A7D4100E77543 /* Mesh.cpp */; };
+		2B30007426BDA2030041F051 /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */; };
+		2B30007526BDA2030041F051 /* AyyImGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF326901AFD00B7D00B /* AyyImGUI.cpp */; };
+		2B30007626BDA2030041F051 /* BoxMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73C26AB4EAE00F69677 /* BoxMesh.cpp */; };
+		2B30007726BDA2030041F051 /* BoxNormalMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73F26AB4EAE00F69677 /* BoxNormalMesh.cpp */; };
+		2B30007826BDA2030041F051 /* BoxUVNormMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73E26AB4EAE00F69677 /* BoxUVNormMesh.cpp */; };
+		2B30007926BDA2030041F051 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73D26AB4EAE00F69677 /* Mesh.cpp */; };
+		2B30007A26BDA2030041F051 /* PlaneMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B74026AB4EAE00F69677 /* PlaneMesh.cpp */; };
+		2B30007B26BDA2030041F051 /* PlaneUVMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B75326ABBD7600F69677 /* PlaneUVMesh.cpp */; };
+		2B30007C26BDA2030041F051 /* TestMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B23B73B26AB4EAE00F69677 /* TestMesh.cpp */; };
+		2B30007D26BDA2030041F051 /* QuadMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED342126ADA315001E0FF0 /* QuadMesh.cpp */; };
+		2B30007E26BDA2030041F051 /* SkyBoxMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */; };
+		2B30007F26BDA2030041F051 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3126628E360078E004 /* stb_image.cpp */; };
+		2B30008026BDA2030041F051 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* Common.cpp */; };
+		2B30008126BDA2030041F051 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* Shader.cpp */; };
+		2B30008226BDA2030041F051 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D092677137F004EC484 /* Math.cpp */; };
+		2B30008326BDA2030041F051 /* IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* IO.cpp */; };
+		2B30008426BDA2030041F051 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* Util.cpp */; };
+		2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* AYYTexture.cpp */; };
+		2B30008626BDA2030041F051 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* TextureManager.cpp */; };
+		2B30008726BDA2030041F051 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
+		2B30008826BDA2030041F051 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D0D26772AF6004EC484 /* Camera.cpp */; };
+		2B30008926BDA2030041F051 /* AYYFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED341726AD4652001E0FF0 /* AYYFrameBuffer.cpp */; };
 		2B3E7B54268587FB00B7D00B /* ground_plane.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B51268587DB00B7D00B /* ground_plane.fs */; };
 		2B3E7B55268587FB00B7D00B /* ground_plane.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B52268587DB00B7D00B /* ground_plane.vs */; };
 		2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B5826881BCD00B7D00B /* Node.cpp */; };
@@ -150,6 +180,30 @@
 		2BFEB881266D1253009407D4 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* TextureManager.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2B3000A726BDA4C60041F051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B3000A326BDA4C50041F051 /* probe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B30009926BDA4C50041F051;
+			remoteInfo = probe;
+		};
+		2B3000B226BDA4DD0041F051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B30009926BDA4C50041F051;
+			remoteInfo = probe;
+		};
+		2B3000BB26BDA4E20041F051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B3000B726BDA4E20041F051 /* probe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B30009926BDA4C50041F051;
+			remoteInfo = probe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		2B3E81BE2691B47600B7D00B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -200,6 +254,8 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B0A7BDD26BA96E20052B1EC /* lesson18_reflect.fs in CopyFiles */,
+				2B0A7BDE26BA96E20052B1EC /* lesson18_reflect.vs in CopyFiles */,
 				2BED344526B53C2E001E0FF0 /* skybox.fs in CopyFiles */,
 				2BED344626B53C2E001E0FF0 /* skybox.vs in CopyFiles */,
 				2BED341E26AD7163001E0FF0 /* lesson16_fbo.fs in CopyFiles */,
@@ -252,6 +308,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B0A7BD726BA91C80052B1EC /* Lesson18.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson18.cpp; sourceTree = "<group>"; };
+		2B0A7BD826BA91C80052B1EC /* Lesson18.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson18.h; sourceTree = "<group>"; };
+		2B0A7BDB26BA96CD0052B1EC /* lesson18_reflect.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson18_reflect.vs; sourceTree = "<group>"; };
+		2B0A7BDC26BA96CD0052B1EC /* lesson18_reflect.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson18_reflect.fs; sourceTree = "<group>"; };
 		2B1C7D002675BB74004EC484 /* Lesson7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson7.h; sourceTree = "<group>"; };
 		2B1C7D012675BB74004EC484 /* Lesson7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson7.cpp; sourceTree = "<group>"; };
 		2B1C7D042676ED0E004EC484 /* mvp_test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test.fs; sourceTree = "<group>"; };
@@ -295,6 +355,10 @@
 		2B2A9C40266317AF0078E004 /* color_texture.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_texture.fs; sourceTree = "<group>"; };
 		2B2A9C41266317AF0078E004 /* color_texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_texture.vs; sourceTree = "<group>"; };
 		2B2A9C45266320060078E004 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		2B30005C26BDA18A0041F051 /* libayygfx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libayygfx.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B3000A326BDA4C50041F051 /* probe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = probe.xcodeproj; path = ../probe/probe.xcodeproj; sourceTree = "<group>"; };
+		2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = probe.xcodeproj; path = probe/probe.xcodeproj; sourceTree = "<group>"; };
+		2B3000B726BDA4E20041F051 /* probe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = probe.xcodeproj; path = probe/probe.xcodeproj; sourceTree = "<group>"; };
 		2B3E7B51268587DB00B7D00B /* ground_plane.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.fs; sourceTree = "<group>"; };
 		2B3E7B52268587DB00B7D00B /* ground_plane.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.vs; sourceTree = "<group>"; };
 		2B3E7B5826881BCD00B7D00B /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
@@ -513,6 +577,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2B30005A26BDA18A0041F051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BF38CA1265A2F790034A223 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,6 +620,30 @@
 				2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */,
 			);
 			path = Mesh;
+			sourceTree = "<group>";
+		};
+		2B3000A426BDA4C50041F051 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B3000A826BDA4C60041F051 /* probe */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B3000AF26BDA4DD0041F051 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B3000B326BDA4DD0041F051 /* probe */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B3000B826BDA4E20041F051 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B3000BC26BDA4E20041F051 /* probe */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2B3E7B4C26857BD300B7D00B /* Mesh */ = {
@@ -845,6 +940,7 @@
 			isa = PBXGroup;
 			children = (
 				2BF38CA4265A2F790034A223 /* someone */,
+				2B30005C26BDA18A0041F051 /* libayygfx.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -889,6 +985,8 @@
 				2BED341326AD4262001E0FF0 /* Lesson16.h */,
 				2BED342826B16D96001E0FF0 /* Lesson17.cpp */,
 				2BED342726B16D96001E0FF0 /* Lesson17.h */,
+				2B0A7BD726BA91C80052B1EC /* Lesson18.cpp */,
+				2B0A7BD826BA91C80052B1EC /* Lesson18.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -898,6 +996,9 @@
 		2BF38CB4265A3E8A0034A223 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B3000A326BDA4C50041F051 /* probe.xcodeproj */,
+				2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */,
+				2B3000B726BDA4E20041F051 /* probe.xcodeproj */,
 				2BF38CBA265A3EA50034A223 /* OpenGL.framework */,
 				2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */,
 				2BF38CB5265A3E8A0034A223 /* libglfw3.a */,
@@ -1007,6 +1108,8 @@
 				2BED340826ACF77E001E0FF0 /* blending_transparent_window.png */,
 				2BED341D26AD7154001E0FF0 /* lesson16_fbo.fs */,
 				2BED341C26AD7154001E0FF0 /* lesson16_fbo.vs */,
+				2B0A7BDC26BA96CD0052B1EC /* lesson18_reflect.fs */,
+				2B0A7BDB26BA96CD0052B1EC /* lesson18_reflect.vs */,
 				2BED344326B53C12001E0FF0 /* skybox.fs */,
 				2BED344426B53C12001E0FF0 /* skybox.vs */,
 			);
@@ -1015,7 +1118,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2B30005826BDA18A0041F051 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		2B30005B26BDA18A0041F051 /* ayygfx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B30006626BDA18A0041F051 /* Build configuration list for PBXNativeTarget "ayygfx" */;
+			buildPhases = (
+				2B30005826BDA18A0041F051 /* Headers */,
+				2B30005926BDA18A0041F051 /* Sources */,
+				2B30005A26BDA18A0041F051 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ayygfx;
+			productName = ayygfx;
+			productReference = 2B30005C26BDA18A0041F051 /* libayygfx.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		2BF38CA3265A2F790034A223 /* someone */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BF38CAB265A2F790034A223 /* Build configuration list for PBXNativeTarget "someone" */;
@@ -1043,6 +1173,9 @@
 			attributes = {
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					2B30005B26BDA18A0041F051 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					2BF38CA3265A2F790034A223 = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -1059,14 +1192,87 @@
 			mainGroup = 2BF38C9B265A2F790034A223;
 			productRefGroup = 2BF38CA5265A2F790034A223 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2B3000A426BDA4C50041F051 /* Products */;
+					ProjectRef = 2B3000A326BDA4C50041F051 /* probe.xcodeproj */;
+				},
+				{
+					ProductGroup = 2B3000AF26BDA4DD0041F051 /* Products */;
+					ProjectRef = 2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */;
+				},
+				{
+					ProductGroup = 2B3000B826BDA4E20041F051 /* Products */;
+					ProjectRef = 2B3000B726BDA4E20041F051 /* probe.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2BF38CA3265A2F790034A223 /* someone */,
+				2B30005B26BDA18A0041F051 /* ayygfx */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2B3000A826BDA4C60041F051 /* probe */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = probe;
+			remoteRef = 2B3000A726BDA4C60041F051 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2B3000B326BDA4DD0041F051 /* probe */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = probe;
+			remoteRef = 2B3000B226BDA4DD0041F051 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2B3000BC26BDA4E20041F051 /* probe */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = probe;
+			remoteRef = 2B3000BB26BDA4E20041F051 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2B30005926BDA18A0041F051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B30007026BDA2030041F051 /* BaseApplication.cpp in Sources */,
+				2B30007126BDA2030041F051 /* BaseScene.cpp in Sources */,
+				2B30007226BDA2030041F051 /* Model.cpp in Sources */,
+				2B30007326BDA2030041F051 /* Mesh.cpp in Sources */,
+				2B30007426BDA2030041F051 /* ModelImporter.cpp in Sources */,
+				2B30007526BDA2030041F051 /* AyyImGUI.cpp in Sources */,
+				2B30007626BDA2030041F051 /* BoxMesh.cpp in Sources */,
+				2B30007726BDA2030041F051 /* BoxNormalMesh.cpp in Sources */,
+				2B30007826BDA2030041F051 /* BoxUVNormMesh.cpp in Sources */,
+				2B30007926BDA2030041F051 /* Mesh.cpp in Sources */,
+				2B30007A26BDA2030041F051 /* PlaneMesh.cpp in Sources */,
+				2B30007B26BDA2030041F051 /* PlaneUVMesh.cpp in Sources */,
+				2B30007C26BDA2030041F051 /* TestMesh.cpp in Sources */,
+				2B30007D26BDA2030041F051 /* QuadMesh.cpp in Sources */,
+				2B30007E26BDA2030041F051 /* SkyBoxMesh.cpp in Sources */,
+				2B30007F26BDA2030041F051 /* stb_image.cpp in Sources */,
+				2B30008026BDA2030041F051 /* Common.cpp in Sources */,
+				2B30008126BDA2030041F051 /* Shader.cpp in Sources */,
+				2B30008226BDA2030041F051 /* Math.cpp in Sources */,
+				2B30008326BDA2030041F051 /* IO.cpp in Sources */,
+				2B30008426BDA2030041F051 /* Util.cpp in Sources */,
+				2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */,
+				2B30008626BDA2030041F051 /* TextureManager.cpp in Sources */,
+				2B30008726BDA2030041F051 /* RawTexture.cpp in Sources */,
+				2B30008826BDA2030041F051 /* Camera.cpp in Sources */,
+				2B30008926BDA2030041F051 /* AYYFrameBuffer.cpp in Sources */,
+				2B30006D26BDA1E70041F051 /* libassimp.4.0.1.dylib in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BF38CA0265A2F790034A223 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1132,6 +1338,7 @@
 				2B23B75426ABBD7600F69677 /* PlaneUVMesh.cpp in Sources */,
 				2B3E7BEB269019E500B7D00B /* imgui_impl_glfw.cpp in Sources */,
 				2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */,
+				2B0A7BD926BA91C80052B1EC /* Lesson18.cpp in Sources */,
 				2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */,
 				2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */,
 				2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */,
@@ -1143,6 +1350,44 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		2B30006426BDA18A0041F051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T282937CB5;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = (
+					3rd/assimp/include,
+					3rd/ImGUI,
+					3rd/GLFW/include,
+					3rd/GLAD/include,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2B30006526BDA18A0041F051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T282937CB5;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = (
+					3rd/assimp/include,
+					3rd/ImGUI,
+					3rd/GLFW/include,
+					3rd/GLAD/include,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		2BF38CA9265A2F790034A223 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1303,6 +1548,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B30006626BDA18A0041F051 /* Build configuration list for PBXNativeTarget "ayygfx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B30006426BDA18A0041F051 /* Debug */,
+				2B30006526BDA18A0041F051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2BF38C9F265A2F790034A223 /* Build configuration list for PBXProject "someone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

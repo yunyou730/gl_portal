@@ -21,7 +21,5 @@ void main()
     vec4 pos = vec4(aPos,1.0) * tempView * u_Projection;
     
     gl_Position = pos;
-    
     v_TextureDir = aPos;
-    v_TextureDir.z *= -1.0;
 }

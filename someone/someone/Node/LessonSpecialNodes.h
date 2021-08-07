@@ -36,3 +36,8 @@ protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
 };
 
+class Lessin18ReflectNode : public CommonNode
+{
+protected:
+    virtual void SyncPropToShader(ayy::Camera* mainCam);
+};

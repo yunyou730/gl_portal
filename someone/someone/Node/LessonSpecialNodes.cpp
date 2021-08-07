@@ -31,3 +31,11 @@ void Lesson16PostProcessNode::SyncPropToShader(ayy::Camera* mainCam)
     GetShader()->SetUniform("u_PostProcessIndex",postProcessIndex);
     GetShader()->SetUniform("u_FramebufferTexture",0);
 }
+
+void Lessin18ReflectNode::SyncPropToShader(ayy::Camera* mainCam)
+{
+    CommonNode::SyncPropToShader(mainCam);
+    
+    ayy::Vec3f camPos = mainCam->GetPos();
+    GetShader()->SetUniform("u_CameraPos",camPos);
+}

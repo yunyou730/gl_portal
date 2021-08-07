@@ -35,6 +35,7 @@ public:
     
     void BindTextureToSlot(TextureUUID texUUID,unsigned int slotIndex);
     void BindTextureToCube(TextureUUID texUUID);
+    void UnBindCubeTexture(TextureUUID texUUID);
     
 protected:
     TextureManager();
