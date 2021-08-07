@@ -68,7 +68,7 @@
 		2B30008426BDA2030041F051 /* AYYUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */; };
 		2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* AYYTexture.cpp */; };
 		2B30008626BDA2030041F051 /* AYYTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */; };
-		2B30008726BDA2030041F051 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
+		2B30008726BDA2030041F051 /* AYYRawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* AYYRawTexture.cpp */; };
 		2B30008826BDA2030041F051 /* AYYCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D0D26772AF6004EC484 /* AYYCamera.cpp */; };
 		2B30008926BDA2030041F051 /* AYYFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED341726AD4652001E0FF0 /* AYYFrameBuffer.cpp */; };
 		2B3E7B54268587FB00B7D00B /* ground_plane.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B51268587DB00B7D00B /* ground_plane.fs */; };
@@ -137,7 +137,7 @@
 		2B5F8545269ADBF000E77543 /* ayy_model.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5F853F269ADB2D00E77543 /* ayy_model.vs */; };
 		2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F854A269AEE6A00E77543 /* ModelNode.cpp */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
-		2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
+		2B7FC9AB2667586E003148A1 /* AYYRawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* AYYRawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
 		2B7FC9B22667E62C003148A1 /* color_multi_texture.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9AF2667E619003148A1 /* color_multi_texture.vs */; };
 		2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE44E269422B6000E4079 /* Lesson13.cpp */; };
@@ -519,8 +519,8 @@
 		2B5F854A269AEE6A00E77543 /* ModelNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelNode.cpp; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
-		2B7FC9AA2667586E003148A1 /* RawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RawTexture.cpp; sourceTree = "<group>"; };
-		2B7FC9AD26675877003148A1 /* RawTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RawTexture.h; sourceTree = "<group>"; };
+		2B7FC9AA2667586E003148A1 /* AYYRawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYRawTexture.cpp; sourceTree = "<group>"; };
+		2B7FC9AD26675877003148A1 /* AYYRawTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYRawTexture.h; sourceTree = "<group>"; };
 		2B7FC9AF2667E619003148A1 /* color_multi_texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_multi_texture.vs; sourceTree = "<group>"; };
 		2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_multi_texture.fs; sourceTree = "<group>"; };
 		2B8FE44D269422B6000E4079 /* Lesson13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson13.h; sourceTree = "<group>"; };
@@ -1041,7 +1041,7 @@
 				2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */,
 				2B2A9C3426630CF50078E004 /* AYYTexture.cpp */,
 				2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */,
-				2B7FC9AA2667586E003148A1 /* RawTexture.cpp */,
+				2B7FC9AA2667586E003148A1 /* AYYRawTexture.cpp */,
 				2B1C7D0D26772AF6004EC484 /* AYYCamera.cpp */,
 				2BED341726AD4652001E0FF0 /* AYYFrameBuffer.cpp */,
 			);
@@ -1065,7 +1065,7 @@
 				2BF38CF72661E2FC0034A223 /* AYYUtil.h */,
 				2B2A9C3726630D000078E004 /* AYYTexture.h */,
 				2BFEB883266D125E009407D4 /* AYYTextureManager.h */,
-				2B7FC9AD26675877003148A1 /* RawTexture.h */,
+				2B7FC9AD26675877003148A1 /* AYYRawTexture.h */,
 				2B1C7D0C26772AED004EC484 /* AYYCamera.h */,
 				2BED341A26AD4659001E0FF0 /* AYYFrameBuffer.h */,
 			);
@@ -1277,7 +1277,7 @@
 				2B30008426BDA2030041F051 /* AYYUtil.cpp in Sources */,
 				2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */,
 				2B30008626BDA2030041F051 /* AYYTextureManager.cpp in Sources */,
-				2B30008726BDA2030041F051 /* RawTexture.cpp in Sources */,
+				2B30008726BDA2030041F051 /* AYYRawTexture.cpp in Sources */,
 				2B30008826BDA2030041F051 /* AYYCamera.cpp in Sources */,
 				2B30008926BDA2030041F051 /* AYYFrameBuffer.cpp in Sources */,
 				2B30006D26BDA1E70041F051 /* libassimp.4.0.1.dylib in Sources */,
@@ -1314,7 +1314,7 @@
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
 				2B24BE3826A69266007B6EB9 /* LessonSpecialNodes.cpp in Sources */,
 				2BED342926B16D96001E0FF0 /* Lesson17.cpp in Sources */,
-				2B7FC9AB2667586E003148A1 /* RawTexture.cpp in Sources */,
+				2B7FC9AB2667586E003148A1 /* AYYRawTexture.cpp in Sources */,
 				2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */,
 				2B3E81E12691C17B00B7D00B /* GUISceneSelection.cpp in Sources */,
 				2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */,

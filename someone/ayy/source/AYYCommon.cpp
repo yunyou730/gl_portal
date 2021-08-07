@@ -1,5 +1,9 @@
 #include "AYYCommon.h"
 #include <cassert>
+#include <string>
+#include <cstdio>
+
+const std::string kLogPrefix = "[ayy]";
 
 namespace ayy {
 GLenum glCheckError_(const char *file, int line)
@@ -24,6 +28,22 @@ GLenum glCheckError_(const char *file, int line)
         assert(false);
     }
     return errorCode;
+}
+
+
+void Log(const char* log)
+{
+    printf("[ayy] %s\n",log);
+}
+
+void Log(const std::string& log)
+{
+    printf("[ayy] %s\n",log.c_str());
+}
+
+void Log(const char* format,...)
+{
+//    printf("[ayy] %s\n",...);
 }
 
 }

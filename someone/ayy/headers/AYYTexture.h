@@ -1,7 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <string>
-#include "RawTexture.h"
+#include "AYYRawTexture.h"
 
 namespace ayy {
 

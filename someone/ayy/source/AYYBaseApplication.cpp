@@ -15,7 +15,9 @@ static BaseScene* s_scene = nullptr;
 
 BaseApplication::BaseApplication()
 {
-    
+    printf("-------------------------\n");
+    printf("Welcome to ayy\n");
+    printf("-------------------------\n");
 }
 
 BaseApplication::~BaseApplication()
