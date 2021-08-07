@@ -1,7 +1,7 @@
 #pragma once
 #include "Node.h"
 #include <vector>
-#include "../../ayy/headers/Ayy.h"
+#include "Ayy.h"
 
 namespace ayy
 {

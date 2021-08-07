@@ -1,6 +1,4 @@
 #include "Lesson4.h"
-#include "../ayy/headers/Shader.h"
-#include "../ayy/headers/Util.h"
 
 Lesson4::~Lesson4()
 {

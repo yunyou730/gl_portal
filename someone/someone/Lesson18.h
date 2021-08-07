@@ -1,5 +1,4 @@
 #pragma once
-#include "BaseScene.h"
 #include "Ayy.h"
 #include <vector>
 #include "PhongMultiLightMaterial.h"

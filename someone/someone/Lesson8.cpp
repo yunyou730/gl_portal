@@ -1,13 +1,5 @@
 #include "Lesson8.h"
-#include "../ayy/headers/Shader.h"
-#include "../ayy/headers/Util.h"
-#include "../ayy/headers/AYYCamera.h"
-#include "AYYTextureManager.h"
-#include "../ayy/headers/Mesh/TestMesh.h"
-#include "../ayy/headers/Mesh/PlaneMesh.h"
 #include "Node/CommonNode.h"
-#include "../ayy/headers/Common.h"
-
 
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)

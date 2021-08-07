@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseScene.h"
+#include "Ayy.h"
 
 namespace ayy
 {

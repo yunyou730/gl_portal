@@ -1,6 +1,5 @@
 #pragma once
-#include "BaseScene.h"
-#include <glad/glad.h>
+#include "Ayy.h"
 
 namespace ayy
 {

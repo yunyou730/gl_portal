@@ -1,4 +1,4 @@
-#include "BaseScene.h"
+#include "AYYBaseScene.h"
 
 namespace ayy {
 

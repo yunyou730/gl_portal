@@ -1,15 +1,6 @@
 #include "Lesson9.h"
-#include "../ayy/headers/Shader.h"
-#include "../ayy/headers/Util.h"
-#include "../ayy/headers/AYYCamera.h"
-#include "AYYTextureManager.h"
-#include "../ayy/headers/Mesh/TestMesh.h"
-#include "../ayy/headers/Mesh/PlaneMesh.h"
-#include "../ayy/headers/Mesh/BoxMesh.h"
 #include "Node/CommonNode.h"
-#include "../ayy/headers/Common.h"
 #include "PhongNode.h"
-#include "../ayy/headers/Mesh/BoxNormalMesh.h"
 
 const static ayy::Vec3f kLightColor(1.0f,1.0f,1.0f);
 

@@ -1,5 +1,5 @@
-#include "BaseApplication.h"
-#include "BaseScene.h"
+#include "AYYBaseApplication.h"
+#include "AYYBaseScene.h"
 
 namespace ayy {
 

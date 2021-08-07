@@ -45,8 +45,8 @@
 		2B2A9C43266317B90078E004 /* color_texture.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C41266317AF0078E004 /* color_texture.vs */; };
 		2B2A9C462663200F0078E004 /* awesomeface.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B2A9C45266320060078E004 /* awesomeface.png */; };
 		2B30006D26BDA1E70041F051 /* libassimp.4.0.1.dylib in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81A52691ADF000B7D00B /* libassimp.4.0.1.dylib */; };
-		2B30007026BDA2030041F051 /* BaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */; };
-		2B30007126BDA2030041F051 /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* BaseScene.cpp */; };
+		2B30007026BDA2030041F051 /* AYYBaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* AYYBaseApplication.cpp */; };
+		2B30007126BDA2030041F051 /* AYYBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* AYYBaseScene.cpp */; };
 		2B30007226BDA2030041F051 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F852F269A7D3B00E77543 /* Model.cpp */; };
 		2B30007326BDA2030041F051 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F8532269A7D4100E77543 /* Mesh.cpp */; };
 		2B30007426BDA2030041F051 /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */; };
@@ -98,8 +98,8 @@
 		2B3E7BEE269019E500B7D00B /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BE7269019E500B7D00B /* imgui_demo.cpp */; };
 		2B3E7BEF269019E500B7D00B /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BE8269019E500B7D00B /* imgui_draw.cpp */; };
 		2B3E7BF426901AFD00B7D00B /* AyyImGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF326901AFD00B7D00B /* AyyImGUI.cpp */; };
-		2B3E7BFA26902EC200B7D00B /* BaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */; };
-		2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* BaseScene.cpp */; };
+		2B3E7BFA26902EC200B7D00B /* AYYBaseApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BF926902EC200B7D00B /* AYYBaseApplication.cpp */; };
+		2B3E7C002690308000B7D00B /* AYYBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7BFF2690308000B7D00B /* AYYBaseScene.cpp */; };
 		2B3E7C0526903D5700B7D00B /* Lesson11.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C0426903D5700B7D00B /* Lesson11.cpp */; };
 		2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7C07269046DF00B7D00B /* Lesson12.cpp */; };
 		2B3E81A62691AE4B00B7D00B /* libassimp.4.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E81A52691ADF000B7D00B /* libassimp.4.0.1.dylib */; };
@@ -418,10 +418,10 @@
 		2B3E7BE8269019E500B7D00B /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
 		2B3E7BF326901AFD00B7D00B /* AyyImGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AyyImGUI.cpp; sourceTree = "<group>"; };
 		2B3E7BF726901B0B00B7D00B /* AyyImGUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyyImGUI.h; sourceTree = "<group>"; };
-		2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseApplication.cpp; path = ayy/source/BaseApplication.cpp; sourceTree = SOURCE_ROOT; };
-		2B3E7BFC26902ED000B7D00B /* BaseApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseApplication.h; sourceTree = "<group>"; };
-		2B3E7BFE2690306E00B7D00B /* BaseScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScene.h; sourceTree = "<group>"; };
-		2B3E7BFF2690308000B7D00B /* BaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseScene.cpp; sourceTree = "<group>"; };
+		2B3E7BF926902EC200B7D00B /* AYYBaseApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AYYBaseApplication.cpp; path = ayy/source/AYYBaseApplication.cpp; sourceTree = SOURCE_ROOT; };
+		2B3E7BFC26902ED000B7D00B /* AYYBaseApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYBaseApplication.h; sourceTree = "<group>"; };
+		2B3E7BFE2690306E00B7D00B /* AYYBaseScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYBaseScene.h; sourceTree = "<group>"; };
+		2B3E7BFF2690308000B7D00B /* AYYBaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYBaseScene.cpp; sourceTree = "<group>"; };
 		2B3E7C0326903D5700B7D00B /* Lesson11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson11.h; sourceTree = "<group>"; };
 		2B3E7C0426903D5700B7D00B /* Lesson11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson11.cpp; sourceTree = "<group>"; };
 		2B3E7C07269046DF00B7D00B /* Lesson12.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson12.cpp; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 		2BF38CEB2661D91B0034A223 /* test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.vs; sourceTree = "<group>"; };
 		2BF38CEC2661D91B0034A223 /* test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.fs; sourceTree = "<group>"; };
 		2BF38CF42661E2EF0034A223 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
-		2BF38CF72661E2FC0034A223 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		2BF38CF72661E2FC0034A223 /* AYYUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYUtil.h; sourceTree = "<group>"; };
 		2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYTextureManager.cpp; sourceTree = "<group>"; };
 		2BFEB883266D125E009407D4 /* AYYTextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYTextureManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1028,8 +1028,8 @@
 		2BF38CCA265E195D0034A223 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				2B3E7BF926902EC200B7D00B /* BaseApplication.cpp */,
-				2B3E7BFF2690308000B7D00B /* BaseScene.cpp */,
+				2B3E7BF926902EC200B7D00B /* AYYBaseApplication.cpp */,
+				2B3E7BFF2690308000B7D00B /* AYYBaseScene.cpp */,
 				2B3E81D52691BFD000B7D00B /* ModelImporter */,
 				2B3E7BF226901AFD00B7D00B /* ImGUI */,
 				2B1304CC267F906100050A9E /* Mesh */,
@@ -1052,8 +1052,8 @@
 			isa = PBXGroup;
 			children = (
 				2B3E7B6726882C1800B7D00B /* Ayy.h */,
-				2B3E7BFC26902ED000B7D00B /* BaseApplication.h */,
-				2B3E7BFE2690306E00B7D00B /* BaseScene.h */,
+				2B3E7BFC26902ED000B7D00B /* AYYBaseApplication.h */,
+				2B3E7BFE2690306E00B7D00B /* AYYBaseScene.h */,
 				2B3E81D42691BF9E00B7D00B /* ModelImporter */,
 				2B3E7BF626901B0B00B7D00B /* ImGUI */,
 				2B3E7B4C26857BD300B7D00B /* Mesh */,
@@ -1062,7 +1062,7 @@
 				2BF38CDF266138A30034A223 /* AYYMath.h */,
 				2B3E7B642688231900B7D00B /* Common.h */,
 				2BF38CE82661CE020034A223 /* IO.h */,
-				2BF38CF72661E2FC0034A223 /* Util.h */,
+				2BF38CF72661E2FC0034A223 /* AYYUtil.h */,
 				2B2A9C3726630D000078E004 /* AYYTexture.h */,
 				2BFEB883266D125E009407D4 /* AYYTextureManager.h */,
 				2B7FC9AD26675877003148A1 /* RawTexture.h */,
@@ -1253,8 +1253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B30007026BDA2030041F051 /* BaseApplication.cpp in Sources */,
-				2B30007126BDA2030041F051 /* BaseScene.cpp in Sources */,
+				2B30007026BDA2030041F051 /* AYYBaseApplication.cpp in Sources */,
+				2B30007126BDA2030041F051 /* AYYBaseScene.cpp in Sources */,
 				2B30007226BDA2030041F051 /* Model.cpp in Sources */,
 				2B30007326BDA2030041F051 /* Mesh.cpp in Sources */,
 				2B16EE6D26BE702C00155AD5 /* ModelMesh.cpp in Sources */,
@@ -1346,13 +1346,13 @@
 				2BED341526AD4262001E0FF0 /* Lesson16.cpp in Sources */,
 				2B3E81F32692238000B7D00B /* PhongTexMaterial.cpp in Sources */,
 				2B16EE6C26BE702C00155AD5 /* ModelMesh.cpp in Sources */,
-				2B3E7BFA26902EC200B7D00B /* BaseApplication.cpp in Sources */,
+				2B3E7BFA26902EC200B7D00B /* AYYBaseApplication.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 				2B23B75426ABBD7600F69677 /* PlaneUVMesh.cpp in Sources */,
 				2B3E7BEB269019E500B7D00B /* imgui_impl_glfw.cpp in Sources */,
 				2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */,
 				2B0A7BD926BA91C80052B1EC /* Lesson18.cpp in Sources */,
-				2B3E7C002690308000B7D00B /* BaseScene.cpp in Sources */,
+				2B3E7C002690308000B7D00B /* AYYBaseScene.cpp in Sources */,
 				2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */,
 				2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */,
 				2BFEB881266D1253009407D4 /* AYYTextureManager.cpp in Sources */,

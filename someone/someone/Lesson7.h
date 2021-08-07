@@ -1,8 +1,5 @@
 #pragma once
-#include "BaseScene.h"
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include "AYYTextureManager.h"
+#include "Ayy.h"
 
 namespace ayy
 {

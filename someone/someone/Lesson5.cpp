@@ -1,7 +1,4 @@
 #include "Lesson5.h"
-#include "../ayy/headers/Shader.h"
-#include "../ayy/headers/Util.h"
-#include "stb_image.h"
 
 const int kIndiceCount = 6;
 

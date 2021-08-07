@@ -1,15 +1,5 @@
 #include "Lesson12.h"
-#include "../ayy/headers/Shader.h"
-#include "../ayy/headers/Util.h"
-#include "../ayy/headers/AYYCamera.h"
-#include "AYYTextureManager.h"
-#include "../ayy/headers/Mesh/TestMesh.h"
-#include "../ayy/headers/Mesh/PlaneMesh.h"
-#include "../ayy/headers/Mesh/BoxMesh.h"
 #include "Node/CommonNode.h"
-#include "../ayy/headers/Common.h"
-#include "AyyImGUI.h"
-#include "../ayy/headers/Mesh/BoxUVNormMesh.h"
 #include "PhongTexMatNode.h"
 
 Lesson12::Lesson12(int viewportWidth,int viewportHeight)

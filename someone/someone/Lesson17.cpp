@@ -1,20 +1,8 @@
 #include "Lesson17.h"
-#include "../ayy/headers/Shader.h"
-#include "../ayy/headers/Util.h"
-#include "../ayy/headers/AYYCamera.h"
-#include "AYYTextureManager.h"
-#include "../ayy/headers/Mesh/PlaneUVMesh.h"
-#include "../ayy/headers/Mesh/BoxMesh.h"
-#include "../ayy/headers/Common.h"
-#include "AyyImGUI.h"
-#include "../ayy/headers/Mesh/BoxUVNormMesh.h"
+
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
 #include "LessonSpecialNodes.h"
-#include "AYYFrameBuffer.h"
-#include "../ayy/headers/Mesh/QuadMesh.h"
-#include "stb_image.h"
-#include "../ayy/headers/Mesh/SkyBoxMesh.h"
 #include "SkyBoxNode.h"
 
 static const int kBoxCount = 7;
