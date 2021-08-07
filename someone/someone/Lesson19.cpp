@@ -72,7 +72,7 @@ void Lesson19::Prepare()
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
     _camera->SetPos(kCameraDefaultPos);
-//    _camera->SetLookDir(ayy::Vec3f(0,0,-1));
+    _camera->SetLookDir(ayy::Vec3f(0,0.3,-1));
     
     // boxes
     for(int i = 0;i < kBoxCount;i++)
@@ -394,8 +394,8 @@ void Lesson19::HandleKeyboardInput(GLFWwindow* window)
     if(glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
     {
 //        _camera->SetLookDir(ayy::Vec3f(0,0,-1));
-//        _camera->SetLookDir(ayy::Vec3f(1,1,0));
-        _camera->SetLookDir(ayy::Vec3f(0,0,-1));
+        _camera->SetLookDir(ayy::Vec3f(1,1,0));
+//        _camera->SetLookDir(ayy::Vec3f(0,0,-1));
     }
 }
 

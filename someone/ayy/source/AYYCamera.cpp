@@ -74,7 +74,7 @@ void Camera::TakeMove(float deltaX,float deltaY,float deltaZ)
 void Camera::TakePitch(float deltaDeg)
 {
     _pitch += deltaDeg;
-//    ayy::Clamp<float>(_pitch,-90,90);
+    ayy::Clamp<float>(_pitch,-90,90);
     CalcLocalAxis();
     _bViewMatDirty = true;
 }
