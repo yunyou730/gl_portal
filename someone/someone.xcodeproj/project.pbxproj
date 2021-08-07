@@ -184,30 +184,6 @@
 		2BFEB881266D1253009407D4 /* AYYTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2B3000A726BDA4C60041F051 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2B3000A326BDA4C50041F051 /* probe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2B30009926BDA4C50041F051;
-			remoteInfo = probe;
-		};
-		2B3000B226BDA4DD0041F051 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2B30009926BDA4C50041F051;
-			remoteInfo = probe;
-		};
-		2B3000BB26BDA4E20041F051 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2B3000B726BDA4E20041F051 /* probe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2B30009926BDA4C50041F051;
-			remoteInfo = probe;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		2B3E81BE2691B47600B7D00B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -368,9 +344,6 @@
 		2B2A9C41266317AF0078E004 /* color_texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = color_texture.vs; sourceTree = "<group>"; };
 		2B2A9C45266320060078E004 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		2B30005C26BDA18A0041F051 /* libayygfx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libayygfx.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B3000A326BDA4C50041F051 /* probe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = probe.xcodeproj; path = ../probe/probe.xcodeproj; sourceTree = "<group>"; };
-		2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = probe.xcodeproj; path = probe/probe.xcodeproj; sourceTree = "<group>"; };
-		2B3000B726BDA4E20041F051 /* probe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = probe.xcodeproj; path = probe/probe.xcodeproj; sourceTree = "<group>"; };
 		2B3E7B51268587DB00B7D00B /* ground_plane.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.fs; sourceTree = "<group>"; };
 		2B3E7B52268587DB00B7D00B /* ground_plane.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ground_plane.vs; sourceTree = "<group>"; };
 		2B3E7B5826881BCD00B7D00B /* AYYNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYNode.cpp; sourceTree = "<group>"; };
@@ -641,30 +614,6 @@
 				2B3E7B5926881BCD00B7D00B /* AYYCommonNode.cpp */,
 			);
 			path = Node;
-			sourceTree = "<group>";
-		};
-		2B3000A426BDA4C50041F051 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2B3000A826BDA4C60041F051 /* probe */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2B3000AF26BDA4DD0041F051 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2B3000B326BDA4DD0041F051 /* probe */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2B3000B826BDA4E20041F051 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2B3000BC26BDA4E20041F051 /* probe */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2B3E7B4C26857BD300B7D00B /* Mesh */ = {
@@ -1006,9 +955,6 @@
 		2BF38CB4265A3E8A0034A223 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2B3000A326BDA4C50041F051 /* probe.xcodeproj */,
-				2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */,
-				2B3000B726BDA4E20041F051 /* probe.xcodeproj */,
 				2BF38CBA265A3EA50034A223 /* OpenGL.framework */,
 				2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */,
 				2BF38CB5265A3E8A0034A223 /* libglfw3.a */,
@@ -1205,20 +1151,6 @@
 			mainGroup = 2BF38C9B265A2F790034A223;
 			productRefGroup = 2BF38CA5265A2F790034A223 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2B3000A426BDA4C50041F051 /* Products */;
-					ProjectRef = 2B3000A326BDA4C50041F051 /* probe.xcodeproj */;
-				},
-				{
-					ProductGroup = 2B3000AF26BDA4DD0041F051 /* Products */;
-					ProjectRef = 2B3000AE26BDA4DD0041F051 /* probe.xcodeproj */;
-				},
-				{
-					ProductGroup = 2B3000B826BDA4E20041F051 /* Products */;
-					ProjectRef = 2B3000B726BDA4E20041F051 /* probe.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2BF38CA3265A2F790034A223 /* someone */,
@@ -1226,30 +1158,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2B3000A826BDA4C60041F051 /* probe */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = probe;
-			remoteRef = 2B3000A726BDA4C60041F051 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2B3000B326BDA4DD0041F051 /* probe */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = probe;
-			remoteRef = 2B3000B226BDA4DD0041F051 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2B3000BC26BDA4E20041F051 /* probe */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = probe;
-			remoteRef = 2B3000BB26BDA4E20041F051 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B30005926BDA18A0041F051 /* Sources */ = {
