@@ -115,6 +115,7 @@ void Lesson18::Prepare()
     _mainNode->SetMesh(_boxMesh);
     _mainNode->SetShader(_mainBoxShader);
     _mainNode->SetPosition(ayy::Vec3f(0,2,0));
+    _mainNode->SetScale(2.5f);
     
     // plane node
     _planeNode = new Lesson15PlaneNode();
@@ -189,8 +190,11 @@ void Lesson18::Cleanup()
 
 void Lesson18::OnUpdate()
 {
-    // @miao @todo
-    
+    float time = glfwGetTime();
+    float sinValue = sin(time);
+    ayy::Vec3f curPos = _mainNode->GetPosition();
+    curPos.SetY(abs(sinValue) * 2.0f + 0.5f);
+    _mainNode->SetPosition(curPos);
 }
 
 void Lesson18::OnRender()
@@ -249,7 +253,6 @@ void Lesson18::DrawScene()
     }
     
     // draw main node
-    // @miao @todo
     ayy::TextureManager::GetInstance()->BindTextureToCube(_skyboxTexture);
     _mainNode->OnRender(_camera);
     ayy::TextureManager::GetInstance()->UnBindCubeTexture(_skyboxTexture);
