@@ -65,7 +65,7 @@
 		2B30008126BDA2030041F051 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* Shader.cpp */; };
 		2B30008226BDA2030041F051 /* AYYMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D092677137F004EC484 /* AYYMath.cpp */; };
 		2B30008326BDA2030041F051 /* IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* IO.cpp */; };
-		2B30008426BDA2030041F051 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* Util.cpp */; };
+		2B30008426BDA2030041F051 /* AYYUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */; };
 		2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* AYYTexture.cpp */; };
 		2B30008626BDA2030041F051 /* AYYTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */; };
 		2B30008726BDA2030041F051 /* RawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* RawTexture.cpp */; };
@@ -181,7 +181,7 @@
 		2BF38CE62661CDF70034A223 /* IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* IO.cpp */; };
 		2BF38CEE2661DA570034A223 /* test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BF38CEC2661D91B0034A223 /* test.fs */; };
 		2BF38CEF2661DA570034A223 /* test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BF38CEB2661D91B0034A223 /* test.vs */; };
-		2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* Util.cpp */; };
+		2BF38CF52661E2EF0034A223 /* AYYUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */; };
 		2BFEB881266D1253009407D4 /* AYYTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */; };
 /* End PBXBuildFile section */
 
@@ -580,10 +580,10 @@
 		2BF38CE126614CF00034A223 /* Lesson4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson4.cpp; sourceTree = "<group>"; };
 		2BF38CE226614CF00034A223 /* Lesson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson4.h; sourceTree = "<group>"; };
 		2BF38CE52661CDF70034A223 /* IO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IO.cpp; sourceTree = "<group>"; };
-		2BF38CE82661CE020034A223 /* IO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IO.h; sourceTree = "<group>"; };
+		2BF38CE82661CE020034A223 /* AYYIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYIO.h; sourceTree = "<group>"; };
 		2BF38CEB2661D91B0034A223 /* test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.vs; sourceTree = "<group>"; };
 		2BF38CEC2661D91B0034A223 /* test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.fs; sourceTree = "<group>"; };
-		2BF38CF42661E2EF0034A223 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYUtil.cpp; sourceTree = "<group>"; };
 		2BF38CF72661E2FC0034A223 /* AYYUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYUtil.h; sourceTree = "<group>"; };
 		2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYTextureManager.cpp; sourceTree = "<group>"; };
 		2BFEB883266D125E009407D4 /* AYYTextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYTextureManager.h; sourceTree = "<group>"; };
@@ -1038,7 +1038,7 @@
 				2BF38CCB265E195D0034A223 /* Shader.cpp */,
 				2B1C7D092677137F004EC484 /* AYYMath.cpp */,
 				2BF38CE52661CDF70034A223 /* IO.cpp */,
-				2BF38CF42661E2EF0034A223 /* Util.cpp */,
+				2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */,
 				2B2A9C3426630CF50078E004 /* AYYTexture.cpp */,
 				2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */,
 				2B7FC9AA2667586E003148A1 /* RawTexture.cpp */,
@@ -1061,7 +1061,7 @@
 				2BF38CCD265E195D0034A223 /* Shader.h */,
 				2BF38CDF266138A30034A223 /* AYYMath.h */,
 				2B3E7B642688231900B7D00B /* Common.h */,
-				2BF38CE82661CE020034A223 /* IO.h */,
+				2BF38CE82661CE020034A223 /* AYYIO.h */,
 				2BF38CF72661E2FC0034A223 /* AYYUtil.h */,
 				2B2A9C3726630D000078E004 /* AYYTexture.h */,
 				2BFEB883266D125E009407D4 /* AYYTextureManager.h */,
@@ -1274,7 +1274,7 @@
 				2B30008126BDA2030041F051 /* Shader.cpp in Sources */,
 				2B30008226BDA2030041F051 /* AYYMath.cpp in Sources */,
 				2B30008326BDA2030041F051 /* IO.cpp in Sources */,
-				2B30008426BDA2030041F051 /* Util.cpp in Sources */,
+				2B30008426BDA2030041F051 /* AYYUtil.cpp in Sources */,
 				2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */,
 				2B30008626BDA2030041F051 /* AYYTextureManager.cpp in Sources */,
 				2B30008726BDA2030041F051 /* RawTexture.cpp in Sources */,
@@ -1353,7 +1353,7 @@
 				2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */,
 				2B0A7BD926BA91C80052B1EC /* Lesson18.cpp in Sources */,
 				2B3E7C002690308000B7D00B /* AYYBaseScene.cpp in Sources */,
-				2BF38CF52661E2EF0034A223 /* Util.cpp in Sources */,
+				2BF38CF52661E2EF0034A223 /* AYYUtil.cpp in Sources */,
 				2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */,
 				2BFEB881266D1253009407D4 /* AYYTextureManager.cpp in Sources */,
 				2B23B74426AB4EAF00F69677 /* BoxUVNormMesh.cpp in Sources */,
