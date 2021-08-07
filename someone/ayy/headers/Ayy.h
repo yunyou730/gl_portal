@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Common.h"
+#include "AYYCommon.h"
 #include "AYYUtil.h"
-#include "Shader.h"
+#include "AYYShader.h"
 #include "AYYMath.h"
 #include "AYYTextureManager.h"
 #include "AYYCamera.h"

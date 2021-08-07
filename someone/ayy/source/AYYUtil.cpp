@@ -1,5 +1,5 @@
-#include "../headers/AYYUtil.h"
-#include "Shader.h"
+#include "AYYUtil.h"
+#include "AYYShader.h"
 #include "AYYIO.h"
 #include "AYYTexture.h"
 #include "stb_image.h"

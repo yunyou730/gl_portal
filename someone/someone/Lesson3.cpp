@@ -1,6 +1,4 @@
 #include "Lesson3.h"
-#include "../ayy/headers/Shader.h"
-
 
 static const char* vsSource = R"(
 #version 330 core

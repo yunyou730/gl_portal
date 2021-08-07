@@ -1,6 +1,6 @@
-#include "../headers/Shader.h"
+#include "AYYShader.h"
 #include <cassert>
-#include "Common.h"
+#include "AYYCommon.h"
 
 namespace ayy {
 

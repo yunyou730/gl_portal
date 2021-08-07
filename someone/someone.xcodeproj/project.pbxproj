@@ -61,10 +61,10 @@
 		2B30007D26BDA2030041F051 /* QuadMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED342126ADA315001E0FF0 /* QuadMesh.cpp */; };
 		2B30007E26BDA2030041F051 /* SkyBoxMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BED343E26B53B9B001E0FF0 /* SkyBoxMesh.cpp */; };
 		2B30007F26BDA2030041F051 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3126628E360078E004 /* stb_image.cpp */; };
-		2B30008026BDA2030041F051 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* Common.cpp */; };
-		2B30008126BDA2030041F051 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* Shader.cpp */; };
+		2B30008026BDA2030041F051 /* AYYCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* AYYCommon.cpp */; };
+		2B30008126BDA2030041F051 /* AYYShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* AYYShader.cpp */; };
 		2B30008226BDA2030041F051 /* AYYMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C7D092677137F004EC484 /* AYYMath.cpp */; };
-		2B30008326BDA2030041F051 /* IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* IO.cpp */; };
+		2B30008326BDA2030041F051 /* AYYIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* AYYIO.cpp */; };
 		2B30008426BDA2030041F051 /* AYYUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */; };
 		2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A9C3426630CF50078E004 /* AYYTexture.cpp */; };
 		2B30008626BDA2030041F051 /* AYYTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */; };
@@ -83,7 +83,7 @@
 		2B3E7B7D268AE6FF00B7D00B /* phong.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B7B268AE6F500B7D00B /* phong.fs */; };
 		2B3E7B7E268AE6FF00B7D00B /* phong.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B7C268AE6F500B7D00B /* phong.vs */; };
 		2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */; };
-		2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* Common.cpp */; };
+		2B3E7B85268B62F900B7D00B /* AYYCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B84268B62F900B7D00B /* AYYCommon.cpp */; };
 		2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */; };
 		2B3E7B92268EA32400B7D00B /* phong_mat.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B91268EA31700B7D00B /* phong_mat.fs */; };
 		2B3E7B93268EA32400B7D00B /* phong_mat.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E7B90268EA31700B7D00B /* phong_mat.vs */; };
@@ -173,12 +173,12 @@
 		2BF38CC0265A3F290034A223 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CBF265A3F1D0034A223 /* glad.c */; };
 		2BF38CC2265A3FB50034A223 /* libglfw.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */; };
 		2BF38CC3265A3FB50034A223 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38CB5265A3E8A0034A223 /* libglfw3.a */; };
-		2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* Shader.cpp */; };
+		2BF38CCE265E195D0034A223 /* AYYShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CCB265E195D0034A223 /* AYYShader.cpp */; };
 		2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD1265EA26C0034A223 /* Lesson1.cpp */; };
 		2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CD5265EA26C0034A223 /* Lesson2.cpp */; };
 		2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CDB266137D50034A223 /* Lesson3.cpp */; };
 		2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE126614CF00034A223 /* Lesson4.cpp */; };
-		2BF38CE62661CDF70034A223 /* IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* IO.cpp */; };
+		2BF38CE62661CDF70034A223 /* AYYIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CE52661CDF70034A223 /* AYYIO.cpp */; };
 		2BF38CEE2661DA570034A223 /* test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BF38CEC2661D91B0034A223 /* test.fs */; };
 		2BF38CEF2661DA570034A223 /* test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BF38CEB2661D91B0034A223 /* test.vs */; };
 		2BF38CF52661E2EF0034A223 /* AYYUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */; };
@@ -378,7 +378,7 @@
 		2B3E7B5926881BCD00B7D00B /* CommonNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonNode.cpp; sourceTree = "<group>"; };
 		2B3E7B5A26881BCD00B7D00B /* CommonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNode.h; sourceTree = "<group>"; };
 		2B3E7B5B26881BCD00B7D00B /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
-		2B3E7B642688231900B7D00B /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		2B3E7B642688231900B7D00B /* AYYCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYCommon.h; sourceTree = "<group>"; };
 		2B3E7B6726882C1800B7D00B /* Ayy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ayy.h; sourceTree = "<group>"; };
 		2B3E7B69268831E200B7D00B /* common.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = common.fs; sourceTree = "<group>"; };
 		2B3E7B6A268831E300B7D00B /* common.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = common.vs; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 		2B3E7B7C268AE6F500B7D00B /* phong.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong.vs; sourceTree = "<group>"; };
 		2B3E7B80268B51DC00B7D00B /* PhongNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongNode.cpp; sourceTree = "<group>"; };
 		2B3E7B81268B51DC00B7D00B /* PhongNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongNode.h; sourceTree = "<group>"; };
-		2B3E7B84268B62F900B7D00B /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
+		2B3E7B84268B62F900B7D00B /* AYYCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYCommon.cpp; sourceTree = "<group>"; };
 		2B3E7B8B268EA2A300B7D00B /* Lesson10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson10.h; sourceTree = "<group>"; };
 		2B3E7B8C268EA2A300B7D00B /* Lesson10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson10.cpp; sourceTree = "<group>"; };
 		2B3E7B90268EA31700B7D00B /* phong_mat.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_mat.vs; sourceTree = "<group>"; };
@@ -568,8 +568,8 @@
 		2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "3rd/GLFW/lib-universal/libglfw.3.dylib"; sourceTree = "<group>"; };
 		2BF38CBA265A3EA50034A223 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2BF38CBF265A3F1D0034A223 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = 3rd/GLAD/src/glad.c; sourceTree = "<group>"; };
-		2BF38CCB265E195D0034A223 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
-		2BF38CCD265E195D0034A223 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		2BF38CCB265E195D0034A223 /* AYYShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYShader.cpp; sourceTree = "<group>"; };
+		2BF38CCD265E195D0034A223 /* AYYShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYYShader.h; sourceTree = "<group>"; };
 		2BF38CD1265EA26C0034A223 /* Lesson1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson1.cpp; sourceTree = "<group>"; };
 		2BF38CD2265EA26C0034A223 /* Lesson2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson2.h; sourceTree = "<group>"; };
 		2BF38CD3265EA26C0034A223 /* Lesson1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson1.h; sourceTree = "<group>"; };
@@ -579,7 +579,7 @@
 		2BF38CDF266138A30034A223 /* AYYMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYYMath.h; sourceTree = "<group>"; };
 		2BF38CE126614CF00034A223 /* Lesson4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson4.cpp; sourceTree = "<group>"; };
 		2BF38CE226614CF00034A223 /* Lesson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson4.h; sourceTree = "<group>"; };
-		2BF38CE52661CDF70034A223 /* IO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IO.cpp; sourceTree = "<group>"; };
+		2BF38CE52661CDF70034A223 /* AYYIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYIO.cpp; sourceTree = "<group>"; };
 		2BF38CE82661CE020034A223 /* AYYIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYYIO.h; sourceTree = "<group>"; };
 		2BF38CEB2661D91B0034A223 /* test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.vs; sourceTree = "<group>"; };
 		2BF38CEC2661D91B0034A223 /* test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = test.fs; sourceTree = "<group>"; };
@@ -1034,10 +1034,10 @@
 				2B3E7BF226901AFD00B7D00B /* ImGUI */,
 				2B1304CC267F906100050A9E /* Mesh */,
 				2B2A9C3126628E360078E004 /* stb_image.cpp */,
-				2B3E7B84268B62F900B7D00B /* Common.cpp */,
-				2BF38CCB265E195D0034A223 /* Shader.cpp */,
+				2B3E7B84268B62F900B7D00B /* AYYCommon.cpp */,
+				2BF38CCB265E195D0034A223 /* AYYShader.cpp */,
 				2B1C7D092677137F004EC484 /* AYYMath.cpp */,
-				2BF38CE52661CDF70034A223 /* IO.cpp */,
+				2BF38CE52661CDF70034A223 /* AYYIO.cpp */,
 				2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */,
 				2B2A9C3426630CF50078E004 /* AYYTexture.cpp */,
 				2BFEB880266D1253009407D4 /* AYYTextureManager.cpp */,
@@ -1058,9 +1058,9 @@
 				2B3E7BF626901B0B00B7D00B /* ImGUI */,
 				2B3E7B4C26857BD300B7D00B /* Mesh */,
 				2B2A9C3026628DF80078E004 /* stb_image.h */,
-				2BF38CCD265E195D0034A223 /* Shader.h */,
+				2BF38CCD265E195D0034A223 /* AYYShader.h */,
 				2BF38CDF266138A30034A223 /* AYYMath.h */,
-				2B3E7B642688231900B7D00B /* Common.h */,
+				2B3E7B642688231900B7D00B /* AYYCommon.h */,
 				2BF38CE82661CE020034A223 /* AYYIO.h */,
 				2BF38CF72661E2FC0034A223 /* AYYUtil.h */,
 				2B2A9C3726630D000078E004 /* AYYTexture.h */,
@@ -1270,10 +1270,10 @@
 				2B30007D26BDA2030041F051 /* QuadMesh.cpp in Sources */,
 				2B30007E26BDA2030041F051 /* SkyBoxMesh.cpp in Sources */,
 				2B30007F26BDA2030041F051 /* stb_image.cpp in Sources */,
-				2B30008026BDA2030041F051 /* Common.cpp in Sources */,
-				2B30008126BDA2030041F051 /* Shader.cpp in Sources */,
+				2B30008026BDA2030041F051 /* AYYCommon.cpp in Sources */,
+				2B30008126BDA2030041F051 /* AYYShader.cpp in Sources */,
 				2B30008226BDA2030041F051 /* AYYMath.cpp in Sources */,
-				2B30008326BDA2030041F051 /* IO.cpp in Sources */,
+				2B30008326BDA2030041F051 /* AYYIO.cpp in Sources */,
 				2B30008426BDA2030041F051 /* AYYUtil.cpp in Sources */,
 				2B30008526BDA2030041F051 /* AYYTexture.cpp in Sources */,
 				2B30008626BDA2030041F051 /* AYYTextureManager.cpp in Sources */,
@@ -1300,7 +1300,7 @@
 				2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */,
 				2B23B74626AB4EAF00F69677 /* PlaneMesh.cpp in Sources */,
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
-				2B3E7B85268B62F900B7D00B /* Common.cpp in Sources */,
+				2B3E7B85268B62F900B7D00B /* AYYCommon.cpp in Sources */,
 				2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */,
 				2B23B74126AB4EAE00F69677 /* TestMesh.cpp in Sources */,
 				2BED341826AD4652001E0FF0 /* AYYFrameBuffer.cpp in Sources */,
@@ -1325,14 +1325,14 @@
 				2B1C7D0A2677137F004EC484 /* AYYMath.cpp in Sources */,
 				2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
-				2BF38CCE265E195D0034A223 /* Shader.cpp in Sources */,
+				2BF38CCE265E195D0034A223 /* AYYShader.cpp in Sources */,
 				2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */,
 				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
 				2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* Node.cpp in Sources */,
-				2BF38CE62661CDF70034A223 /* IO.cpp in Sources */,
+				2BF38CE62661CDF70034A223 /* AYYIO.cpp in Sources */,
 				2B23B74326AB4EAF00F69677 /* Mesh.cpp in Sources */,
 				2B16EE7526BE775600155AD5 /* Lesson19.cpp in Sources */,
 				2BED342226ADA315001E0FF0 /* QuadMesh.cpp in Sources */,

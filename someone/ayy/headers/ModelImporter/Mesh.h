@@ -4,7 +4,7 @@
 #include "AYYMath.h"
 #include <string>
 #include <vector>
-#include "Shader.h"
+#include "AYYShader.h"
 
 namespace ayy {
 

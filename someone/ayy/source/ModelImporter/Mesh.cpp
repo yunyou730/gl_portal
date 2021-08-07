@@ -1,5 +1,4 @@
 #include "../../headers/ModelImporter/Mesh.h"
-#include "../../headers/Shader.h"
 #include "Ayy.h"
 
 namespace ayy
