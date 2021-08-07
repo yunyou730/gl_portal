@@ -72,6 +72,7 @@ void Lesson19::Prepare()
     // camera
     _camera = new ayy::Camera(GetViewportWidth(),GetViewportHeight());
     _camera->SetPos(kCameraDefaultPos);
+//    _camera->SetLookDir(ayy::Vec3f(0,0,-1));
     
     // boxes
     for(int i = 0;i < kBoxCount;i++)
@@ -333,24 +334,6 @@ void Lesson19::PrepareCubeTexture()
 
 void Lesson19::HandleKeyboardInput(GLFWwindow* window)
 {
-    static ayy::AYYFrameBuffer* holdBuffer = nullptr;
-    if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-    {
-        AYY_SAFE_DEL(_frameBuffer);
-        
-        if(holdBuffer != nullptr)
-        {
-            _frameBuffer = holdBuffer;
-            holdBuffer = nullptr;
-        }
-        else
-        {
-            holdBuffer = _frameBuffer;
-            _frameBuffer = nullptr;
-        }
-
-    }
-
     // handle camera move
     float delta = GetDeltaTime() * _camMoveSpeed;
     float deltaRot = GetDeltaTime() * _camRotSpeed;
@@ -384,7 +367,7 @@ void Lesson19::HandleKeyboardInput(GLFWwindow* window)
         _camera->TakeYaw(deltaRot);
     }
     
-    // mouse input
+    // camera rotate
     delta = _camRotSpeed * GetDeltaTime();
     if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
     {
@@ -401,6 +384,18 @@ void Lesson19::HandleKeyboardInput(GLFWwindow* window)
     if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
     {
         _camera->TakeYaw(deltaRot);
+    }
+    
+    if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+    {
+        _camera->Dump();
+    }
+    
+    if(glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS)
+    {
+//        _camera->SetLookDir(ayy::Vec3f(0,0,-1));
+//        _camera->SetLookDir(ayy::Vec3f(1,1,0));
+        _camera->SetLookDir(ayy::Vec3f(0,0,-1));
     }
 }
 

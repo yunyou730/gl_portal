@@ -30,6 +30,8 @@ public:
     void SetPos(const ayy::Vec3f& pos);
     ayy::Vec3f GetPos() const { return _eye; }
     
+    void SetLookDir(const ayy::Vec3f& lookDir);
+    
     void TakeMove(float deltaX,float deltaY,float deltaZ);
     void TakeRot(float deltaDegX,float deltaDegY,float deltaDegZ);
     
@@ -81,6 +83,11 @@ protected:
     float   _pitch = 0;
     float   _yaw = 0;
     float   _roll = 0;
+    
+    
+    ayy::Vec3f _baseLookDir;
+    ayy::Vec3f _baseRightDir;
+    ayy::Vec3f _baseUpDir;
 };
 
 }
