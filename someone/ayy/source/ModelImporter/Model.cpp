@@ -1,7 +1,6 @@
 #include "../../headers/ModelImporter/Model.h"
 #include <iostream>
-#include "TextureManager.h"
-//#include "AYYCamera.h"
+#include "AYYTextureManager.h"
 
 namespace ayy
 {

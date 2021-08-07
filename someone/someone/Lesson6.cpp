@@ -1,7 +1,7 @@
 #include "Lesson6.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
-#include "TextureManager.h"
+#include "AYYTextureManager.h"
 
 const int kIndiceCount = 6;
 

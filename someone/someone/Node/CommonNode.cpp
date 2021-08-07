@@ -2,7 +2,7 @@
 
 #include "../../ayy/headers/Util.h"
 #include "../../ayy/headers/Shader.h"
-#include "TextureManager.h"
+#include "AYYTextureManager.h"
 #include "../../ayy/headers/Mesh/TestMesh.h"
 #include "../../ayy/headers/Common.h"
 

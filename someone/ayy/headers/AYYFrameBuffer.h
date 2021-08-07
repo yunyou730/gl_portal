@@ -2,8 +2,7 @@
 #include <glad/glad.h>
 #include <iostream>
 #include "Math.h"
-
-#include "TextureManager.h"
+#include "AYYTextureManager.h"
 
 namespace ayy {
 

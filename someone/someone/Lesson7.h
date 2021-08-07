@@ -2,7 +2,7 @@
 #include "BaseScene.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "TextureManager.h"
+#include "AYYTextureManager.h"
 
 namespace ayy
 {

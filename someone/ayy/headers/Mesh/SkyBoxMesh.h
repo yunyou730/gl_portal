@@ -1,5 +1,4 @@
 #include "AYYMesh.h"
-#include "../TextureManager.h"
 
 namespace ayy {
 
