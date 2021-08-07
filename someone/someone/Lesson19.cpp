@@ -1,6 +1,4 @@
 #include "Lesson19.h"
-#include "PhongMultLightNode.h"
-#include "PhongMultiLightMaterial.h"
 #include "LessonSpecialNodes.h"
 #include "SkyBoxNode.h"
 

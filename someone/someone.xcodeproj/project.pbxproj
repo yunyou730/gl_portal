@@ -123,7 +123,6 @@
 		2B3E81D02691B4A400B7D00B /* body_showroom_spec.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81BA2691B40E00B7D00B /* body_showroom_spec.png */; };
 		2B3E81D12691B4A400B7D00B /* hand_dif.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81BB2691B40E00B7D00B /* hand_dif.png */; };
 		2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */; };
-		2B3E81E12691C17B00B7D00B /* GUISceneSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81E02691C17B00B7D00B /* GUISceneSelection.cpp */; };
 		2B3E81E526921D5700B7D00B /* box_diffuse.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E326921D4800B7D00B /* box_diffuse.png */; };
 		2B3E81E626921D5700B7D00B /* box_specular.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E426921D4800B7D00B /* box_specular.png */; };
 		2B3E81EA26921DCB00B7D00B /* phong_tex_mat.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E826921DBA00B7D00B /* phong_tex_mat.fs */; };
@@ -498,8 +497,6 @@
 		2B3E81BB2691B40E00B7D00B /* hand_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_dif.png; sourceTree = "<group>"; };
 		2B3E81D62691BFD000B7D00B /* ModelImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelImporter.cpp; sourceTree = "<group>"; };
 		2B3E81DC2691BFF900B7D00B /* ModelImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelImporter.h; sourceTree = "<group>"; };
-		2B3E81DF2691C17B00B7D00B /* GUISceneSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISceneSelection.h; sourceTree = "<group>"; };
-		2B3E81E02691C17B00B7D00B /* GUISceneSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUISceneSelection.cpp; sourceTree = "<group>"; };
 		2B3E81E326921D4800B7D00B /* box_diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_diffuse.png; path = someone/res/nanosuit/box_diffuse.png; sourceTree = SOURCE_ROOT; };
 		2B3E81E426921D4800B7D00B /* box_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_specular.png; path = someone/res/nanosuit/box_specular.png; sourceTree = SOURCE_ROOT; };
 		2B3E81E826921DBA00B7D00B /* phong_tex_mat.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = phong_tex_mat.fs; sourceTree = "<group>"; };
@@ -922,15 +919,6 @@
 			path = ModelImporter;
 			sourceTree = "<group>";
 		};
-		2B3E81DE2691C15900B7D00B /* ImGUI */ = {
-			isa = PBXGroup;
-			children = (
-				2B3E81E02691C17B00B7D00B /* GUISceneSelection.cpp */,
-				2B3E81DF2691C17B00B7D00B /* GUISceneSelection.h */,
-			);
-			path = ImGUI;
-			sourceTree = "<group>";
-		};
 		2BED342C26B52692001E0FF0 /* skybox */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,7 +957,6 @@
 		2BF38CA6265A2F790034A223 /* someone */ = {
 			isa = PBXGroup;
 			children = (
-				2B3E81DE2691C15900B7D00B /* ImGUI */,
 				2B3E7B95268EA37900B7D00B /* Material */,
 				2B3E7B5726881B8D00B7D00B /* Node */,
 				2BF38CD1265EA26C0034A223 /* Lesson1.cpp */,
@@ -1332,7 +1319,6 @@
 				2BED342926B16D96001E0FF0 /* Lesson17.cpp in Sources */,
 				2B7FC9AB2667586E003148A1 /* AYYRawTexture.cpp in Sources */,
 				2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */,
-				2B3E81E12691C17B00B7D00B /* GUISceneSelection.cpp in Sources */,
 				2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */,
 				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
 				2B23B74526AB4EAF00F69677 /* BoxNormalMesh.cpp in Sources */,
