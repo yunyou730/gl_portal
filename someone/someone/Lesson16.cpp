@@ -1,7 +1,7 @@
 #include "Lesson16.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
-#include "../ayy/headers/Camera.h"
+#include "../ayy/headers/AYYCamera.h"
 #include "TextureManager.h"
 #include "../ayy/headers/Mesh/PlaneUVMesh.h"
 #include "../ayy/headers/Mesh/BoxMesh.h"

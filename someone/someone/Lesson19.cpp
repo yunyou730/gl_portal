@@ -1,7 +1,7 @@
 #include "Lesson19.h"
 #include "../ayy/headers/Shader.h"
 #include "../ayy/headers/Util.h"
-#include "../ayy/headers/Camera.h"
+#include "../ayy/headers/AYYCamera.h"
 #include "TextureManager.h"
 #include "../ayy/headers/Mesh/PlaneUVMesh.h"
 #include "../ayy/headers/Mesh/BoxMesh.h"
@@ -21,7 +21,7 @@ static const int kBoxCount = 7;
 static const int kBoxPosClamp = 5;
 static const int kWindowsCount = 20;
 
-static const ayy::Vec3f kCameraDefaultPos(0,0,-7);
+static const ayy::Vec3f kCameraDefaultPos(0,0,7);
 static const float kBorderScale = 1.1f;
 
 static const char* items[] = { "InverseColor", "Gray", "Sharpen","Blur","Edge","Origin" };

@@ -134,7 +134,7 @@ void BaseApplication::Cleanup()
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 {
 //    glViewport(0,0,width,height); // 好像没有用？
-    printf("[framebuffer_size_callback] %d,%d\n",width,height);
+//    printf("[framebuffer_size_callback] %d,%d\n",width,height);
     if(s_scene != nullptr)
     {
         s_scene->OnViewportSizeChanged(width,height);

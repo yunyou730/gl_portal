@@ -1,4 +1,4 @@
-#include "../headers/Camera.h"
+#include "../headers/AYYCamera.h"
 
 namespace ayy
 {
