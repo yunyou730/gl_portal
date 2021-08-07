@@ -1,5 +1,4 @@
 #include "Lesson13.h"
-#include "Node/CommonNode.h"
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
 
@@ -12,7 +11,7 @@ Lesson13::Lesson13(int viewportWidth,int viewportHeight)
 {
     _boxBatch = new ayy::BoxMesh();
     _objBatch = new ayy::BoxUVNormMesh();
-    _dummyLight = new CommonNode();
+    _dummyLight = new ayy::CommonNode();
     
     for(int i = 0;i < kBoxCount;i++)
     {

@@ -9,7 +9,6 @@ class Camera;
 class AYYMesh;
 }
 
-class CommonNode;
 class PhongTexMatNode;
 class Lesson12 : public ayy::BaseScene
 {
@@ -46,7 +45,7 @@ private:
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
     
-    CommonNode*     _dummyLight = nullptr;
+    ayy::CommonNode*     _dummyLight = nullptr;
     PhongTexMatNode*   _obj = nullptr;
     
     float       _curLightDeg = 0;

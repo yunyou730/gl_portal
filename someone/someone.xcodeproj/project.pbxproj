@@ -628,6 +628,24 @@
 			path = Mesh;
 			sourceTree = "<group>";
 		};
+		2B16EE9C26BEFF9300155AD5 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				2B3E7B5B26881BCD00B7D00B /* Node.h */,
+				2B3E7B5A26881BCD00B7D00B /* CommonNode.h */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		2B16EE9D26BEFFA500155AD5 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				2B3E7B5826881BCD00B7D00B /* Node.cpp */,
+				2B3E7B5926881BCD00B7D00B /* CommonNode.cpp */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
 		2B3000A426BDA4C50041F051 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,10 +704,6 @@
 				2B3E81EE2692229C00B7D00B /* PhongTexMatNode.h */,
 				2B8FE4622695C3D5000E4079 /* PhongMultLightNode.cpp */,
 				2B8FE4612695C3D5000E4079 /* PhongMultLightNode.h */,
-				2B3E7B5926881BCD00B7D00B /* CommonNode.cpp */,
-				2B3E7B5A26881BCD00B7D00B /* CommonNode.h */,
-				2B3E7B5826881BCD00B7D00B /* Node.cpp */,
-				2B3E7B5B26881BCD00B7D00B /* Node.h */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -1030,6 +1044,7 @@
 			children = (
 				2B3E7BF926902EC200B7D00B /* AYYBaseApplication.cpp */,
 				2B3E7BFF2690308000B7D00B /* AYYBaseScene.cpp */,
+				2B16EE9D26BEFFA500155AD5 /* Node */,
 				2B3E81D52691BFD000B7D00B /* ModelImporter */,
 				2B3E7BF226901AFD00B7D00B /* ImGUI */,
 				2B1304CC267F906100050A9E /* Mesh */,
@@ -1054,6 +1069,7 @@
 				2B3E7B6726882C1800B7D00B /* Ayy.h */,
 				2B3E7BFC26902ED000B7D00B /* AYYBaseApplication.h */,
 				2B3E7BFE2690306E00B7D00B /* AYYBaseScene.h */,
+				2B16EE9C26BEFF9300155AD5 /* Node */,
 				2B3E81D42691BF9E00B7D00B /* ModelImporter */,
 				2B3E7BF626901B0B00B7D00B /* ImGUI */,
 				2B3E7B4C26857BD300B7D00B /* Mesh */,

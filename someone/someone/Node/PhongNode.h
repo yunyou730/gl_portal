@@ -2,7 +2,7 @@
 
 #include "CommonNode.h"
 
-class PhongNode : public CommonNode
+class PhongNode : public ayy::CommonNode
 {
 public:
     void SetLightSourcePos(const ayy::Vec3f& lightSourcePos);

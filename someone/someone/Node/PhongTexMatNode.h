@@ -3,7 +3,7 @@
 #include "CommonNode.h"
 
 class PhongTexMaterial;
-class PhongTexMatNode : public CommonNode
+class PhongTexMatNode : public ayy::CommonNode
 {
 public:
     PhongTexMatNode();

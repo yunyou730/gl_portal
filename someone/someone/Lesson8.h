@@ -1,15 +1,6 @@
 #pragma once
 #include "Ayy.h"
 
-namespace ayy
-{
-class ShaderProgram;
-class Texture;
-class Camera;
-class AYYMesh;
-}
-
-class CommonNode;
 class Lesson8 : public ayy::BaseScene
 {
 public:
@@ -47,7 +38,7 @@ private:
     
     float   _box1Rot = 0;
     
-    CommonNode*     _box1 = nullptr;
-    CommonNode*     _box2 = nullptr;
-    CommonNode*     _ground = nullptr;
+    ayy::CommonNode*     _box1 = nullptr;
+    ayy::CommonNode*     _box2 = nullptr;
+    ayy::CommonNode*     _ground = nullptr;
 };

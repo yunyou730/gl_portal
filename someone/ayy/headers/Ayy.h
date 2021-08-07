@@ -12,7 +12,7 @@
 #include "AYYFrameBuffer.h"
 #include "stb_image.h"
 
-
+// mesh
 #include "Mesh/TestMesh.h"
 #include "Mesh/PlaneMesh.h"
 #include "Mesh/PlaneUVMesh.h"
@@ -21,3 +21,7 @@
 #include "Mesh/BoxUVNormMesh.h"
 #include "Mesh/QuadMesh.h"
 #include "Mesh/SkyBoxMesh.h"
+
+// node
+#include "Node/Node.h"
+#include "Node/CommonNode.h"

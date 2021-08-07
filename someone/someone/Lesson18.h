@@ -3,17 +3,6 @@
 #include <vector>
 #include "PhongMultiLightMaterial.h"
 
-
-namespace ayy
-{
-class ShaderProgram;
-class Texture;
-class Camera;
-class AYYMesh;
-class AYYFrameBuffer;
-}
-
-class CommonNode;
 class Lesson16PostProcessNode;
 class SkyBoxNode;
 class Lesson18 : public ayy::BaseScene
@@ -60,13 +49,13 @@ private:
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
     
-    std::vector<CommonNode*>    _boxes;
-    std::vector<CommonNode*>    _borders;
-    CommonNode*                 _planeNode = nullptr;
-    std::vector<CommonNode*>    _windows;
+    std::vector<ayy::CommonNode*>    _boxes;
+    std::vector<ayy::CommonNode*>    _borders;
+    ayy::CommonNode*                 _planeNode = nullptr;
+    std::vector<ayy::CommonNode*>    _windows;
     Lesson16PostProcessNode*    _postProcessNode = nullptr;
     SkyBoxNode*                 _skyBoxNode = nullptr;
-    CommonNode*                 _mainNode = nullptr;
+    ayy::CommonNode*                 _mainNode = nullptr;
     
     ayy::TextureUUID _boxTexture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _boxTexture2 = ayy::TextureManager::kInvalidTextureUUID;

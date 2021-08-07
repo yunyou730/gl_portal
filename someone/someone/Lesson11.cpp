@@ -1,5 +1,4 @@
 #include "Lesson11.h"
-#include "Node/CommonNode.h"
 #include "PhongMatNode.h"
 
 Lesson11::Lesson11(int viewportWidth,int viewportHeight)
@@ -10,10 +9,10 @@ Lesson11::Lesson11(int viewportWidth,int viewportHeight)
     _boxBatch = new ayy::BoxMesh();
     _boxNormalBatch = new ayy::BoxNormalMesh();
     
-    _box1 = new CommonNode();
-    _box2 = new CommonNode();
-    _ground = new CommonNode();
-    _dummyLight = new CommonNode();
+    _box1 = new ayy::CommonNode();
+    _box2 = new ayy::CommonNode();
+    _ground = new ayy::CommonNode();
+    _dummyLight = new ayy::CommonNode();
     _obj = new PhongMatNode();
     
     _curLightPos = ayy::Vec3f(1,2,-3);

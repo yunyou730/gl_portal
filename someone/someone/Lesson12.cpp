@@ -1,5 +1,4 @@
 #include "Lesson12.h"
-#include "Node/CommonNode.h"
 #include "PhongTexMatNode.h"
 
 Lesson12::Lesson12(int viewportWidth,int viewportHeight)
@@ -8,7 +7,7 @@ Lesson12::Lesson12(int viewportWidth,int viewportHeight)
     _boxBatch = new ayy::BoxMesh();
     _objBatch = new ayy::BoxUVNormMesh();
     
-    _dummyLight = new CommonNode();
+    _dummyLight = new ayy::CommonNode();
     _obj = new PhongTexMatNode();
     
     _lightAmbient = ayy::Vec3f(0.2f,0.2f,0.2f);

@@ -2,7 +2,7 @@
 
 #include "CommonNode.h"
 
-class SkyBoxNode : public CommonNode
+class SkyBoxNode : public ayy::CommonNode
 {
 public:
     void SetTexture(ayy::TextureUUID texUUID)

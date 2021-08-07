@@ -3,15 +3,6 @@
 #include "PhongMultiLightMaterial.h"
 #include "Ayy.h"
 
-namespace ayy
-{
-class ShaderProgram;
-class Texture;
-class Camera;
-class AYYMesh;
-}
-
-class CommonNode;
 class PhongMultLightNode;
 class ModelNode;
 class Lesson14 : public ayy::BaseScene
@@ -46,7 +37,7 @@ private:
     float   _camMoveSpeed   = 7.0f;
     float   _camRotSpeed    = 120;
     
-    CommonNode*                         _dummyLight = nullptr;
+    ayy::CommonNode*                         _dummyLight = nullptr;
     std::vector<PhongMultLightNode*>    _boxes;
     ModelNode*                          _modelNode = nullptr;
     

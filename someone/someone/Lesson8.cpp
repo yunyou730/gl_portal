@@ -1,14 +1,13 @@
 #include "Lesson8.h"
-#include "Node/CommonNode.h"
 
 Lesson8::Lesson8(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
     _batch = new ayy::TestMesh();
     _groundBatch = new ayy::PlaneMesh();
-    _box1 = new CommonNode();
-    _box2 = new CommonNode();
-    _ground = new CommonNode();
+    _box1 = new ayy::CommonNode();
+    _box2 = new ayy::CommonNode();
+    _ground = new ayy::CommonNode();
 }
 
 Lesson8::~Lesson8()

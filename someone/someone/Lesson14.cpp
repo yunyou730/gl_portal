@@ -1,5 +1,4 @@
 #include "Lesson14.h"
-#include "Node/CommonNode.h"
 #include "PhongMultLightNode.h"
 #include "PhongMultiLightMaterial.h"
 #include "ModelNode.h"
@@ -12,7 +11,7 @@ Lesson14::Lesson14(int viewportWidth,int viewportHeight)
 {
     _boxBatch = new ayy::BoxMesh();
     _objBatch = new ayy::BoxUVNormMesh();
-    _dummyLight = new CommonNode();
+    _dummyLight = new ayy::CommonNode();
     _modelNode = new ModelNode("res/nanosuit/nanosuit.obj","res/nanosuit/");
     
     for(int i = 0;i < kBoxCount;i++)

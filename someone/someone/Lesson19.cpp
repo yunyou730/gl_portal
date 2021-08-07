@@ -41,9 +41,6 @@ void Lesson19::Prepare()
     _skyBoxMesh = new ayy::SkyBoxMesh();
     _skyBoxMesh->Prepare();
     
-//    _modelMesh = new ayy::ModelMesh("res/nanosuit/nanosuit.obj","res/nanosuit/");
-//    _modelMesh->Prepare();
-    
     // textures
     Prepare2DTexture();
     PrepareCubeTexture();
@@ -66,7 +63,7 @@ void Lesson19::Prepare()
     for(int i = 0;i < kBoxCount;i++)
     {
         // box
-        CommonNode* node = new Lesson15BoxNode();
+        ayy::CommonNode* node = new Lesson15BoxNode();
         node->SetShader(_boxShader);
         node->SetMesh(_boxMesh);
         
@@ -77,7 +74,7 @@ void Lesson19::Prepare()
         _boxes.push_back(node);
         
         // border
-        CommonNode* borderNode = new Lesson15BorderNode();
+        ayy::CommonNode* borderNode = new Lesson15BorderNode();
         borderNode->SetShader(_borderShader);
         borderNode->SetMesh(_boxMesh);
         borderNode->SetPosition(ayy::Vec3f(x,0,z));
@@ -88,7 +85,7 @@ void Lesson19::Prepare()
     // windows node
     for(int i = 0;i < kWindowsCount;i++)
     {
-        CommonNode* node = new Lesson15WindowNode();
+        ayy::CommonNode* node = new Lesson15WindowNode();
         node->SetShader(_windowShader);
         node->SetMesh(_planeMesh);
         
@@ -103,7 +100,6 @@ void Lesson19::Prepare()
     
     // main node
     _mainNode = new Lesson19ModelNode("res/nanosuit/nanosuit.obj","res/nanosuit/");
-//    _mainNode->SetMesh(_boxMesh);
     _mainNode->SetShader(_mainBoxShader);
     _mainNode->SetPosition(ayy::Vec3f(0,-0.5,0));
     _mainNode->SetScale(0.2);
@@ -157,7 +153,7 @@ void Lesson19::Cleanup()
     // clean nodes
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
-        CommonNode* box = *it;
+        ayy::CommonNode* box = *it;
         AYY_SAFE_DEL(box);
     }
     _boxes.clear();
@@ -239,7 +235,7 @@ void Lesson19::DrawScene()
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_boxTexture2,1);
     for(auto it = _boxes.begin();it != _boxes.end();it++)
     {
-        CommonNode* box = *it;
+        ayy::CommonNode* box = *it;
         box->OnRender(_camera);
     }
     
@@ -264,7 +260,7 @@ void Lesson19::DrawScene()
     glStencilFunc(GL_ALWAYS,1,0xff);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_windowTexture,0);
-    std::sort(_windows.begin(),_windows.end(),[&](CommonNode* a,CommonNode* b){
+    std::sort(_windows.begin(),_windows.end(),[&](ayy::CommonNode* a,ayy::CommonNode* b){
         float disA = (_camera->GetPos() - a->GetPosition()).Length();
         float disB = (_camera->GetPos() - a->GetPosition()).Length();
         return disA >= disB;

@@ -1,5 +1,5 @@
 #include "Lesson9.h"
-#include "Node/CommonNode.h"
+//#include "Node/CommonNode.h"
 #include "PhongNode.h"
 
 const static ayy::Vec3f kLightColor(1.0f,1.0f,1.0f);
@@ -12,10 +12,10 @@ Lesson9::Lesson9(int viewportWidth,int viewportHeight)
     _boxBatch = new ayy::BoxMesh();
     _boxNormalBatch = new ayy::BoxNormalMesh();
     
-    _box1 = new CommonNode();
-    _box2 = new CommonNode();
-    _ground = new CommonNode();
-    _dummyLight = new CommonNode();
+    _box1 = new ayy::CommonNode();
+    _box2 = new ayy::CommonNode();
+    _ground = new ayy::CommonNode();
+    _dummyLight = new ayy::CommonNode();
     _obj = new PhongNode();
     
     _curLightPos = ayy::Vec3f(1,2,-3);

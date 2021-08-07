@@ -11,7 +11,7 @@ class Model;
 }
 }
 
-class ModelNode : public CommonNode
+class ModelNode : public ayy::CommonNode
 {
 public:
     ModelNode(const std::string& modelPath,const std::string& modelPrefixPath);

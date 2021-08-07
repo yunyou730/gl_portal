@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 #include <vector>
 
 namespace ayy
@@ -12,6 +10,8 @@ class Camera;
 class Batch;
 }
 
+namespace ayy
+{
 class Node
 {
 public:
@@ -23,6 +23,8 @@ public:
     virtual void OnCleanUp()= 0;
     virtual void OnRender(ayy::Camera* mainCam) = 0;
 };
+
+}
 
 
 

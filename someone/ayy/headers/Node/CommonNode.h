@@ -10,6 +10,8 @@ class Texture;
 class AYYMesh;
 }
 
+namespace ayy {
+
 class CommonNode : public Node
 {
 public:
@@ -54,3 +56,6 @@ protected:
     ayy::Vec3f  _scale;
     ayy::Vec3f  _rotAxis;
 };
+
+}
+

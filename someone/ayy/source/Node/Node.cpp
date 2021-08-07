@@ -1,5 +1,6 @@
 #include "Node.h"
 
+namespace ayy {
 Node::Node()
 {
     
@@ -14,3 +15,6 @@ void Node::OnUpdate(float dt)
 {
     
 }
+
+}
+

@@ -3,7 +3,7 @@
 #include "CommonNode.h"
 
 class PhongMultiLightMaterial;
-class PhongMultLightNode : public CommonNode
+class PhongMultLightNode : public ayy::CommonNode
 {
 public:
     PhongMultLightNode();

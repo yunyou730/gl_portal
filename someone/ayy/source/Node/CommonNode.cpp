@@ -5,6 +5,9 @@ static const std::string kTextureUniformNamePrefix = "texture";
 static const ayy::Vec3f kDefaultRotAxis(0,1,0);
 static const ayy::Vec3f kDefaultScale(1,1,1);
 
+namespace ayy {
+
+
 CommonNode::CommonNode()
 {
     _scale = kDefaultScale;
@@ -140,3 +143,6 @@ void CommonNode::SyncPropToShader(ayy::Camera* mainCam)
     _shader->SetUniformMat4x4("u_Projection", (GLfloat*)mainCam->GetProjMatrix().data);    
     glCheckError();
 }
+
+}
+
