@@ -1,3 +1,4 @@
+#pragma once
 #include "AYYMesh.h"
 
 namespace ayy {
