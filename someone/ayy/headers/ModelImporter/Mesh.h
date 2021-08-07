@@ -34,11 +34,13 @@ public:
     
     ~Mesh();
     
-    void Draw(ayy::ShaderProgram* shader,ayy::Camera* camera);
+    void Draw(ayy::ShaderProgram* shader);
+    void DoDraw();
     
 protected:
     void SetupMesh();
     void DeleteMesh();
+    
     
 public:
     std::vector<ayy::model::Vertex>     _vertices;

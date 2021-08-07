@@ -110,7 +110,6 @@ std::vector<ayy::model::Texture> Model::loadMaterialTextures(aiMaterial* mat,aiT
         aiString str;
         mat->GetTexture(type,i,&str);
         
-        
         Texture tex;
         tex.uuid = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath(_prefixPath + str.C_Str());
         assert(tex.uuid != ayy::TextureManager::kInvalidTextureUUID);
@@ -122,11 +121,19 @@ std::vector<ayy::model::Texture> Model::loadMaterialTextures(aiMaterial* mat,aiT
     return textures;
 }
 
-void Model::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
+void Model::Draw(ayy::ShaderProgram* shader)
 {
     for(unsigned int i = 0;i < _meshes.size();i++)
     {
-        _meshes[i]->Draw(shader,camera);
+        _meshes[i]->Draw(shader);
+    }
+}
+
+void Model::DoDraw()
+{
+    for(unsigned int i = 0;i < _meshes.size();i++)
+    {
+        _meshes[i]->DoDraw();
     }
 }
 

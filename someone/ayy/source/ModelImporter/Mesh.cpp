@@ -67,7 +67,7 @@ void Mesh::SetupMesh()
     glBindVertexArray(0);
 }
 
-void Mesh::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
+void Mesh::Draw(ayy::ShaderProgram* shader)
 {
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
@@ -85,7 +85,11 @@ void Mesh::Draw(ayy::ShaderProgram* shader,ayy::Camera* camera)
 
         shader->SetUniform("material." + name + number,(int)i);
     }
+    DoDraw();
+}
 
+void Mesh::DoDraw()
+{
     // 绘制网格
     glBindVertexArray(_VAO);
     glDrawElements(GL_TRIANGLES, (GLsizei)_indices.size(), GL_UNSIGNED_INT, 0);

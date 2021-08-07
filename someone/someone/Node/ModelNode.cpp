@@ -20,7 +20,7 @@ ModelNode::~ModelNode()
 void ModelNode::OnRender(ayy::Camera* mainCam)
 {
     CommonNode::OnRender(mainCam);
-    _model->Draw(_shader,mainCam);
+    _model->Draw(_shader);
 }
 
 void ModelNode::SyncPropToShader(ayy::Camera* mainCam)

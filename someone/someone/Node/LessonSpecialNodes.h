@@ -41,3 +41,16 @@ class Lessin18ReflectNode : public CommonNode
 protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
 };
+
+class Lesson19ModelNode : public CommonNode
+{
+public:
+    Lesson19ModelNode(const std::string& modelPath,const std::string& prefixPath);
+    virtual ~Lesson19ModelNode();
+protected:    
+    virtual void SyncPropToShader(ayy::Camera* mainCam) override;
+    virtual void OnRender(ayy::Camera* mainCam) override;
+protected:
+    ayy::model::Model* _model = nullptr;
+
+};

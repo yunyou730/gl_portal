@@ -39,3 +39,27 @@ void Lessin18ReflectNode::SyncPropToShader(ayy::Camera* mainCam)
     ayy::Vec3f camPos = mainCam->GetPos();
     GetShader()->SetUniform("u_CameraPos",camPos);
 }
+
+Lesson19ModelNode::Lesson19ModelNode(const std::string& modelPath,const std::string& prefixPath)
+{
+    _model = new ayy::model::Model();
+    _model->Load(modelPath, prefixPath);
+}
+
+Lesson19ModelNode::~Lesson19ModelNode()
+{
+    AYY_SAFE_DEL(_model);
+}
+
+void Lesson19ModelNode::SyncPropToShader(ayy::Camera* mainCam)
+{
+    CommonNode::SyncPropToShader(mainCam);
+    ayy::Vec3f camPos = mainCam->GetPos();
+    GetShader()->SetUniform("u_CameraPos",camPos);
+}
+
+void Lesson19ModelNode::OnRender(ayy::Camera* mainCam)
+{
+    CommonNode::OnRender(mainCam);
+    _model->DoDraw();
+}

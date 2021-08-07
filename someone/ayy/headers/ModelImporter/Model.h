@@ -23,7 +23,9 @@ public:
     ~Model();
     
     void Load(const std::string& path,const std::string& prefixPath);
-    void Draw(ayy::ShaderProgram* shader,ayy::Camera* camera);
+    void Draw(ayy::ShaderProgram* shader);
+    void DoDraw();
+    
 protected:
     void processNode(aiNode* node,const aiScene* scene);
     ayy::model::Mesh* processAndCreateMesh(aiMesh* mesh,const aiScene* scene);
