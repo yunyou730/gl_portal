@@ -56,7 +56,6 @@ private:
     Lesson16PostProcessNode*    _postProcessNode = nullptr;
     SkyBoxNode*                 _skyBoxNode = nullptr;
     ayy::CommonNode*                 _mainNode = nullptr;
-//    CommonNode*                 _modelNode = nullptr;
     
     ayy::TextureUUID _boxTexture1 = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _boxTexture2 = ayy::TextureManager::kInvalidTextureUUID;

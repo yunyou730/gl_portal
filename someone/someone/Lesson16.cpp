@@ -270,7 +270,7 @@ void Lesson16::OnViewportSizeChanged(int width,int height)
     // @miao @todo
     // 这里好像还是有问题。。。  render texture 没有办法更新, why s
     AYY_SAFE_DEL(_frameBuffer);
-//    _frameBuffer = new ayy::AYYFrameBuffer(width,height);
+    _frameBuffer = new ayy::AYYFrameBuffer(width,height);
 }
 
 void Lesson16::PrepareTexture()
