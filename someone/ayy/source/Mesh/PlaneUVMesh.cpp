@@ -50,7 +50,8 @@ void PlaneUVMesh::Prepare()
             // pos 0 , attribute pos
             glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)0);
             glEnableVertexAttribArray(0);
-
+            
+            // pos 1 , uv 
             glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
             glEnableVertexAttribArray(1);
         }

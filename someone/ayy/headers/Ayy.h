@@ -16,6 +16,7 @@
 #include "Mesh/TestMesh.h"
 #include "Mesh/PlaneMesh.h"
 #include "Mesh/PlaneUVMesh.h"
+#include "Mesh/PlaneUVNormMesh.h"
 #include "Mesh/BoxMesh.h"
 #include "Mesh/BoxNormalMesh.h"
 #include "Mesh/BoxUVNormMesh.h"

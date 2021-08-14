@@ -7,8 +7,6 @@ ModelNode::ModelNode(const std::string& modelPath,const std::string& modelPrefix
 {
     _model = new ayy::model::Model();
     _model->Load(modelPath, modelPrefixPath);
-    
-//    _material = new PhongMultiLightMaterial();
 }
 
 ModelNode::~ModelNode()

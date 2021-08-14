@@ -63,3 +63,44 @@ void Lesson19ModelNode::OnRender(ayy::Camera* mainCam)
     CommonNode::OnRender(mainCam);
     _model->DoDraw();
 }
+
+/// Lesson20NormalMapNode
+void Lesson20NormalMapNode::SetMesh(ayy::AYYMesh* mesh)
+{
+    CommonNode::SetMesh(mesh);
+    // @miao @todo
+    // temp reference PlaneUVNormMesh
+    
+    
+}
+
+void Lesson20NormalMapNode::SyncPropToShader(ayy::Camera* mainCam)
+{
+    CommonNode::SyncPropToShader(mainCam);
+    
+    // normal map
+    GetShader()->SetUniform("u_EnableNormalMap",_bEnableNormalmap);
+    GetShader()->SetUniform("u_EnableWrongNormalMap",_bEnableWrongNormalMap);
+    
+    // common
+    GetShader()->SetUniform("u_NormalMap",1);
+    GetShader()->SetUniform("u_CameraPos",mainCam->GetPos());
+    
+    // point light
+    GetShader()->SetUniform("u_PointLight.position",_pointLightPos);
+    GetShader()->SetUniform("u_PointLight.ambient",_pointLightAmbient);
+    GetShader()->SetUniform("u_PointLight.diffuse",_pointLightDiffuse);
+    GetShader()->SetUniform("u_PointLight.specular",_pointLightSpecular);
+    GetShader()->SetUniform("u_PointLight.constant",_pointLightConstant);
+    GetShader()->SetUniform("u_PointLight.linear",_pointLightLinear);
+    GetShader()->SetUniform("u_PointLight.quadratic",_pointLightQuadratic);
+    
+//    GetShader()->SetUniform("u_SpotLight.ambient",ayy::Vec3f(1.0,1.0,1.0));
+//    GetShader()->SetUniform("u_SpotLight.ambient",ayy::Vec3f(0.0,0.0,0.0));
+//    GetShader()->SetUniform("u_SpotLight.diffuse",ayy::Vec3f(1.0,1.0,1.0));
+//    GetShader()->SetUniform("u_SpotLight.specular",ayy::Vec3f(1.0,1.0,1.0));
+    
+    // material
+    GetShader()->SetUniform("u_Material.diffuse",0);
+    GetShader()->SetUniform("u_Material.shininess",32.0f);
+}

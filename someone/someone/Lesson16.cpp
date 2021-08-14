@@ -266,9 +266,7 @@ void Lesson16::OnViewportSizeChanged(int width,int height)
     ayy::BaseScene::OnViewportSizeChanged(width,height);
     _camera->SetViewportSize(width,height);
     
-    
-    // @miao @todo
-    // 这里好像还是有问题。。。  render texture 没有办法更新, why s
+    // refresh size of frame buffer
     AYY_SAFE_DEL(_frameBuffer);
     _frameBuffer = new ayy::AYYFrameBuffer(width,height);
 }

@@ -26,7 +26,7 @@ public:
     virtual void SetShader(ayy::ShaderProgram* shader);
     ayy::ShaderProgram* GetShader() { return _shader;}
     
-    void SetMesh(ayy::AYYMesh* mesh);
+    virtual void SetMesh(ayy::AYYMesh* mesh);
     void AddTex(ayy::TextureUUID texId);
     
     void SetPosition(const ayy::Vec3f& pos);

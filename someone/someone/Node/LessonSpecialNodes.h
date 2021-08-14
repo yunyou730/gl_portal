@@ -54,3 +54,39 @@ protected:
     ayy::model::Model* _model = nullptr;
 
 };
+
+class Lesson20NormalMapNode : public ayy::CommonNode
+{
+public:
+    void SetMesh(ayy::AYYMesh* mesh) override;
+    
+    void SetNormalMapEnable(bool bEnable) {_bEnableNormalmap = bEnable;}
+    
+    void SetPointLightPos(const ayy::Vec3f& pos) {_pointLightPos = pos;}
+    void SetPointLightAmbient(const ayy::Vec3f& ambient) {_pointLightAmbient = ambient;}
+    void SetPointLightDiffuse(const ayy::Vec3f& diffuse) {_pointLightDiffuse = diffuse;}
+    void SetPointLightSpecular(const ayy::Vec3f& specular) {_pointLightSpecular = specular;}
+    void SetPointLightFactors(float constant,float linear,float quadratic)
+    {
+        _pointLightConstant = constant;
+        _pointLightLinear = linear;
+        _pointLightQuadratic = quadratic;
+    }
+    
+protected:
+    virtual void SyncPropToShader(ayy::Camera* mainCam) override;
+    
+public:
+    bool        _bEnableNormalmap = true;
+    bool        _bEnableWrongNormalMap = false;
+    
+    ayy::Vec3f  _pointLightPos;
+    ayy::Vec3f  _pointLightAmbient;
+    ayy::Vec3f  _pointLightDiffuse;
+    ayy::Vec3f  _pointLightSpecular;
+    float       _pointLightConstant;
+    float       _pointLightLinear;
+    float       _pointLightQuadratic;
+    
+    
+};

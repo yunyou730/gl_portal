@@ -3,6 +3,7 @@
 #include <cassert>
 #include <vector>
 #include <string>
+#include "Ayy.h"
 
 namespace ayy {
 
@@ -162,6 +163,7 @@ TextureCube::~TextureCube()
 void TextureCube::Bind()
 {
     glBindTexture(GL_TEXTURE_CUBE_MAP, _textureID);
+    glCheckError();
 }
 
 void TextureCube::UnBind()
