@@ -1,25 +1,27 @@
-#include "Lesson20.h"
+#include "Lesson21.h"
 #include "LessonSpecialNodes.h"
 #include "SkyBoxNode.h"
 
-static const ayy::Vec3f kCameraDefaultPos(0,0,7);
+static const ayy::Vec3f kCameraDefaultPos(0,0,15);
 static const ayy::Vec3f kDummyLightInitPos(7,0,0);
 static const float kDummyLightRotSpeed = 50.0f;
 
 static bool s_bEnableNormalMap = true;
 static bool s_bLightRun = true;
 
-Lesson20::Lesson20(int viewportWidth,int viewportHeight)
+static float wallScale = 10.0;
+
+Lesson21::Lesson21(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
 {
 }
 
-Lesson20::~Lesson20()
+Lesson21::~Lesson21()
 {
 
 }
 
-void Lesson20::Prepare()
+void Lesson21::Prepare()
 {
     _planeMesh = new ayy::PlaneUVMesh();
     _planeMesh->Prepare();
@@ -40,7 +42,7 @@ void Lesson20::Prepare()
     // shaders
     _planeShader = ayy::Util::CreateShaderWithFile("res/lesson15_plane.vs","res/lesson15_plane.fs");
     _skyBoxShader = ayy::Util::CreateShaderWithFile("res/skybox.vs","res/skybox.fs");
-    _wallShader = ayy::Util::CreateShaderWithFile("res/lesson20_normalmap.vs","res/lesson20_normalmap.fs");
+    _wallShader = ayy::Util::CreateShaderWithFile("res/lesson21_test.vs","res/lesson21_test.fs");
     _dummyLightShader = ayy::Util::CreateShaderWithFile("res/dummy_light.vs","res/dummy_light.fs");
     
     // camera
@@ -55,18 +57,12 @@ void Lesson20::Prepare()
     _skyBoxNode->SetTexture(_skyboxTexture);
     
     // wall node
-    _wallNode = new Lesson20NormalMapNode();
+    _wallNode = new Lesson21TestSDF();
     _wallNode->SetShader(_wallShader);
     _wallNode->SetMesh(_quadMesh);
-    _wallNode->SetScale(ayy::Vec3f(3.0,3.0,3.0));
+    _wallNode->SetScale(ayy::Vec3f(wallScale,wallScale,wallScale));
     _wallNode->SetRotAxis(ayy::Vec3f(1,1,1));
-    _wallNode->SetRotation(45);
-    
-    _wallNode->SetPointLightAmbient(ayy::Vec3f(1.0,1.0,1.0));
-    _wallNode->SetPointLightDiffuse(ayy::Vec3f(1.0,1.0,1.0));
-    _wallNode->SetPointLightSpecular(ayy::Vec3f(1.0,1.0,1.0));
-    _wallNode->SetPointLightFactors(1.0,0.045,0.0075);
-    
+//    _wallNode->SetRotation(45);
     
     // dummy light
     _dummyLightNode = new ayy::CommonNode();
@@ -75,7 +71,7 @@ void Lesson20::Prepare()
     _dummyLightNode->SetPosition(kDummyLightInitPos);
 }
 
-void Lesson20::Cleanup()
+void Lesson21::Cleanup()
 {
     // clean specials
     AYY_SAFE_DEL(_camera);
@@ -102,7 +98,7 @@ void Lesson20::Cleanup()
     AYY_SAFE_DEL(_dummyLightNode);
 }
 
-void Lesson20::OnUpdate()
+void Lesson21::OnUpdate()
 {
     // light pos
     if(s_bLightRun)
@@ -116,12 +112,11 @@ void Lesson20::OnUpdate()
         _dummyLightNode->SetPosition(ayy::Vec3f(dir4.x(),dir4.y(),dir4.z()));
     }
     
-    // sync light pos to wall
-    _wallNode->SetPointLightPos(_dummyLightNode->GetPosition());
-    _wallNode->SetNormalMapEnable(s_bEnableNormalMap);
+    
+    _wallNode->SetScale(ayy::Vec3f(wallScale,wallScale,wallScale));
 }
 
-void Lesson20::OnRender()
+void Lesson21::OnRender()
 {
     // draw to frame buffer
     DrawScene();
@@ -129,45 +124,44 @@ void Lesson20::OnRender()
     DrawPostProcess();
 }
 
-void Lesson20::DrawScene()
+void Lesson21::DrawScene()
 {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     
-    // draw sky box
-//    _skyBoxNode->OnRender(_camera);
     
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_planeTexture,0); // to be check...
     // draw wall
-    ayy::TextureManager::GetInstance()->BindTextureToSlot(_wallDiffuse,0);
-    ayy::TextureManager::GetInstance()->BindTextureToSlot(_wallNormalMap,1);
+    ayy::TextureManager::GetInstance()->BindTextureToSlot(_glyphA,0);
+//    ayy::TextureManager::GetInstance()->BindTextureToSlot(_wallNormalMap,1);
     _wallNode->OnRender(_camera);
         
     // draw dummy light
-    _dummyLightNode->OnRender(_camera);
+//    _dummyLightNode->OnRender(_camera);
 }
 
-void Lesson20::DrawPostProcess()
+void Lesson21::DrawPostProcess()
 {
 
 }
 
-void Lesson20::OnViewportSizeChanged(int width,int height)
+void Lesson21::OnViewportSizeChanged(int width,int height)
 {
     ayy::BaseScene::OnViewportSizeChanged(width,height);
     _camera->SetViewportSize(width,height);
 }
 
-void Lesson20::Prepare2DTexture()
+void Lesson21::Prepare2DTexture()
 {
     _planeTexture = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/marble.jpg");
     _wallDiffuse = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/brickwall.jpg");
     _wallNormalMap = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/brickwall_normal.jpg");
+    _glyphA = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/glyph_A.png");
 }
 
-void Lesson20::PrepareCubeTexture()
+void Lesson21::PrepareCubeTexture()
 {
     _skyboxTexture = ayy::TextureManager::GetInstance()->CreateCubeTexture("res/skybox/right.jpg",
                                                                            "res/skybox/left.jpg",
@@ -177,7 +171,7 @@ void Lesson20::PrepareCubeTexture()
                                                                            "res/skybox/front.jpg");
 }
 
-void Lesson20::HandleKeyboardInput(GLFWwindow* window)
+void Lesson21::HandleKeyboardInput(GLFWwindow* window)
 {
     // handle camera move
     float delta = GetDeltaTime() * _camMoveSpeed;
@@ -235,17 +229,24 @@ void Lesson20::HandleKeyboardInput(GLFWwindow* window)
     {
         _camera->SetLookDir(ayy::Vec3f(1,1,0));
     }
+    
+    if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+    {
+        _wallNode->Switch();
+    }
 }
 
-void Lesson20::OnGUI()
+void Lesson21::OnGUI()
 {
     BaseScene::OnGUI();
     
-    ImGui::Checkbox("light run",&s_bLightRun);
-    ImGui::Checkbox("enable normal map",&s_bEnableNormalMap);
-    ImGui::Checkbox("enable wrong normal",&_wallNode->_bEnableWrongNormalMap);
+    ImGui::DragFloat("node scale",&wallScale,0.05,0.1,10.0);
     
-    ImGui::ColorEdit3("pointLight.ambient",_wallNode->_pointLightAmbient.data);
-    ImGui::ColorEdit3("pointLight.diffuse",_wallNode->_pointLightDiffuse.data);
-    ImGui::ColorEdit3("pointLight.specular",_wallNode->_pointLightSpecular.data);
+//    ImGui::Checkbox("light run",&s_bLightRun);
+//    ImGui::Checkbox("enable normal map",&s_bEnableNormalMap);
+//    ImGui::Checkbox("enable wrong normal",&_wallNode->_bEnableWrongNormalMap);
+//
+//    ImGui::ColorEdit3("pointLight.ambient",_wallNode->_pointLightAmbient.data);
+//    ImGui::ColorEdit3("pointLight.diffuse",_wallNode->_pointLightDiffuse.data);
+//    ImGui::ColorEdit3("pointLight.specular",_wallNode->_pointLightSpecular.data);
 }

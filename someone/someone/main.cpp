@@ -5,6 +5,7 @@
 //  Created by bytedance on 2021/5/23.
 //
 #include "Ayy.h"
+#include "SingleChess.h"
 
 #include "Lesson1.h"
 #include "Lesson2.h"
@@ -26,6 +27,7 @@
 #include "Lesson18.h"
 #include "Lesson19.h"
 #include "Lesson20.h"
+#include "Lesson21.h"
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -102,9 +104,10 @@ int main(int argc, const char * argv[])
     app.CreateWindow();
     
     app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
-
-    scene = new Lesson20(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson19(SCR_WIDTH,SCR_HEIGHT);
+    
+    scene = new Lesson21(SCR_WIDTH,SCR_HEIGHT);     // try to text
+//    scene = new Lesson20(SCR_WIDTH,SCR_HEIGHT);         // normal map
+//    scene = new Lesson19(SCR_WIDTH,SCR_HEIGHT);       // cube map
 //    scene = new Lesson18(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson17(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson16(SCR_WIDTH,SCR_HEIGHT);
@@ -113,6 +116,11 @@ int main(int argc, const char * argv[])
 //    scene = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson18(SCR_WIDTH,SCR_HEIGHT);
+    
+    
+    SingleChess chess;
+    chess.DoJob();
+    
     scene->Prepare();
     app.SetScene(scene);
     

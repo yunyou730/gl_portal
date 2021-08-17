@@ -58,8 +58,6 @@ protected:
 class Lesson20NormalMapNode : public ayy::CommonNode
 {
 public:
-    void SetMesh(ayy::AYYMesh* mesh) override;
-    
     void SetNormalMapEnable(bool bEnable) {_bEnableNormalmap = bEnable;}
     
     void SetPointLightPos(const ayy::Vec3f& pos) {_pointLightPos = pos;}
@@ -87,6 +85,15 @@ public:
     float       _pointLightConstant;
     float       _pointLightLinear;
     float       _pointLightQuadratic;
+};
+
+class Lesson21TestSDF : public ayy::CommonNode
+{
+public:
+    void Switch();
+protected:
+    virtual void SyncPropToShader(ayy::Camera* mainCam);
     
-    
+protected:
+    bool    _bCalcByAlpha = false;
 };

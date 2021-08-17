@@ -65,15 +65,6 @@ void Lesson19ModelNode::OnRender(ayy::Camera* mainCam)
 }
 
 /// Lesson20NormalMapNode
-void Lesson20NormalMapNode::SetMesh(ayy::AYYMesh* mesh)
-{
-    CommonNode::SetMesh(mesh);
-    // @miao @todo
-    // temp reference PlaneUVNormMesh
-    
-    
-}
-
 void Lesson20NormalMapNode::SyncPropToShader(ayy::Camera* mainCam)
 {
     CommonNode::SyncPropToShader(mainCam);
@@ -103,4 +94,17 @@ void Lesson20NormalMapNode::SyncPropToShader(ayy::Camera* mainCam)
     // material
     GetShader()->SetUniform("u_Material.diffuse",0);
     GetShader()->SetUniform("u_Material.shininess",32.0f);
+}
+
+
+void Lesson21TestSDF::Switch()
+{
+    _bCalcByAlpha = !_bCalcByAlpha;
+}
+
+void Lesson21TestSDF::SyncPropToShader(ayy::Camera* mainCam)
+{
+    CommonNode::SyncPropToShader(mainCam);
+    GetShader()->SetUniform("u_Glyph",0);
+    GetShader()->SetUniform("u_ByAlpha",_bCalcByAlpha);
 }
