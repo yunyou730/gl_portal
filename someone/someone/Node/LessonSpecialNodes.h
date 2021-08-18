@@ -89,11 +89,6 @@ public:
 
 class Lesson21TestSDF : public ayy::CommonNode
 {
-public:
-    void Switch();
 protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
-    
-protected:
-    bool    _bCalcByAlpha = false;
 };

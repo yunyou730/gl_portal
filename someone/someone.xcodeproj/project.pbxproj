@@ -147,6 +147,10 @@
 		2B71E52C26CB628F00143BFE /* lesson21_test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71E52926CB627700143BFE /* lesson21_test.vs */; };
 		2B71E53026CB663E00143BFE /* glyph_A.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71E52F26CB663400143BFE /* glyph_A.png */; };
 		2B71EF9226CB945500143BFE /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B71EF9126CB945500143BFE /* libfreetype.a */; };
+		2B71EFA126CCA26000143BFE /* libbz2.1.0.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B71EFA026CCA26000143BFE /* libbz2.1.0.5.tbd */; };
+		2B71EFA526CCAB5700143BFE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B71EFA426CCAB5700143BFE /* libz.tbd */; };
+		2B71EFFF26CD13DA00143BFE /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B71EFFE26CD13DA00143BFE /* libpng16.a */; };
+		2B71F00726CD156F00143BFE /* xinqingnian.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71F00626CD155E00143BFE /* xinqingnian.ttf */; };
 		2B7FC9A826670816003148A1 /* Lesson6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9A726670816003148A1 /* Lesson6.cpp */; };
 		2B7FC9AB2667586E003148A1 /* AYYRawTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FC9AA2667586E003148A1 /* AYYRawTexture.cpp */; };
 		2B7FC9B12667E62C003148A1 /* color_multi_texture.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B7FC9B02667E61A003148A1 /* color_multi_texture.fs */; };
@@ -246,6 +250,7 @@
 			dstPath = res;
 			dstSubfolderSpec = 16;
 			files = (
+				2B71F00726CD156F00143BFE /* xinqingnian.ttf in CopyFiles */,
 				2B71E53026CB663E00143BFE /* glyph_A.png in CopyFiles */,
 				2B71E52B26CB628F00143BFE /* lesson21_test.fs in CopyFiles */,
 				2B71E52C26CB628F00143BFE /* lesson21_test.vs in CopyFiles */,
@@ -524,6 +529,10 @@
 		2B71EF9126CB945500143BFE /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = "3rd/freetype-2.11.0/libfreetype.a"; sourceTree = "<group>"; };
 		2B71EF9A26CB946C00143BFE /* ftconfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ftconfig.h; sourceTree = "<group>"; };
 		2B71EF9B26CB946C00143BFE /* ftoption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ftoption.h; sourceTree = "<group>"; };
+		2B71EFA026CCA26000143BFE /* libbz2.1.0.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.5.tbd; path = usr/lib/libbz2.1.0.5.tbd; sourceTree = SDKROOT; };
+		2B71EFA426CCAB5700143BFE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2B71EFFE26CD13DA00143BFE /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = 3rd/libpng/libpng16.a; sourceTree = "<group>"; };
+		2B71F00626CD155E00143BFE /* xinqingnian.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xinqingnian.ttf; sourceTree = "<group>"; };
 		2B7FC9A626670815003148A1 /* Lesson6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson6.h; sourceTree = "<group>"; };
 		2B7FC9A726670816003148A1 /* Lesson6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson6.cpp; sourceTree = "<group>"; };
 		2B7FC9AA2667586E003148A1 /* AYYRawTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYRawTexture.cpp; sourceTree = "<group>"; };
@@ -608,8 +617,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B71EFA526CCAB5700143BFE /* libz.tbd in Frameworks */,
+				2B71EFA126CCA26000143BFE /* libbz2.1.0.5.tbd in Frameworks */,
 				2B3E81A62691AE4B00B7D00B /* libassimp.4.0.1.dylib in Frameworks */,
 				2BF38CC2265A3FB50034A223 /* libglfw.3.dylib in Frameworks */,
+				2B71EFFF26CD13DA00143BFE /* libpng16.a in Frameworks */,
 				2B71EF9226CB945500143BFE /* libfreetype.a in Frameworks */,
 				2BF38CC3265A3FB50034A223 /* libglfw3.a in Frameworks */,
 				2BF38CBB265A3EA50034A223 /* OpenGL.framework in Frameworks */,
@@ -1036,6 +1048,9 @@
 		2BF38CB4265A3E8A0034A223 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B71EFFE26CD13DA00143BFE /* libpng16.a */,
+				2B71EFA426CCAB5700143BFE /* libz.tbd */,
+				2B71EFA026CCA26000143BFE /* libbz2.1.0.5.tbd */,
 				2B71EF9126CB945500143BFE /* libfreetype.a */,
 				2BF38CBA265A3EA50034A223 /* OpenGL.framework */,
 				2BF38CB6265A3E8A0034A223 /* libglfw.3.dylib */,
@@ -1160,6 +1175,7 @@
 				2BED344326B53C12001E0FF0 /* skybox.fs */,
 				2BED344426B53C12001E0FF0 /* skybox.vs */,
 				2B71E52F26CB663400143BFE /* glyph_A.png */,
+				2B71F00626CD155E00143BFE /* xinqingnian.ttf */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -1527,6 +1543,7 @@
 					"$(PROJECT_DIR)/3rd/GLFW/lib-universal",
 					"$(PROJECT_DIR)/3rd/assimp",
 					"$(PROJECT_DIR)/3rd/freetype-2.11.0",
+					"$(PROJECT_DIR)/3rd/libpng",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = (
@@ -1535,7 +1552,7 @@
 					3rd/ImGUI/backends,
 					3rd/ImGUI,
 					3rd/assimp/include,
-					"3rd/freetype-2.10.0/include/**",
+					"3rd/freetype-2.11.0/include/**",
 				);
 			};
 			name = Debug;
@@ -1552,6 +1569,7 @@
 					"$(PROJECT_DIR)/3rd/GLFW/lib-universal",
 					"$(PROJECT_DIR)/3rd/assimp",
 					"$(PROJECT_DIR)/3rd/freetype-2.11.0",
+					"$(PROJECT_DIR)/3rd/libpng",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = (
@@ -1560,7 +1578,7 @@
 					3rd/ImGUI/backends,
 					3rd/ImGUI,
 					3rd/assimp/include,
-					"3rd/freetype-2.10.0/include/**",
+					"3rd/freetype-2.11.0/include/**",
 				);
 			};
 			name = Release;

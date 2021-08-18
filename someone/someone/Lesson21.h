@@ -1,6 +1,16 @@
 #pragma once
 #include "Ayy.h"
 #include <vector>
+#include <map>
+
+
+struct Character
+{
+    GLuint  TextureID;      // 字形纹理的ID
+    ayy::Vec2i  Size;       // 字形大小
+    ayy::Vec2i  Bearing;    // 从基准线到字形左部/顶部的偏移值
+    GLuint      Advance;    // 原点距下一个字形原点的距离
+};
 
 class Lesson21TestSDF;
 class SkyBoxNode;
@@ -26,6 +36,7 @@ protected:
 protected:
     void Prepare2DTexture();
     void PrepareCubeTexture();
+    void PrepareFont();
     
 private:
     ayy::AYYMesh*       _planeMesh = nullptr;
@@ -44,14 +55,16 @@ private:
     float   _camRotSpeed    = 120;
     
     SkyBoxNode*                      _skyBoxNode = nullptr;
-    Lesson21TestSDF*                 _wallNode = nullptr;
+    Lesson21TestSDF*                 _glyphNode = nullptr;
     ayy::CommonNode*                 _dummyLightNode = nullptr;
     
     ayy::TextureUUID _planeTexture = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _skyboxTexture = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _wallDiffuse = ayy::TextureManager::kInvalidTextureUUID;
     ayy::TextureUUID _wallNormalMap = ayy::TextureManager::kInvalidTextureUUID;
-    ayy::TextureUUID _glyphA = ayy::TextureManager::kInvalidTextureUUID;
     
     int _selectPostProcess = 0;
+    
+    
+    std::map<GLchar,Character>  _characters;
 };

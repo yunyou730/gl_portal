@@ -73,6 +73,8 @@ void Texture2D::Bind(GLuint textureIndex)
             glActiveTexture(textureIndex);
             glBindTexture(GL_TEXTURE_2D,_textureID);
             
+            
+            glPixelStorei(GL_UNPACK_ALIGNMENT, 4); //字节对齐
             // Pass data from memory to GPU
             glTexImage2D(GL_TEXTURE_2D,0,
                          _saveFormat,
@@ -135,6 +137,8 @@ TextureCube::TextureCube(TextureUUID uuid,
     unsigned char* data = nullptr;
     for(unsigned int i = 0;i < texturePath.size();i++)
     {
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 4); //字节对齐
+        
         data = stbi_load(texturePath[i].c_str(), &width, &height, &nrChannels, 0);
         assert(data != nullptr);
         

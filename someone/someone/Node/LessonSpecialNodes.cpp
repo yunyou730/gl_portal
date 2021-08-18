@@ -96,15 +96,11 @@ void Lesson20NormalMapNode::SyncPropToShader(ayy::Camera* mainCam)
     GetShader()->SetUniform("u_Material.shininess",32.0f);
 }
 
-
-void Lesson21TestSDF::Switch()
-{
-    _bCalcByAlpha = !_bCalcByAlpha;
-}
-
 void Lesson21TestSDF::SyncPropToShader(ayy::Camera* mainCam)
 {
     CommonNode::SyncPropToShader(mainCam);
     GetShader()->SetUniform("u_Glyph",0);
-    GetShader()->SetUniform("u_ByAlpha",_bCalcByAlpha);
+    
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 }

@@ -105,9 +105,9 @@ int main(int argc, const char * argv[])
     
     app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
     
-    scene = new Lesson21(SCR_WIDTH,SCR_HEIGHT);     // try to text
+//    scene = new Lesson21(SCR_WIDTH,SCR_HEIGHT);     // try to text
 //    scene = new Lesson20(SCR_WIDTH,SCR_HEIGHT);         // normal map
-//    scene = new Lesson19(SCR_WIDTH,SCR_HEIGHT);       // cube map
+    scene = new Lesson19(SCR_WIDTH,SCR_HEIGHT);       // cube map
 //    scene = new Lesson18(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson17(SCR_WIDTH,SCR_HEIGHT);
 //    scene = new Lesson16(SCR_WIDTH,SCR_HEIGHT);

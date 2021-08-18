@@ -435,6 +435,7 @@ typedef Vec<float,2>        Vec2f;
 typedef Vec<float,3>        Vec3f;
 typedef Vec<float,4>        Vec4f;
 typedef Mat<float,4,4>      Mat4x4f;
+typedef Vec<int,2>          Vec2i;
 
 extern void MakeScaleMatrix(Mat4x4f& mat,float scale);
 extern void MakeScaleMatrix(Mat4x4f& mat,float sx,float sy,float sz);

@@ -2,6 +2,9 @@
 #include "LessonSpecialNodes.h"
 #include "SkyBoxNode.h"
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 static const ayy::Vec3f kCameraDefaultPos(0,0,15);
 static const ayy::Vec3f kDummyLightInitPos(7,0,0);
 static const float kDummyLightRotSpeed = 50.0f;
@@ -38,6 +41,7 @@ void Lesson21::Prepare()
     // textures
     Prepare2DTexture();
     PrepareCubeTexture();
+    PrepareFont();
     
     // shaders
     _planeShader = ayy::Util::CreateShaderWithFile("res/lesson15_plane.vs","res/lesson15_plane.fs");
@@ -57,12 +61,12 @@ void Lesson21::Prepare()
     _skyBoxNode->SetTexture(_skyboxTexture);
     
     // wall node
-    _wallNode = new Lesson21TestSDF();
-    _wallNode->SetShader(_wallShader);
-    _wallNode->SetMesh(_quadMesh);
-    _wallNode->SetScale(ayy::Vec3f(wallScale,wallScale,wallScale));
-    _wallNode->SetRotAxis(ayy::Vec3f(1,1,1));
-//    _wallNode->SetRotation(45);
+    _glyphNode = new Lesson21TestSDF();
+    _glyphNode->SetShader(_wallShader);
+    _glyphNode->SetMesh(_quadMesh);
+    _glyphNode->SetScale(ayy::Vec3f(wallScale,wallScale,wallScale));
+    _glyphNode->SetRotAxis(ayy::Vec3f(1,1,1));
+//    _glyphNode->SetRotation(45);
     
     // dummy light
     _dummyLightNode = new ayy::CommonNode();
@@ -94,7 +98,7 @@ void Lesson21::Cleanup()
     
     // clean nodes
     AYY_SAFE_DEL(_skyBoxNode);
-    AYY_SAFE_DEL(_wallNode);
+    AYY_SAFE_DEL(_glyphNode);
     AYY_SAFE_DEL(_dummyLightNode);
 }
 
@@ -113,7 +117,7 @@ void Lesson21::OnUpdate()
     }
     
     
-    _wallNode->SetScale(ayy::Vec3f(wallScale,wallScale,wallScale));
+    _glyphNode->SetScale(ayy::Vec3f(wallScale,wallScale,wallScale));
 }
 
 void Lesson21::OnRender()
@@ -134,9 +138,13 @@ void Lesson21::DrawScene()
     
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_planeTexture,0); // to be check...
     // draw wall
-    ayy::TextureManager::GetInstance()->BindTextureToSlot(_glyphA,0);
-//    ayy::TextureManager::GetInstance()->BindTextureToSlot(_wallNormalMap,1);
-    _wallNode->OnRender(_camera);
+
+    Character& ch = _characters.find('a')->second;
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,ch.TextureID);
+    
+    ayy::TextureManager::GetInstance()->BindTextureToSlot(_wallNormalMap,1);
+    _glyphNode->OnRender(_camera);
         
     // draw dummy light
 //    _dummyLightNode->OnRender(_camera);
@@ -158,7 +166,6 @@ void Lesson21::Prepare2DTexture()
     _planeTexture = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/marble.jpg");
     _wallDiffuse = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/brickwall.jpg");
     _wallNormalMap = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/brickwall_normal.jpg");
-    _glyphA = ayy::TextureManager::GetInstance()->CreateTextureWithFilePath("res/glyph_A.png");
 }
 
 void Lesson21::PrepareCubeTexture()
@@ -169,6 +176,77 @@ void Lesson21::PrepareCubeTexture()
                                                                            "res/skybox/bottom.jpg",
                                                                            "res/skybox/back.jpg",
                                                                            "res/skybox/front.jpg");
+}
+
+void Lesson21::PrepareFont()
+{
+    // @miao @todo
+    FT_Library ft;
+    if(FT_Init_FreeType(&ft))
+    {
+        printf("ERROR::FREETYPE: Could not init FreeType Library\n");
+        return;
+    }
+    
+    FT_Face face;
+    if(FT_New_Face(ft, "res/xinqingnian.ttf", 0, &face))
+    {
+        printf("ERROR::FREETYPE: Failed to load font");
+        return;
+    }
+    
+    FT_Set_Pixel_Sizes(face,0,48);
+    
+    if (FT_Load_Char(face, 'X', FT_LOAD_RENDER))
+    {
+        std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
+        return;
+    }
+    
+    
+    // @miao @todo
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1); //禁用字节对齐限制
+    for (GLubyte c = 0; c < 128; c++)
+    {
+        // 加载字符的字形
+        if (FT_Load_Char(face, c, FT_LOAD_RENDER))
+        {
+            std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
+            continue;
+        }
+        
+        // 生成纹理
+        GLuint texture;
+        glGenTextures(1, &texture);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glTexImage2D(
+            GL_TEXTURE_2D,
+            0,
+            GL_RED,
+            face->glyph->bitmap.width,
+            face->glyph->bitmap.rows,
+            0,
+            GL_RED,
+            GL_UNSIGNED_BYTE,
+            face->glyph->bitmap.buffer
+        );
+        // 设置纹理选项
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        // 储存字符供之后使用
+        Character character = {
+            texture,
+            ayy::Vec2i(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+            ayy::Vec2i(face->glyph->bitmap_left, face->glyph->bitmap_top),
+            (GLuint)face->glyph->advance.x
+        };
+        _characters.insert(std::pair<GLchar, Character>(c, character));
+    }
+    
+    FT_Done_Face(face);
+    FT_Done_FreeType(ft);
 }
 
 void Lesson21::HandleKeyboardInput(GLFWwindow* window)
@@ -232,7 +310,7 @@ void Lesson21::HandleKeyboardInput(GLFWwindow* window)
     
     if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
     {
-        _wallNode->Switch();
+        
     }
 }
 
@@ -242,11 +320,4 @@ void Lesson21::OnGUI()
     
     ImGui::DragFloat("node scale",&wallScale,0.05,0.1,10.0);
     
-//    ImGui::Checkbox("light run",&s_bLightRun);
-//    ImGui::Checkbox("enable normal map",&s_bEnableNormalMap);
-//    ImGui::Checkbox("enable wrong normal",&_wallNode->_bEnableWrongNormalMap);
-//
-//    ImGui::ColorEdit3("pointLight.ambient",_wallNode->_pointLightAmbient.data);
-//    ImGui::ColorEdit3("pointLight.diffuse",_wallNode->_pointLightDiffuse.data);
-//    ImGui::ColorEdit3("pointLight.specular",_wallNode->_pointLightSpecular.data);
 }

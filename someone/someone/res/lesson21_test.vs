@@ -12,5 +12,5 @@ out vec2 UV;
 void main()
 {
     gl_Position = vec4(aPos,1.0) * u_Model * u_View * u_Projection;
-    UV = aUV;
+    UV = vec2(1.0 - aUV.x,1.0 - aUV.y);
 }
