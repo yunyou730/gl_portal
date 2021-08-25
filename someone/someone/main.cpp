@@ -29,16 +29,16 @@
 #include "Lesson20.h"
 #include "Lesson21.h"
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int kScreenWidth = 800;
+const unsigned int kScreenHeight = 600;
 
 static ayy::BaseApplication app;
 static ayy::BaseScene* scene = nullptr;
 
-void ChooseSceneGUI()
+void SceneSelectionGUI()
 {
     static int item_current = 0;
-    static const char* items[] = { "lesson13", "lesson12", "lesson11","lesson10","lesson9","lesson8","lesson7","lesson6","lesson5","lesson4","lesson3","lesson2","lesson1"};
+    static const char* items[] = { "lesson19", "lesson20"};
     
     int prevItem = item_current;
     ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
@@ -52,43 +52,10 @@ void ChooseSceneGUI()
         switch(item_current)
         {
             case 0:
-                scene = new Lesson13(SCR_WIDTH,SCR_HEIGHT);
+                scene = new Lesson19(kScreenWidth,kScreenHeight);
                 break;
             case 1:
-                scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
-                break;
-            case 2:
-                scene = new Lesson11(SCR_WIDTH,SCR_HEIGHT);
-                break;
-            case 3:
-                scene = new Lesson10(SCR_WIDTH,SCR_HEIGHT);
-                break;
-            case 4:
-                scene = new Lesson9(SCR_WIDTH,SCR_HEIGHT);
-                break;
-            case 5:
-                scene = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
-                break;
-            case 6:
-                scene = new Lesson7();
-                break;
-            case 7:
-                scene = new Lesson6();
-                break;
-            case 8:
-                scene = new Lesson5();
-                break;
-            case 9:
-                scene = new Lesson4();
-                break;
-            case 10:
-                scene = new Lesson3();
-                break;
-            case 11:
-                scene = new Lesson2();
-                break;
-            case 12:
-                scene = new Lesson1();
+                scene = new Lesson20(kScreenWidth,kScreenHeight);
                 break;
             default:
                 break;
@@ -103,19 +70,19 @@ int main(int argc, const char * argv[])
     app.Setup();
     app.CreateWindow();
     
-    app.GetGUIDelegate()->SetFuncCallback(ChooseSceneGUI);
+    app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
     
-//    scene = new Lesson21(SCR_WIDTH,SCR_HEIGHT);     // try to text
-//    scene = new Lesson20(SCR_WIDTH,SCR_HEIGHT);         // normal map
-    scene = new Lesson19(SCR_WIDTH,SCR_HEIGHT);       // cube map
-//    scene = new Lesson18(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson17(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson16(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson14(SCR_WIDTH,SCR_HEIGHT);
-//        scene = new Lesson13(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson8(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson12(SCR_WIDTH,SCR_HEIGHT);
-//    scene = new Lesson18(SCR_WIDTH,SCR_HEIGHT);
+//    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
+//    scene = new Lesson20(kScreenWidth,kScreenHeight);         // normal map
+    scene = new Lesson19(kScreenWidth,kScreenHeight);       // cube map
+//    scene = new Lesson18(kScreenWidth,kScreenHeight);
+//    scene = new Lesson17(kScreenWidth,kScreenHeight);
+//    scene = new Lesson16(kScreenWidth,kScreenHeight);
+//    scene = new Lesson14(kScreenWidth,kScreenHeight);
+//        scene = new Lesson13(kScreenWidth,kScreenHeight);
+//    scene = new Lesson8(kScreenWidth,kScreenHeight);
+//    scene = new Lesson12(kScreenWidth,kScreenHeight);
+//    scene = new Lesson18(kScreenWidth,kScreenHeight);
     
     
     SingleChess chess;

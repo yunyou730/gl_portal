@@ -2,7 +2,7 @@
 
 layout (location = 0) in vec3 aPos;
 
-uniform mat4 u_Model;
+uniform mat4 u_Model;       // not be used
 uniform mat4 u_View;
 uniform mat4 u_Projection;
 
@@ -10,8 +10,7 @@ out vec3 v_TextureDir;
 
 void main()
 {
-    
-    mat4 tm = u_Model;
+    mat4 tm = u_Model;      // for no error
     mat4 tempView = mat4(
                          u_View[0][0],u_View[0][1],u_View[0][2],0.0,
                          u_View[1][0],u_View[1][1],u_View[1][2],0.0,

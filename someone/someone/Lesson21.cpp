@@ -139,7 +139,7 @@ void Lesson21::DrawScene()
     ayy::TextureManager::GetInstance()->BindTextureToSlot(_planeTexture,0); // to be check...
     // draw wall
 
-    Character& ch = _characters.find('a')->second;
+    Character& ch = _characters.find('s')->second;
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D,ch.TextureID);
     
