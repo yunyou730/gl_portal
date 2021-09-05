@@ -87,12 +87,18 @@ void SingleChess::RemovePawnAtGrid(int row,int col)
 
 void SingleChess::DoJob()
 {
-    Init();
-    Reset();
+    CTest t1(1);
+    CTest t2(2);
+    
+    CTest t3(t2);
+    t3.TestFunc1(t2);
+    
+//    Init();
+//    Reset();
     
 //    Dump(&grids);
     
-    Solve();
+//    Solve();
 }
 
 void SingleChess::Solve()
@@ -100,4 +106,26 @@ void SingleChess::Solve()
     
     
     // @todo
+}
+
+
+CTest::CTest(int num)
+:_num(num)
+{
+    
+}
+
+CTest::CTest(const CTest& other)
+{
+    _num = other._num;
+}
+
+void CTest::TestFunc1(const CTest& other)
+{
+    other.TestFunc();
+}
+
+void CTest::TestFunc() const
+{
+    printf("num:%d\n",_num);
 }

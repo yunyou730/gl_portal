@@ -30,6 +30,7 @@ void Lesson16PostProcessNode::SyncPropToShader(ayy::Camera* mainCam)
     // cause we don't have model ,view ,projection matrics
     GetShader()->SetUniform("u_PostProcessIndex",postProcessIndex);
     GetShader()->SetUniform("u_FramebufferTexture",0);
+    GetShader()->SetUniform("u_BlurFactor",blurFactor);
 }
 
 void Lessin18ReflectNode::SyncPropToShader(ayy::Camera* mainCam)

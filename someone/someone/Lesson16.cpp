@@ -342,4 +342,9 @@ void Lesson16::OnGUI()
     {
         _postProcessNode->postProcessIndex = _selectPostProcess;
     }
+    
+    if(ImGui::DragFloat("BlurFactor", &_postProcessNode->blurFactor,0.05,0.0,10.0))
+    {
+        
+    }
 }

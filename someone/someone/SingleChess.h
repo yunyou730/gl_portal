@@ -96,3 +96,18 @@ protected:
     Grid grids[kRowCnt][kColCnt];
     Pawn pawns[32];
 };
+
+
+class CTest
+{
+public:
+    CTest(int num);
+    CTest(const CTest& other);
+    
+    void TestFunc1(const CTest& other);
+private:
+    void TestFunc() const;
+    
+private:
+    int _num = 0;
+};

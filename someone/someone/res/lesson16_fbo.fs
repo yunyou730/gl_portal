@@ -6,6 +6,7 @@ in vec2 UV;
 out vec4 FragColor;
 
 uniform int u_PostProcessIndex = 0;
+uniform float u_BlurFactor;
 
 vec4 Origin()
 {
@@ -27,7 +28,7 @@ vec4 Gray()
 
 vec4 Sharpen()
 {
-    const float offset = 1.0 / 300.0;
+    float offset = 1.0 / 300.0 * u_BlurFactor;
 
     vec2 offsets[9] = vec2[](
         vec2(-offset,  offset), // 左上
@@ -59,8 +60,8 @@ vec4 Sharpen()
 
 vec4 Blur()
 {
-    const float offset = 1.0 / 300.0;
-
+    float offset = 1.0 / 300.0 * u_BlurFactor;
+    
     vec2 offsets[9] = vec2[](
         vec2(-offset,  offset), // 左上
         vec2( 0.0f,    offset), // 正上
@@ -92,8 +93,7 @@ vec4 Blur()
 
 vec4 Edge()
 {
-    const float offset = 1.0 / 300.0;
-
+    float offset = 1.0 / 300.0 * u_BlurFactor;
     vec2 offsets[9] = vec2[](
         vec2(-offset,  offset), // 左上
         vec2( 0.0f,    offset), // 正上
@@ -120,7 +120,6 @@ vec4 Edge()
     }
 
     return vec4(col, 1.0);
-    
 }
 
 

@@ -32,6 +32,7 @@ class Lesson16PostProcessNode : public ayy::CommonNode
 {
 public:
     int postProcessIndex = 0;
+    float blurFactor = 1.0f;
 protected:
     virtual void SyncPropToShader(ayy::Camera* mainCam);
 };
