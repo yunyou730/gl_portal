@@ -3,3 +3,7 @@ someone/someone.xcodeproj/xcuserdata/bytedance.xcuserdatad/xcdebugger/Breakpoint
 someone/someone.xcodeproj/project.xcworkspace/xcuserdata/bytedance.xcuserdatad
 imgui
 
+*.xcbkptlist
+*.xcuserstate
+*.xcuserstate
+raytracing/oneweekend/oneweekend.xcodeproj/project.xcworkspace/xcuserdata/bytedance.xcuserdatad/UserInterfaceState.xcuserstate
