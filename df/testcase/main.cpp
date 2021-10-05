@@ -11,6 +11,7 @@
 int main(int argc, const char * argv[]) {
     
     AppDelegate* app = new AppDelegate();
+//    app->SetDesireFPS(1);
     app->Run();
     delete app;
     return 0;

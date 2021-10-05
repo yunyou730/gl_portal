@@ -6,6 +6,8 @@ GLView::GLView()
 {
     GLView::InitEnv();
     CreateWindow();
+    
+    _timeLastFrame = GetTime();
 }
 
 GLView::~GLView()
@@ -57,6 +59,16 @@ void GLView::PollEvents()
 void GLView::OnRenderEnd()
 {
     glfwSwapBuffers(_window);
+}
+
+double GLView::GetTime() const
+{
+    return glfwGetTime();
+}
+
+void GLView::RefreshLastFrameTime()
+{
+    _timeLastFrame = GetTime();
 }
 
 }
