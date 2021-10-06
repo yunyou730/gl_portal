@@ -25,6 +25,7 @@ public:
     
 protected:
     void CreateWindow();
+    void HandleKeyboardEvent();
     
 protected:
     

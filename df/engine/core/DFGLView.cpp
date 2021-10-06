@@ -1,5 +1,8 @@
 #include "DFGLView.h"
 #include <iostream>
+#include "DFApplication.h"
+#include "../ecs/DFWorld.h"
+#include "DFEvent.h"
 
 namespace df {
 GLView::GLView()
@@ -54,6 +57,7 @@ bool GLView::ShouldClose()
 void GLView::PollEvents()
 {
     glfwPollEvents();
+    HandleKeyboardEvent();
 }
 
 void GLView::OnRenderEnd()
@@ -69,6 +73,15 @@ double GLView::GetTime() const
 void GLView::RefreshLastFrameTime()
 {
     _timeLastFrame = GetTime();
+}
+
+void GLView::HandleKeyboardEvent()
+{
+    if(glfwGetKey(_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    {
+        EventBase* evt = new df::EventKeyPress(GLFW_KEY_ESCAPE);
+        Application::GetInstance()->GetWorld()->DispatchEvent(evt);
+    }
 }
 
 }
