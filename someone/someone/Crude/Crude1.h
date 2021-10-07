@@ -18,6 +18,7 @@ public:
 protected:
     GLuint  _vao = 0;
     GLuint  _vbo = 0;
+    GLuint  _vboOffset = 0;
     ayy::ShaderProgram* _shader = nullptr;
 //    std::vector<ayy::Vec2f> _offsets;
 };
