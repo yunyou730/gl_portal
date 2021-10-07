@@ -99,6 +99,15 @@ void ShaderProgram::SetUniform(const std::string& uniformName,const ayy::Vec3f& 
 
 }
 
+void ShaderProgram::SetUniform(const std::string& uniformName,const ayy::Vec2f& value)
+{
+    GLint location = glGetUniformLocation(program,uniformName.c_str());
+    assert(location >= 0);
+    glCheckError();
+    glUniform2f(location,value.x(),value.y());
+    glCheckError();
+}
+
 void ShaderProgram::SetUniform(const std::string& uniformName,float value)
 {
     GLint location = glGetUniformLocation(program,uniformName.c_str());

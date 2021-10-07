@@ -27,13 +27,7 @@
 #include "Lesson19.h"
 #include "Lesson20.h"
 #include "Lesson21.h"
-
-
-#define TEST_CPP_FEATURE 0
-
-#if TEST_CPP_FEATURE
-#include "SingleChess.h"
-#endif
+#include "Crude/Crude1.h"
 
 const unsigned int kScreenWidth = 800;
 const unsigned int kScreenHeight = 600;
@@ -74,16 +68,15 @@ void SceneSelectionGUI()
 
 int main(int argc, const char * argv[])
 {
-#if TEST_CPP_FEATURE
-    SingleChess chess;
-    chess.DoJob();
-#else
     app.Setup();
     app.CreateWindow();
     
     app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
+
+    scene = new Crude1(kScreenWidth,kScreenHeight);       // cube map
     
-    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
+//    scene = new Lesson9(kScreenWidth,kScreenHeight);       // text rendering
+//    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
 //    scene = new Lesson20(kScreenWidth,kScreenHeight);         // normal map
 //    scene = new Lesson19(kScreenWidth,kScreenHeight);       // cube map
 //    scene = new Lesson18(kScreenWidth,kScreenHeight);
@@ -108,9 +101,6 @@ int main(int argc, const char * argv[])
     }
     
     app.Cleanup();
-#endif
-    
-    
 
     return 0;
 }

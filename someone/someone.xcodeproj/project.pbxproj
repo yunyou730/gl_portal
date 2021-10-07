@@ -142,7 +142,6 @@
 		2B71E51726C5831500143BFE /* brickwall.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71E51426C5830800143BFE /* brickwall.jpg */; };
 		2B71E51C26C615C000143BFE /* PlaneUVNormMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B71E51B26C615BF00143BFE /* PlaneUVNormMesh.cpp */; };
 		2B71E52126C8C0CB00143BFE /* Lesson21.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B71E51F26C8C0CB00143BFE /* Lesson21.cpp */; };
-		2B71E52626C90E3500143BFE /* SingleChess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B71E52426C90E3400143BFE /* SingleChess.cpp */; };
 		2B71E52B26CB628F00143BFE /* lesson21_test.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71E52A26CB627700143BFE /* lesson21_test.fs */; };
 		2B71E52C26CB628F00143BFE /* lesson21_test.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71E52926CB627700143BFE /* lesson21_test.vs */; };
 		2B71E53026CB663E00143BFE /* glyph_A.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B71E52F26CB663400143BFE /* glyph_A.png */; };
@@ -160,6 +159,11 @@
 		2B8FE4552694A752000E4079 /* phong_mul_light_src.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B8FE4512694A734000E4079 /* phong_mul_light_src.vs */; };
 		2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE45B2694BA83000E4079 /* PhongMultiLightMaterial.cpp */; };
 		2B8FE4632695C3D5000E4079 /* PhongMultLightNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE4622695C3D5000E4079 /* PhongMultLightNode.cpp */; };
+		2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */; };
+		2BAFE459270ED65A004CA3B5 /* instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE457270ED63E004CA3B5 /* instance.vs */; };
+		2BAFE45A270ED65A004CA3B5 /* instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE458270ED63E004CA3B5 /* instance.fs */; };
+		2BAFE460270ED709004CA3B5 /* instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE457270ED63E004CA3B5 /* instance.vs */; };
+		2BAFE461270ED709004CA3B5 /* instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE458270ED63E004CA3B5 /* instance.fs */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -207,6 +211,8 @@
 			dstPath = res/nanosuit;
 			dstSubfolderSpec = 16;
 			files = (
+				2BAFE459270ED65A004CA3B5 /* instance.vs in CopyFiles */,
+				2BAFE45A270ED65A004CA3B5 /* instance.fs in CopyFiles */,
 				2B3E81BF2691B4A400B7D00B /* body_showroom_ddn.png in CopyFiles */,
 				2B3E81C02691B4A400B7D00B /* helmet_showroom_ddn.png in CopyFiles */,
 				2B3E81C12691B4A400B7D00B /* arm_showroom_ddn.png in CopyFiles */,
@@ -226,6 +232,17 @@
 				2B3E81CF2691B4A400B7D00B /* leg_showroom_spec.png in CopyFiles */,
 				2B3E81D02691B4A400B7D00B /* body_showroom_spec.png in CopyFiles */,
 				2B3E81D12691B4A400B7D00B /* hand_dif.png in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BAFE45D270ED6DF004CA3B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = res/crude1;
+			dstSubfolderSpec = 16;
+			files = (
+				2BAFE460270ED709004CA3B5 /* instance.vs in CopyFiles */,
+				2BAFE461270ED709004CA3B5 /* instance.fs in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,8 +538,6 @@
 		2B71E51B26C615BF00143BFE /* PlaneUVNormMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneUVNormMesh.cpp; sourceTree = "<group>"; };
 		2B71E51F26C8C0CB00143BFE /* Lesson21.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson21.cpp; sourceTree = "<group>"; };
 		2B71E52026C8C0CB00143BFE /* Lesson21.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson21.h; sourceTree = "<group>"; };
-		2B71E52426C90E3400143BFE /* SingleChess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleChess.cpp; sourceTree = "<group>"; };
-		2B71E52526C90E3500143BFE /* SingleChess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChess.h; sourceTree = "<group>"; };
 		2B71E52926CB627700143BFE /* lesson21_test.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson21_test.vs; sourceTree = "<group>"; };
 		2B71E52A26CB627700143BFE /* lesson21_test.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lesson21_test.fs; sourceTree = "<group>"; };
 		2B71E52F26CB663400143BFE /* glyph_A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyph_A.png; sourceTree = "<group>"; };
@@ -548,6 +563,10 @@
 		2B8FE4612695C3D5000E4079 /* PhongMultLightNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongMultLightNode.h; sourceTree = "<group>"; };
 		2B8FE4622695C3D5000E4079 /* PhongMultLightNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongMultLightNode.cpp; sourceTree = "<group>"; };
 		2B8FE46B2699F6C6000E4079 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		2BAFE451270ECBCC004CA3B5 /* Crude1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crude1.h; sourceTree = "<group>"; };
+		2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crude1.cpp; sourceTree = "<group>"; };
+		2BAFE457270ED63E004CA3B5 /* instance.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = instance.vs; sourceTree = "<group>"; };
+		2BAFE458270ED63E004CA3B5 /* instance.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = instance.fs; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
@@ -954,6 +973,25 @@
 			path = config;
 			sourceTree = "<group>";
 		};
+		2BAFE450270ECBA8004CA3B5 /* Crude */ = {
+			isa = PBXGroup;
+			children = (
+				2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */,
+				2BAFE451270ECBCC004CA3B5 /* Crude1.h */,
+			);
+			path = Crude;
+			sourceTree = "<group>";
+		};
+		2BAFE456270ED63E004CA3B5 /* crude1 */ = {
+			isa = PBXGroup;
+			children = (
+				2BAFE457270ED63E004CA3B5 /* instance.vs */,
+				2BAFE458270ED63E004CA3B5 /* instance.fs */,
+			);
+			name = crude1;
+			path = someone/res/crude1;
+			sourceTree = SOURCE_ROOT;
+		};
 		2BED342C26B52692001E0FF0 /* skybox */ = {
 			isa = PBXGroup;
 			children = (
@@ -993,6 +1031,7 @@
 		2BF38CA6265A2F790034A223 /* someone */ = {
 			isa = PBXGroup;
 			children = (
+				2BAFE450270ECBA8004CA3B5 /* Crude */,
 				2B3E7B95268EA37900B7D00B /* Material */,
 				2B3E7B5726881B8D00B7D00B /* Node */,
 				2BF38CD1265EA26C0034A223 /* Lesson1.cpp */,
@@ -1037,8 +1076,6 @@
 				2B16EEA826C2129E00155AD5 /* Lesson20.h */,
 				2B71E51F26C8C0CB00143BFE /* Lesson21.cpp */,
 				2B71E52026C8C0CB00143BFE /* Lesson21.h */,
-				2B71E52426C90E3400143BFE /* SingleChess.cpp */,
-				2B71E52526C90E3500143BFE /* SingleChess.h */,
 				2BF38CA7265A2F790034A223 /* main.cpp */,
 				2BF38CEA2661D8BC0034A223 /* res */,
 			);
@@ -1121,6 +1158,7 @@
 		2BF38CEA2661D8BC0034A223 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				2BAFE456270ED63E004CA3B5 /* crude1 */,
 				2BED342C26B52692001E0FF0 /* skybox */,
 				2B3E81A82691B40E00B7D00B /* nanosuit */,
 				2B2A9C3926630FA50078E004 /* container.jpg */,
@@ -1219,6 +1257,7 @@
 				2BF38CA2265A2F790034A223 /* CopyFiles */,
 				2B3E81BE2691B47600B7D00B /* CopyFiles */,
 				2BED343426B52711001E0FF0 /* CopyFiles */,
+				2BAFE45D270ED6DF004CA3B5 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1319,6 +1358,7 @@
 				2B23B74626AB4EAF00F69677 /* PlaneMesh.cpp in Sources */,
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
 				2B3E7B85268B62F900B7D00B /* AYYCommon.cpp in Sources */,
+				2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */,
 				2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */,
 				2B23B74126AB4EAE00F69677 /* TestMesh.cpp in Sources */,
 				2BED341826AD4652001E0FF0 /* AYYFrameBuffer.cpp in Sources */,
@@ -1328,7 +1368,6 @@
 				2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */,
 				2B3E7BED269019E500B7D00B /* imgui_tables.cpp in Sources */,
 				2B3E7BEC269019E500B7D00B /* imgui.cpp in Sources */,
-				2B71E52626C90E3500143BFE /* SingleChess.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
 				2B24BE3826A69266007B6EB9 /* LessonSpecialNodes.cpp in Sources */,

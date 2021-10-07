@@ -16,6 +16,7 @@ public:
     
     void SetUniform(const std::string& uniformName,const ayy::Vec4f& value);
     void SetUniform(const std::string& uniformName,const ayy::Vec3f& value);
+    void SetUniform(const std::string& uniformName,const ayy::Vec2f& value);
     void SetUniform(const std::string& uniformName,float value);
     void SetUniform(const std::string& uniformName,int value);
     void SetUniform(const std::string& uniformName,bool bValue);

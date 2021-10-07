@@ -18,7 +18,7 @@ typedef enum
 {
     Sys_None,
     Sys_Event,
-    
+    Sys_Render,
     
 } ESystemType;
 
