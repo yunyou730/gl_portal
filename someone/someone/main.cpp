@@ -28,6 +28,7 @@
 #include "Lesson20.h"
 #include "Lesson21.h"
 #include "Crude/Crude1.h"
+#include "Crude/Crude2.h"
 
 const unsigned int kScreenWidth = 800;
 const unsigned int kScreenHeight = 600;
@@ -73,7 +74,8 @@ int main(int argc, const char * argv[])
     
     app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
 
-    scene = new Crude1(kScreenWidth,kScreenHeight);       // cube map
+    scene = new Crude2(kScreenWidth,kScreenHeight);       // GPU instance
+//    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
     
 //    scene = new Lesson9(kScreenWidth,kScreenHeight);       // text rendering
 //    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
