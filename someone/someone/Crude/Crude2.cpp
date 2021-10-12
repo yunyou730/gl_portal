@@ -26,6 +26,9 @@ void Crude2::Prepare()
     
     _ground = new crude::Ground();
     _ground->Initiate();
+    
+    _wall = new crude::Wall();
+    _wall->Initiate();
 }
 
 void Crude2::PrepareMesh()
@@ -104,6 +107,8 @@ void Crude2::Cleanup()
     glDeleteBuffers(1,&_vboOffset);
     AYY_SAFE_DEL(_shader);
     AYY_SAFE_DEL(_camera);
+    AYY_SAFE_DEL(_ground);
+    AYY_SAFE_DEL(_wall);
 }
 
 void Crude2::OnRender()
@@ -113,9 +118,10 @@ void Crude2::OnRender()
     glDrawArraysInstanced(GL_TRIANGLES,0,6,100);
     
     _ground->OnDraw(_camera);
+    _wall->OnDraw(_camera);
 }
 
 void Crude2::HandleKeyboardInput(GLFWwindow* window)
 {
-    _camera->HandleKeyboardInput(window,0.01);
+    _camera->HandleKeyboardInput(window,GetDeltaTime());
 }

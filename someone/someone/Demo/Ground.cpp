@@ -37,8 +37,6 @@ void Ground::OnUpdate(float deltaTime)
 
 void Ground::OnDraw(ayy::Camera* camera)
 {
-    glBindVertexArray(_vao);
-    
     _shader->Use();
     ayy::Mat4x4f model;
     model.Identify();
@@ -47,7 +45,7 @@ void Ground::OnDraw(ayy::Camera* camera)
     _shader->SetUniformMat4x4("u_View",(GLfloat*)camera->GetViewMatrix().data);
     _shader->SetUniformMat4x4("u_Projection",(GLfloat*)camera->GetProjMatrix().data);
     
-
+    glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,(void*)0);
     
     _shader->UnUse();

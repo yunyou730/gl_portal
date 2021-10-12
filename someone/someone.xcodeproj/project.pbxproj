@@ -166,6 +166,8 @@
 		2B931635271494F8008C4126 /* Ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162E27149456008C4126 /* Ground.cpp */; };
 		2B9316402714A073008C4126 /* ground.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B93163B27149D9B008C4126 /* ground.fs */; };
 		2B9316412714A073008C4126 /* ground.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B93163C27149D9B008C4126 /* ground.vs */; };
+		2B9316462715EAD5008C4126 /* wall.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9316452715EAC7008C4126 /* wall.fs */; };
+		2B9316472715EAD5008C4126 /* wall.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9316442715EAC6008C4126 /* wall.vs */; };
 		2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */; };
 		2BAFE459270ED65A004CA3B5 /* instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE457270ED63E004CA3B5 /* instance.vs */; };
 		2BAFE45A270ED65A004CA3B5 /* instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE458270ED63E004CA3B5 /* instance.fs */; };
@@ -248,6 +250,8 @@
 			dstPath = res/demo;
 			dstSubfolderSpec = 16;
 			files = (
+				2B9316462715EAD5008C4126 /* wall.fs in CopyFiles */,
+				2B9316472715EAD5008C4126 /* wall.vs in CopyFiles */,
 				2B9316402714A073008C4126 /* ground.fs in CopyFiles */,
 				2B9316412714A073008C4126 /* ground.vs in CopyFiles */,
 			);
@@ -593,6 +597,8 @@
 		2B93162F27149457008C4126 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
 		2B93163B27149D9B008C4126 /* ground.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.fs; sourceTree = "<group>"; };
 		2B93163C27149D9B008C4126 /* ground.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.vs; sourceTree = "<group>"; };
+		2B9316442715EAC6008C4126 /* wall.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = wall.vs; sourceTree = "<group>"; };
+		2B9316452715EAC7008C4126 /* wall.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = wall.fs; sourceTree = "<group>"; };
 		2BAFE451270ECBCC004CA3B5 /* Crude1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crude1.h; sourceTree = "<group>"; };
 		2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crude1.cpp; sourceTree = "<group>"; };
 		2BAFE457270ED63E004CA3B5 /* instance.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = instance.vs; sourceTree = "<group>"; };
@@ -1024,6 +1030,8 @@
 			children = (
 				2B93163B27149D9B008C4126 /* ground.fs */,
 				2B93163C27149D9B008C4126 /* ground.vs */,
+				2B9316452715EAC7008C4126 /* wall.fs */,
+				2B9316442715EAC6008C4126 /* wall.vs */,
 			);
 			path = demo;
 			sourceTree = "<group>";
