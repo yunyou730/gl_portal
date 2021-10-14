@@ -1,10 +1,10 @@
 #pragma once
 #include "Ayy.h"
-#include "Entity.h"
+#include "RenderNode.h"
 
 namespace crude {
 
-class Wall : public Entity
+class Wall : public RenderNode
 {
 public:
     Wall();

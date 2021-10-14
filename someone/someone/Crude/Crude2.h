@@ -7,6 +7,10 @@ namespace crude
 class FreeCamera;
 class Ground;
 class Wall;
+class MapRecord;
+
+
+class World;
 }
 
 class Crude2 : public ayy::BaseScene
@@ -17,6 +21,8 @@ public:
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
+    
+    virtual void OnUpdate() override;
     virtual void OnRender() override;
     
     virtual void HandleKeyboardInput(GLFWwindow* window) override;
@@ -31,6 +37,7 @@ protected:
     ayy::ShaderProgram* _shader = nullptr;
     
     crude::FreeCamera*      _camera = nullptr;
-    crude::Ground*          _ground = nullptr;
-    crude::Wall*            _wall   = nullptr;
+    
+    
+    crude::World*           _world = nullptr;
 };

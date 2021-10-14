@@ -3,10 +3,10 @@
 
 namespace crude {
 
-class Entity
+class RenderNode
 {
 public:
-    virtual ~Entity() {}
+    virtual ~RenderNode() {}
     
     virtual void Initiate() = 0;
     virtual void CleanUp() = 0;

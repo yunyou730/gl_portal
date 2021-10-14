@@ -162,12 +162,20 @@
 		2B93161827132B2C008C4126 /* Crude2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93161627132B2B008C4126 /* Crude2.cpp */; };
 		2B93161E27132BD2008C4126 /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93161C27132BD2008C4126 /* FreeCamera.cpp */; };
 		2B93162427140F94008C4126 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162327140F94008C4126 /* Wall.cpp */; };
-		2B93162927140FFC008C4126 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162727140FFC008C4126 /* Entity.cpp */; };
+		2B93162927140FFC008C4126 /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162727140FFC008C4126 /* RenderNode.cpp */; };
 		2B931635271494F8008C4126 /* Ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162E27149456008C4126 /* Ground.cpp */; };
 		2B9316402714A073008C4126 /* ground.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B93163B27149D9B008C4126 /* ground.fs */; };
 		2B9316412714A073008C4126 /* ground.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B93163C27149D9B008C4126 /* ground.vs */; };
 		2B9316462715EAD5008C4126 /* wall.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9316452715EAC7008C4126 /* wall.fs */; };
 		2B9316472715EAD5008C4126 /* wall.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9316442715EAC6008C4126 /* wall.vs */; };
+		2B93177E27180817008C4126 /* MapRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93177D27180817008C4126 /* MapRecord.cpp */; };
+		2B93179B27185BE2008C4126 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179527185BE2008C4126 /* BaseSystem.cpp */; };
+		2B93179C27185BE2008C4126 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179627185BE2008C4126 /* RenderSystem.cpp */; };
+		2B93179D27185BE2008C4126 /* BaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179927185BE2008C4126 /* BaseEntity.cpp */; };
+		2B93179E27185BE2008C4126 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179A27185BE2008C4126 /* World.cpp */; };
+		2B9317A827185F7A008C4126 /* BaseComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9317A727185F7A008C4126 /* BaseComponent.cpp */; };
+		2B9317AD27188545008C4126 /* RenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9317AB27188544008C4126 /* RenderComponent.cpp */; };
+		2B9317B22718854F008C4126 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9317B02718854E008C4126 /* TransformComponent.cpp */; };
 		2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */; };
 		2BAFE459270ED65A004CA3B5 /* instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE457270ED63E004CA3B5 /* instance.vs */; };
 		2BAFE45A270ED65A004CA3B5 /* instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE458270ED63E004CA3B5 /* instance.fs */; };
@@ -591,14 +599,31 @@
 		2B93161D27132BD2008C4126 /* FreeCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCamera.h; sourceTree = "<group>"; };
 		2B93162227140F94008C4126 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		2B93162327140F94008C4126 /* Wall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
-		2B93162727140FFC008C4126 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
-		2B93162827140FFC008C4126 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		2B93162727140FFC008C4126 /* RenderNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderNode.cpp; sourceTree = "<group>"; };
+		2B93162827140FFC008C4126 /* RenderNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderNode.h; sourceTree = "<group>"; };
 		2B93162E27149456008C4126 /* Ground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ground.cpp; sourceTree = "<group>"; };
 		2B93162F27149457008C4126 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
 		2B93163B27149D9B008C4126 /* ground.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.fs; sourceTree = "<group>"; };
 		2B93163C27149D9B008C4126 /* ground.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.vs; sourceTree = "<group>"; };
 		2B9316442715EAC6008C4126 /* wall.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = wall.vs; sourceTree = "<group>"; };
 		2B9316452715EAC7008C4126 /* wall.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = wall.fs; sourceTree = "<group>"; };
+		2B93177C27180816008C4126 /* MapRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRecord.h; sourceTree = "<group>"; };
+		2B93177D27180817008C4126 /* MapRecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapRecord.cpp; sourceTree = "<group>"; };
+		2B93179327185BE2008C4126 /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
+		2B93179427185BE2008C4126 /* BaseSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSystem.h; sourceTree = "<group>"; };
+		2B93179527185BE2008C4126 /* BaseSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSystem.cpp; sourceTree = "<group>"; };
+		2B93179627185BE2008C4126 /* RenderSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
+		2B93179727185BE2008C4126 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		2B93179827185BE2008C4126 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		2B93179927185BE2008C4126 /* BaseEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseEntity.cpp; sourceTree = "<group>"; };
+		2B93179A27185BE2008C4126 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		2B9317A327185CE2008C4126 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		2B9317A627185F7A008C4126 /* BaseComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseComponent.h; sourceTree = "<group>"; };
+		2B9317A727185F7A008C4126 /* BaseComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseComponent.cpp; sourceTree = "<group>"; };
+		2B9317AB27188544008C4126 /* RenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderComponent.cpp; sourceTree = "<group>"; };
+		2B9317AC27188545008C4126 /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderComponent.h; sourceTree = "<group>"; };
+		2B9317B02718854E008C4126 /* TransformComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformComponent.cpp; sourceTree = "<group>"; };
+		2B9317B12718854E008C4126 /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformComponent.h; sourceTree = "<group>"; };
 		2BAFE451270ECBCC004CA3B5 /* Crude1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crude1.h; sourceTree = "<group>"; };
 		2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crude1.cpp; sourceTree = "<group>"; };
 		2BAFE457270ED63E004CA3B5 /* instance.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = instance.vs; sourceTree = "<group>"; };
@@ -1012,14 +1037,17 @@
 		2B93162127140F94008C4126 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				2B93179227185BE2008C4126 /* ecs */,
 				2B93162227140F94008C4126 /* Wall.h */,
 				2B93162327140F94008C4126 /* Wall.cpp */,
 				2B93162E27149456008C4126 /* Ground.cpp */,
 				2B93162F27149457008C4126 /* Ground.h */,
-				2B93162727140FFC008C4126 /* Entity.cpp */,
-				2B93162827140FFC008C4126 /* Entity.h */,
+				2B93162727140FFC008C4126 /* RenderNode.cpp */,
+				2B93162827140FFC008C4126 /* RenderNode.h */,
 				2B93161C27132BD2008C4126 /* FreeCamera.cpp */,
 				2B93161D27132BD2008C4126 /* FreeCamera.h */,
+				2B93177D27180817008C4126 /* MapRecord.cpp */,
+				2B93177C27180816008C4126 /* MapRecord.h */,
 			);
 			name = Demo;
 			path = someone/Demo;
@@ -1034,6 +1062,28 @@
 				2B9316442715EAC6008C4126 /* wall.vs */,
 			);
 			path = demo;
+			sourceTree = "<group>";
+		};
+		2B93179227185BE2008C4126 /* ecs */ = {
+			isa = PBXGroup;
+			children = (
+				2B9317A327185CE2008C4126 /* Define.h */,
+				2B93179327185BE2008C4126 /* BaseEntity.h */,
+				2B93179927185BE2008C4126 /* BaseEntity.cpp */,
+				2B9317A727185F7A008C4126 /* BaseComponent.cpp */,
+				2B9317A627185F7A008C4126 /* BaseComponent.h */,
+				2B93179427185BE2008C4126 /* BaseSystem.h */,
+				2B93179527185BE2008C4126 /* BaseSystem.cpp */,
+				2B93179627185BE2008C4126 /* RenderSystem.cpp */,
+				2B93179727185BE2008C4126 /* RenderSystem.h */,
+				2B93179827185BE2008C4126 /* World.h */,
+				2B93179A27185BE2008C4126 /* World.cpp */,
+				2B9317AB27188544008C4126 /* RenderComponent.cpp */,
+				2B9317AC27188545008C4126 /* RenderComponent.h */,
+				2B9317B02718854E008C4126 /* TransformComponent.cpp */,
+				2B9317B12718854E008C4126 /* TransformComponent.h */,
+			);
+			path = ecs;
 			sourceTree = "<group>";
 		};
 		2BAFE450270ECBA8004CA3B5 /* Crude */ = {
@@ -1418,17 +1468,21 @@
 				2B3E7BA0268EB47800B7D00B /* BaseMaterial.cpp in Sources */,
 				2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */,
 				2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */,
+				2B9317A827185F7A008C4126 /* BaseComponent.cpp in Sources */,
 				2B71E52126C8C0CB00143BFE /* Lesson21.cpp in Sources */,
 				2B93161E27132BD2008C4126 /* FreeCamera.cpp in Sources */,
+				2B93179B27185BE2008C4126 /* BaseSystem.cpp in Sources */,
 				2B3E7BE9269019E500B7D00B /* imgui_widgets.cpp in Sources */,
 				2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */,
-				2B93162927140FFC008C4126 /* Entity.cpp in Sources */,
+				2B93162927140FFC008C4126 /* RenderNode.cpp in Sources */,
 				2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */,
 				2B71E51C26C615C000143BFE /* PlaneUVNormMesh.cpp in Sources */,
 				2B23B74626AB4EAF00F69677 /* PlaneMesh.cpp in Sources */,
+				2B93179E27185BE2008C4126 /* World.cpp in Sources */,
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
 				2B3E7B85268B62F900B7D00B /* AYYCommon.cpp in Sources */,
 				2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */,
+				2B93177E27180817008C4126 /* MapRecord.cpp in Sources */,
 				2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */,
 				2B23B74126AB4EAE00F69677 /* TestMesh.cpp in Sources */,
 				2BED341826AD4652001E0FF0 /* AYYFrameBuffer.cpp in Sources */,
@@ -1455,11 +1509,13 @@
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* AYYShader.cpp in Sources */,
 				2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */,
+				2B93179D27185BE2008C4126 /* BaseEntity.cpp in Sources */,
 				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
 				2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* AYYNode.cpp in Sources */,
+				2B9317B22718854F008C4126 /* TransformComponent.cpp in Sources */,
 				2B16EEAA26C2129F00155AD5 /* Lesson20.cpp in Sources */,
 				2BF38CE62661CDF70034A223 /* AYYIO.cpp in Sources */,
 				2B23B74326AB4EAF00F69677 /* Mesh.cpp in Sources */,
@@ -1473,12 +1529,14 @@
 				2B3E7BEA269019E500B7D00B /* imgui_impl_opengl3.cpp in Sources */,
 				2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */,
 				2BED341526AD4262001E0FF0 /* Lesson16.cpp in Sources */,
+				2B9317AD27188545008C4126 /* RenderComponent.cpp in Sources */,
 				2B3E81F32692238000B7D00B /* PhongTexMaterial.cpp in Sources */,
 				2B16EE6C26BE702C00155AD5 /* ModelMesh.cpp in Sources */,
 				2B93161827132B2C008C4126 /* Crude2.cpp in Sources */,
 				2B3E7BFA26902EC200B7D00B /* AYYBaseApplication.cpp in Sources */,
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 				2B23B75426ABBD7600F69677 /* PlaneUVMesh.cpp in Sources */,
+				2B93179C27185BE2008C4126 /* RenderSystem.cpp in Sources */,
 				2B931635271494F8008C4126 /* Ground.cpp in Sources */,
 				2B3E7BEB269019E500B7D00B /* imgui_impl_glfw.cpp in Sources */,
 				2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */,

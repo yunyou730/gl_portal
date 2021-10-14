@@ -4,6 +4,14 @@
 #include "../Demo/FreeCamera.h"
 #include "../Demo/Wall.h"
 #include "../Demo/Ground.h"
+#include "../Demo/MapRecord.h"
+
+#include "../Demo/ecs/World.h"
+#include "../Demo/ecs/BaseEntity.h"
+#include "../Demo/ecs/BaseComponent.h"
+#include "../Demo/ecs/RenderComponent.h"
+#include "../Demo/ecs/TransformComponent.h"
+#include "../Demo/ecs/RenderSystem.h"
 
 Crude2::Crude2(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
@@ -24,11 +32,44 @@ void Crude2::Prepare()
     
     PrepareMesh();
     
-    _ground = new crude::Ground();
-    _ground->Initiate();
+    // ECS world
+    _world = new crude::World();
+    _world->RegisterRenderSystem<crude::RenderSystem>();
     
-    _wall = new crude::Wall();
+    // ground
+    crude::BaseEntity* groundEntity = _world->CreateEntity();
+    crude::RenderComponent* render = dynamic_cast<crude::RenderComponent*>(groundEntity->AddComp(crude::ECompType::Render));
+    crude::TransformComponent* transform = dynamic_cast<crude::TransformComponent*>(groundEntity->AddComp(crude::ECompType::Transform));
+    
+    auto _ground = new crude::Ground();
+    _ground->Initiate();
+    render->SetRenderNode(_ground);
+    render->SetWatchCamera(_camera);
+    transform->SetPos(ayy::Vec3f(0,0,0));
+    
+    
+    // wall
+    crude::BaseEntity* wallEntity = _world->CreateEntity();
+    render = dynamic_cast<crude::RenderComponent*>(wallEntity->AddComp(crude::ECompType::Render));
+    render->SetWatchCamera(_camera);
+    transform = dynamic_cast<crude::TransformComponent*>(wallEntity->AddComp(crude::ECompType::Transform));
+    
+    auto _wall = new crude::Wall();
     _wall->Initiate();
+    render->SetRenderNode(_wall);
+    transform->SetPos(ayy::Vec3f(0,0,0));
+    
+    
+    if(wallEntity->QueryComp({crude::ECompType::Render,crude::ECompType::Transform,crude::ECompType::Physics}))
+    {
+        printf("111\n");
+    }
+    else
+    {
+        printf("22\n");
+    }
+    
+
 }
 
 void Crude2::PrepareMesh()
@@ -105,10 +146,17 @@ void Crude2::Cleanup()
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_vboOffset);
+    
+    
+    AYY_SAFE_DEL(_world);
+    
     AYY_SAFE_DEL(_shader);
     AYY_SAFE_DEL(_camera);
-    AYY_SAFE_DEL(_ground);
-    AYY_SAFE_DEL(_wall);
+}
+
+void Crude2::OnUpdate()
+{
+    _world->OnUpdate(GetDeltaTime());
 }
 
 void Crude2::OnRender()
@@ -117,8 +165,12 @@ void Crude2::OnRender()
     glBindVertexArray(_vao);
     glDrawArraysInstanced(GL_TRIANGLES,0,6,100);
     
-    _ground->OnDraw(_camera);
-    _wall->OnDraw(_camera);
+//    _ground->OnDraw(_camera);
+//    _wall->OnDraw(_camera);
+    
+    _world->OnRender();
+    
+    
 }
 
 void Crude2::HandleKeyboardInput(GLFWwindow* window)
