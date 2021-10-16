@@ -35,13 +35,11 @@ void Ground::OnUpdate(float deltaTime)
     
 }
 
-void Ground::OnDraw(ayy::Camera* camera)
+void Ground::OnDraw(ayy::Camera* camera,ayy::Mat4x4f* worldMatrix)
 {
     _shader->Use();
-    ayy::Mat4x4f model;
-    model.Identify();
     
-    _shader->SetUniformMat4x4("u_Model",(GLfloat*)model.data);
+    _shader->SetUniformMat4x4("u_Model",(GLfloat*)worldMatrix->data);
     _shader->SetUniformMat4x4("u_View",(GLfloat*)camera->GetViewMatrix().data);
     _shader->SetUniformMat4x4("u_Projection",(GLfloat*)camera->GetProjMatrix().data);
     
@@ -57,14 +55,14 @@ void Ground::PrepareMesh()
      **/
     float vertices[] = {
         
-        -1.0f, 0.0f, 1.0f,
+         0.0f, 0.0f, 0.0f,
 //         0.0f, 0.0f,
         
         
-        -1.0f, 0.0f,-1.0f,
+         0.0f, 0.0f,-1.0f,
 //         0.0f, 1.0f,
         
-         1.0f, 0.0f, 1.0f,
+         1.0f, 0.0f, 0.0f,
 //         1.0f, 0.0f,
         
          1.0f, 0.0f,-1.0f,

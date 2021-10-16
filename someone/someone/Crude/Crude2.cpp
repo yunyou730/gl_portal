@@ -4,7 +4,9 @@
 #include "../Demo/FreeCamera.h"
 #include "../Demo/Wall.h"
 #include "../Demo/Ground.h"
-#include "../Demo/MapRecord.h"
+
+
+#include "../Demo/ecs/Util.h"
 
 #include "../Demo/ecs/World.h"
 #include "../Demo/ecs/BaseEntity.h"
@@ -17,6 +19,8 @@
 
 #include "../Demo/ecs/RenderSystem.h"
 #include "../Demo/ecs/InputSystem.h"
+
+#include "../Demo/ecs/MapSingleton.h"
 
 Crude2::Crude2(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
@@ -36,7 +40,31 @@ void Crude2::Prepare()
     _world->RegisterRenderSystem<crude::RenderSystem>();
     _world->RegisterInputSystem<crude::InputSystem>();
     
-    // camera
+    InitMap();
+    auto camera = InitMainCamera();
+    InitGround(camera);
+    
+    
+    // wall
+    crude::BaseEntity* wallEntity = _world->CreateEntity();
+    auto render = dynamic_cast<crude::RenderComponent*>(wallEntity->AddComp(crude::ECompType::Render));
+    render->SetWatchCamera(camera);
+    auto transform = dynamic_cast<crude::TransformComponent*>(wallEntity->AddComp(crude::ECompType::Transform));
+    
+    auto _wall = new crude::Wall();
+    _wall->Initiate();
+    render->SetRenderNode(_wall);
+    transform->SetPos(ayy::Vec3f(0,0,0));
+}
+
+void Crude2::InitMap()
+{
+    crude::MapSingleton* map = _world->RegisterSingleton<crude::ESingleton::Map, crude::MapSingleton>();
+    map->InitDefaultValue();
+}
+
+ayy::Camera* Crude2::InitMainCamera()
+{
     auto camera = new crude::FreeCamera(GetViewportWidth(),GetViewportHeight());
     camera->SetPos(ayy::Vec3f(0,1,1));
     camera->SetLookDir(ayy::Vec3f(0,0,0) - ayy::Vec3f(0,1,1));
@@ -47,10 +75,15 @@ void Crude2::Prepare()
     
     cameraComp->SetCamera(camera);
     
-    // ground
+    return camera;
+}
+
+void Crude2::InitGround(ayy::Camera* camera)
+{
+    // ground entity
     crude::BaseEntity* groundEntity = _world->CreateEntity();
-    crude::RenderComponent* render = dynamic_cast<crude::RenderComponent*>(groundEntity->AddComp(crude::ECompType::Render));
-    crude::TransformComponent* transform = dynamic_cast<crude::TransformComponent*>(groundEntity->AddComp(crude::ECompType::Transform));
+    auto render = dynamic_cast<crude::RenderComponent*>(groundEntity->AddComp(crude::ECompType::Render));
+    auto transform = dynamic_cast<crude::TransformComponent*>(groundEntity->AddComp(crude::ECompType::Transform));
     
     auto _ground = new crude::Ground();
     _ground->Initiate();
@@ -58,31 +91,10 @@ void Crude2::Prepare()
     render->SetWatchCamera(camera);
     transform->SetPos(ayy::Vec3f(0,0,0));
     
-    // wall
-    crude::BaseEntity* wallEntity = _world->CreateEntity();
-    render = dynamic_cast<crude::RenderComponent*>(wallEntity->AddComp(crude::ECompType::Render));
-    render->SetWatchCamera(camera);
-    transform = dynamic_cast<crude::TransformComponent*>(wallEntity->AddComp(crude::ECompType::Transform));
-    
-    auto _wall = new crude::Wall();
-    _wall->Initiate();
-    render->SetRenderNode(_wall);
-    transform->SetPos(ayy::Vec3f(0,0,0));
-    
-    
-    if(wallEntity->QueryComp({crude::ECompType::Render,crude::ECompType::Transform,crude::ECompType::Camera}))
-    {
-        printf("111\n");
-    }
-    else
-    {
-        printf("22\n");
-    }
-    
-
+    auto map = _world->GetSingleton<crude::MapSingleton>(crude::ESingleton::Map);
+    float unitSize = crude::Util::GetUnitSize();
+    transform->SetScale(ayy::Vec3f(unitSize * map->GetCols(),unitSize,unitSize * map->GetRows()));
 }
-
-
 
 void Crude2::Cleanup()
 {

@@ -32,13 +32,11 @@ void Wall::OnUpdate(float deltaTime)
     
 }
 
-void Wall::OnDraw(ayy::Camera* camera)
+void Wall::OnDraw(ayy::Camera* camera,ayy::Mat4x4f* worldMatrix)
 {
     _shader->Use();
-    ayy::Mat4x4f model;
-    model.Identify();
     
-    _shader->SetUniformMat4x4("u_Model",(GLfloat*)model.data);
+    _shader->SetUniformMat4x4("u_Model",(GLfloat*)worldMatrix->data);
     _shader->SetUniformMat4x4("u_View",(GLfloat*)camera->GetViewMatrix().data);
     _shader->SetUniformMat4x4("u_Projection",(GLfloat*)camera->GetProjMatrix().data);
     

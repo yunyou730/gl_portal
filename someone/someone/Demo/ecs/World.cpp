@@ -28,12 +28,23 @@ void World::DestroyEntity(int uuid)
     
 }
 
-//void World::Init()
-//{
-//    
-//}
-
 void World::CleanUp()
+{
+    ClearSystems();
+    ClearEntities();
+    ClearSingletons();
+}
+
+void World::ClearEntities()
+{
+    for(auto it : _entityMap)
+    {
+        AYY_SAFE_DEL(it.second);
+    }
+    _entityMap.clear();
+}
+
+void World::ClearSystems()
 {
     for(auto it : _updateSystems)
     {
@@ -46,14 +57,16 @@ void World::CleanUp()
         AYY_SAFE_DEL(it);
     }
     _renderSystems.clear();
-    
-    for(auto it : _entityMap)
-    {
-        AYY_SAFE_DEL(it.second);
-    }
-    _entityMap.clear();
 }
 
+void World::ClearSingletons()
+{
+    for(auto it : _singletons)
+    {
+        delete it.second;
+    }
+    _singletons.clear();
+}
 
 void World::OnUpdate(float deltaTime)
 {

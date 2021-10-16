@@ -3,6 +3,7 @@
 #include "World.h"
 #include "../RenderNode.h"
 #include "RenderComponent.h"
+#include "TransformComponent.h"
 
 namespace crude {
 
@@ -29,7 +30,9 @@ void RenderSystem::OnRender()
     {
         RenderComponent* renderComp = dynamic_cast<RenderComponent*>(it->GetComp(ECompType::Render));
         RenderNode* node = renderComp->_renderNode;
-        node->OnDraw(renderComp->_watchCamera);
+        
+        auto transformComp = dynamic_cast<TransformComponent*>(it->GetComp(ECompType::Transform));
+        node->OnDraw(renderComp->_watchCamera,transformComp->GetWorldMatrix());
     }
 }
 

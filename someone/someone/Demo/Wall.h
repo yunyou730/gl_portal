@@ -14,7 +14,7 @@ public:
     virtual void CleanUp() override;
     
     virtual void OnUpdate(float deltaTime) override;
-    virtual void OnDraw(ayy::Camera* camera) override;
+    virtual void OnDraw(ayy::Camera* camera,ayy::Mat4x4f* worldMatrix) override;
     
 protected:
     void PrepareMesh();

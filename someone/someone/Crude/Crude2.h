@@ -7,7 +7,6 @@ namespace crude
 class FreeCamera;
 class Ground;
 class Wall;
-class MapRecord;
 
 
 class World;
@@ -26,6 +25,11 @@ public:
     virtual void OnRender() override;
     
     virtual void HandleKeyboardInput(GLFWwindow* window) override;
+    
+protected:
+    void InitMap();
+    void InitGround(ayy::Camera* camera);
+    ayy::Camera* InitMainCamera();
     
 protected:
     

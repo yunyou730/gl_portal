@@ -13,6 +13,9 @@ public:
     virtual void Update(float deltaTime) override;
     virtual void OnRender() override;
     virtual void Cleanup() override;
+    
+protected:
+    ayy::Mat4x4f    _drawingModelMatrix;
 };
 
 }

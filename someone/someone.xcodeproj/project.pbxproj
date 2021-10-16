@@ -184,6 +184,9 @@
 		2BD05305271926EC00088E6F /* InputSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05304271926EC00088E6F /* InputSystem.cpp */; };
 		2BD0530A2719281A00088E6F /* CameraComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD053082719281A00088E6F /* CameraComponent.cpp */; };
 		2BD0530F27192BC400088E6F /* KeyboardInputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0530D27192BC300088E6F /* KeyboardInputComponent.cpp */; };
+		2BD05314271A7F3200088E6F /* SingletonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05312271A7F3200088E6F /* SingletonComponent.cpp */; };
+		2BD05319271A7F5D00088E6F /* MapSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05317271A7F5C00088E6F /* MapSingleton.cpp */; };
+		2BD05320271A7FEA00088E6F /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0531E271A7FEA00088E6F /* Util.cpp */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -637,6 +640,12 @@
 		2BD053092719281A00088E6F /* CameraComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraComponent.h; sourceTree = "<group>"; };
 		2BD0530D27192BC300088E6F /* KeyboardInputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardInputComponent.cpp; sourceTree = "<group>"; };
 		2BD0530E27192BC400088E6F /* KeyboardInputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInputComponent.h; sourceTree = "<group>"; };
+		2BD05312271A7F3200088E6F /* SingletonComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingletonComponent.cpp; sourceTree = "<group>"; };
+		2BD05313271A7F3200088E6F /* SingletonComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonComponent.h; sourceTree = "<group>"; };
+		2BD05317271A7F5C00088E6F /* MapSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSingleton.cpp; sourceTree = "<group>"; };
+		2BD05318271A7F5C00088E6F /* MapSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSingleton.h; sourceTree = "<group>"; };
+		2BD0531E271A7FEA00088E6F /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		2BD0531F271A7FEA00088E6F /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
@@ -1077,10 +1086,16 @@
 			isa = PBXGroup;
 			children = (
 				2B9317A327185CE2008C4126 /* Define.h */,
+				2BD0531E271A7FEA00088E6F /* Util.cpp */,
+				2BD0531F271A7FEA00088E6F /* Util.h */,
 				2B93179327185BE2008C4126 /* BaseEntity.h */,
 				2B93179927185BE2008C4126 /* BaseEntity.cpp */,
 				2B9317A727185F7A008C4126 /* BaseComponent.cpp */,
 				2B9317A627185F7A008C4126 /* BaseComponent.h */,
+				2BD05312271A7F3200088E6F /* SingletonComponent.cpp */,
+				2BD05313271A7F3200088E6F /* SingletonComponent.h */,
+				2BD05317271A7F5C00088E6F /* MapSingleton.cpp */,
+				2BD05318271A7F5C00088E6F /* MapSingleton.h */,
 				2B93179427185BE2008C4126 /* BaseSystem.h */,
 				2B93179527185BE2008C4126 /* BaseSystem.cpp */,
 				2B93179627185BE2008C4126 /* RenderSystem.cpp */,
@@ -1505,6 +1520,8 @@
 				2BED341826AD4652001E0FF0 /* AYYFrameBuffer.cpp in Sources */,
 				2B24BE2426A2D759007B6EB9 /* Lesson15.cpp in Sources */,
 				2BF38CDD266137D50034A223 /* Lesson3.cpp in Sources */,
+				2BD05314271A7F3200088E6F /* SingletonComponent.cpp in Sources */,
+				2BD05319271A7F5D00088E6F /* MapSingleton.cpp in Sources */,
 				2B3E7BEF269019E500B7D00B /* imgui_draw.cpp in Sources */,
 				2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */,
 				2B3E7BED269019E500B7D00B /* imgui_tables.cpp in Sources */,
@@ -1529,6 +1546,7 @@
 				2B93179D27185BE2008C4126 /* BaseEntity.cpp in Sources */,
 				2B3E7B8D268EA2A300B7D00B /* Lesson10.cpp in Sources */,
 				2B3E7C09269046E000B7D00B /* Lesson12.cpp in Sources */,
+				2BD05320271A7FEA00088E6F /* Util.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* AYYNode.cpp in Sources */,

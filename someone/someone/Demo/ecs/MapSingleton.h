@@ -1,28 +1,31 @@
 #pragma once
+#include "Ayy.h"
+#include "Define.h"
+#include "SingletonComponent.h"
 #include <vector>
 
 namespace crude {
-
-class MapRecord
+class MapSingleton : public SingletonComponent
 {
 public:
-    MapRecord();
-    ~MapRecord();
+    virtual ~MapSingleton();
     
     void InitDefaultValue();
     
     int GetCols() const { return _cols;}
     int GetRows() const { return _rows;}
-    int GetUnitSize() const { return _unitSize; }
     
     ETileType GetTileAt(int row,int col);
+    ayy::Vec2i GetSize() const
+    {
+        return ayy::Vec2i(_rows,_cols);
+    }
     
-protected:
+public:
     int _cols;
     int _rows;
-    int _unitSize = 1;
-    
     std::vector<std::vector<ETileType>> _tiles;
 };
 
 }
+

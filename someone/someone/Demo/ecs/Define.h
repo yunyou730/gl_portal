@@ -13,5 +13,19 @@ typedef enum
     
 } ECompType;
 
+typedef enum
+{
+    Map,
+    
+    
+} ESingleton;
+
+typedef enum
+{
+    ROAD,
+    BLOCK,
+    
+} ETileType;
+
 }
 
