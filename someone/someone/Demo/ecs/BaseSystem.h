@@ -10,10 +10,9 @@ public:
     virtual ~BaseSystem(){}
     
     virtual void Init() = 0;
-    virtual void Update(float deltaTime) = 0;
     virtual void Cleanup() = 0;
     
-    virtual void OnUpdate(float deltaTime) {}
+    virtual void OnUpdate(float deltaTime) = 0;
     virtual void OnRender() {}
     virtual void OnKeyboardInput(GLFWwindow* window,float deltaTime) {}
     

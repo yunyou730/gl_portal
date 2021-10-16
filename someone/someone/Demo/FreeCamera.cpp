@@ -62,6 +62,24 @@ void FreeCamera::HandleKeyboardInput(GLFWwindow* window,float deltaTime)
         TakeYaw(deltaRot);
     }
     
+    // test
+    if(glfwGetKey(window,GLFW_KEY_EQUAL) == GLFW_PRESS)
+    {
+        TakeMove(0,0.0f,delta);
+    }
+    if(glfwGetKey(window,GLFW_KEY_MINUS) == GLFW_PRESS)
+    {
+        TakeMove(0,0.0f,-delta);
+    }
+    
+    if(glfwGetKey(window,GLFW_KEY_0) == GLFW_PRESS)
+    {
+        TakeMove(0,delta,0);
+    }
+    if(glfwGetKey(window,GLFW_KEY_9) == GLFW_PRESS)
+    {
+        TakeMove(0,-delta,0);
+    }
     
 }
 

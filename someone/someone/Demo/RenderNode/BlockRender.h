@@ -4,11 +4,11 @@
 
 namespace crude {
 
-class Ground : public RenderNode
+class BlockRender : public RenderNode
 {
 public:
-    Ground();
-    virtual ~Ground();
+    BlockRender();
+    virtual ~BlockRender();
     
     virtual void Initiate() override;
     virtual void CleanUp() override;
@@ -20,10 +20,9 @@ protected:
     void PrepareMesh();
     
 protected:
-    GLuint _vao = 0;
-    GLuint _vbo = 0;
-    GLuint _ebo = 0;
+    GLuint _vao,_vbo,_ebo;
     ayy::ShaderProgram* _shader = nullptr;
 };
 
 }
+

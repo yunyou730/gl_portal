@@ -4,11 +4,11 @@
 #include "Define.h"
 #include <vector>
 #include <map>
+#include "BaseSystem.h"
 
 namespace crude {
 
 class BaseEntity;
-class BaseSystem;
 class SingletonComponent;
 class World
 {
@@ -31,6 +31,7 @@ public:
     void RegisterUpdateSystem()
     {
         BaseSystem* sys = new SysClass(this);
+        sys->Init();
         _updateSystems.push_back(sys);
     }
     
@@ -38,6 +39,7 @@ public:
     void RegisterRenderSystem()
     {
         BaseSystem* sys = new SysClass(this);
+        sys->Init();
         _renderSystems.push_back(sys);
     }
     
@@ -45,6 +47,7 @@ public:
     void RegisterInputSystem()
     {
         BaseSystem* sys = new SysClass(this);
+        sys->Init();
         _inputSystems.push_back(sys);
     }
     

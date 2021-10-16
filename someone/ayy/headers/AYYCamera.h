@@ -66,9 +66,9 @@ protected:
     
     ayy::Vec3f      _eye;
     
-    ayy::Vec3f      _lookDir;       // local z
-    ayy::Vec3f      _rightDir;      // local x
-    ayy::Vec3f      _upDir;         // local y
+    ayy::Vec3f      _lookDir;       // local z in world
+    ayy::Vec3f      _rightDir;      // local x in world
+    ayy::Vec3f      _upDir;         // local y in world
     
     ayy::Mat4x4f    _viewMat;
     bool            _bViewMatDirty = true;

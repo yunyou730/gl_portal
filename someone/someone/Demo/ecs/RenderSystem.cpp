@@ -1,9 +1,10 @@
 #include "RenderSystem.h"
 #include "BaseEntity.h"
 #include "World.h"
-#include "../RenderNode.h"
+#include "../RenderNode/RenderNode.h"
 #include "RenderComponent.h"
 #include "TransformComponent.h"
+#include "CameraSingleton.h"
 
 namespace crude {
 
@@ -15,10 +16,10 @@ RenderSystem::RenderSystem(World* world)
 
 void RenderSystem::Init()
 {
-    
+    _camera = _world->GetSingleton<CameraSingleton>(ESingleton::ST_Camera);
 }
 
-void RenderSystem::Update(float deltaTime)
+void RenderSystem::OnUpdate(float deltaTime)
 {
     
 }
@@ -32,7 +33,7 @@ void RenderSystem::OnRender()
         RenderNode* node = renderComp->_renderNode;
         
         auto transformComp = dynamic_cast<TransformComponent*>(it->GetComp(ECompType::Transform));
-        node->OnDraw(renderComp->_watchCamera,transformComp->GetWorldMatrix());
+        node->OnDraw(_camera->GetMainCamera(),transformComp->GetWorldMatrix());
     }
 }
 

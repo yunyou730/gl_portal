@@ -12,7 +12,7 @@ public:
     virtual void OnKeyboardInput(GLFWwindow* window,float deltaTime) override;
     
     virtual void Init() override {}
-    virtual void Update(float deltaTime) override {}
+    virtual void OnUpdate(float deltaTime) override {}
     virtual void Cleanup() override {}    
 };
 

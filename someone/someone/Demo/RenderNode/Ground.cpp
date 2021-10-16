@@ -43,6 +43,9 @@ void Ground::OnDraw(ayy::Camera* camera,ayy::Mat4x4f* worldMatrix)
     _shader->SetUniformMat4x4("u_View",(GLfloat*)camera->GetViewMatrix().data);
     _shader->SetUniformMat4x4("u_Projection",(GLfloat*)camera->GetProjMatrix().data);
     
+    _shader->SetUniform("u_Rows", (float)_renderParam.rows);
+    _shader->SetUniform("u_Cols",(float)_renderParam.cols);
+    
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,(void*)0);
     
@@ -56,17 +59,17 @@ void Ground::PrepareMesh()
     float vertices[] = {
         
          0.0f, 0.0f, 0.0f,
-//         0.0f, 0.0f,
+         0.0f, 0.0f,
         
         
-         0.0f, 0.0f,-1.0f,
-//         0.0f, 1.0f,
+         0.0f, 0.0f, 1.0f,
+         0.0f, 1.0f,
         
          1.0f, 0.0f, 0.0f,
-//         1.0f, 0.0f,
+         1.0f, 0.0f,
         
-         1.0f, 0.0f,-1.0f,
-//         1.0f, 1.0f,
+         1.0f, 0.0f, 1.0f,
+         1.0f, 1.0f,
     };
     
     unsigned int indices[] = {
@@ -87,13 +90,13 @@ void Ground::PrepareMesh()
             // quad vertice data
             glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
 
-            // attribute location 0,pos data
-            glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE, 3 * sizeof(float), (void*)0);
+            // attribute location 0,pos
+            glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)0);
             glEnableVertexAttribArray(0);
             
-//            // attribute location 1,color data
-//            glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)(2* sizeof(float)));
-//            glEnableVertexAttribArray(1);
+            // attribute location 1,uv
+            glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)(3* sizeof(float)));
+            glEnableVertexAttribArray(1);
         }
         glBindBuffer(GL_ARRAY_BUFFER,0);
         

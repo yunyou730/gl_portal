@@ -10,8 +10,8 @@ public:
     void HandleKeyboardInput(GLFWwindow* window,float deltaTime);
     
 private:
-    float   _camMoveSpeed   = 7.0f;
-    float   _camRotSpeed    = 120;
+    float   _camMoveSpeed   = 12.0f;
+    float   _camRotSpeed    = 40;
 };
 
 }

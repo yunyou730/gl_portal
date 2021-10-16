@@ -22,37 +22,37 @@ BaseEntity::~BaseEntity()
     _compMap.clear();
 }
 
-BaseComponent* BaseEntity::AddComp(ECompType compType)
-{
-    auto it = _compMap.find(compType);
-    if(it == _compMap.end())
-    {
-        BaseComponent* component = nullptr;
-        switch(compType)
-        {
-            case ECompType::Render:
-                component = new RenderComponent();
-                break;
-            case ECompType::Transform:
-                component = new TransformComponent();
-                break;
-            case ECompType::Camera:
-                component = new CameraComponent();
-                break;
-            case ECompType::KeyboardInput:
-                component = new KeyboardInputComponent();
-                break;
-            default:
-                break;
-        }
-        if(component != nullptr)
-        {
-            _compMap.insert(std::make_pair(compType,component));
-        }
-        return component;
-    }
-    return nullptr;
-}
+//BaseComponent* BaseEntity::AddComp(ECompType compType)
+//{
+//    auto it = _compMap.find(compType);
+//    if(it == _compMap.end())
+//    {
+//        BaseComponent* component = nullptr;
+//        switch(compType)
+//        {
+//            case ECompType::Render:
+//                component = new RenderComponent();
+//                break;
+//            case ECompType::Transform:
+//                component = new TransformComponent();
+//                break;
+//            case ECompType::Camera:
+//                component = new CameraComponent();
+//                break;
+//            case ECompType::KeyboardInput:
+//                component = new KeyboardInputComponent();
+//                break;
+//            default:
+//                break;
+//        }
+//        if(component != nullptr)
+//        {
+//            _compMap.insert(std::make_pair(compType,component));
+//        }
+//        return component;
+//    }
+//    return nullptr;
+//}
 
 void BaseEntity::RemoveComp(ECompType compType)
 {

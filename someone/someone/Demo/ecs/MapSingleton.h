@@ -24,7 +24,9 @@ public:
 public:
     int _cols;
     int _rows;
-    std::vector<std::vector<ETileType>> _tiles;
+//    std::vector<std::vector<ETileType>> _tiles;
+    
+    
 };
 
 }

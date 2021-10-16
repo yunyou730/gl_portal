@@ -1,13 +1,14 @@
 #pragma once
 #include "BaseSystem.h"
 
-namespace crude {
 
-class CameraSingleton;
-class RenderSystem : public BaseSystem
+namespace crude {
+class SpawnSingleton;
+struct SpawnParam;
+class SpawnSystem : public BaseSystem
 {
 public:
-    RenderSystem(World* world);
+    SpawnSystem(World* world);
     
     virtual void Init() override;
     virtual void OnUpdate(float deltaTime) override;
@@ -15,7 +16,10 @@ public:
     virtual void Cleanup() override;
     
 protected:
-    CameraSingleton* _camera = nullptr;
+    void DoSpawn(SpawnParam*);
+    
+protected:
+    SpawnSingleton* _spawn;
 };
 
 }

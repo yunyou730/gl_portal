@@ -28,7 +28,7 @@ public:
     
 protected:
     void InitMap();
-    void InitGround(ayy::Camera* camera);
+    void InitGround();
     ayy::Camera* InitMainCamera();
     
 protected:

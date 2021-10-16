@@ -10,47 +10,16 @@ MapSingleton::~MapSingleton()
 
 void MapSingleton::InitDefaultValue()
 {
-    _tiles.clear();
+    _rows = 60;
+    _cols = 55;
+    
+//    _rows = 1000;
+//    _cols = 1000;
+}
 
-    _tiles = {
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-        {
-            ETileType(1),ETileType(0),ETileType(1),ETileType(0),ETileType(1),
-        },
-    };
-
-    _rows = (int)_tiles.size();
-    _cols = 0;
-    for(auto it = _tiles.begin();it != _tiles.end();it++)
-    {
-        if(it->size() > _cols)
-        {
-            _cols = (int)it->size();
-        }
-    }
+ETileType MapSingleton::GetTileAt(int row,int col)
+{
+    return ETileType::Road;
 }
 
 

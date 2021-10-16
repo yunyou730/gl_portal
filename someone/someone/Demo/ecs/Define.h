@@ -15,17 +15,27 @@ typedef enum
 
 typedef enum
 {
-    Map,
-    
+    ST_Map,
+    ST_Spawn,
+    ST_Camera,
     
 } ESingleton;
 
 typedef enum
 {
-    ROAD,
-    BLOCK,
+    Road,
+    Block,
     
 } ETileType;
+
+
+typedef enum
+{
+    AT_Block,
+    
+    AT_None,
+    
+} EActorType;
 
 }
 

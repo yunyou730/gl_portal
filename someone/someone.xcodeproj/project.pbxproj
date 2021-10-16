@@ -161,14 +161,10 @@
 		2B8FE4632695C3D5000E4079 /* PhongMultLightNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FE4622695C3D5000E4079 /* PhongMultLightNode.cpp */; };
 		2B93161827132B2C008C4126 /* Crude2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93161627132B2B008C4126 /* Crude2.cpp */; };
 		2B93161E27132BD2008C4126 /* FreeCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93161C27132BD2008C4126 /* FreeCamera.cpp */; };
-		2B93162427140F94008C4126 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162327140F94008C4126 /* Wall.cpp */; };
-		2B93162927140FFC008C4126 /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162727140FFC008C4126 /* RenderNode.cpp */; };
-		2B931635271494F8008C4126 /* Ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93162E27149456008C4126 /* Ground.cpp */; };
 		2B9316402714A073008C4126 /* ground.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B93163B27149D9B008C4126 /* ground.fs */; };
 		2B9316412714A073008C4126 /* ground.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B93163C27149D9B008C4126 /* ground.vs */; };
 		2B9316462715EAD5008C4126 /* wall.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9316452715EAC7008C4126 /* wall.fs */; };
 		2B9316472715EAD5008C4126 /* wall.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9316442715EAC6008C4126 /* wall.vs */; };
-		2B93177E27180817008C4126 /* MapRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93177D27180817008C4126 /* MapRecord.cpp */; };
 		2B93179B27185BE2008C4126 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179527185BE2008C4126 /* BaseSystem.cpp */; };
 		2B93179C27185BE2008C4126 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179627185BE2008C4126 /* RenderSystem.cpp */; };
 		2B93179D27185BE2008C4126 /* BaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179927185BE2008C4126 /* BaseEntity.cpp */; };
@@ -187,6 +183,13 @@
 		2BD05314271A7F3200088E6F /* SingletonComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05312271A7F3200088E6F /* SingletonComponent.cpp */; };
 		2BD05319271A7F5D00088E6F /* MapSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05317271A7F5C00088E6F /* MapSingleton.cpp */; };
 		2BD05320271A7FEA00088E6F /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0531E271A7FEA00088E6F /* Util.cpp */; };
+		2BD0532C271AD55400088E6F /* SpawnSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0532A271AD55400088E6F /* SpawnSingleton.cpp */; };
+		2BD0533E271AE1A600088E6F /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05335271AE14F00088E6F /* RenderNode.cpp */; };
+		2BD05341271AE1A900088E6F /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05337271AE14F00088E6F /* Wall.cpp */; };
+		2BD05344271AE1AD00088E6F /* Ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05338271AE14F00088E6F /* Ground.cpp */; };
+		2BD05347271AE1B000088E6F /* BlockRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0533B271AE14F00088E6F /* BlockRender.cpp */; };
+		2BD0534C271AE4CE00088E6F /* SpawnSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0534A271AE4CE00088E6F /* SpawnSystem.cpp */; };
+		2BD05351271AE85400088E6F /* CameraSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0534F271AE85400088E6F /* CameraSingleton.cpp */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -603,18 +606,10 @@
 		2B93161727132B2C008C4126 /* Crude2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crude2.h; sourceTree = "<group>"; };
 		2B93161C27132BD2008C4126 /* FreeCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FreeCamera.cpp; sourceTree = "<group>"; };
 		2B93161D27132BD2008C4126 /* FreeCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeCamera.h; sourceTree = "<group>"; };
-		2B93162227140F94008C4126 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
-		2B93162327140F94008C4126 /* Wall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
-		2B93162727140FFC008C4126 /* RenderNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderNode.cpp; sourceTree = "<group>"; };
-		2B93162827140FFC008C4126 /* RenderNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderNode.h; sourceTree = "<group>"; };
-		2B93162E27149456008C4126 /* Ground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ground.cpp; sourceTree = "<group>"; };
-		2B93162F27149457008C4126 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
 		2B93163B27149D9B008C4126 /* ground.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.fs; sourceTree = "<group>"; };
 		2B93163C27149D9B008C4126 /* ground.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.vs; sourceTree = "<group>"; };
 		2B9316442715EAC6008C4126 /* wall.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = wall.vs; sourceTree = "<group>"; };
 		2B9316452715EAC7008C4126 /* wall.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = wall.fs; sourceTree = "<group>"; };
-		2B93177C27180816008C4126 /* MapRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRecord.h; sourceTree = "<group>"; };
-		2B93177D27180817008C4126 /* MapRecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapRecord.cpp; sourceTree = "<group>"; };
 		2B93179327185BE2008C4126 /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
 		2B93179427185BE2008C4126 /* BaseSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSystem.h; sourceTree = "<group>"; };
 		2B93179527185BE2008C4126 /* BaseSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSystem.cpp; sourceTree = "<group>"; };
@@ -646,6 +641,20 @@
 		2BD05318271A7F5C00088E6F /* MapSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSingleton.h; sourceTree = "<group>"; };
 		2BD0531E271A7FEA00088E6F /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		2BD0531F271A7FEA00088E6F /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		2BD0532A271AD55400088E6F /* SpawnSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpawnSingleton.cpp; sourceTree = "<group>"; };
+		2BD0532B271AD55400088E6F /* SpawnSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnSingleton.h; sourceTree = "<group>"; };
+		2BD05334271AE14F00088E6F /* BlockRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockRender.h; sourceTree = "<group>"; };
+		2BD05335271AE14F00088E6F /* RenderNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderNode.cpp; sourceTree = "<group>"; };
+		2BD05336271AE14F00088E6F /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
+		2BD05337271AE14F00088E6F /* Wall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
+		2BD05338271AE14F00088E6F /* Ground.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ground.cpp; sourceTree = "<group>"; };
+		2BD05339271AE14F00088E6F /* Ground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
+		2BD0533A271AE14F00088E6F /* RenderNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderNode.h; sourceTree = "<group>"; };
+		2BD0533B271AE14F00088E6F /* BlockRender.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockRender.cpp; sourceTree = "<group>"; };
+		2BD0534A271AE4CE00088E6F /* SpawnSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpawnSystem.cpp; sourceTree = "<group>"; };
+		2BD0534B271AE4CE00088E6F /* SpawnSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnSystem.h; sourceTree = "<group>"; };
+		2BD0534F271AE85400088E6F /* CameraSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraSingleton.cpp; sourceTree = "<group>"; };
+		2BD05350271AE85400088E6F /* CameraSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraSingleton.h; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
@@ -1055,17 +1064,10 @@
 		2B93162127140F94008C4126 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				2BD05333271AE14F00088E6F /* RenderNode */,
 				2B93179227185BE2008C4126 /* ecs */,
-				2B93162227140F94008C4126 /* Wall.h */,
-				2B93162327140F94008C4126 /* Wall.cpp */,
-				2B93162E27149456008C4126 /* Ground.cpp */,
-				2B93162F27149457008C4126 /* Ground.h */,
-				2B93162727140FFC008C4126 /* RenderNode.cpp */,
-				2B93162827140FFC008C4126 /* RenderNode.h */,
 				2B93161C27132BD2008C4126 /* FreeCamera.cpp */,
 				2B93161D27132BD2008C4126 /* FreeCamera.h */,
-				2B93177D27180817008C4126 /* MapRecord.cpp */,
-				2B93177C27180816008C4126 /* MapRecord.h */,
 			);
 			name = Demo;
 			path = someone/Demo;
@@ -1096,10 +1098,16 @@
 				2BD05313271A7F3200088E6F /* SingletonComponent.h */,
 				2BD05317271A7F5C00088E6F /* MapSingleton.cpp */,
 				2BD05318271A7F5C00088E6F /* MapSingleton.h */,
+				2BD0532A271AD55400088E6F /* SpawnSingleton.cpp */,
+				2BD0532B271AD55400088E6F /* SpawnSingleton.h */,
+				2BD0534F271AE85400088E6F /* CameraSingleton.cpp */,
+				2BD05350271AE85400088E6F /* CameraSingleton.h */,
 				2B93179427185BE2008C4126 /* BaseSystem.h */,
 				2B93179527185BE2008C4126 /* BaseSystem.cpp */,
 				2B93179627185BE2008C4126 /* RenderSystem.cpp */,
 				2B93179727185BE2008C4126 /* RenderSystem.h */,
+				2BD0534A271AE4CE00088E6F /* SpawnSystem.cpp */,
+				2BD0534B271AE4CE00088E6F /* SpawnSystem.h */,
 				2BD05304271926EC00088E6F /* InputSystem.cpp */,
 				2BD05303271926EC00088E6F /* InputSystem.h */,
 				2B93179827185BE2008C4126 /* World.h */,
@@ -1135,6 +1143,22 @@
 			);
 			name = crude1;
 			path = someone/res/crude1;
+			sourceTree = SOURCE_ROOT;
+		};
+		2BD05333271AE14F00088E6F /* RenderNode */ = {
+			isa = PBXGroup;
+			children = (
+				2BD05334271AE14F00088E6F /* BlockRender.h */,
+				2BD05335271AE14F00088E6F /* RenderNode.cpp */,
+				2BD05336271AE14F00088E6F /* Wall.h */,
+				2BD05337271AE14F00088E6F /* Wall.cpp */,
+				2BD05338271AE14F00088E6F /* Ground.cpp */,
+				2BD05339271AE14F00088E6F /* Ground.h */,
+				2BD0533A271AE14F00088E6F /* RenderNode.h */,
+				2BD0533B271AE14F00088E6F /* BlockRender.cpp */,
+			);
+			name = RenderNode;
+			path = someone/Demo/RenderNode;
 			sourceTree = SOURCE_ROOT;
 		};
 		2BED342C26B52692001E0FF0 /* skybox */ = {
@@ -1500,12 +1524,12 @@
 				2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */,
 				2B9317A827185F7A008C4126 /* BaseComponent.cpp in Sources */,
 				2B71E52126C8C0CB00143BFE /* Lesson21.cpp in Sources */,
+				2BD05341271AE1A900088E6F /* Wall.cpp in Sources */,
 				2BD05305271926EC00088E6F /* InputSystem.cpp in Sources */,
 				2B93161E27132BD2008C4126 /* FreeCamera.cpp in Sources */,
 				2B93179B27185BE2008C4126 /* BaseSystem.cpp in Sources */,
 				2B3E7BE9269019E500B7D00B /* imgui_widgets.cpp in Sources */,
 				2B2A9C3226628E360078E004 /* stb_image.cpp in Sources */,
-				2B93162927140FFC008C4126 /* RenderNode.cpp in Sources */,
 				2B8FE45D2694BA83000E4079 /* PhongMultiLightMaterial.cpp in Sources */,
 				2B71E51C26C615C000143BFE /* PlaneUVNormMesh.cpp in Sources */,
 				2B23B74626AB4EAF00F69677 /* PlaneMesh.cpp in Sources */,
@@ -1513,7 +1537,6 @@
 				2B1C7D022675BB74004EC484 /* Lesson7.cpp in Sources */,
 				2B3E7B85268B62F900B7D00B /* AYYCommon.cpp in Sources */,
 				2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */,
-				2B93177E27180817008C4126 /* MapRecord.cpp in Sources */,
 				2BD0530F27192BC400088E6F /* KeyboardInputComponent.cpp in Sources */,
 				2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */,
 				2B23B74126AB4EAE00F69677 /* TestMesh.cpp in Sources */,
@@ -1524,13 +1547,17 @@
 				2BD05319271A7F5D00088E6F /* MapSingleton.cpp in Sources */,
 				2B3E7BEF269019E500B7D00B /* imgui_draw.cpp in Sources */,
 				2B5F854B269AEE6A00E77543 /* ModelNode.cpp in Sources */,
+				2BD05351271AE85400088E6F /* CameraSingleton.cpp in Sources */,
 				2B3E7BED269019E500B7D00B /* imgui_tables.cpp in Sources */,
 				2B3E7BEC269019E500B7D00B /* imgui.cpp in Sources */,
 				2BF38CC0265A3F290034A223 /* glad.c in Sources */,
+				2BD0532C271AD55400088E6F /* SpawnSingleton.cpp in Sources */,
 				2BF38CD7265EA26C0034A223 /* Lesson1.cpp in Sources */,
 				2B24BE3826A69266007B6EB9 /* LessonSpecialNodes.cpp in Sources */,
 				2BED342926B16D96001E0FF0 /* Lesson17.cpp in Sources */,
+				2BD05347271AE1B000088E6F /* BlockRender.cpp in Sources */,
 				2B7FC9AB2667586E003148A1 /* AYYRawTexture.cpp in Sources */,
+				2BD05344271AE1AD00088E6F /* Ground.cpp in Sources */,
 				2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */,
 				2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */,
 				2BF38CE326614CF00034A223 /* Lesson4.cpp in Sources */,
@@ -1539,7 +1566,6 @@
 				2BED344A26B53EFF001E0FF0 /* SkyBoxNode.cpp in Sources */,
 				2B1C7D0A2677137F004EC484 /* AYYMath.cpp in Sources */,
 				2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */,
-				2B93162427140F94008C4126 /* Wall.cpp in Sources */,
 				2BF38CD8265EA26C0034A223 /* Lesson2.cpp in Sources */,
 				2BF38CCE265E195D0034A223 /* AYYShader.cpp in Sources */,
 				2B3E7B9D268EA83E00B7D00B /* PhongMatNode.cpp in Sources */,
@@ -1555,6 +1581,7 @@
 				2BF38CE62661CDF70034A223 /* AYYIO.cpp in Sources */,
 				2B23B74326AB4EAF00F69677 /* Mesh.cpp in Sources */,
 				2B16EE7526BE775600155AD5 /* Lesson19.cpp in Sources */,
+				2BD0534C271AE4CE00088E6F /* SpawnSystem.cpp in Sources */,
 				2BED342226ADA315001E0FF0 /* QuadMesh.cpp in Sources */,
 				2BD0530A2719281A00088E6F /* CameraComponent.cpp in Sources */,
 				2B1C7D0E26772AF6004EC484 /* AYYCamera.cpp in Sources */,
@@ -1573,7 +1600,7 @@
 				2BF38CA8265A2F790034A223 /* main.cpp in Sources */,
 				2B23B75426ABBD7600F69677 /* PlaneUVMesh.cpp in Sources */,
 				2B93179C27185BE2008C4126 /* RenderSystem.cpp in Sources */,
-				2B931635271494F8008C4126 /* Ground.cpp in Sources */,
+				2BD0533E271AE1A600088E6F /* RenderNode.cpp in Sources */,
 				2B3E7BEB269019E500B7D00B /* imgui_impl_glfw.cpp in Sources */,
 				2B8FE44F269422B6000E4079 /* Lesson13.cpp in Sources */,
 				2B0A7BD926BA91C80052B1EC /* Lesson18.cpp in Sources */,
