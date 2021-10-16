@@ -70,6 +70,7 @@ public:
         return instance;
     }
     
+    
 protected:
     void ClearSystems();
     void ClearEntities();

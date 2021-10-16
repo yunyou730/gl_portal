@@ -15,7 +15,7 @@ BlockRender::~BlockRender()
 void BlockRender::Initiate()
 {
     PrepareMesh();
-    _shader = ayy::Util::CreateShaderWithFile("res/demo/wall.vs","res/demo/wall.fs");
+    _shader = ayy::Util::CreateShaderWithFile("res/demo/block.vs","res/demo/block.fs");
 }
 
 void BlockRender::CleanUp()

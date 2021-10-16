@@ -1,14 +1,14 @@
 #pragma once
 #include "BaseSystem.h"
 
+
 namespace crude {
 
-class CameraSingleton;
 class PerformanceSingleton;
-class RenderSystem : public BaseSystem
+class PerformanceSystem : public BaseSystem
 {
 public:
-    RenderSystem(World* world);
+    PerformanceSystem(World* world);
     
     virtual void Init() override;
     virtual void OnUpdate(float deltaTime) override;
@@ -16,8 +16,15 @@ public:
     virtual void Cleanup() override;
     
 protected:
-    CameraSingleton*        _camera = nullptr;
+    void DumpFPS(float deltaTime);
+    void DumpDrawCall();
+    
+protected:
     PerformanceSingleton*   _performance = nullptr;
+    
+    float _elapsedTime = 0.0f;
+    int _fps = 0;
+    int _drawCall = 0;
 };
 
 }

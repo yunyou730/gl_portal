@@ -1,6 +1,7 @@
 #include "World.h"
 #include "BaseEntity.h"
 #include "RenderSystem.h"
+#include "SingletonComponent.h"
 
 namespace crude
 {

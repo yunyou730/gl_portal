@@ -15,10 +15,13 @@
 #include "../Demo/ecs/RenderSystem.h"
 #include "../Demo/ecs/InputSystem.h"
 #include "../Demo/ecs/SpawnSystem.h"
+#include "../Demo/ecs/InitializeSystem.h"
+#include "../Demo/ecs/PerformanceSystem.h"
 
 #include "../Demo/ecs/MapSingleton.h"
 #include "../Demo/ecs/SpawnSingleton.h"
 #include "../Demo/ecs/CameraSingleton.h"
+#include "../Demo/ecs/PerformanceSingleton.h"
 
 #include "../Demo/FreeCamera.h"
 #include "../Demo/RenderNode/Wall.h"
@@ -42,24 +45,21 @@ void Crude2::Prepare()
     _world = new crude::World();
     
     auto map = _world->RegisterSingleton<crude::ESingleton::ST_Map, crude::MapSingleton>();
-    auto spawn = _world->RegisterSingleton<crude::ESingleton::ST_Spawn, crude::SpawnSingleton>();
     auto cameraSingle = _world->RegisterSingleton<crude::ESingleton::ST_Camera, crude::CameraSingleton>();
-    
-    _world->RegisterRenderSystem<crude::RenderSystem>();
-    _world->RegisterInputSystem<crude::InputSystem>();
-    _world->RegisterUpdateSystem<crude::SpawnSystem>();
-    
+    _world->RegisterSingleton<crude::ESingleton::ST_Spawn, crude::SpawnSingleton>();
+    _world->RegisterSingleton<crude::ESingleton::ST_Performance,crude::PerformanceSingleton>();
     
     map->InitDefaultValue();
 
     auto camera = InitMainCamera();
     cameraSingle->RegisterCamera(camera);
     
-    spawn->AddSpawnData(crude::SpawnParam(crude::EActorType::AT_Block,3,2));
-    spawn->AddSpawnData(crude::SpawnParam(crude::EActorType::AT_Block,3,3));
-    spawn->AddSpawnData(crude::SpawnParam(crude::EActorType::AT_Block,5,2));
+    _world->RegisterUpdateSystem<crude::InitializeSystem>();
+    _world->RegisterRenderSystem<crude::RenderSystem>();
+    _world->RegisterInputSystem<crude::InputSystem>();
+    _world->RegisterUpdateSystem<crude::SpawnSystem>();
+    _world->RegisterUpdateSystem<crude::PerformanceSystem>();
     
-
     InitGround();
     
     // wall
@@ -73,22 +73,6 @@ void Crude2::Prepare()
         render->SetRenderNode(wall);
         transform->SetPos(ayy::Vec3f(0,0,0));
     }
-    
-    // Block test
-    {
-        crude::BaseEntity* entity = _world->CreateEntity();
-        auto render = entity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
-        auto transform =  entity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
-        
-        auto block = new crude::BlockRender();
-        block->Initiate();
-        render->SetRenderNode(block);
-        transform->SetPos(ayy::Vec3f(2,3,5));
-        transform->SetScale(ayy::Vec3f(1,1,1));
-    }
-    
-    
-    
 }
 
 void Crude2::InitMap()
@@ -133,10 +117,6 @@ void Crude2::InitGround()
     // ground render param
     _ground->GetRenderParam()->cols = map->GetCols();
     _ground->GetRenderParam()->rows = map->GetRows();
-    
-    
-    
-    
 }
 
 void Crude2::Cleanup()

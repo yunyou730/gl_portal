@@ -5,6 +5,7 @@
 #include "RenderComponent.h"
 #include "TransformComponent.h"
 #include "CameraSingleton.h"
+#include "PerformanceSingleton.h"
 
 namespace crude {
 
@@ -17,6 +18,7 @@ RenderSystem::RenderSystem(World* world)
 void RenderSystem::Init()
 {
     _camera = _world->GetSingleton<CameraSingleton>(ESingleton::ST_Camera);
+    _performance = _world->GetSingleton<PerformanceSingleton>(ESingleton::ST_Performance);
 }
 
 void RenderSystem::OnUpdate(float deltaTime)
@@ -34,6 +36,8 @@ void RenderSystem::OnRender()
         
         auto transformComp = dynamic_cast<TransformComponent*>(it->GetComp(ECompType::Transform));
         node->OnDraw(_camera->GetMainCamera(),transformComp->GetWorldMatrix());
+        
+        _performance->AddDrawCall();
     }
 }
 

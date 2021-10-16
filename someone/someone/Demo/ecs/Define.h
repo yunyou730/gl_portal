@@ -18,6 +18,7 @@ typedef enum
     ST_Map,
     ST_Spawn,
     ST_Camera,
+    ST_Performance,
     
 } ESingleton;
 

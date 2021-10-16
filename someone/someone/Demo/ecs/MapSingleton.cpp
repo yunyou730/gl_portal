@@ -1,25 +1,40 @@
 #include "MapSingleton.h"
+#include "Util.h"
 
 namespace crude
 {
 
 MapSingleton::~MapSingleton()
 {
-
+    ClearPreset();
 }
 
 void MapSingleton::InitDefaultValue()
 {
-    _rows = 60;
-    _cols = 55;
+    _rows = 20;
+    _cols = 22;
     
-//    _rows = 1000;
-//    _cols = 1000;
+    for(int i = 0;i < 30;i++)
+    {
+        int row = Util::random(0,_rows - 1);
+        int col = Util::random(0,_cols - 1);
+        
+        AddPreset(EActorType::AT_Block,row,col);
+    }
 }
 
-ETileType MapSingleton::GetTileAt(int row,int col)
+void MapSingleton::AddPreset(EActorType actorType,int row,int col)
 {
-    return ETileType::Road;
+    _presetRecords.push_back(new PresetRecord(actorType,row,col));
+}
+
+void MapSingleton::ClearPreset()
+{
+    for(auto it : _presetRecords)
+    {
+        delete it;
+    }
+    _presetRecords.clear();
 }
 
 
