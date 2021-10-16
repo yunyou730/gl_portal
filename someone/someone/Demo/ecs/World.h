@@ -22,10 +22,9 @@ public:
     
     void OnUpdate(float deltaTime);
     void OnRender();
-    
+    void OnKeyboardInput(GLFWwindow* window,float deltaTime);
     
     std::vector<BaseEntity*> QueryEntities(const std::vector<ECompType>& comps);
-   
     
     template<typename SysClass>
     void RegisterUpdateSystem()
@@ -41,11 +40,20 @@ public:
         _renderSystems.push_back(sys);
     }
     
+    template<typename SysClass>
+    void RegisterInputSystem()
+    {
+        BaseSystem* sys = new SysClass(this);
+        _inputSystems.push_back(sys);
+    }
+    
 protected:
     EntityID _entityIdCounter = 0;
     std::map<EntityID,BaseEntity*> _entityMap;
+    
     std::vector<BaseSystem*>    _updateSystems;
     std::vector<BaseSystem*>    _renderSystems;
+    std::vector<BaseSystem*>    _inputSystems;
 };
 
 }

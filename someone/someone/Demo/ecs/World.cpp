@@ -71,6 +71,14 @@ void World::OnRender()
     }
 }
 
+void World::OnKeyboardInput(GLFWwindow* window,float deltaTime)
+{
+    for(auto it : _inputSystems)
+    {
+        it->OnKeyboardInput(window,deltaTime);
+    }
+}
+
 std::vector<BaseEntity*> World::QueryEntities(const std::vector<ECompType>& comps)
 {
     std::vector<BaseEntity*> entities;

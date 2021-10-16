@@ -8,7 +8,8 @@ typedef enum
 {
     Render,
     Transform,
-    Physics,
+    Camera,
+    KeyboardInput,
     
 } ECompType;
 

@@ -16,6 +16,7 @@ void TransformComponent::SetRot(const ayy::Vec3f& rot)
 {
     _rot = rot;
 }
+
 void TransformComponent::SetScale(const ayy::Vec3f& scale)
 {
     _scale = scale;

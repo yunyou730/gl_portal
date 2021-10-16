@@ -28,16 +28,6 @@ public:
     virtual void HandleKeyboardInput(GLFWwindow* window) override;
     
 protected:
-    void PrepareMesh();
-    
-protected:
-    GLuint  _vao = 0;
-    GLuint  _vbo = 0;
-    GLuint  _vboOffset = 0;
-    ayy::ShaderProgram* _shader = nullptr;
-    
-    crude::FreeCamera*      _camera = nullptr;
-    
     
     crude::World*           _world = nullptr;
 };

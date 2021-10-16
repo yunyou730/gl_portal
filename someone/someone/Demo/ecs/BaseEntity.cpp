@@ -2,9 +2,10 @@
 #include "BaseComponent.h"
 #include "RenderComponent.h"
 #include "TransformComponent.h"
+#include "CameraComponent.h"
+#include "KeyboardInputComponent.h"
 
 namespace crude {
-
 
 BaseEntity::BaseEntity(EntityID uuid)
     :_uuid(uuid)
@@ -34,6 +35,12 @@ BaseComponent* BaseEntity::AddComp(ECompType compType)
                 break;
             case ECompType::Transform:
                 component = new TransformComponent();
+                break;
+            case ECompType::Camera:
+                component = new CameraComponent();
+                break;
+            case ECompType::KeyboardInput:
+                component = new KeyboardInputComponent();
                 break;
             default:
                 break;

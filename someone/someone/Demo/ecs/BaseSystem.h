@@ -1,4 +1,5 @@
 #pragma once
+#include "Ayy.h"
 
 namespace crude {
 class World;
@@ -14,6 +15,7 @@ public:
     
     virtual void OnUpdate(float deltaTime) {}
     virtual void OnRender() {}
+    virtual void OnKeyboardInput(GLFWwindow* window,float deltaTime) {}
     
     World* GetWorld() { return _world;}
 protected:

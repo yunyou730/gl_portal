@@ -18,6 +18,7 @@ public:
     
 public:
     Camera(int viewportWidth,int viewportHeight);
+    virtual ~Camera() {}
     void SetViewportSize(int width,int height) { _viewportWidth = width;_viewportHeight = height;}
     
     ayy::Mat4x4f& GetViewMatrix();
