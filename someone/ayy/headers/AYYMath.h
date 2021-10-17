@@ -252,7 +252,6 @@ struct Vec
         return result;
     }
     
-    
     void InvserSelf()
     {
         for(int i = 0;i < N;i++)
@@ -266,7 +265,7 @@ struct Vec
         printf("-------\n");
         for(int i = 0;i < N;i++)
         {
-            printf("[%d] %.3f,",i,data[i]);
+            printf("%.3f,",data[i]);
         }
         printf("\n");
     }

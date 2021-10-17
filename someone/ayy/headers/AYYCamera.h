@@ -53,6 +53,25 @@ public:
     void SetNear(float near) { _near = near;}
     void SetFar(float far) {_far = far;}
     
+    
+    void SetOrthoParams(float left,float right,float top,float bottom,float near,float far)
+    {
+        _orthoLeft = left;
+        _orthoRight = right;
+        _orthoTop = top;
+        _orthoBottom = bottom;
+        _near = near;
+        _far = far;
+    }
+    
+    void SetMode(ECamProjMode targetMode) {
+        if(_mode != targetMode)
+        {
+            _bProjMatDirty = true;
+            _mode = targetMode;
+        }
+    }
+    
     void Dump() const;
     
 protected:
@@ -84,10 +103,14 @@ protected:
     float   _yaw = 0;
     float   _roll = 0;
     
-    
     ayy::Vec3f _baseLookDir;
     ayy::Vec3f _baseRightDir;
     ayy::Vec3f _baseUpDir;
+    
+    float _orthoLeft = -18.0f;
+    float _orthoRight = 18.0f;
+    float _orthoTop = 10.0f;
+    float _orthoBottom = -10.0f;
 };
 
 }

@@ -32,8 +32,8 @@ protected:
     
     void DrawScene();
     void DrawShadowMap();
-    void DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera);
-    void DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera);
+    void DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light);
+    void DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light);
     
 protected:
     GLuint  _groundVAO,_groundVBO,_groundEBO;

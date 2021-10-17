@@ -20,6 +20,7 @@ Camera::Camera(int viewportWidth,int viewportHeight)
     ,_far(100.0f)
     ,_near(0.1f)
 //    ,_near(3.0f)
+    ,_mode(ECamProjMode::PROJECTION)
 {
     _eye = kDefaultPos;
     SetLookDir(kDefaultLookDir);
@@ -99,17 +100,40 @@ ayy::Mat4x4f& Camera::GetProjMatrix()
 {
     if(_bProjMatDirty)
     {
-        float cotangent = 1.0f / tan(DegToRad(GetFov() * 0.5f));
-        float aspect = (float)_viewportWidth / (float)_viewportHeight;
-        
-        _projMat.Identify();
-        
-        _projMat.Set(0,0,cotangent / aspect);
-        _projMat.Set(1,1,cotangent);
-        _projMat.Set(2,2,-1.f * (GetFar() + GetNear())/(GetFar() - GetNear()));
-        _projMat.Set(3,2,-1 * (2 * GetNear() * GetFar())/(GetFar() - GetNear()) );
-        _projMat.Set(2,3,-1.f);
-        _projMat.Set(3,3,0);
+        switch(_mode)
+        {
+            case ECamProjMode::PROJECTION:
+            {
+                float cotangent = 1.0f / tan(DegToRad(GetFov() * 0.5f));
+                float aspect = (float)_viewportWidth / (float)_viewportHeight;
+                
+                _projMat.Identify();
+                
+                _projMat.Set(0,0,cotangent / aspect);
+                _projMat.Set(1,1,cotangent);
+                _projMat.Set(2,2,-1.f * (GetFar() + GetNear())/(GetFar() - GetNear()));
+                _projMat.Set(3,2,-1 * (2 * GetNear() * GetFar())/(GetFar() - GetNear()) );
+                _projMat.Set(2,3,-1.f);
+                _projMat.Set(3,3,0);
+            }
+                break;
+            case ECamProjMode::ORTHO:
+            {
+                _projMat.Identify();
+                _projMat.Set(0,0,2.0 / (_orthoRight - _orthoLeft));
+                _projMat.Set(1,1,2.0 / (_orthoTop - _orthoBottom));
+                _projMat.Set(2,2,-2.0 / (_far - _near));
+                
+                _projMat.Set(3,0,-1.0 * (_orthoRight + _orthoLeft) / (_orthoRight - _orthoLeft));
+                _projMat.Set(3,1,-1.0 * (_orthoTop + _orthoBottom) / (_orthoTop - _orthoBottom));
+                _projMat.Set(3,2,-1.0 * (_far + _near) / (_far - _near));
+                
+            }
+                break;
+            default:
+                break;
+        }
+
     }
     return _projMat;
 }
