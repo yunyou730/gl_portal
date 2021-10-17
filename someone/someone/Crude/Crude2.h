@@ -7,8 +7,6 @@ namespace crude
 class FreeCamera;
 class Ground;
 class Wall;
-
-
 class World;
 }
 

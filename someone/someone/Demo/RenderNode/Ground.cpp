@@ -1,5 +1,6 @@
 
 #include "Ground.h"
+#include "../Manager/ShaderManager.h"
 
 namespace crude {
 
@@ -16,7 +17,7 @@ Ground::~Ground()
 void Ground::Initiate()
 {
     PrepareMesh();
-    _shader = ayy::Util::CreateShaderWithFile("res/demo/ground.vs","res/demo/ground.fs");
+    _shader = BaseManager::GetInstance<ShaderManager>()->LoadProgram("res/demo/ground.vs","res/demo/ground.fs");
 }
 
 void Ground::CleanUp()
@@ -27,7 +28,6 @@ void Ground::CleanUp()
     _vao = 0;
     _vbo = 0;
     _ebo = 0;
-    AYY_SAFE_DEL(_shader);
 }
 
 void Ground::OnUpdate(float deltaTime)

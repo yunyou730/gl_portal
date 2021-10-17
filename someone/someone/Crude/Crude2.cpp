@@ -1,6 +1,8 @@
 #include "Crude2.h"
 #include <sstream>
 
+#include "../Demo/Manager/ShaderManager.h"
+
 #include "../Demo/ecs/Util.h"
 
 #include "../Demo/ecs/World.h"
@@ -42,6 +44,9 @@ Crude2::~Crude2()
 
 void Crude2::Prepare()
 {
+    // Managers
+    crude::BaseManager::GetInstance<crude::ShaderManager>()->Initialize();
+    
     // ECS world
     _world = new crude::World();
     

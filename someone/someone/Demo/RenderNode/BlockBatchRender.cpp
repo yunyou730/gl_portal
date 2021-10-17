@@ -1,4 +1,5 @@
 #include "BlockBatchRender.h"
+#include "../Manager/ShaderManager.h"
 
 namespace crude {
 
@@ -15,7 +16,7 @@ BlockBatchRender::~BlockBatchRender()
 void BlockBatchRender::Initiate()
 {
     PrepareMesh();
-    _shader = ayy::Util::CreateShaderWithFile("res/demo/block_instance.vs","res/demo/block_instance.fs");
+    _shader = BaseManager::GetInstance<ShaderManager>()->LoadProgram("res/demo/block_instance.vs","res/demo/block_instance.fs");
 }
 
 void BlockBatchRender::CleanUp()
@@ -24,8 +25,6 @@ void BlockBatchRender::CleanUp()
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_vboOffset);
     glDeleteBuffers(1,&_ebo);
-    
-    AYY_SAFE_DEL(_shader);
 }
 
 void BlockBatchRender::OnUpdate(float deltaTime)
@@ -166,7 +165,7 @@ void BlockBatchRender::ModifyDrawInstance(int index,const ayy::Vec3f& offset)
 
 void BlockBatchRender::RefreshInstanceData()
 {
-    // only update vbo offset
+    // only update the data which in offsetVBO
     glBindVertexArray(_vao);
     {
         // vbo offset
@@ -185,7 +184,6 @@ void BlockBatchRender::RefreshInstanceData()
             glCheckError();
         }
         glBindBuffer(GL_ARRAY_BUFFER,0);
-//        glVertexAttribDivisor(1,1);     // instance for each drawing
     }
     glBindVertexArray(0);
     glCheckError();

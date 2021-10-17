@@ -1,4 +1,5 @@
 #include "Wall.h"
+#include "../Manager/ShaderManager.h"
 
 namespace crude {
 
@@ -15,7 +16,7 @@ Wall::~Wall()
 void Wall::Initiate()
 {
     PrepareMesh();
-    _shader = ayy::Util::CreateShaderWithFile("res/demo/wall.vs","res/demo/wall.fs");
+    _shader = BaseManager::GetInstance<ShaderManager>()->LoadProgram("res/demo/wall.vs","res/demo/wall.fs");
 }
 
 void Wall::CleanUp()
@@ -23,8 +24,6 @@ void Wall::CleanUp()
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_ebo);
-    
-    AYY_SAFE_DEL(_shader);
 }
 
 void Wall::OnUpdate(float deltaTime)

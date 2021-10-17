@@ -14,8 +14,6 @@ namespace ayy {
         return shader;
     }
     
-
-
     Texture* Util::CreateTexturehWithFile(const std::string& filePath)
     {
         /*

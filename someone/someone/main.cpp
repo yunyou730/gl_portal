@@ -93,15 +93,12 @@ int main(int argc, const char * argv[])
     
     scene->Prepare();
     app.SetScene(scene);
-    
     app.MainLoop();
-    
     if(scene != nullptr)
     {
         scene->Cleanup();
         AYY_SAFE_DEL(scene);
     }
-    
     app.Cleanup();
 
     return 0;

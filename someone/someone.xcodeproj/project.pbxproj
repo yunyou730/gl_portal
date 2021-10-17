@@ -199,6 +199,7 @@
 		2BD053B3271BDDE700088E6F /* BatchRenderSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD053B1271BDDE700088E6F /* BatchRenderSingleton.cpp */; };
 		2BD053B8271BF04600088E6F /* block_instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053B6271BF03300088E6F /* block_instance.fs */; };
 		2BD053B9271BF04600088E6F /* block_instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053B7271BF03400088E6F /* block_instance.vs */; };
+		2BD053C5271BF77D00088E6F /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD053C3271BF77D00088E6F /* ShaderManager.cpp */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -682,6 +683,9 @@
 		2BD053B2271BDDE700088E6F /* BatchRenderSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchRenderSingleton.h; sourceTree = "<group>"; };
 		2BD053B6271BF03300088E6F /* block_instance.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = block_instance.fs; sourceTree = "<group>"; };
 		2BD053B7271BF03400088E6F /* block_instance.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = block_instance.vs; sourceTree = "<group>"; };
+		2BD053C2271BF77D00088E6F /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderManager.h; sourceTree = "<group>"; };
+		2BD053C3271BF77D00088E6F /* ShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderManager.cpp; sourceTree = "<group>"; };
+		2BD053C4271BF77D00088E6F /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
@@ -1091,6 +1095,7 @@
 		2B93162127140F94008C4126 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				2BD053C1271BF77D00088E6F /* Manager */,
 				2BD05333271AE14F00088E6F /* RenderNode */,
 				2B93179227185BE2008C4126 /* ecs */,
 				2B93161C27132BD2008C4126 /* FreeCamera.cpp */,
@@ -1225,6 +1230,17 @@
 			);
 			path = System;
 			sourceTree = "<group>";
+		};
+		2BD053C1271BF77D00088E6F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2BD053C2271BF77D00088E6F /* ShaderManager.h */,
+				2BD053C3271BF77D00088E6F /* ShaderManager.cpp */,
+				2BD053C4271BF77D00088E6F /* BaseManager.h */,
+			);
+			name = Manager;
+			path = someone/Demo/Manager;
+			sourceTree = SOURCE_ROOT;
 		};
 		2BED342C26B52692001E0FF0 /* skybox */ = {
 			isa = PBXGroup;
@@ -1591,6 +1607,7 @@
 				2B8FE4632695C3D5000E4079 /* PhongMultLightNode.cpp in Sources */,
 				2BD0539E271BDC0C00088E6F /* PerformanceSingleton.cpp in Sources */,
 				2B3E7BA0268EB47800B7D00B /* BaseMaterial.cpp in Sources */,
+				2BD053C5271BF77D00088E6F /* ShaderManager.cpp in Sources */,
 				2B3E7B82268B51DD00B7D00B /* PhongNode.cpp in Sources */,
 				2B2A9C3E266315000078E004 /* Lesson5.cpp in Sources */,
 				2BD053A0271BDC0C00088E6F /* CameraSingleton.cpp in Sources */,

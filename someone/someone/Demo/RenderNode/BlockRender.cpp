@@ -1,4 +1,5 @@
 #include "BlockRender.h"
+#include "../Manager/ShaderManager.h"
 
 namespace crude {
 
@@ -15,7 +16,7 @@ BlockRender::~BlockRender()
 void BlockRender::Initiate()
 {
     PrepareMesh();
-    _shader = ayy::Util::CreateShaderWithFile("res/demo/block.vs","res/demo/block.fs");
+    _shader = BaseManager::GetInstance<ShaderManager>()->LoadProgram("res/demo/block.vs","res/demo/block.fs");
 }
 
 void BlockRender::CleanUp()
@@ -23,8 +24,6 @@ void BlockRender::CleanUp()
     glDeleteVertexArrays(1,&_vao);
     glDeleteBuffers(1,&_vbo);
     glDeleteBuffers(1,&_ebo);
-    
-    AYY_SAFE_DEL(_shader);
 }
 
 void BlockRender::OnUpdate(float deltaTime)
