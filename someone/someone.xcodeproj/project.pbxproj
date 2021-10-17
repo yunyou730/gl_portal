@@ -200,6 +200,11 @@
 		2BD053B8271BF04600088E6F /* block_instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053B6271BF03300088E6F /* block_instance.fs */; };
 		2BD053B9271BF04600088E6F /* block_instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053B7271BF03400088E6F /* block_instance.vs */; };
 		2BD053C5271BF77D00088E6F /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD053C3271BF77D00088E6F /* ShaderManager.cpp */; };
+		2BD053CE271C485E00088E6F /* Crude3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD053CD271C485E00088E6F /* Crude3.cpp */; };
+		2BD053D5271C4D5500088E6F /* ground.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D4271C4D4500088E6F /* ground.vs */; };
+		2BD053D8271C4D7300088E6F /* box.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D3271C4D4500088E6F /* box.fs */; };
+		2BD053D9271C4D7300088E6F /* box.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D1271C4D4500088E6F /* box.vs */; };
+		2BD053DA271C4D7300088E6F /* ground.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D2271C4D4500088E6F /* ground.fs */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -294,6 +299,10 @@
 			dstPath = res/crude1;
 			dstSubfolderSpec = 16;
 			files = (
+				2BD053D8271C4D7300088E6F /* box.fs in CopyFiles */,
+				2BD053D9271C4D7300088E6F /* box.vs in CopyFiles */,
+				2BD053DA271C4D7300088E6F /* ground.fs in CopyFiles */,
+				2BD053D5271C4D5500088E6F /* ground.vs in CopyFiles */,
 				2BAFE460270ED709004CA3B5 /* instance.vs in CopyFiles */,
 				2BAFE461270ED709004CA3B5 /* instance.fs in CopyFiles */,
 			);
@@ -686,6 +695,12 @@
 		2BD053C2271BF77D00088E6F /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderManager.h; sourceTree = "<group>"; };
 		2BD053C3271BF77D00088E6F /* ShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderManager.cpp; sourceTree = "<group>"; };
 		2BD053C4271BF77D00088E6F /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
+		2BD053CC271C485E00088E6F /* Crude3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crude3.h; sourceTree = "<group>"; };
+		2BD053CD271C485E00088E6F /* Crude3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crude3.cpp; sourceTree = "<group>"; };
+		2BD053D1271C4D4500088E6F /* box.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = box.vs; sourceTree = "<group>"; };
+		2BD053D2271C4D4500088E6F /* ground.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.fs; sourceTree = "<group>"; };
+		2BD053D3271C4D4500088E6F /* box.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = box.fs; sourceTree = "<group>"; };
+		2BD053D4271C4D4500088E6F /* ground.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.vs; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
@@ -1144,6 +1159,8 @@
 				2BAFE451270ECBCC004CA3B5 /* Crude1.h */,
 				2B93161627132B2B008C4126 /* Crude2.cpp */,
 				2B93161727132B2C008C4126 /* Crude2.h */,
+				2BD053CD271C485E00088E6F /* Crude3.cpp */,
+				2BD053CC271C485E00088E6F /* Crude3.h */,
 			);
 			path = Crude;
 			sourceTree = "<group>";
@@ -1151,6 +1168,10 @@
 		2BAFE456270ED63E004CA3B5 /* crude1 */ = {
 			isa = PBXGroup;
 			children = (
+				2BD053D3271C4D4500088E6F /* box.fs */,
+				2BD053D1271C4D4500088E6F /* box.vs */,
+				2BD053D2271C4D4500088E6F /* ground.fs */,
+				2BD053D4271C4D4500088E6F /* ground.vs */,
 				2BAFE457270ED63E004CA3B5 /* instance.vs */,
 				2BAFE458270ED63E004CA3B5 /* instance.fs */,
 			);
@@ -1642,6 +1663,7 @@
 				2BED342926B16D96001E0FF0 /* Lesson17.cpp in Sources */,
 				2BD05347271AE1B000088E6F /* BlockRender.cpp in Sources */,
 				2B7FC9AB2667586E003148A1 /* AYYRawTexture.cpp in Sources */,
+				2BD053CE271C485E00088E6F /* Crude3.cpp in Sources */,
 				2BD05344271AE1AD00088E6F /* Ground.cpp in Sources */,
 				2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */,
 				2B3E81D82691BFD000B7D00B /* ModelImporter.cpp in Sources */,

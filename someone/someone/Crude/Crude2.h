@@ -30,6 +30,5 @@ protected:
     ayy::Camera* InitMainCamera();
     
 protected:
-    
     crude::World*           _world = nullptr;
 };

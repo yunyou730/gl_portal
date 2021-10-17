@@ -24,7 +24,7 @@ protected:
     ayy::Vec3f _rot;
     ayy::Vec3f _scale;
     
-    bool _bDirty = false;
+    bool _bDirty = true;
     
     ayy::Mat4x4f    _worldMatrix;
 };
