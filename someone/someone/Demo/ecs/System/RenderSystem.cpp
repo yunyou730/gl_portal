@@ -1,11 +1,11 @@
 #include "RenderSystem.h"
 #include "BaseEntity.h"
 #include "World.h"
-#include "../RenderNode/RenderNode.h"
-#include "RenderComponent.h"
-#include "TransformComponent.h"
-#include "CameraSingleton.h"
-#include "PerformanceSingleton.h"
+#include "../../RenderNode/RenderNode.h"
+#include "../Component/RenderComponent.h"
+#include "../Component/TransformComponent.h"
+#include "../Singleton/CameraSingleton.h"
+#include "../Singleton/PerformanceSingleton.h"
 
 namespace crude {
 

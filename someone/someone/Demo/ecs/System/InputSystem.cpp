@@ -5,7 +5,7 @@
 #include "KeyboardInputComponent.h"
 
 #include "Ayy.h"
-#include "../FreeCamera.h"
+#include "FreeCamera.h"
 
 namespace crude {
 

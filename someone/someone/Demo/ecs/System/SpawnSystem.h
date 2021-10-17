@@ -18,6 +18,7 @@ public:
 protected:
     void DoSpawn(SpawnParam*);
     
+    void SpawnBlock(SpawnParam*);
 protected:
     SpawnSingleton* _spawn;
 };

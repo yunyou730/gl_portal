@@ -9,10 +9,10 @@
 #include "CameraComponent.h"
 #include "KeyboardInputComponent.h"
 
-#include "../FreeCamera.h"
-#include "../RenderNode/Wall.h"
-#include "../RenderNode/Ground.h"
-#include "../RenderNode/BlockRender.h"
+#include "FreeCamera.h"
+#include "../../RenderNode/Wall.h"
+#include "../../RenderNode/Ground.h"
+#include "../../RenderNode/BlockRender.h"
 
 #include "Util.h"
 
@@ -54,25 +54,28 @@ void SpawnSystem::DoSpawn(SpawnParam* param)
     {
         case crude::EActorType::AT_Block:
         {
-            crude::BaseEntity* entity = _world->CreateEntity();
-            auto render = entity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
-            
-            auto transform =  entity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
-            
-            auto block = new crude::BlockRender();
-            block->Initiate();
-            render->SetRenderNode(block);
-            transform->SetPos(Util::GetPosAtTile(param->atRow, param->atCol));
-            
-            float unitSize = Util::GetUnitSize();
-            transform->SetScale(ayy::Vec3f(unitSize,unitSize,unitSize));
+            SpawnBlock(param);
         }
         break;
             
         default:
             break;
     }
+}
+
+void SpawnSystem::SpawnBlock(SpawnParam* param)
+{
+    crude::BaseEntity* entity = _world->CreateEntity();
+    auto render = entity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
+    auto transform =  entity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
     
+    auto block = new crude::BlockRender();
+    block->Initiate();
+    render->SetRenderNode(block);
+    transform->SetPos(Util::GetPosAtTile(param->atRow, param->atCol));
+    
+    float unitSize = Util::GetUnitSize();
+    transform->SetScale(ayy::Vec3f(unitSize,unitSize,unitSize));
 }
 
 }

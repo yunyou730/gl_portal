@@ -1,6 +1,6 @@
 #include "RenderComponent.h"
 #include "Ayy.h"
-#include "../RenderNode/RenderNode.h"
+#include "../../RenderNode/RenderNode.h"
 
 namespace crude
 {
