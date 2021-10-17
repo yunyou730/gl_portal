@@ -17,9 +17,10 @@ public:
     virtual void OnUpdate(float deltaTime) override;
     virtual void OnDraw(ayy::Camera* camera,ayy::Mat4x4f* worldMatrix) override;
     
-    
     void AddDrawInstance(const ayy::Vec3f& offset);
     void ModifyDrawInstance(int index,const ayy::Vec3f& offset);
+    
+    void SetScale(float scale) {_scale = scale;}
     
 protected:
     void PrepareMesh();
@@ -34,6 +35,8 @@ protected:
     std::vector<ayy::Vec3f> _instanceDatas;
     
     bool    _bDirty = false;
+    
+    float   _scale = 1.0f;
 };
 
 }

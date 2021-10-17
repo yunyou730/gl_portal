@@ -5,6 +5,7 @@ namespace crude {
 
 class CameraSingleton;
 class PerformanceSingleton;
+class BatchRenderSingleton;
 class RenderSystem : public BaseSystem
 {
 public:
@@ -16,8 +17,9 @@ public:
     virtual void Cleanup() override;
     
 protected:
-    CameraSingleton*        _camera = nullptr;
-    PerformanceSingleton*   _performance = nullptr;
+    CameraSingleton*        _camera         = nullptr;
+    PerformanceSingleton*   _performance    = nullptr;
+    BatchRenderSingleton*   _batch          = nullptr;
 };
 
 }

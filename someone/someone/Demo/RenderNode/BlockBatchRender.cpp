@@ -15,7 +15,7 @@ BlockBatchRender::~BlockBatchRender()
 void BlockBatchRender::Initiate()
 {
     PrepareMesh();
-    _shader = ayy::Util::CreateShaderWithFile("res/demo/block.vs","res/demo/block.fs");
+    _shader = ayy::Util::CreateShaderWithFile("res/demo/block_instance.vs","res/demo/block_instance.fs");
 }
 
 void BlockBatchRender::CleanUp()
@@ -35,10 +35,17 @@ void BlockBatchRender::OnUpdate(float deltaTime)
 
 void BlockBatchRender::OnDraw(ayy::Camera* camera,ayy::Mat4x4f* worldMatrix)
 {
+    ayy::Mat4x4f scaleMatrix;
+    scaleMatrix.Identify();
+    ayy::MakeScaleMatrix(scaleMatrix,_scale);
+    
     _shader->Use();
     _shader->SetUniformMat4x4("u_Model",(GLfloat*)worldMatrix->data);
     _shader->SetUniformMat4x4("u_View",(GLfloat*)camera->GetViewMatrix().data);
     _shader->SetUniformMat4x4("u_Projection",(GLfloat*)camera->GetProjMatrix().data);
+    
+    _shader->SetUniformMat4x4("u_ScaleMat",(GLfloat*)scaleMatrix.data);
+//    _shader->SetUniform("u_Scale",_scale);
     
     if(IsDirty())
     {
@@ -128,12 +135,11 @@ void BlockBatchRender::PrepareMesh()
             // offset data
             glBufferData(GL_ARRAY_BUFFER,sizeof(ayy::Vec3f) * _instanceDatas.size(),&_instanceDatas[0],GL_DYNAMIC_DRAW);
             // attribute location 1,offset data
-            glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,0,0);
+            glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,0,0);
             glEnableVertexAttribArray(1);
         }
         glBindBuffer(GL_ARRAY_BUFFER,0);
         glVertexAttribDivisor(1,1);     // instance for each drawing
-        
         
         // ebo
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,_ebo);
@@ -160,25 +166,31 @@ void BlockBatchRender::ModifyDrawInstance(int index,const ayy::Vec3f& offset)
 
 void BlockBatchRender::RefreshInstanceData()
 {
-//    glBindVertexArray(_vao);
-//    {
+    // only update vbo offset
+    glBindVertexArray(_vao);
+    {
         // vbo offset
         glBindBuffer(GL_ARRAY_BUFFER,_vboOffset);
+        glCheckError();
         {
-//            glBufferData(GL_ARRAY_BUFFER,sizeof(ayy::Vec2f) * offsets.size(),&offsets[0],GL_STATIC_DRAW);
-//            glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE, 0,0);
-//            glEnableVertexAttribArray(2);
             // offset data
             glBufferData(GL_ARRAY_BUFFER,sizeof(ayy::Vec3f) * _instanceDatas.size(),&_instanceDatas[0],GL_DYNAMIC_DRAW);
+            glCheckError();
+
             // attribute location 1,offset data
-            glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,0,0);
+            glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,0,0);
+            glCheckError();
+
             glEnableVertexAttribArray(1);
+            glCheckError();
         }
         glBindBuffer(GL_ARRAY_BUFFER,0);
 //        glVertexAttribDivisor(1,1);     // instance for each drawing
-//    }
-//    glBindVertexArray(0);
+    }
+    glBindVertexArray(0);
+    glCheckError();
 }
+
 
 }
 

@@ -22,6 +22,7 @@
 #include "../Demo/ecs/Singleton/SpawnSingleton.h"
 #include "../Demo/ecs/Singleton/CameraSingleton.h"
 #include "../Demo/ecs/Singleton/PerformanceSingleton.h"
+#include "../Demo/ecs/Singleton/BatchRenderSingleton.h"
 
 #include "../Demo/FreeCamera.h"
 #include "../Demo/RenderNode/Wall.h"
@@ -48,6 +49,7 @@ void Crude2::Prepare()
     auto cameraSingle = _world->RegisterSingleton<crude::ESingleton::ST_Camera, crude::CameraSingleton>();
     _world->RegisterSingleton<crude::ESingleton::ST_Spawn, crude::SpawnSingleton>();
     _world->RegisterSingleton<crude::ESingleton::ST_Performance,crude::PerformanceSingleton>();
+    _world->RegisterSingleton<crude::ESingleton::ST_BatchRender,crude::BatchRenderSingleton>();
     
     map->InitDefaultValue();
 

@@ -19,6 +19,7 @@ typedef enum
     ST_Spawn,
     ST_Camera,
     ST_Performance,
+    ST_BatchRender,
     
 } ESingleton;
 

@@ -19,7 +19,6 @@ ayy::Vec3f Util::GetPosAtTile(int row,int col)
     return ayy::Vec3f(x,y,z);
 }
 
-
 int Util::random(int lowBound,int maxBound)
 {
     unsigned int value = random();
