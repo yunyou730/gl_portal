@@ -8,6 +8,10 @@ namespace ayy
     default look dir (0,0,-1,0) // w = 0 means vector is a direction
  
     right hand coordinate
+ 
+ 
+    Ortho projection matrix reference
+    http://www.songho.ca/opengl/gl_projectionmatrix.html
  */
 const static ayy::Vec3f kWorldUpDir(0,1,0);
 const static ayy::Vec3f kDefaultPos(0,0,-5);
