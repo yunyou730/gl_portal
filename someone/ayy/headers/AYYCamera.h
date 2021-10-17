@@ -63,7 +63,6 @@ protected:
 protected:
     ECamProjMode    _mode;
     
-    
     ayy::Vec3f      _eye;
     
     ayy::Vec3f      _lookDir;       // local z in world

@@ -132,7 +132,6 @@ void BaseApplication::Cleanup()
     glfwTerminate();
 }
 
-
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 {
 //    glViewport(0,0,width,height); // 好像没有用？

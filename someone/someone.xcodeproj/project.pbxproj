@@ -205,6 +205,8 @@
 		2BD053D8271C4D7300088E6F /* box.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D3271C4D4500088E6F /* box.fs */; };
 		2BD053D9271C4D7300088E6F /* box.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D1271C4D4500088E6F /* box.vs */; };
 		2BD053DA271C4D7300088E6F /* ground.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053D2271C4D4500088E6F /* ground.fs */; };
+		2BD053DF271C68BB00088E6F /* simple_depth_map.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053DD271C68A800088E6F /* simple_depth_map.fs */; };
+		2BD053E0271C68BB00088E6F /* simple_depth_map.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BD053DE271C68A800088E6F /* simple_depth_map.vs */; };
 		2BE1B4012679D2A7008BA71D /* Lesson8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1B4002679D2A6008BA71D /* Lesson8.cpp */; };
 		2BE1B4052679D7D5008BA71D /* mvp_test_2.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4042679D7CC008BA71D /* mvp_test_2.fs */; };
 		2BE1B4062679D7D5008BA71D /* mvp_test_2.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */; };
@@ -299,6 +301,8 @@
 			dstPath = res/crude1;
 			dstSubfolderSpec = 16;
 			files = (
+				2BD053DF271C68BB00088E6F /* simple_depth_map.fs in CopyFiles */,
+				2BD053E0271C68BB00088E6F /* simple_depth_map.vs in CopyFiles */,
 				2BD053D8271C4D7300088E6F /* box.fs in CopyFiles */,
 				2BD053D9271C4D7300088E6F /* box.vs in CopyFiles */,
 				2BD053DA271C4D7300088E6F /* ground.fs in CopyFiles */,
@@ -701,6 +705,8 @@
 		2BD053D2271C4D4500088E6F /* ground.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.fs; sourceTree = "<group>"; };
 		2BD053D3271C4D4500088E6F /* box.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = box.fs; sourceTree = "<group>"; };
 		2BD053D4271C4D4500088E6F /* ground.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ground.vs; sourceTree = "<group>"; };
+		2BD053DD271C68A800088E6F /* simple_depth_map.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple_depth_map.fs; sourceTree = "<group>"; };
+		2BD053DE271C68A800088E6F /* simple_depth_map.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple_depth_map.vs; sourceTree = "<group>"; };
 		2BE1B3FF2679D2A6008BA71D /* Lesson8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson8.h; sourceTree = "<group>"; };
 		2BE1B4002679D2A6008BA71D /* Lesson8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson8.cpp; sourceTree = "<group>"; };
 		2BE1B4032679D7CC008BA71D /* mvp_test_2.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mvp_test_2.vs; sourceTree = "<group>"; };
@@ -1174,6 +1180,8 @@
 				2BD053D4271C4D4500088E6F /* ground.vs */,
 				2BAFE457270ED63E004CA3B5 /* instance.vs */,
 				2BAFE458270ED63E004CA3B5 /* instance.fs */,
+				2BD053DD271C68A800088E6F /* simple_depth_map.fs */,
+				2BD053DE271C68A800088E6F /* simple_depth_map.vs */,
 			);
 			name = crude1;
 			path = someone/res/crude1;

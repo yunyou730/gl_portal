@@ -183,6 +183,10 @@ void Camera::Dump() const
 {
     // dump
     printf("----------- camera dump begin -----------\n");
+    
+    printf("camera pos");
+    GetPos().Dump();
+    
     ayy::Vec3f look = GetLookDir();
     printf("camera look");
     look.Dump();

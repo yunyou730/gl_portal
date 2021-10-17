@@ -27,9 +27,13 @@ public:
 protected:
     void PrepareGroundMesh();
     void PrepareBoxMesh();
+    void PrepareShadowMap();
     
-    void DrawGround();
-    void DrawBoxes();
+    
+    void DrawScene();
+    void DrawShadowMap();
+    void DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera);
+    void DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera);
     
 protected:
     GLuint  _groundVAO,_groundVBO,_groundEBO;
@@ -37,9 +41,18 @@ protected:
     
     ayy::ShaderProgram* _groundShader   = nullptr;
     ayy::ShaderProgram* _boxShader      = nullptr;
+    ayy::ShaderProgram* _depthMapShader = nullptr;
     
-    crude::FreeCamera*        _camera = nullptr;
+    crude::FreeCamera*  _camera         = nullptr;
+    ayy::Camera*        _light          = nullptr;
     
-    crude::TransformComponent _groundTransform;    
+    GLuint  _depthFBO;
+    GLuint  _depthMap;
+    
+    const GLuint kShadowWidth;
+    const GLuint kShadowHeight;
+
+    
+    crude::TransformComponent _groundTransform;
     std::vector<crude::TransformComponent> _boxes;
 };
