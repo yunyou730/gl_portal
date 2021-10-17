@@ -35,14 +35,12 @@ void Crude3::Prepare()
     
     // light
     _light = new ayy::Camera(kShadowWidth,kShadowHeight);
-    _light->SetPos(ayy::Vec3f(0.263,10.473,-14.297));
-    _light->SetLookDir(ayy::Vec3f(0.161,-0.520,0.839));
     
     _light->SetPos(ayy::Vec3f(-3.504, 3.024, -0.836));
     _light->SetLookDir(ayy::Vec3f(0.693,-0.528,0.491));
     
     _light->SetNear(0.2);
-    _light->SetFar(100.0);
+    _light->SetFar(10.0);
     
     _light->SetMode(ayy::Camera::ECamProjMode::ORTHO);
     
@@ -50,7 +48,7 @@ void Crude3::Prepare()
     _groundTransform.SetScale(ayy::Vec3f(20.0,1.0,20.0));
     _groundTransform.SetPos(ayy::Vec3f(-5.0,0.0,-5.0));
     
-    for(int i = 0;i < 5;i++)
+    for(int i = 0;i < 7;i++)
     {
         crude::TransformComponent transform;
         int x = crude::Util::random(-4,4);
@@ -289,11 +287,21 @@ void Crude3::DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camer
     shader->SetUniformMat4x4("u_View",(GLfloat*)camera->GetViewMatrix().data);
     shader->SetUniformMat4x4("u_Projection",(GLfloat*)camera->GetProjMatrix().data);
     
+    if(light != nullptr)
+    {
+        shader->SetUniformMat4x4("u_LightView",(GLfloat*)light->GetViewMatrix().data);
+        shader->SetUniformMat4x4("u_LightProjection",(GLfloat*)light->GetProjMatrix().data);
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D,_depthMap);
+        shader->SetUniform("u_ShadowMap",0);
+    }
+    
     glBindVertexArray(_boxVAO);
     
     for(auto it : _boxes)
     {
-        _boxShader->SetUniformMat4x4("u_Model",(GLfloat*)it.GetWorldMatrix()->data);
+        shader->SetUniformMat4x4("u_Model",(GLfloat*)it.GetWorldMatrix()->data);
         glDrawElements(GL_TRIANGLES,36,GL_UNSIGNED_INT,(void*)0);
     }
     
