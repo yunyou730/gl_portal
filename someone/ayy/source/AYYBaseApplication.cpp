@@ -7,9 +7,6 @@ static void framebuffer_size_callback(GLFWwindow* window,int width,int height);
 static void processInput(GLFWwindow *window);
 static void glfw_error_callback(int error, const char* description);
 
-static int SCR_WIDTH = 800;
-static int SCR_HEIGHT = 600;
-
 static BaseScene* s_scene = nullptr;
 
 
@@ -54,9 +51,9 @@ bool BaseApplication::Setup()
     return true;
 }
 
-bool BaseApplication::CreateWindow()
+bool BaseApplication::CreateWindow(int width,int height)
 {
-    _window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ayy730", NULL, NULL);
+    _window = glfwCreateWindow(width, height, "ayy730", NULL, NULL);
     if (_window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -132,10 +129,18 @@ void BaseApplication::Cleanup()
     glfwTerminate();
 }
 
+void BaseApplication::GetWindowSize(int& width,int& height)
+{
+    
+}
+
+void BaseApplication::GetFramebufferSize(int& width,int& height)
+{
+    glfwGetFramebufferSize(_window,&width,&height);
+}
+
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)
 {
-//    glViewport(0,0,width,height); // 好像没有用？
-//    printf("[framebuffer_size_callback] %d,%d\n",width,height);
     if(s_scene != nullptr)
     {
         s_scene->OnViewportSizeChanged(width,height);

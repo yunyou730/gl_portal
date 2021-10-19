@@ -32,7 +32,6 @@ void Crude3::Prepare()
     _camera->SetLookDir(ayy::Vec3f(0,0,0) - _camera->GetPos());
 //    _camera->SetMode(ayy::Camera::ECamProjMode::ORTHO);
     
-    
     // light
     _light = new ayy::Camera(kShadowWidth,kShadowHeight);
     
@@ -237,7 +236,11 @@ void Crude3::OnRender()
 
 void Crude3::DrawScene()
 {
+    int viewportWidth = GetViewportWidth();
+    int viewportHeight = GetViewportHeight();
+    printf("[%d x %d]\n",viewportWidth,viewportHeight);
     glViewport(0,0,GetViewportWidth(),GetViewportHeight());
+    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     DrawGround(_groundShader,_camera,_light);
     DrawBoxes(_boxShader,_camera,_light);
@@ -316,3 +319,10 @@ void Crude3::HandleKeyboardInput(GLFWwindow* window)
         _camera->Dump();
     }
 }
+
+void Crude3::OnViewportSizeChanged(int width,int height)
+{
+    ayy::BaseScene::OnViewportSizeChanged(width,height);
+    _camera->SetViewportSize(width,height);
+}
+

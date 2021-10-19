@@ -23,12 +23,12 @@ public:
     virtual void Cleanup() override;
     virtual void OnRender() override;
     virtual void HandleKeyboardInput(GLFWwindow* window) override;
+    virtual void OnViewportSizeChanged(int width,int height) override;
     
 protected:
     void PrepareGroundMesh();
     void PrepareBoxMesh();
     void PrepareShadowMap();
-    
     
     void DrawScene();
     void DrawShadowMap();

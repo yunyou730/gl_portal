@@ -16,7 +16,7 @@ public:
     virtual ~BaseApplication();
     
     bool Setup();
-    bool CreateWindow();
+    bool CreateWindow(int width,int height);
     void MainLoop();
     void Cleanup();
     
@@ -24,13 +24,16 @@ public:
     
     ImGUIDelegate* GetGUIDelegate() { return &_imguiDelegate;}
     
+    void GetWindowSize(int& width,int& height);
+    void GetFramebufferSize(int& width,int& height);
+    
 protected:
     void SetupImGUI();
     
 protected:
-    GLFWwindow* _window = nullptr;
-    ImGUIDelegate _imguiDelegate;
-    BaseScene* _runningScene = nullptr;
+    GLFWwindow*     _window = nullptr;
+    ImGUIDelegate   _imguiDelegate;
+    BaseScene*      _runningScene = nullptr;
 };
 
 }

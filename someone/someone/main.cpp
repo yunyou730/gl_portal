@@ -37,46 +37,48 @@ const unsigned int kScreenHeight = 600;
 static ayy::BaseApplication app;
 static ayy::BaseScene* scene = nullptr;
 
-void SceneSelectionGUI()
-{
-    static int item_current = 0;
-    static const char* items[] = { "lesson19", "lesson20"};
-    
-    int prevItem = item_current;
-    ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
-    if(item_current != prevItem)
-    {
-        if(scene != nullptr)
-        {
-            scene->Cleanup();
-            AYY_SAFE_DEL(scene);
-        }
-        switch(item_current)
-        {
-            case 0:
-                scene = new Lesson19(kScreenWidth,kScreenHeight);
-                break;
-            case 1:
-                scene = new Lesson20(kScreenWidth,kScreenHeight);
-                break;
-            default:
-                break;
-        }
-        scene->Prepare();
-        app.SetScene(scene);
-    }
-}
-
+//
+//void SceneSelectionGUI()
+//{
+//    static int item_current = 0;
+//    static const char* items[] = { "lesson19", "lesson20"};
+//
+//    int prevItem = item_current;
+//    ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
+//    if(item_current != prevItem)
+//    {
+//        if(scene != nullptr)
+//        {
+//            scene->Cleanup();
+//            AYY_SAFE_DEL(scene);
+//        }
+//        switch(item_current)
+//        {
+//            case 0:
+//                scene = new Lesson19(kScreenWidth,kScreenHeight);
+//                break;
+//            case 1:
+//                scene = new Lesson20(kScreenWidth,kScreenHeight);
+//                break;
+//            default:
+//                break;
+//        }
+//        scene->Prepare();
+//        app.SetScene(scene);
+//    }
+//}
 
 int main(int argc, const char * argv[])
 {
+    int viewportWidth,viewportHeight;
     app.Setup();
-    app.CreateWindow();
+    app.CreateWindow(kScreenWidth,kScreenHeight);
+    app.GetFramebufferSize(viewportWidth,viewportHeight);
     
-    app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
-
-//    scene = new Crude2(kScreenWidth,kScreenHeight);       // Demo Game
-    scene = new Crude3(kScreenWidth,kScreenHeight);       // Demo Game
+//    app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
+//    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
+    
+    scene = new Crude3(viewportWidth,viewportHeight);       // Demo Game
     
     
 //    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
