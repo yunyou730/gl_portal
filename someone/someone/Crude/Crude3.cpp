@@ -18,6 +18,9 @@ Crude3::~Crude3()
 
 void Crude3::Prepare()
 {
+//    glEnable(GL_CULL_FACE);
+//    glCullFace(GL_BACK);
+    
     PrepareGroundMesh();
     PrepareBoxMesh();
     PrepareShadowMap();

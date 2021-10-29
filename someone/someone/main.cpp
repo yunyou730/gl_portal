@@ -76,10 +76,10 @@ int main(int argc, const char * argv[])
     app.GetFramebufferSize(viewportWidth,viewportHeight);
     
 //    app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
-//    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
     
-    scene = new Crude3(viewportWidth,viewportHeight);       // Demo Game
+    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
     
+//    scene = new Crude3(viewportWidth,viewportHeight);       // Shadow map
     
 //    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
     

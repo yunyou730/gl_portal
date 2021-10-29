@@ -22,7 +22,6 @@ void ShaderManager::Initialize()
     
 }
 
-
 ayy::ShaderProgram* ShaderManager::LoadProgram(const std::string& vsfile,const std::string& fsfile)
 {
     const std::string key = vsfile + "_" + fsfile;

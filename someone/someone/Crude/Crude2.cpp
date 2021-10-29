@@ -30,6 +30,7 @@
 #include "../Demo/RenderNode/Wall.h"
 #include "../Demo/RenderNode/Ground.h"
 #include "../Demo/RenderNode/BlockRender.h"
+#include "../Demo/RenderNode/SkyboxRenderNode.h"
 
 Crude2::Crude2(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
@@ -67,19 +68,9 @@ void Crude2::Prepare()
     _world->RegisterUpdateSystem<crude::SpawnSystem>();
     _world->RegisterUpdateSystem<crude::PerformanceSystem>();
     
+    InitSkyBox();
     InitGround();
-    
-    // wall
-    {
-        crude::BaseEntity* wallEntity = _world->CreateEntity();
-        auto render = wallEntity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
-        auto transform = wallEntity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
-        
-        auto wall = new crude::Wall();
-        wall->Initiate();
-        render->SetRenderNode(wall);
-        transform->SetPos(ayy::Vec3f(0,0,0));
-    }
+    InitWall();
 }
 
 void Crude2::InitMap()
@@ -111,9 +102,9 @@ void Crude2::InitGround()
     auto render = groundEntity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
     auto transform = groundEntity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
     
-    auto _ground = new crude::Ground();
-    _ground->Initiate();
-    render->SetRenderNode(_ground);
+    auto ground = new crude::Ground();
+    ground->Initiate();
+    render->SetRenderNode(ground);
     transform->SetPos(ayy::Vec3f(0,0,0));
     
     // ground size
@@ -122,8 +113,41 @@ void Crude2::InitGround()
     transform->SetScale(ayy::Vec3f(unitSize * map->GetCols(),unitSize,unitSize * map->GetRows()));
     
     // ground render param
-    _ground->GetRenderParam()->cols = map->GetCols();
-    _ground->GetRenderParam()->rows = map->GetRows();
+    ground->GetRenderParam()->cols = map->GetCols();
+    ground->GetRenderParam()->rows = map->GetRows();
+}
+
+void Crude2::InitWall()
+{
+    crude::BaseEntity* wallEntity = _world->CreateEntity();
+    auto render = wallEntity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
+    auto transform = wallEntity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
+    
+    auto wall = new crude::Wall();
+    wall->Initiate();
+    render->SetRenderNode(wall);
+    transform->SetPos(ayy::Vec3f(0,0,0));
+}
+
+void Crude2::InitSkyBox()
+{
+    // skybox entity
+    crude::BaseEntity* skyboxEntity = _world->CreateEntity();
+    auto render = skyboxEntity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
+    auto transform = skyboxEntity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
+    
+    // skybox node
+    crude::SkyboxTextureParam texParam("res/skybox/front.jpg",
+                                       "res/skybox/back.jpg",
+                                       "res/skybox/top.jpg",
+                                       "res/skybox/bottom.jpg",
+                                       "res/skybox/left.jpg",
+                                       "res/skybox/right.jpg");
+    auto skybox = new crude::SkyboxRenderNode(texParam);
+    skybox->Initiate();
+    
+    render->SetRenderNode(skybox);
+    transform->SetPos(ayy::Vec3f(0,0,0));
 }
 
 void Crude2::Cleanup()

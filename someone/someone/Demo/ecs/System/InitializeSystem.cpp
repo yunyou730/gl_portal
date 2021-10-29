@@ -16,9 +16,12 @@ void InitializeSystem::Init()
 {
     _map = _world->GetSingleton<MapSingleton>(ESingleton::ST_Map);
     _spawn = _world->GetSingleton<SpawnSingleton>(ESingleton::ST_Spawn);
-    for(auto it : _map->_presetRecords)
+    if(_map != nullptr && _spawn != nullptr)
     {
-        _spawn->AddSpawnData(SpawnParam(it->actorType,it->row,it->col));
+        for(auto it : _map->_presetRecords)
+        {
+            _spawn->AddSpawnData(SpawnParam(it->actorType,it->row,it->col));
+        }
     }
 }
 

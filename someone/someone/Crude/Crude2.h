@@ -28,6 +28,9 @@ protected:
     void InitMap();
     void InitGround();
     ayy::Camera* InitMainCamera();
+    void InitWall();
+    void InitSkyBox();
+    
     
 protected:
     crude::World*           _world = nullptr;

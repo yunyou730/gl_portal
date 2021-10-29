@@ -8,14 +8,14 @@ namespace ayy {
 
 typedef unsigned int TextureUUID;
 
-typedef enum TextureType
+typedef enum
 {
     TT_None,
     
     TT_2D,
     TT_RT,
     TT_CUBE,
-};
+} TextureType;
 
 class BaseTexture
 {

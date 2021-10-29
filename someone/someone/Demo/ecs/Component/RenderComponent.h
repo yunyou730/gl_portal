@@ -18,6 +18,6 @@ public:
     // todo
     // 记录渲染状态
     // MSAA 混合模式 depth stencil test ...
+    // 是否开启 CullFace  , Cull 哪个 Front or Back
 };
 }
-

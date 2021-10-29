@@ -40,6 +40,7 @@ void RenderSystem::OnRender()
         RenderNode* node = renderComp->_renderNode;
         
         auto transformComp = dynamic_cast<TransformComponent*>(it->GetComp(ECompType::Transform));
+        node->ApplyRenderState();
         node->OnDraw(mainCamera,transformComp->GetWorldMatrix());
         _performance->AddDrawCall();
     }
