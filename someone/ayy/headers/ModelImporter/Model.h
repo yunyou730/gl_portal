@@ -26,6 +26,10 @@ public:
     void Draw(ayy::ShaderProgram* shader);
     void DoDraw();
     
+    void SetIgnoreTexture(bool bIgnoreTexture) { _bIgnoreTexture = bIgnoreTexture;}
+protected:
+    bool IsIgnoreTexture() const { return _bIgnoreTexture;}
+    
 protected:
     void processNode(aiNode* node,const aiScene* scene);
     ayy::model::Mesh* processAndCreateMesh(aiMesh* mesh,const aiScene* scene);
@@ -34,6 +38,8 @@ private:
     std::vector<ayy::model::Mesh*>  _meshes;
     std::string _directory;
     std::string _prefixPath;
+    
+    bool _bIgnoreTexture = false;
     
 };
 }

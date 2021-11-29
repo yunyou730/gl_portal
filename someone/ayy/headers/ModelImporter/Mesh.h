@@ -48,7 +48,18 @@ public:
     std::vector<ayy::model::Texture>    _textures;
     
     GLuint  _VAO,_VBO,_EBO;
+    
+    // relation with bone
+    
+    
+    
 };
+
+class BoneInfo
+{
+    
+};
+
 
 }
 

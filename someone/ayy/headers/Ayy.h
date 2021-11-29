@@ -4,6 +4,7 @@
 #include "AYYUtil.h"
 #include "AYYShader.h"
 #include "AYYMath.h"
+#include "AYYQuaternion.h"
 #include "AYYTextureManager.h"
 #include "AYYCamera.h"
 #include "Model.h"
@@ -11,6 +12,7 @@
 #include "AYYBaseScene.h"
 #include "AYYFrameBuffer.h"
 #include "stb_image.h"
+//#include "ModelImporter.h"
 
 // mesh
 #include "Mesh/TestMesh.h"

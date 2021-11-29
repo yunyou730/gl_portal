@@ -10,6 +10,7 @@ typedef enum
     Transform,
     Camera,
     KeyboardInput,
+    Model,
     
 } ECompType;
 

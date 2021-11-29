@@ -33,6 +33,8 @@ void RenderSystem::OnRender()
 {
     ayy::Camera* mainCamera = _camera->GetMainCamera();
     
+    
+    // draw Render Node
     std::vector<BaseEntity*> entities = GetWorld()->QueryEntities({ECompType::Render,ECompType::Transform});
     for(auto it : entities)
     {
@@ -45,6 +47,7 @@ void RenderSystem::OnRender()
         _performance->AddDrawCall();
     }
     
+    // draw batch node
     ayy::Mat4x4f idMat;
     idMat.Identify();
     for(auto it : _batch->_batchMap)
@@ -53,6 +56,16 @@ void RenderSystem::OnRender()
         renderNode->OnDraw(mainCamera,&idMat);
         _performance->AddDrawCall();
     }
+    
+    
+    // draw model node
+//    entities = GetWorld()->QueryEntities({ECompType::Model,ECompType::Transform});
+//    for(auto it : entities)
+//    {
+//        auto transformComp = dynamic_cast<TransformComponent*>(it->GetComp(ECompType::Transform));
+//
+////        _performance
+//    }
 }
 
 void RenderSystem::Cleanup()

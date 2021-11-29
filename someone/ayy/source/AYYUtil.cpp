@@ -38,4 +38,27 @@ namespace ayy {
         int n = rand() % (max - min);
         return n + min;
     }
+    
+    void Util::AssimpToAyyMatrix(const aiMatrix4x4& src,ayy::Mat4x4f& dest)
+    {
+        // @miao @todo
+        for(int y = 0;y < 4;y++)
+        {
+            for(int x = 0;x < 4;x++)
+            {
+                dest.Set(x,y,src[y][x]);
+            }
+        }
+    }
+    
+    ayy::Vec3f Util::AssimpToAyyVec3(const aiVector3D& vec)
+    {
+        return ayy::Vec3f(vec.x,vec.y,vec.z);
+    }
+    
+    ayy::Quaternion Util::AssimpToAyyQuat(const aiQuaternion& quat)
+    {
+        ayy::Quaternion q(quat.x,quat.y,quat.z,quat.w);
+        return q;
+    }
 }

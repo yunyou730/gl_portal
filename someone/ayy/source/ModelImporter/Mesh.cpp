@@ -89,12 +89,10 @@ void Mesh::Draw(ayy::ShaderProgram* shader)
 
 void Mesh::DoDraw()
 {
-    // 绘制网格
     glBindVertexArray(_VAO);
     glDrawElements(GL_TRIANGLES, (GLsizei)_indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
-
 
 }
 }

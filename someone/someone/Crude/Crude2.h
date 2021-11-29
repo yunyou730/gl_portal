@@ -30,7 +30,7 @@ protected:
     ayy::Camera* InitMainCamera();
     void InitWall();
     void InitSkyBox();
-    
+    void InitModel();
     
 protected:
     crude::World*           _world = nullptr;

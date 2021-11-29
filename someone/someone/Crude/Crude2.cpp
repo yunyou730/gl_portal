@@ -13,6 +13,7 @@
 #include "../Demo/ecs/Component/TransformComponent.h"
 #include "../Demo/ecs/Component/CameraComponent.h"
 #include "../Demo/ecs/Component/KeyboardInputComponent.h"
+#include "../Demo/ecs/Component/ModelComponent.h"
 
 #include "../Demo/ecs/System/RenderSystem.h"
 #include "../Demo/ecs/System/InputSystem.h"
@@ -31,6 +32,7 @@
 #include "../Demo/RenderNode/Ground.h"
 #include "../Demo/RenderNode/BlockRender.h"
 #include "../Demo/RenderNode/SkyboxRenderNode.h"
+#include "../Demo/RenderNode/MeshRender.h"
 
 Crude2::Crude2(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
@@ -71,6 +73,7 @@ void Crude2::Prepare()
     InitSkyBox();
     InitGround();
     InitWall();
+    InitModel();
 }
 
 void Crude2::InitMap()
@@ -85,6 +88,7 @@ ayy::Camera* Crude2::InitMainCamera()
     ayy::Vec3f defaultPos = ayy::Vec3f(0,2,3);
     camera->SetPos(defaultPos);
     camera->SetLookDir(ayy::Vec3f(0,0,0) - defaultPos);
+    camera->SetRotSpeed(80);
     
     crude::BaseEntity* cameraEntity = _world->CreateEntity();
     auto cameraComp = cameraEntity->AddComponent<crude::CameraComponent>(crude::ECompType::Camera);
@@ -148,6 +152,30 @@ void Crude2::InitSkyBox()
     
     render->SetRenderNode(skybox);
     transform->SetPos(ayy::Vec3f(0,0,0));
+}
+
+void Crude2::InitModel()
+{
+    crude::BaseEntity* entity = _world->CreateEntity();
+    auto transform = entity->AddComponent<crude::TransformComponent>(crude::ECompType::Transform);
+    transform->SetScale(ayy::Vec3f(0.001,0.001,0.001));
+//    transform->SetScale(ayy::Vec3f(0.1,0.1,0.1));
+//    transform->SetScale(ayy::Vec3f(1,1,1));
+    
+    auto model = entity->AddComponent<crude::ModelComponent>(crude::ECompType::Model);
+//    model->Load("res/nanosuit/nanosuit.obj","res/nanosuit/");
+    model->GetModel()->SetIgnoreTexture(true);
+//    model->Load("res/demo/anim_fbx/boss_lan.FBX","res/demo/anim_fbx/");
+//    model->Load("res/demo/anim_fbx/test.obj","res/demo/anim_fbx/");
+//    model->Load("res/demo/anim_fbx/k1.fbx","res/demo/anim_fbx/");
+    model->Load("res/demo/anim_fbx/untitled.dae","res/demo/anim_fbx/");
+    
+    auto renderer = entity->AddComponent<crude::RenderComponent>(crude::ECompType::Render);
+    auto renderNode = new crude::MeshRender();
+    renderNode->Initiate();
+    renderer->SetRenderNode(renderNode);
+    renderNode->SetModel(model->GetModel());
+    renderNode->SetModel2(model->GetModel2());
 }
 
 void Crude2::Cleanup()

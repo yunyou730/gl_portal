@@ -5,6 +5,7 @@
 //  Created by bytedance on 2021/5/23.
 //
 #include "Ayy.h"
+#include "ModelImporter.h"
 
 #include "Lesson1.h"
 #include "Lesson2.h"
@@ -37,36 +38,6 @@ const unsigned int kScreenHeight = 600;
 static ayy::BaseApplication app;
 static ayy::BaseScene* scene = nullptr;
 
-//
-//void SceneSelectionGUI()
-//{
-//    static int item_current = 0;
-//    static const char* items[] = { "lesson19", "lesson20"};
-//
-//    int prevItem = item_current;
-//    ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
-//    if(item_current != prevItem)
-//    {
-//        if(scene != nullptr)
-//        {
-//            scene->Cleanup();
-//            AYY_SAFE_DEL(scene);
-//        }
-//        switch(item_current)
-//        {
-//            case 0:
-//                scene = new Lesson19(kScreenWidth,kScreenHeight);
-//                break;
-//            case 1:
-//                scene = new Lesson20(kScreenWidth,kScreenHeight);
-//                break;
-//            default:
-//                break;
-//        }
-//        scene->Prepare();
-//        app.SetScene(scene);
-//    }
-//}
 
 int main(int argc, const char * argv[])
 {
@@ -77,13 +48,13 @@ int main(int argc, const char * argv[])
     
 //    app.GetGUIDelegate()->SetFuncCallback(SceneSelectionGUI);
     
+    ayy::meshv2::ModelImporter imp;
+    imp.CreateModel();
+    
     scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
-    
 //    scene = new Crude3(viewportWidth,viewportHeight);       // Shadow map
-    
 //    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
-    
-//    scene = new Lesson9(kScreenWidth,kScreenHeight);       // text rendering
+//    scene = new Lesson9(kScreenWidth,kScreenHeight);       // base light
 //    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
 //    scene = new Lesson20(kScreenWidth,kScreenHeight);         // normal map
 //    scene = new Lesson19(kScreenWidth,kScreenHeight);       // cube map
@@ -95,7 +66,6 @@ int main(int argc, const char * argv[])
 //    scene = new Lesson8(kScreenWidth,kScreenHeight);
 //    scene = new Lesson12(kScreenWidth,kScreenHeight);
 //    scene = new Lesson18(kScreenWidth,kScreenHeight);
-    
     
     scene->Prepare();
     app.SetScene(scene);

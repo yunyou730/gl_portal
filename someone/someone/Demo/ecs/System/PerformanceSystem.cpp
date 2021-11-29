@@ -4,6 +4,8 @@
 
 namespace crude {
 
+static bool bEnablePrint = false;
+
 PerformanceSystem::PerformanceSystem(World* world)
     :BaseSystem(world)
 {
@@ -37,7 +39,7 @@ void PerformanceSystem::DumpFPS(float deltaTime)
     
     while(_elapsedTime >= 1.0)
     {
-        printf("[fps] %d\n",_fps);
+//        printf("[fps] %d\n",_fps);
         _elapsedTime -= 1.0;
         _fps = 0;
     }
@@ -46,8 +48,16 @@ void PerformanceSystem::DumpFPS(float deltaTime)
 
 void PerformanceSystem::DumpDrawCall()
 {
-    printf("[drawcall] %d\n",_performance->_drawCall);
+//    printf("[drawcall] %d\n",_performance->_drawCall);
     _performance->ClearDrawCall();
+}
+
+void PerformanceSystem::ShowLog(const std::string& log)
+{
+    if(bEnablePrint)
+    {
+        
+    }
 }
 
 }

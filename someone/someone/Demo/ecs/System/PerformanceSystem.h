@@ -18,6 +18,7 @@ public:
 protected:
     void DumpFPS(float deltaTime);
     void DumpDrawCall();
+    void ShowLog(const std::string& log);
     
 protected:
     PerformanceSingleton*   _performance = nullptr;

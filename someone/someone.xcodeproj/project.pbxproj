@@ -130,6 +130,10 @@
 		2B3E81EB26921DCB00B7D00B /* phong_tex_mat.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B3E81E926921DBA00B7D00B /* phong_tex_mat.vs */; };
 		2B3E81EF2692229C00B7D00B /* PhongTexMatNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81ED2692229C00B7D00B /* PhongTexMatNode.cpp */; };
 		2B3E81F32692238000B7D00B /* PhongTexMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E81F12692238000B7D00B /* PhongTexMaterial.cpp */; };
+		2B5655EC273F9AA0007E0E4D /* boss_lan.FBX in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5655E8273F9A7E007E0E4D /* boss_lan.FBX */; };
+		2B5655ED273F9AA0007E0E4D /* boss_lan.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5655E9273F9A7E007E0E4D /* boss_lan.jpg */; };
+		2B5655EE273F9AA0007E0E4D /* diffuse.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5655EA273F9A7E007E0E4D /* diffuse.png */; };
+		2B5655EF273F9AA0007E0E4D /* model.dae in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B5655EB273F9A7E007E0E4D /* model.dae */; };
 		2B5F8530269A7D3B00E77543 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F852F269A7D3B00E77543 /* Model.cpp */; };
 		2B5F8533269A7D4100E77543 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F8532269A7D4100E77543 /* Mesh.cpp */; };
 		2B5F853B269ABE8100E77543 /* Lesson14.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F853A269ABE8100E77543 /* Lesson14.cpp */; };
@@ -167,6 +171,16 @@
 		2B9316472715EAD5008C4126 /* wall.vs in Copy Files */ = {isa = PBXBuildFile; fileRef = 2B9316442715EAC6008C4126 /* wall.vs */; };
 		2B93179D27185BE2008C4126 /* BaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179927185BE2008C4126 /* BaseEntity.cpp */; };
 		2B93179E27185BE2008C4126 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B93179A27185BE2008C4126 /* World.cpp */; };
+		2BA21CB22746764400ECC137 /* ModelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BA21CB02746764400ECC137 /* ModelComponent.cpp */; };
+		2BA21CB7274707C800ECC137 /* MeshRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BA21CB6274707C800ECC137 /* MeshRender.cpp */; };
+		2BA21CBC2747130F00ECC137 /* model.vs in Copy Files */ = {isa = PBXBuildFile; fileRef = 2BA21CBB274712FB00ECC137 /* model.vs */; };
+		2BA21CBF2747132000ECC137 /* model.fs in Copy Files */ = {isa = PBXBuildFile; fileRef = 2BA21CBA274712FB00ECC137 /* model.fs */; };
+		2BA21CC32752002100ECC137 /* test.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BA21CC22752001100ECC137 /* test.obj */; };
+		2BA21CC92752095700ECC137 /* untitled.dae in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BA21CC62752072B00ECC137 /* untitled.dae */; };
+		2BA21CCD27520CAB00ECC137 /* k1.fbx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BA21CCC27520C9E00ECC137 /* k1.fbx */; };
+		2BA21CD127529B3800ECC137 /* AYYQuaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BA21CD027529B3800ECC137 /* AYYQuaternion.cpp */; };
+		2BA21CD227529B3800ECC137 /* AYYQuaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BA21CD027529B3800ECC137 /* AYYQuaternion.cpp */; };
+		2BA21CD627529B5100ECC137 /* AYYQuaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BA21CD527529B5100ECC137 /* AYYQuaternion.h */; };
 		2BAFE453270ECBCC004CA3B5 /* Crude1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */; };
 		2BAFE459270ED65A004CA3B5 /* instance.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE457270ED63E004CA3B5 /* instance.vs */; };
 		2BAFE45A270ED65A004CA3B5 /* instance.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BAFE458270ED63E004CA3B5 /* instance.fs */; };
@@ -281,12 +295,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B5655E6273F99FD007E0E4D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = res/demo/anim_fbx;
+			dstSubfolderSpec = 16;
+			files = (
+				2BA21CCD27520CAB00ECC137 /* k1.fbx in CopyFiles */,
+				2BA21CC92752095700ECC137 /* untitled.dae in CopyFiles */,
+				2BA21CC32752002100ECC137 /* test.obj in CopyFiles */,
+				2B5655EC273F9AA0007E0E4D /* boss_lan.FBX in CopyFiles */,
+				2B5655ED273F9AA0007E0E4D /* boss_lan.jpg in CopyFiles */,
+				2B5655EE273F9AA0007E0E4D /* diffuse.png in CopyFiles */,
+				2B5655EF273F9AA0007E0E4D /* model.dae in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B93163D27149DA6008C4126 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = res/demo;
 			dstSubfolderSpec = 16;
 			files = (
+				2BA21CBF2747132000ECC137 /* model.fs in Copy Files */,
+				2BA21CBC2747130F00ECC137 /* model.vs in Copy Files */,
 				2BC3BCAB272C44DE00D85CA3 /* skybox.fs in Copy Files */,
 				2BC3BCAC272C44DE00D85CA3 /* skybox.vs in Copy Files */,
 				2BD053B8271BF04600088E6F /* block_instance.fs in Copy Files */,
@@ -594,6 +626,10 @@
 		2B3E81EE2692229C00B7D00B /* PhongTexMatNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongTexMatNode.h; sourceTree = "<group>"; };
 		2B3E81F12692238000B7D00B /* PhongTexMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhongTexMaterial.cpp; sourceTree = "<group>"; };
 		2B3E81F22692238000B7D00B /* PhongTexMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhongTexMaterial.h; sourceTree = "<group>"; };
+		2B5655E8273F9A7E007E0E4D /* boss_lan.FBX */ = {isa = PBXFileReference; lastKnownFileType = file; path = boss_lan.FBX; sourceTree = "<group>"; };
+		2B5655E9273F9A7E007E0E4D /* boss_lan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boss_lan.jpg; sourceTree = "<group>"; };
+		2B5655EA273F9A7E007E0E4D /* diffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diffuse.png; sourceTree = "<group>"; };
+		2B5655EB273F9A7E007E0E4D /* model.dae */ = {isa = PBXFileReference; lastKnownFileType = text.xml.dae; path = model.dae; sourceTree = "<group>"; };
 		2B5F852E269A7D2500E77543 /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
 		2B5F852F269A7D3B00E77543 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		2B5F8532269A7D4100E77543 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
@@ -649,6 +685,17 @@
 		2B93179927185BE2008C4126 /* BaseEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseEntity.cpp; sourceTree = "<group>"; };
 		2B93179A27185BE2008C4126 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		2B9317A327185CE2008C4126 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		2BA21CB02746764400ECC137 /* ModelComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelComponent.cpp; sourceTree = "<group>"; };
+		2BA21CB12746764400ECC137 /* ModelComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelComponent.h; sourceTree = "<group>"; };
+		2BA21CB5274707C800ECC137 /* MeshRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRender.h; sourceTree = "<group>"; };
+		2BA21CB6274707C800ECC137 /* MeshRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRender.cpp; sourceTree = "<group>"; };
+		2BA21CBA274712FB00ECC137 /* model.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = model.fs; sourceTree = "<group>"; };
+		2BA21CBB274712FB00ECC137 /* model.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = model.vs; sourceTree = "<group>"; };
+		2BA21CC22752001100ECC137 /* test.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.obj; sourceTree = "<group>"; };
+		2BA21CC62752072B00ECC137 /* untitled.dae */ = {isa = PBXFileReference; lastKnownFileType = text.xml.dae; path = untitled.dae; sourceTree = "<group>"; };
+		2BA21CCC27520C9E00ECC137 /* k1.fbx */ = {isa = PBXFileReference; lastKnownFileType = file; path = k1.fbx; sourceTree = "<group>"; };
+		2BA21CD027529B3800ECC137 /* AYYQuaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AYYQuaternion.cpp; sourceTree = "<group>"; };
+		2BA21CD527529B5100ECC137 /* AYYQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYYQuaternion.h; sourceTree = "<group>"; };
 		2BAFE451270ECBCC004CA3B5 /* Crude1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crude1.h; sourceTree = "<group>"; };
 		2BAFE452270ECBCC004CA3B5 /* Crude1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Crude1.cpp; sourceTree = "<group>"; };
 		2BAFE457270ED63E004CA3B5 /* instance.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = instance.vs; sourceTree = "<group>"; };
@@ -1090,6 +1137,20 @@
 			path = ModelImporter;
 			sourceTree = "<group>";
 		};
+		2B5655E7273F9A7E007E0E4D /* anim_fbx */ = {
+			isa = PBXGroup;
+			children = (
+				2B5655E8273F9A7E007E0E4D /* boss_lan.FBX */,
+				2B5655E9273F9A7E007E0E4D /* boss_lan.jpg */,
+				2B5655EA273F9A7E007E0E4D /* diffuse.png */,
+				2B5655EB273F9A7E007E0E4D /* model.dae */,
+				2BA21CC62752072B00ECC137 /* untitled.dae */,
+				2BA21CC22752001100ECC137 /* test.obj */,
+				2BA21CCC27520C9E00ECC137 /* k1.fbx */,
+			);
+			path = anim_fbx;
+			sourceTree = "<group>";
+		};
 		2B71EF9526CB946C00143BFE /* freetype-2.11.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1140,6 +1201,7 @@
 		2B93163A27149D9B008C4126 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				2B5655E7273F9A7E007E0E4D /* anim_fbx */,
 				2B93163B27149D9B008C4126 /* ground.fs */,
 				2B93163C27149D9B008C4126 /* ground.vs */,
 				2B9316452715EAC7008C4126 /* wall.fs */,
@@ -1150,6 +1212,8 @@
 				2BD053B7271BF03400088E6F /* block_instance.vs */,
 				2BC3BCA3272C43EF00D85CA3 /* skybox.fs */,
 				2BC3BCA4272C43EF00D85CA3 /* skybox.vs */,
+				2BA21CBA274712FB00ECC137 /* model.fs */,
+				2BA21CBB274712FB00ECC137 /* model.vs */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -1214,6 +1278,8 @@
 				2BD05339271AE14F00088E6F /* Ground.h */,
 				2BC3BC9D272BB82000D85CA3 /* SkyboxRenderNode.cpp */,
 				2BC3BC9C272BB82000D85CA3 /* SkyboxRenderNode.h */,
+				2BA21CB6274707C800ECC137 /* MeshRender.cpp */,
+				2BA21CB5274707C800ECC137 /* MeshRender.h */,
 				2BD0533A271AE14F00088E6F /* RenderNode.h */,
 			);
 			name = RenderNode;
@@ -1252,6 +1318,8 @@
 				2BD0538D271BDC0C00088E6F /* BaseComponent.cpp */,
 				2BD0538E271BDC0C00088E6F /* RenderComponent.h */,
 				2BD0538F271BDC0C00088E6F /* TransformComponent.h */,
+				2BA21CB02746764400ECC137 /* ModelComponent.cpp */,
+				2BA21CB12746764400ECC137 /* ModelComponent.h */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1414,6 +1482,7 @@
 				2B3E7B84268B62F900B7D00B /* AYYCommon.cpp */,
 				2BF38CCB265E195D0034A223 /* AYYShader.cpp */,
 				2B1C7D092677137F004EC484 /* AYYMath.cpp */,
+				2BA21CD027529B3800ECC137 /* AYYQuaternion.cpp */,
 				2BF38CE52661CDF70034A223 /* AYYIO.cpp */,
 				2BF38CF42661E2EF0034A223 /* AYYUtil.cpp */,
 				2B2A9C3426630CF50078E004 /* AYYTexture.cpp */,
@@ -1438,6 +1507,7 @@
 				2B2A9C3026628DF80078E004 /* stb_image.h */,
 				2BF38CCD265E195D0034A223 /* AYYShader.h */,
 				2BF38CDF266138A30034A223 /* AYYMath.h */,
+				2BA21CD527529B5100ECC137 /* AYYQuaternion.h */,
 				2B3E7B642688231900B7D00B /* AYYCommon.h */,
 				2BF38CE82661CE020034A223 /* AYYIO.h */,
 				2BF38CF72661E2FC0034A223 /* AYYUtil.h */,
@@ -1521,6 +1591,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BA21CD627529B5100ECC137 /* AYYQuaternion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1555,6 +1626,7 @@
 				2BED343426B52711001E0FF0 /* Copy Files */,
 				2BAFE45D270ED6DF004CA3B5 /* CopyFiles */,
 				2B93163D27149DA6008C4126 /* Copy Files */,
+				2B5655E6273F99FD007E0E4D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1615,6 +1687,7 @@
 				2B30007626BDA2030041F051 /* BoxMesh.cpp in Sources */,
 				2B30007726BDA2030041F051 /* BoxNormalMesh.cpp in Sources */,
 				2B30007826BDA2030041F051 /* BoxUVNormMesh.cpp in Sources */,
+				2BA21CD227529B3800ECC137 /* AYYQuaternion.cpp in Sources */,
 				2B30007926BDA2030041F051 /* Mesh.cpp in Sources */,
 				2B30007A26BDA2030041F051 /* PlaneMesh.cpp in Sources */,
 				2B30007B26BDA2030041F051 /* PlaneUVMesh.cpp in Sources */,
@@ -1644,6 +1717,7 @@
 				2B3E7B9F268EB47800B7D00B /* PhongMaterial.cpp in Sources */,
 				2B3E7C0526903D5700B7D00B /* Lesson11.cpp in Sources */,
 				2BD0539D271BDC0C00088E6F /* MapSingleton.cpp in Sources */,
+				2BA21CB7274707C800ECC137 /* MeshRender.cpp in Sources */,
 				2B3E7BEE269019E500B7D00B /* imgui_demo.cpp in Sources */,
 				2BD053A3271BDC0C00088E6F /* RenderComponent.cpp in Sources */,
 				2BD053A1271BDC0C00088E6F /* SpawnSingleton.cpp in Sources */,
@@ -1707,6 +1781,8 @@
 				2BD05320271A7FEA00088E6F /* Util.cpp in Sources */,
 				2B3E7B702688D1A700B7D00B /* Lesson9.cpp in Sources */,
 				2BED343F26B53B9B001E0FF0 /* SkyBoxMesh.cpp in Sources */,
+				2BA21CB22746764400ECC137 /* ModelComponent.cpp in Sources */,
+				2BA21CD127529B3800ECC137 /* AYYQuaternion.cpp in Sources */,
 				2B3E7B5E26881BCD00B7D00B /* AYYNode.cpp in Sources */,
 				2BD0539F271BDC0C00088E6F /* SingletonComponent.cpp in Sources */,
 				2B16EEAA26C2129F00155AD5 /* Lesson20.cpp in Sources */,
