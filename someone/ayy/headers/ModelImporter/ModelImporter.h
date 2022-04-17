@@ -16,6 +16,9 @@ namespace ayy {
 
 namespace meshv2{
 
+extern const int kVertMaxBones;
+extern const int kMeshMaxBones;
+
 struct Vertex
 {
     ayy::Vec3f position;
@@ -78,15 +81,42 @@ class Model
 public:
     ~Model();
     void CreateVAO(std::vector<Vertex>& vertices,std::vector<unsigned int> indices);
+    void SetSkeleton(Bone* skeleton,unsigned int boneCount);
+    void SetAnimation(Animation* animation);
+    
     void DoDraw();
     
+    unsigned int GetBoneCount() const { return _boneCount;}
+    
+    
+    void InitPose();
+    const std::vector<ayy::Mat4x4f>& GetPose();
+    void CalcPose(float animPct);
+    
 protected:
+    // mesh
     GLuint _vao = 0;
     GLuint _vbo = 0;
     GLuint _ebo = 0;
-    
     unsigned int _indiceCount = 0;
+    
+    // skeleton
+    Bone* _skeleton = nullptr;
+    unsigned int _boneCount = 0;
+    
+    // animation
+    Animation* _animation = nullptr;
+    
+    // pose data,saved as matrix
+    std::vector<ayy::Mat4x4f>   _pose;
 };
+
+void getPose(const Animation& animation,
+             const Bone& skeletion,
+             float dt,
+             std::vector<ayy::Mat4x4f>& output,
+             ayy::Mat4x4f& parentTransform,
+             ayy::Mat4x4f& globalInverseTransform);
 
 }
 }

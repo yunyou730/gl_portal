@@ -31,10 +31,10 @@ public:
     void SetModel2(ayy::meshv2::Model* model);
     
 protected:
-    ayy::ShaderProgram* _shader = nullptr;
-    ayy::model::Model*  _model  = nullptr;
-    ayy::meshv2::Model* _model2  = nullptr;
-    
+    ayy::ShaderProgram* _shader     = nullptr;
+    ayy::ShaderProgram* _shader2    = nullptr;
+    ayy::model::Model*  _model      = nullptr;
+    ayy::meshv2::Model* _model2     = nullptr;
 };
 
 }

@@ -9,6 +9,7 @@
 namespace ayy {
 
 class BaseScene;
+class BuiltinMeshFactory;
 class BaseApplication
 {
 public:
@@ -27,13 +28,21 @@ public:
     void GetWindowSize(int& width,int& height);
     void GetFramebufferSize(int& width,int& height);
     
+public:
+    // managers
+    BuiltinMeshFactory* GetBuiltinMeshFactory() { return _builtinMeshFactory;}
+    
 protected:
-    void SetupImGUI();
+//    void SetupImGUI();
+    void SetupManagers();
     
 protected:
     GLFWwindow*     _window = nullptr;
     ImGUIDelegate   _imguiDelegate;
     BaseScene*      _runningScene = nullptr;
+    
+    
+    BuiltinMeshFactory* _builtinMeshFactory = nullptr;
 };
 
 }

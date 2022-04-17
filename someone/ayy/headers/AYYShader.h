@@ -21,6 +21,7 @@ public:
     void SetUniform(const std::string& uniformName,int value);
     void SetUniform(const std::string& uniformName,bool bValue);
     void SetUniformMat4x4(const std::string& uniformName,float* data);
+    void SetUniformMat4x4Array(const std::string& uniformName,unsigned int count,float* data);
     
 public:
     GLuint program = 0;

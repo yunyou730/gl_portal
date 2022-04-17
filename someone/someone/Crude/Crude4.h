@@ -4,8 +4,7 @@
 #include "../Demo/ecs/Component/TransformComponent.h"
 
 /*
- Learn OpenGL
- Shadow Map
+ Watch depth buffer
  **/
 
 namespace crude
@@ -13,11 +12,11 @@ namespace crude
 class FreeCamera;
 }
 
-class Crude3 : public ayy::BaseScene
+class Crude4 : public ayy::BaseScene
 {
 public:
-    Crude3(int viewportWidth,int viewportHeight);
-    ~Crude3();
+    Crude4(int viewportWidth,int viewportHeight);
+    ~Crude4();
     
     virtual void Prepare() override;
     virtual void Cleanup() override;
@@ -37,7 +36,7 @@ protected:
     void DrawDepthBufferImg();
     
 protected:
-    GLuint  _groundVAO,_groundVBO,_groundEBO;
+    GLuint  _groundVAO;
     GLuint  _boxVAO,_boxVBO,_boxEBO;
     
     ayy::ShaderProgram* _groundShader   = nullptr;

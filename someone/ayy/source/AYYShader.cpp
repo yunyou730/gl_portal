@@ -150,6 +150,13 @@ void ShaderProgram::SetUniformMat4x4(const std::string& uniformName,float* data)
     glCheckError();
 }
 
+void ShaderProgram::SetUniformMat4x4Array(const std::string& uniformName,unsigned int count,float* data)
+{
+    GLuint location = glGetUniformLocation(program,uniformName.c_str());
+    glUniformMatrix4fv(location, count, GL_FALSE, data);
+    glCheckError();
+}
+
 }
 
 

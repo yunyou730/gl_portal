@@ -1,5 +1,6 @@
 #include "../../headers/ModelImporter/ModelImporter.h"
 #include "AYYUtil.h"
+#include "Ayy.h"
 
 #include <iostream>
 
@@ -7,6 +8,8 @@ namespace ayy {
 
 namespace meshv2 {
 
+const int kVertMaxBones = 4;
+const int kMeshMaxBones = 50;
 
 Model* ModelImporter::CreateModel()
 {
@@ -26,15 +29,17 @@ Model* ModelImporter::CreateModel()
     
     std::vector<Vertex> vertices;
     std::vector<uint> indices;
-    Bone skeleton;
+    Bone* skeleton = new Bone();
     unsigned int boneCount = 0;
-    loadModel(scene,vertices,indices,skeleton,boneCount);
+    loadModel(scene,vertices,indices,*skeleton,boneCount);
     
-    Animation animation;
-    loadAnimation(scene,animation);
+    Animation* animation = new Animation();
+    loadAnimation(scene,*animation);
     
     Model* model = new Model();
     model->CreateVAO(vertices,indices);
+    model->SetSkeleton(skeleton,boneCount);
+    model->SetAnimation(animation);
     
     return model;
 }
@@ -87,6 +92,13 @@ void ModelImporter::loadModel(const aiScene* scene,
         for(int j = 0;j < bone->mNumWeights;j++)
         {
             uint vertexId = bone->mWeights[j].mVertexId;
+            
+            // check count
+            if(verticesOutput[vertexId].boneIds.size() >= kVertMaxBones)
+            {
+                break;
+            }
+            
             float weight = bone->mWeights[j].mWeight;
             verticesOutput[vertexId].boneIds.push_back(i);
             verticesOutput[vertexId].boneWeights.push_back(weight);
@@ -249,7 +261,13 @@ void ModelImporter::loadAnimation(const aiScene* scene,Animation& animation)
 
 Model::~Model()
 {
+    glDeleteVertexArrays(1,&_vao);
+    glDeleteBuffers(1,&_vbo);
+    glDeleteBuffers(1,&_ebo);
+    _vao = _vbo = _ebo = 0;
     
+    AYY_SAFE_DEL(_skeleton);
+    AYY_SAFE_DEL(_animation);
 }
 
 void Model::CreateVAO(std::vector<Vertex>& vertices,std::vector<unsigned int> indices)
@@ -300,6 +318,17 @@ void Model::CreateVAO(std::vector<Vertex>& vertices,std::vector<unsigned int> in
     _indiceCount = indices.size();
 }
 
+void Model::SetSkeleton(Bone* skeleton,unsigned int boneCount)
+{
+    _skeleton = skeleton;
+    _boneCount = boneCount;
+    InitPose();
+}
+
+void Model::SetAnimation(Animation* animation)
+{
+    _animation = animation;
+}
 
 void Model::DoDraw()
 {
@@ -308,6 +337,62 @@ void Model::DoDraw()
     glBindVertexArray(0);
 }
 
+void Model::InitPose()
+{
+    ayy::Mat4x4f identity;
+    identity.Identify();
+    _pose.resize(_boneCount,identity);
+//    printf("sss\n");
+}
+
+const std::vector<ayy::Mat4x4f>& Model::GetPose()
+{
+    return _pose;
+}
+
+void Model::CalcPose(float animPct)
+{
+    // @miao @todo
+    
+//    _pose
+    
+//    getPose(_animation,
+//            _skeleton,);
+    
+}
+
+static std::pair<uint, float> getTimeFraction(std::vector<float>& times, float& dt)
+{
+    uint segment = 0;
+    while (dt > times[segment])
+    {
+        segment++;
+        if (segment >= times.size()) {
+            segment--;
+            break;
+        }
+    }
+        
+    float start = times[segment - 1];
+    float end = times[segment];
+    float frac = (dt - start) / (end - start);
+    return { segment, frac };
+}
+
+
+void getPose(const Animation& animation,
+             const Bone& skeletion,
+             float dt,
+             std::vector<ayy::Mat4x4f>& output,
+             ayy::Mat4x4f& parentTransform,
+             ayy::Mat4x4f& globalInverseTransform)
+{
+    // @miao @todo
+    
+//    getTimeFraction();
+    
+    
+}
 
 }
 }

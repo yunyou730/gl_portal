@@ -1,9 +1,11 @@
-#include "Crude3.h"
+#include "Crude4.h"
 #include <sstream>
 #include "../Demo/FreeCamera.h"
 #include "../Demo/ecs/Util.h"
 
-Crude3::Crude3(int viewportWidth,int viewportHeight)
+extern ayy::BaseApplication* g_app;
+
+Crude4::Crude4(int viewportWidth,int viewportHeight)
     :ayy::BaseScene(viewportWidth,viewportHeight)
     ,kShadowWidth(1024)
     ,kShadowHeight(1024)
@@ -11,12 +13,12 @@ Crude3::Crude3(int viewportWidth,int viewportHeight)
     
 }
 
-Crude3::~Crude3()
+Crude4::~Crude4()
 {
     
 }
 
-void Crude3::Prepare()
+void Crude4::Prepare()
 {
 //    glEnable(GL_CULL_FACE);
 //    glCullFace(GL_BACK);
@@ -47,8 +49,9 @@ void Crude3::Prepare()
     _light->SetMode(ayy::Camera::ECamProjMode::ORTHO);
     
     // objects
-    _groundTransform.SetScale(ayy::Vec3f(20.0,1.0,20.0));
-    _groundTransform.SetPos(ayy::Vec3f(-5.0,0.0,-5.0));
+    _groundTransform.SetScale(ayy::Vec3f(10.0,10.0,1.0));
+    _groundTransform.SetPos(ayy::Vec3f(0,0,0));
+    _groundTransform.SetRot(ayy::Vec3f(ayy::PI * 0.5,0,0));
     
     for(int i = 0;i < 7;i++)
     {
@@ -61,56 +64,13 @@ void Crude3::Prepare()
     }
 }
 
-void Crude3::PrepareGroundMesh()
+void Crude4::PrepareGroundMesh()
 {
-    // vertices data
-    float vertices[] = {
-        // pos x3, uv x2
-         0.0, 0.0, 0.0,  0.0,0.0,
-         0.0, 0.0, 1.0,  0.0,1.0,
-         1.0, 0.0, 0.0,  1.0,0.0,
-         1.0, 0.0, 1.0,  1.0,1.0
-    };
-    
-    // indice data
-    unsigned int indices[] = {
-        0,1,2,
-        2,1,3,
-    };
-    
-    // VAO & VBO
-    glGenVertexArrays(1,&_groundVAO);
-    glGenBuffers(1,&_groundVBO);
-    glGenBuffers(1,&_groundEBO);
-    
-    glBindVertexArray(_groundVAO);
-    {
-        // VBO
-        glBindBuffer(GL_ARRAY_BUFFER,_groundVBO);
-        {
-            // quad vertice data
-            glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
-
-            // attribute location 0,pos data
-            glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)0);
-            glEnableVertexAttribArray(0);
-            
-            // attribute location 1, uv
-            glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE, 5 * sizeof(float), (void*)(3* sizeof(float)));
-            glEnableVertexAttribArray(1);
-        }
-        glBindBuffer(GL_ARRAY_BUFFER,0);
-        
-        // EBO
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,_groundEBO);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),indices,GL_STATIC_DRAW);
-    }
-    
-    // unbind VAO
-    glBindVertexArray(0);
+    ayy::BuiltinMesh* builtinMesh = g_app->GetBuiltinMeshFactory()->GetBuiltinMesh("ayy/builtin/quad");
+    _groundVAO = builtinMesh->vao;
 }
 
-void Crude3::PrepareBoxMesh()
+void Crude4::PrepareBoxMesh()
 {
     // vertices
     float vertices[] = {
@@ -178,7 +138,7 @@ void Crude3::PrepareBoxMesh()
     glBindVertexArray(0);
 }
 
-void Crude3::PrepareShadowMap()
+void Crude4::PrepareShadowMap()
 {
     // gen depth map
     glGenTextures(1,&_depthMap);
@@ -211,13 +171,10 @@ void Crude3::PrepareShadowMap()
     glBindFramebuffer(GL_FRAMEBUFFER,0);
 }
 
-void Crude3::Cleanup()
+void Crude4::Cleanup()
 {
-    glDeleteVertexArrays(1,&_groundVAO);
     glDeleteVertexArrays(1,&_boxVAO);
-        
-    glDeleteBuffers(1,&_groundVBO);
-    glDeleteBuffers(1,&_groundEBO);
+    
     glDeleteBuffers(1,&_boxVBO);
     glDeleteBuffers(1,&_boxEBO);
     
@@ -231,16 +188,16 @@ void Crude3::Cleanup()
     AYY_SAFE_DEL(_light);
 }
 
-void Crude3::OnRender()
+void Crude4::OnRender()
 {
     DrawShadowMap();
     DrawScene();
 }
 
-void Crude3::DrawScene()
+void Crude4::DrawScene()
 {
-    int viewportWidth = GetViewportWidth();
-    int viewportHeight = GetViewportHeight();
+//    int viewportWidth = GetViewportWidth();
+//    int viewportHeight = GetViewportHeight();
 //    printf("[%d x %d]\n",viewportWidth,viewportHeight);
     glViewport(0,0,GetViewportWidth(),GetViewportHeight());
     
@@ -249,7 +206,7 @@ void Crude3::DrawScene()
     DrawBoxes(_boxShader,_camera,_light);
 }
 
-void Crude3::DrawShadowMap()
+void Crude4::DrawShadowMap()
 {
     glViewport(0,0,kShadowWidth,kShadowHeight);
     glBindFramebuffer(GL_FRAMEBUFFER, _depthFBO);
@@ -261,7 +218,7 @@ void Crude3::DrawShadowMap()
     glBindFramebuffer(GL_FRAMEBUFFER,0);
 }
 
-void Crude3::DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light)
+void Crude4::DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light)
 {
     shader->Use();
     
@@ -286,7 +243,7 @@ void Crude3::DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Came
     shader->UnUse();
 }
 
-void Crude3::DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light)
+void Crude4::DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light)
 {
     shader->Use();
     
@@ -314,12 +271,12 @@ void Crude3::DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camer
     shader->UnUse();
 }
 
-void Crude3::DrawDepthBufferImg()
+void Crude4::DrawDepthBufferImg()
 {
     
 }
 
-void Crude3::HandleKeyboardInput(GLFWwindow* window)
+void Crude4::HandleKeyboardInput(GLFWwindow* window)
 {
     _camera->HandleKeyboardInput(window,GetDeltaTime());
     if(glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
@@ -328,7 +285,7 @@ void Crude3::HandleKeyboardInput(GLFWwindow* window)
     }
 }
 
-void Crude3::OnViewportSizeChanged(int width,int height)
+void Crude4::OnViewportSizeChanged(int width,int height)
 {
     ayy::BaseScene::OnViewportSizeChanged(width,height);
     _camera->SetViewportSize(width,height);

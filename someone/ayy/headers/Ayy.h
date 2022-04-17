@@ -28,3 +28,8 @@
 // node
 #include "Node/AYYNode.h"
 #include "Node/AYYCommonNode.h"
+
+
+#include "AssetCache/AyyBuiltinMeshFactory.h"
+
+

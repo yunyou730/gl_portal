@@ -1,7 +1,11 @@
 #include "AYYBaseApplication.h"
 #include "AYYBaseScene.h"
+#include "../headers/AssetCache/AyyBuiltinMeshFactory.h"
+
+ayy::BaseApplication*    g_app = nullptr;
 
 namespace ayy {
+
 
 static void framebuffer_size_callback(GLFWwindow* window,int width,int height);
 static void processInput(GLFWwindow *window);
@@ -15,6 +19,9 @@ BaseApplication::BaseApplication()
     printf("-------------------------\n");
     printf("Welcome to ayy\n");
     printf("-------------------------\n");
+    
+    assert(g_app == nullptr);
+    g_app = this;
 }
 
 BaseApplication::~BaseApplication()
@@ -72,6 +79,9 @@ bool BaseApplication::CreateWindow(int width,int height)
     
     // imgui
     _imguiDelegate.Setup(_window,"#version 330 core");
+    
+
+    SetupManagers();
     
     return true;
 }
@@ -137,6 +147,13 @@ void BaseApplication::GetWindowSize(int& width,int& height)
 void BaseApplication::GetFramebufferSize(int& width,int& height)
 {
     glfwGetFramebufferSize(_window,&width,&height);
+}
+
+
+void BaseApplication::SetupManagers()
+{
+    _builtinMeshFactory = new ayy::BuiltinMeshFactory();
+    _builtinMeshFactory->Init();
 }
 
 void framebuffer_size_callback(GLFWwindow* window,int width,int height)

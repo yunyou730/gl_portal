@@ -31,16 +31,15 @@
 #include "Crude/Crude1.h"
 #include "Crude/Crude2.h"
 #include "Crude/Crude3.h"
+#include "Crude/Crude4.h"
 
 const unsigned int kScreenWidth = 800;
 const unsigned int kScreenHeight = 600;
 
-static ayy::BaseApplication app;
-static ayy::BaseScene* scene = nullptr;
-
-
 int main(int argc, const char * argv[])
 {
+    ayy::BaseApplication app;
+    
     int viewportWidth,viewportHeight;
     app.Setup();
     app.CreateWindow(kScreenWidth,kScreenHeight);
@@ -51,8 +50,11 @@ int main(int argc, const char * argv[])
     ayy::meshv2::ModelImporter imp;
     imp.CreateModel();
     
-    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
+    
+    ayy::BaseScene* scene = nullptr;
+//    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
 //    scene = new Crude3(viewportWidth,viewportHeight);       // Shadow map
+    scene = new Crude4(viewportWidth,viewportHeight);       // Shadow map
 //    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
 //    scene = new Lesson9(kScreenWidth,kScreenHeight);       // base light
 //    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
