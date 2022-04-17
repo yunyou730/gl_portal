@@ -54,20 +54,20 @@ int main(int argc, const char * argv[])
     ayy::BaseScene* scene = nullptr;
 //    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
 //    scene = new Crude3(viewportWidth,viewportHeight);       // Shadow map
-    scene = new Crude4(viewportWidth,viewportHeight);       // Shadow map
+    scene = new Crude4(viewportWidth,viewportHeight);       // depth map. WIP
 //    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
 //    scene = new Lesson9(kScreenWidth,kScreenHeight);       // base light
 //    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering
 //    scene = new Lesson20(kScreenWidth,kScreenHeight);         // normal map
 //    scene = new Lesson19(kScreenWidth,kScreenHeight);       // cube map
 //    scene = new Lesson18(kScreenWidth,kScreenHeight);
-//    scene = new Lesson17(kScreenWidth,kScreenHeight);
-//    scene = new Lesson16(kScreenWidth,kScreenHeight);
+//    scene = new Lesson17(kScreenWidth,kScreenHeight);   // sky box scene
+//    scene = new Lesson16(kScreenWidth,kScreenHeight);       // post process
 //    scene = new Lesson14(kScreenWidth,kScreenHeight);
 //        scene = new Lesson13(kScreenWidth,kScreenHeight);
 //    scene = new Lesson8(kScreenWidth,kScreenHeight);
 //    scene = new Lesson12(kScreenWidth,kScreenHeight);
-//    scene = new Lesson18(kScreenWidth,kScreenHeight);
+//    scene = new Lesson18(kScreenWidth,kScreenHeight);   // sky box reflection scene
     
     scene->Prepare();
     app.SetScene(scene);

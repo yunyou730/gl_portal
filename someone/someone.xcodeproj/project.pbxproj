@@ -194,6 +194,8 @@
 		2BC6C423280BC5DF0008945A /* Crude4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BC6C422280BC5DF0008945A /* Crude4.cpp */; };
 		2BC6C42A280BCABD0008945A /* AyyMeshCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BC6C429280BCA190008945A /* AyyMeshCache.cpp */; };
 		2BC6C437280BCF250008945A /* AyyBuiltinMeshFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BC6C436280BCF250008945A /* AyyBuiltinMeshFactory.cpp */; };
+		2BC6C440280BE5220008945A /* debug_depth_buffer.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BC6C43E280BE4EB0008945A /* debug_depth_buffer.fs */; };
+		2BC6C441280BE5220008945A /* debug_depth_buffer.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2BC6C43F280BE4EB0008945A /* debug_depth_buffer.vs */; };
 		2BD05320271A7FEA00088E6F /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0531E271A7FEA00088E6F /* Util.cpp */; };
 		2BD0533E271AE1A600088E6F /* RenderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05335271AE14F00088E6F /* RenderNode.cpp */; };
 		2BD05341271AE1A900088E6F /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BD05337271AE14F00088E6F /* Wall.cpp */; };
@@ -346,6 +348,8 @@
 			dstPath = res/crude1;
 			dstSubfolderSpec = 16;
 			files = (
+				2BC6C440280BE5220008945A /* debug_depth_buffer.fs in CopyFiles */,
+				2BC6C441280BE5220008945A /* debug_depth_buffer.vs in CopyFiles */,
 				2BD053DF271C68BB00088E6F /* simple_depth_map.fs in CopyFiles */,
 				2BD053E0271C68BB00088E6F /* simple_depth_map.vs in CopyFiles */,
 				2BD053D8271C4D7300088E6F /* box.fs in CopyFiles */,
@@ -719,6 +723,8 @@
 		2BC6C429280BCA190008945A /* AyyMeshCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AyyMeshCache.cpp; sourceTree = "<group>"; };
 		2BC6C435280BCF1C0008945A /* AyyBuiltinMeshFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AyyBuiltinMeshFactory.h; sourceTree = "<group>"; };
 		2BC6C436280BCF250008945A /* AyyBuiltinMeshFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AyyBuiltinMeshFactory.cpp; sourceTree = "<group>"; };
+		2BC6C43E280BE4EB0008945A /* debug_depth_buffer.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = debug_depth_buffer.fs; sourceTree = "<group>"; };
+		2BC6C43F280BE4EB0008945A /* debug_depth_buffer.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = debug_depth_buffer.vs; sourceTree = "<group>"; };
 		2BD0531E271A7FEA00088E6F /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		2BD0531F271A7FEA00088E6F /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		2BD05334271AE14F00088E6F /* BlockRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockRender.h; sourceTree = "<group>"; };
@@ -1278,6 +1284,8 @@
 				2BAFE458270ED63E004CA3B5 /* instance.fs */,
 				2BD053DD271C68A800088E6F /* simple_depth_map.fs */,
 				2BD053DE271C68A800088E6F /* simple_depth_map.vs */,
+				2BC6C43E280BE4EB0008945A /* debug_depth_buffer.fs */,
+				2BC6C43F280BE4EB0008945A /* debug_depth_buffer.vs */,
 			);
 			name = crude1;
 			path = someone/res/crude1;

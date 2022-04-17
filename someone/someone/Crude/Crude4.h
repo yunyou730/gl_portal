@@ -33,7 +33,7 @@ protected:
     void DrawShadowMap();
     void DrawGround(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light);
     void DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camera* light);    
-    void DrawDepthBufferImg();
+    void DrawDepthBuffer();
     
 protected:
     GLuint  _groundVAO;
@@ -42,6 +42,7 @@ protected:
     ayy::ShaderProgram* _groundShader   = nullptr;
     ayy::ShaderProgram* _boxShader      = nullptr;
     ayy::ShaderProgram* _depthMapShader = nullptr;
+    ayy::ShaderProgram* _debugDepthBufferShader = nullptr;
     
     crude::FreeCamera*  _camera         = nullptr;
     ayy::Camera*        _light          = nullptr;
@@ -51,8 +52,11 @@ protected:
     
     const GLuint kShadowWidth;
     const GLuint kShadowHeight;
-
     
     crude::TransformComponent _groundTransform;
     std::vector<crude::TransformComponent> _boxes;
+    
+    
+    bool    _bDebugDepthBuffer = true;
+    
 };

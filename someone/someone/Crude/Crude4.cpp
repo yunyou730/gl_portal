@@ -30,6 +30,7 @@ void Crude4::Prepare()
     _groundShader = ayy::Util::CreateShaderWithFile("res/crude1/ground.vs","res/crude1/ground.fs");
     _boxShader = ayy::Util::CreateShaderWithFile("res/crude1/box.vs","res/crude1/box.fs");
     _depthMapShader = ayy::Util::CreateShaderWithFile("res/crude1/simple_depth_map.vs","res/crude1/simple_depth_map.fs");
+    _debugDepthBufferShader = ayy::Util::CreateShaderWithFile("res/crude1/debug_depth_buffer.vs","res/crude1/debug_depth_buffer.fs");
     
     // camera
     _camera = new crude::FreeCamera(GetViewportWidth(),GetViewportHeight());
@@ -43,7 +44,8 @@ void Crude4::Prepare()
     _light->SetPos(ayy::Vec3f(-3.504, 3.024, -0.836));
     _light->SetLookDir(ayy::Vec3f(0.693,-0.528,0.491));
     
-    _light->SetNear(0.2);
+    _light->SetNear(0.1);
+//    _light->SetFar(10.0);
     _light->SetFar(10.0);
     
     _light->SetMode(ayy::Camera::ECamProjMode::ORTHO);
@@ -117,6 +119,7 @@ void Crude4::Cleanup()
     AYY_SAFE_DEL(_groundShader);
     AYY_SAFE_DEL(_boxShader);
     AYY_SAFE_DEL(_depthMapShader);
+    AYY_SAFE_DEL(_debugDepthBufferShader);
     AYY_SAFE_DEL(_camera);
     AYY_SAFE_DEL(_light);
 }
@@ -125,6 +128,12 @@ void Crude4::OnRender()
 {
     DrawShadowMap();
     DrawScene();
+    
+    // debug
+    if(_bDebugDepthBuffer)
+    {
+        DrawDepthBuffer();
+    }
 }
 
 void Crude4::DrawScene()
@@ -204,8 +213,28 @@ void Crude4::DrawBoxes(ayy::ShaderProgram* shader,ayy::Camera* camera,ayy::Camer
     shader->UnUse();
 }
 
-void Crude4::DrawDepthBufferImg()
+void Crude4::DrawDepthBuffer()
 {
+    // @miao @todo
+    // show depth onto
+    _debugDepthBufferShader->Use();
+    
+    
+//    if(light != nullptr)
+    {
+//        shader->SetUniformMat4x4("u_LightView",(GLfloat*)light->GetViewMatrix().data);
+//        shader->SetUniformMat4x4("u_LightProjection",(GLfloat*)light->GetProjMatrix().data);
+        
+        // shadow map @miao @todo
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D,_depthMap);
+        _debugDepthBufferShader->SetUniform("u_ShadowMap",0);
+    }
+    
+    glBindVertexArray(_groundVAO);
+    glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,(void*)0);
+    _debugDepthBufferShader->UnUse();
     
 }
 
@@ -216,6 +245,12 @@ void Crude4::HandleKeyboardInput(GLFWwindow* window)
     {
         _camera->Dump();
     }
+
+    if(glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+    {
+        _bDebugDepthBuffer = !_bDebugDepthBuffer;
+    }
+    
 }
 
 void Crude4::OnViewportSizeChanged(int width,int height)
