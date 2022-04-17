@@ -37,7 +37,7 @@ protected:
     
 protected:
     GLuint  _groundVAO;
-    GLuint  _boxVAO,_boxVBO,_boxEBO;
+    GLuint  _boxVAO;
     
     ayy::ShaderProgram* _groundShader   = nullptr;
     ayy::ShaderProgram* _boxShader      = nullptr;

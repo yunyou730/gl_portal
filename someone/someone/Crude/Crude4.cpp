@@ -72,70 +72,8 @@ void Crude4::PrepareGroundMesh()
 
 void Crude4::PrepareBoxMesh()
 {
-    // vertices
-    float vertices[] = {
-        
-        0.0,0.0,0.0,
-//         0.0f, 0.0f,
-        0.0,1.0,0.0,
-//         0.0f, 1.0f,
-        1.0,0.0,0.0,
-//         1.0f, 0.0f,
-        1.0,1.0,0.0,
-//         1.0f, 1.0f,
-        
-        0.0,0.0,1.0,
-//         0.0f, 0.0f,
-        0.0,1.0,1.0,
-//         0.0f, 1.0f,
-        1.0,0.0,1.0,
-//         1.0f, 0.0f,
-        1.0,1.0,1.0,
-    };
-    
-    unsigned int indices[] = {
-        0,1,2,
-        2,1,3,
-        
-        4,5,6,
-        6,5,7,
-        
-        4,5,0,
-        0,5,1,
-        
-        2,3,6,
-        6,3,7,
-        
-        3,1,7,
-        7,1,5,
-        
-        4,0,6,
-        6,0,2,
-    };
-    
-    glGenVertexArrays(1,&_boxVAO);
-    glGenBuffers(1,&_boxVBO);
-    glGenBuffers(1,&_boxEBO);
-    
-    glBindVertexArray(_boxVAO);
-    {
-        // VBO
-        glBindBuffer(GL_ARRAY_BUFFER,_boxVBO);
-        {
-            // quad vertice data
-            glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
-
-            // attribute location 0,pos data
-            glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE, 3 * sizeof(float), (void*)0);
-            glEnableVertexAttribArray(0);
-        }
-        glBindBuffer(GL_ARRAY_BUFFER,0);
-        
-        // EBO
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,_boxEBO);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),indices,GL_STATIC_DRAW);
-    }
-    glBindVertexArray(0);
+    ayy::BuiltinMesh* builtinMesh = g_app->GetBuiltinMeshFactory()->GetBuiltinMesh("ayy/builtin/cube");
+    _boxVAO = builtinMesh->vao;
 }
 
 void Crude4::PrepareShadowMap()
@@ -173,11 +111,6 @@ void Crude4::PrepareShadowMap()
 
 void Crude4::Cleanup()
 {
-    glDeleteVertexArrays(1,&_boxVAO);
-    
-    glDeleteBuffers(1,&_boxVBO);
-    glDeleteBuffers(1,&_boxEBO);
-    
     glDeleteFramebuffers(1,&_depthFBO);
     glDeleteTextures(1,&_depthMap);
     

@@ -19,11 +19,11 @@ public:
     void Init();
     void Cleanup();
     
-    
     BuiltinMesh* GetBuiltinMesh(const std::string& virtualPath);
     
 protected:
-    BuiltinMesh* CreeateQuad();
+    BuiltinMesh* CreateQuad();
+    BuiltinMesh* CreateCube();
     
 protected:
     std::map<std::string,BuiltinMesh*>  _builtinMeshes;
