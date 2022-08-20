@@ -36,6 +36,8 @@
 const unsigned int kScreenWidth = 800;
 const unsigned int kScreenHeight = 600;
 
+#include <vector>
+
 int main(int argc, const char * argv[])
 {
     ayy::BaseApplication app;
@@ -54,7 +56,7 @@ int main(int argc, const char * argv[])
     ayy::BaseScene* scene = nullptr;
 //    scene = new Crude2(viewportWidth,viewportHeight);       // Demo Game
 //    scene = new Crude3(viewportWidth,viewportHeight);       // Shadow map
-    scene = new Crude4(viewportWidth,viewportHeight);       // depth map. WIP
+//    scene = new Crude4(viewportWidth,viewportHeight);       // depth map. WIP
 //    scene = new Crude1(kScreenWidth,kScreenHeight);       // GPU instance
 //    scene = new Lesson9(kScreenWidth,kScreenHeight);       // base light
 //    scene = new Lesson21(kScreenWidth,kScreenHeight);       // text rendering

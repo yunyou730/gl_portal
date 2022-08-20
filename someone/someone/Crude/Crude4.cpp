@@ -45,10 +45,11 @@ void Crude4::Prepare()
     _light->SetLookDir(ayy::Vec3f(0.693,-0.528,0.491));
     
     _light->SetNear(0.1);
-//    _light->SetFar(10.0);
-    _light->SetFar(10.0);
+    _light->SetFar(30.0);
+//    _light->SetFar(1000.0);
     
     _light->SetMode(ayy::Camera::ECamProjMode::ORTHO);
+//    _light->SetMode(ayy::Camera::ECamProjMode::PERSPECTIVE);
     
     // objects
     _groundTransform.SetScale(ayy::Vec3f(10.0,10.0,1.0));
@@ -219,18 +220,23 @@ void Crude4::DrawDepthBuffer()
     // show depth onto
     _debugDepthBufferShader->Use();
     
-    
-//    if(light != nullptr)
-    {
-//        shader->SetUniformMat4x4("u_LightView",(GLfloat*)light->GetViewMatrix().data);
-//        shader->SetUniformMat4x4("u_LightProjection",(GLfloat*)light->GetProjMatrix().data);
-        
         // shadow map @miao @todo
-        
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D,_depthMap);
-        _debugDepthBufferShader->SetUniform("u_ShadowMap",0);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,_depthMap);
+    _debugDepthBufferShader->SetUniform("u_ShadowMap",0);
+    
+    if(_light->GetMode() == ayy::Camera::ECamProjMode::PERSPECTIVE)
+    {
+        _debugDepthBufferShader->SetUniform("isPersp",1.0f);
+        _debugDepthBufferShader->SetUniform("nearPlane",_light->GetNear());
+        _debugDepthBufferShader->SetUniform("farPlane",_light->GetFar());
     }
+    else if(_light->GetMode() == ayy::Camera::ECamProjMode::ORTHO)
+    {
+        _debugDepthBufferShader->SetUniform("isPersp",0.0f);
+    }
+
     
     glBindVertexArray(_groundVAO);
     glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,(void*)0);

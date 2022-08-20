@@ -11,7 +11,7 @@ public:
     typedef enum
     {
         ORTHO,
-        PROJECTION,
+        PERSPECTIVE,
         
         MAX,
     } ECamProjMode;
@@ -70,6 +70,11 @@ public:
             _bProjMatDirty = true;
             _mode = targetMode;
         }
+    }
+    
+    ECamProjMode GetMode() const
+    {
+        return _mode;
     }
     
     void Dump() const;

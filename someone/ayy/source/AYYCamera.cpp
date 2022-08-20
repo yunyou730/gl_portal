@@ -24,7 +24,7 @@ Camera::Camera(int viewportWidth,int viewportHeight)
     ,_far(100.0f)
     ,_near(0.1f)
 //    ,_near(3.0f)
-    ,_mode(ECamProjMode::PROJECTION)
+    ,_mode(ECamProjMode::PERSPECTIVE)
 {
     _eye = kDefaultPos;
     SetLookDir(kDefaultLookDir);
@@ -106,7 +106,7 @@ ayy::Mat4x4f& Camera::GetProjMatrix()
     {
         switch(_mode)
         {
-            case ECamProjMode::PROJECTION:
+            case ECamProjMode::PERSPECTIVE:
             {
                 float cotangent = 1.0f / tan(DegToRad(GetFov() * 0.5f));
                 float aspect = (float)_viewportWidth / (float)_viewportHeight;
